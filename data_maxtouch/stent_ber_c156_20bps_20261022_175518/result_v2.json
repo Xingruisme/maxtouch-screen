@@ -1,0 +1,95 @@
+{
+ "decoder": "v2",
+ "rules": "top 3 nodes by energy increase, logenergy, max of z, header-aligned known timing",
+ "run": "stent_ber_c156_20bps_20261022_175518",
+ "bps": 20.0,
+ "carrier_hz": 155692.0,
+ "samples_per_bit": 6.181630000376814,
+ "scan_period_ms": 8.088481516517835,
+ "nodes": [
+  "Y3",
+  "Y2",
+  "Y4"
+ ],
+ "single_top_ranked": {
+  "node": "Y3",
+  "score_db": 42.97088168338718,
+  "frames_valid": 3,
+  "frames_sent": 24,
+  "bits": 381,
+  "errors": 3,
+  "ber": 0.007874015748031496,
+  "ber_upper95": null,
+  "ber_conservative": 0.43848425196850394
+ },
+ "single_best_of_3_after_decoding": {
+  "node": "Y3",
+  "score_db": 42.97088168338718,
+  "frames_valid": 3,
+  "frames_sent": 24,
+  "bits": 381,
+  "errors": 3,
+  "ber": 0.007874015748031496,
+  "ber_upper95": null,
+  "ber_conservative": 0.43848425196850394
+ },
+ "single_all": [
+  {
+   "node": "Y3",
+   "score_db": 42.97088168338718,
+   "frames_valid": 3,
+   "frames_sent": 24,
+   "bits": 381,
+   "errors": 3,
+   "ber": 0.007874015748031496,
+   "ber_upper95": null,
+   "ber_conservative": 0.43848425196850394
+  },
+  {
+   "node": "Y2",
+   "score_db": 42.50305185264094,
+   "frames_valid": 3,
+   "frames_sent": 24,
+   "bits": 381,
+   "errors": 4,
+   "ber": 0.010498687664041995,
+   "ber_upper95": null,
+   "ber_conservative": 0.43881233595800523
+  },
+  {
+   "node": "Y4",
+   "score_db": 37.484824381384456,
+   "frames_valid": 3,
+   "frames_sent": 24,
+   "bits": 381,
+   "errors": 6,
+   "ber": 0.015748031496062992,
+   "ber_upper95": null,
+   "ber_conservative": 0.43946850393700787
+  }
+ ],
+ "combined_blind": {
+  "frames_valid": 3,
+  "frames_sent": 24,
+  "bits": 381,
+  "errors": 4,
+  "ber": 0.010498687664041995,
+  "ber_upper95": null,
+  "ber_conservative": 0.43881233595800523
+ },
+ "combined_known_timing": {
+  "frames_valid": 24,
+  "frames_sent": 24,
+  "bits": 3048,
+  "errors": 1303,
+  "ber": 0.42749343832021,
+  "ber_upper95": null,
+  "ber_conservative": 0.42749343832021,
+  "header_offset_samples": 0.0
+ },
+ "health": {
+  "windows": 102,
+  "signal_fraction": 0.12745098039215685,
+  "signal_lost": true
+ }
+}

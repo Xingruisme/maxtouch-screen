@@ -1,0 +1,302 @@
+{
+ "prbs7_ones": 64,
+ "prbs7_length": 127,
+ "runs": [
+  {
+   "run": "stent_ber_val4_80bps_20261022_192702",
+   "role": "validation",
+   "rules_sha": "59cb5e989bc9",
+   "carrier_hz": 155692.0,
+   "bps": 80.0,
+   "payload_shift_vs_lfsr": [
+    120
+   ],
+   "payload_matches_independent_prbs7": true,
+   "transmitter_checksum_recomputed": 3089373205,
+   "transmitter_checksum_logged": null,
+   "frames_transmitted": 24,
+   "candidate_frames_in_recording": 26,
+   "frames_accepted": 24,
+   "accepted_frames_matched_to_tx": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "accepted_tx_frames_unique": true,
+   "all_tx_frames_recovered": true,
+   "match_residual_ms_max": 0.027656555175781253,
+   "payload_bits_compared": 3048,
+   "errors_recounted": 0,
+   "errors_in_result_v4": 0,
+   "bits_in_result_v4": 3048,
+   "rejected_candidates": [
+    {
+     "m": 0,
+     "tx_frame": -2,
+     "inside_transmission": false,
+     "r": -0.061,
+     "ber": 0.575,
+     "rejected_by_header": true,
+     "rejected_only_by_payload_ber": false
+    },
+    {
+     "m": 26,
+     "tx_frame": 24,
+     "inside_transmission": false,
+     "r": 0.092,
+     "ber": 0.504,
+     "rejected_by_header": true,
+     "rejected_only_by_payload_ber": false
+    }
+   ],
+   "rejected_inside_transmission": [],
+   "rejected_only_by_payload_ber": [],
+   "edge_guard_bits": {
+    "inner": 3012,
+    "fallback_edge_only": 36,
+    "no_sample": 0
+   },
+   "errors_by_guard_category": {
+    "inner": 0,
+    "fallback_edge_only": 0
+   },
+   "decision_margin": {
+    "min": 0.029282157377596714,
+    "median": 0.5240831954134562,
+    "below_0": 0,
+    "below_0.05": 2,
+    "below_0.1": 18,
+    "below_0.25": 85
+   },
+   "raw_check": {
+    "lead_sigma_counts": 4.4478,
+    "sent1_min_dev_over_sigma": 24.056837087998563,
+    "sent0_max_dev_over_sigma": 3.822114303700706,
+    "sent1_bits": 1536,
+    "sent0_bits": 1512,
+    "sent1_below_10sigma": 0,
+    "sent0_above_10sigma": 0
+   }
+  },
+  {
+   "run": "stent_ber_val4b_80bps_20261022_195008",
+   "role": "validation",
+   "rules_sha": "59cb5e989bc9",
+   "carrier_hz": 155692.0,
+   "bps": 80.0,
+   "payload_shift_vs_lfsr": [
+    120
+   ],
+   "payload_matches_independent_prbs7": true,
+   "transmitter_checksum_recomputed": 3089373205,
+   "transmitter_checksum_logged": 3089373205,
+   "frames_transmitted": 24,
+   "candidate_frames_in_recording": 26,
+   "frames_accepted": 24,
+   "accepted_frames_matched_to_tx": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "accepted_tx_frames_unique": true,
+   "all_tx_frames_recovered": true,
+   "match_residual_ms_max": 0.05668212890618278,
+   "payload_bits_compared": 3048,
+   "errors_recounted": 0,
+   "errors_in_result_v4": 0,
+   "bits_in_result_v4": 3048,
+   "rejected_candidates": [
+    {
+     "m": 0,
+     "tx_frame": -2,
+     "inside_transmission": false,
+     "r": -0.29,
+     "ber": 0.48,
+     "rejected_by_header": true,
+     "rejected_only_by_payload_ber": false
+    },
+    {
+     "m": 26,
+     "tx_frame": 24,
+     "inside_transmission": false,
+     "r": -0.096,
+     "ber": 0.465,
+     "rejected_by_header": true,
+     "rejected_only_by_payload_ber": false
+    }
+   ],
+   "rejected_inside_transmission": [],
+   "rejected_only_by_payload_ber": [],
+   "edge_guard_bits": {
+    "inner": 3024,
+    "fallback_edge_only": 24,
+    "no_sample": 0
+   },
+   "errors_by_guard_category": {
+    "inner": 0,
+    "fallback_edge_only": 0
+   },
+   "decision_margin": {
+    "min": 0.012585623207845054,
+    "median": 0.5170385441532466,
+    "below_0": 0,
+    "below_0.05": 9,
+    "below_0.1": 30,
+    "below_0.25": 106
+   },
+   "raw_check": {
+    "lead_sigma_counts": 4.4478,
+    "sent1_min_dev_over_sigma": 21.80853455640991,
+    "sent0_max_dev_over_sigma": 6.295247088448222,
+    "sent1_bits": 1536,
+    "sent0_bits": 1512,
+    "sent1_below_10sigma": 0,
+    "sent0_above_10sigma": 0
+   }
+  },
+  {
+   "run": "stent_ber_val4b_80bps_20261022_195109",
+   "role": "validation",
+   "rules_sha": "59cb5e989bc9",
+   "carrier_hz": 155692.0,
+   "bps": 80.0,
+   "payload_shift_vs_lfsr": [
+    120
+   ],
+   "payload_matches_independent_prbs7": true,
+   "transmitter_checksum_recomputed": 3089373205,
+   "transmitter_checksum_logged": 3089373205,
+   "frames_transmitted": 24,
+   "candidate_frames_in_recording": 26,
+   "frames_accepted": 24,
+   "accepted_frames_matched_to_tx": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "accepted_tx_frames_unique": true,
+   "all_tx_frames_recovered": true,
+   "match_residual_ms_max": 0.012920455931503462,
+   "payload_bits_compared": 3048,
+   "errors_recounted": 0,
+   "errors_in_result_v4": 0,
+   "bits_in_result_v4": 3048,
+   "rejected_candidates": [
+    {
+     "m": 0,
+     "tx_frame": -2,
+     "inside_transmission": false,
+     "r": 0.037,
+     "ber": 0.512,
+     "rejected_by_header": true,
+     "rejected_only_by_payload_ber": false
+    },
+    {
+     "m": 26,
+     "tx_frame": 24,
+     "inside_transmission": false,
+     "r": -0.312,
+     "ber": 0.52,
+     "rejected_by_header": true,
+     "rejected_only_by_payload_ber": false
+    }
+   ],
+   "rejected_inside_transmission": [],
+   "rejected_only_by_payload_ber": [],
+   "edge_guard_bits": {
+    "inner": 3023,
+    "fallback_edge_only": 25,
+    "no_sample": 0
+   },
+   "errors_by_guard_category": {
+    "inner": 0,
+    "fallback_edge_only": 0
+   },
+   "decision_margin": {
+    "min": 0.006536088203240934,
+    "median": 0.5141473700240651,
+    "below_0": 0,
+    "below_0.05": 14,
+    "below_0.1": 34,
+    "below_0.25": 114
+   },
+   "raw_check": {
+    "lead_sigma_counts": 4.4478,
+    "sent1_min_dev_over_sigma": 20.459553037456722,
+    "sent0_max_dev_over_sigma": 208.41764467826792,
+    "sent1_bits": 1536,
+    "sent0_bits": 1512,
+    "sent1_below_10sigma": 0,
+    "sent0_above_10sigma": 1
+   }
+  }
+ ],
+ "pooled": {
+  "payload_bits": 9144,
+  "errors": 0,
+  "upper95_one_sided": 0.0003275636045857455
+ }
+}

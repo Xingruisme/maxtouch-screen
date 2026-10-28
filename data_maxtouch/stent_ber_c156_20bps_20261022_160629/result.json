@@ -1,0 +1,112 @@
+{
+ "mode": "ber",
+ "bps": 20.0,
+ "carrier_hz": 155692.0,
+ "fs_hz": 134.5982072184539,
+ "samples_per_bit": 6.729910360922696,
+ "missing": 0,
+ "clashes": -1,
+ "arrival_jitter_ms": 0.958623522826148,
+ "y0": 0,
+ "patch": null,
+ "combined": {
+  "nodes": [
+   "Y1",
+   "Y8",
+   "Y15"
+  ],
+  "bits": 0,
+  "errors": 0,
+  "ber": null,
+  "ber_upper95": null,
+  "frames_valid": 0,
+  "q": null
+ },
+ "per_node": [
+  {
+   "node": "Y1",
+   "score_db": 0.7664718011994189,
+   "feature": "level",
+   "bits": 0,
+   "errors": null,
+   "ber": null,
+   "q": null
+  },
+  {
+   "node": "Y8",
+   "score_db": 0.7345498318931984,
+   "feature": "level",
+   "bits": 0,
+   "errors": null,
+   "ber": null,
+   "q": null
+  },
+  {
+   "node": "Y15",
+   "score_db": 0.7029676615094247,
+   "feature": "level",
+   "bits": 0,
+   "errors": null,
+   "ber": null,
+   "q": null
+  },
+  {
+   "node": "Y12",
+   "score_db": 0.6637531198209657,
+   "feature": "level",
+   "bits": 0,
+   "errors": null,
+   "ber": null,
+   "q": null
+  },
+  {
+   "node": "Y21",
+   "score_db": 0.5924637747858932,
+   "feature": "level",
+   "bits": 0,
+   "errors": null,
+   "ber": null,
+   "q": null
+  },
+  {
+   "node": "Y5",
+   "score_db": 0.5470423275960025,
+   "feature": "level",
+   "bits": 0,
+   "errors": null,
+   "ber": null,
+   "q": null
+  },
+  {
+   "node": "Y17",
+   "score_db": 0.42041309052757997,
+   "feature": "level",
+   "bits": 0,
+   "errors": null,
+   "ber": null,
+   "q": null
+  },
+  {
+   "node": "Y22",
+   "score_db": 0.4090234772990844,
+   "feature": "level",
+   "bits": 0,
+   "errors": null,
+   "ber": null,
+   "q": null
+  }
+ ],
+ "frame_bits": 170,
+ "known_timing": {
+  "bits": 3048,
+  "errors": 1516,
+  "ber": 0.4973753280839895,
+  "frames": 24
+ },
+ "sampling": {
+  "arrival_rate_hz": 134.56709385775608,
+  "median_interval_ms": 7.998943328857422,
+  "repeat_fraction": 0.0,
+  "scan_period_ms": 7.429519461407034
+ }
+}

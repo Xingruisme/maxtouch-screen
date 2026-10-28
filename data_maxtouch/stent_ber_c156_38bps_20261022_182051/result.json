@@ -1,0 +1,112 @@
+{
+ "mode": "ber",
+ "bps": 38.0,
+ "carrier_hz": 155692.0,
+ "fs_hz": 123.89248327094525,
+ "samples_per_bit": 3.2603285071301378,
+ "missing": 0,
+ "clashes": -1,
+ "arrival_jitter_ms": 0.6502532894034097,
+ "y0": 0,
+ "patch": null,
+ "combined": {
+  "nodes": [
+   "Y3",
+   "Y2",
+   "Y4"
+  ],
+  "bits": 3048,
+  "errors": 9,
+  "ber": 0.002952755905511811,
+  "ber_upper95": null,
+  "frames_valid": 24,
+  "q": 3.1962775503806173
+ },
+ "per_node": [
+  {
+   "node": "Y3",
+   "score_db": 51.097141940460915,
+   "feature": "absdev",
+   "bits": 3048,
+   "errors": 12,
+   "ber": 0.003937007874015748,
+   "q": 3.187640492499394
+  },
+  {
+   "node": "Y2",
+   "score_db": 51.072398070525196,
+   "feature": "absdev",
+   "bits": 3048,
+   "errors": 15,
+   "ber": 0.004921259842519685,
+   "q": 3.1845449780543222
+  },
+  {
+   "node": "Y4",
+   "score_db": 46.73936490858545,
+   "feature": "absdev",
+   "bits": 3048,
+   "errors": 22,
+   "ber": 0.007217847769028871,
+   "q": 3.1100258408340706
+  },
+  {
+   "node": "Y1",
+   "score_db": 43.31524179137397,
+   "feature": "absdev",
+   "bits": 3048,
+   "errors": 16,
+   "ber": 0.005249343832020997,
+   "q": 3.1131516179388505
+  },
+  {
+   "node": "Y5",
+   "score_db": 38.386473790167784,
+   "feature": "absdev",
+   "bits": 3048,
+   "errors": 27,
+   "ber": 0.008858267716535433,
+   "q": 2.886792847097776
+  },
+  {
+   "node": "Y0",
+   "score_db": 35.037994381331515,
+   "feature": "absdev",
+   "bits": 3048,
+   "errors": 33,
+   "ber": 0.010826771653543307,
+   "q": 2.873346613105749
+  },
+  {
+   "node": "Y6",
+   "score_db": 22.190356298493032,
+   "feature": "absdev",
+   "bits": 3048,
+   "errors": 76,
+   "ber": 0.024934383202099737,
+   "q": 2.4385909078337757
+  },
+  {
+   "node": "Y7",
+   "score_db": 11.721833216736794,
+   "feature": "absdev",
+   "bits": 3048,
+   "errors": 245,
+   "ber": 0.08038057742782152,
+   "q": 1.6818157944399978
+  }
+ ],
+ "frame_bits": 170,
+ "known_timing": {
+  "bits": 3048,
+  "errors": 569,
+  "ber": 0.1866797900262467,
+  "frames": 24
+ },
+ "sampling": {
+  "arrival_rate_hz": 123.8240816959862,
+  "median_interval_ms": 8.00013542175293,
+  "repeat_fraction": 0.0,
+  "scan_period_ms": 8.071514700476715
+ }
+}

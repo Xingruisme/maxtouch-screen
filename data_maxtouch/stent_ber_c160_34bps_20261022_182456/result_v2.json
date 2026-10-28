@@ -1,0 +1,95 @@
+{
+ "decoder": "v2",
+ "rules": "top 3 nodes by energy increase, logenergy, max of z, header-aligned known timing",
+ "run": "stent_ber_c160_34bps_20261022_182456",
+ "bps": 34.0,
+ "carrier_hz": 159600.0,
+ "samples_per_bit": 3.65139908081438,
+ "scan_period_ms": 8.05493019385944,
+ "nodes": [
+  "Y3",
+  "Y2",
+  "Y4"
+ ],
+ "single_top_ranked": {
+  "node": "Y3",
+  "score_db": 51.680494605657984,
+  "frames_valid": 24,
+  "frames_sent": 24,
+  "bits": 3048,
+  "errors": 170,
+  "ber": 0.0557742782152231,
+  "ber_upper95": null,
+  "ber_conservative": 0.0557742782152231
+ },
+ "single_best_of_3_after_decoding": {
+  "node": "Y4",
+  "score_db": 47.31208876172877,
+  "frames_valid": 24,
+  "frames_sent": 24,
+  "bits": 3048,
+  "errors": 157,
+  "ber": 0.05150918635170604,
+  "ber_upper95": null,
+  "ber_conservative": 0.05150918635170604
+ },
+ "single_all": [
+  {
+   "node": "Y3",
+   "score_db": 51.680494605657984,
+   "frames_valid": 24,
+   "frames_sent": 24,
+   "bits": 3048,
+   "errors": 170,
+   "ber": 0.0557742782152231,
+   "ber_upper95": null,
+   "ber_conservative": 0.0557742782152231
+  },
+  {
+   "node": "Y2",
+   "score_db": 51.0782761868648,
+   "frames_valid": 24,
+   "frames_sent": 24,
+   "bits": 3048,
+   "errors": 165,
+   "ber": 0.054133858267716536,
+   "ber_upper95": null,
+   "ber_conservative": 0.054133858267716536
+  },
+  {
+   "node": "Y4",
+   "score_db": 47.31208876172877,
+   "frames_valid": 24,
+   "frames_sent": 24,
+   "bits": 3048,
+   "errors": 157,
+   "ber": 0.05150918635170604,
+   "ber_upper95": null,
+   "ber_conservative": 0.05150918635170604
+  }
+ ],
+ "combined_blind": {
+  "frames_valid": 24,
+  "frames_sent": 24,
+  "bits": 3048,
+  "errors": 131,
+  "ber": 0.042979002624671914,
+  "ber_upper95": null,
+  "ber_conservative": 0.042979002624671914
+ },
+ "combined_known_timing": {
+  "frames_valid": 24,
+  "frames_sent": 24,
+  "bits": 3048,
+  "errors": 133,
+  "ber": 0.04363517060367454,
+  "ber_upper95": null,
+  "ber_conservative": 0.04363517060367454,
+  "header_offset_samples": 2.25
+ },
+ "health": {
+  "windows": 60,
+  "signal_fraction": 1.0,
+  "signal_lost": false
+ }
+}

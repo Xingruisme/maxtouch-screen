@@ -1,0 +1,1919 @@
+{
+ "ber_runs": [
+  {
+   "run": "stent_ber_c156_20bps_20261022_160629",
+   "time": "16:06:29",
+   "carrier_hz": 155692.0,
+   "bps": 20.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 134.56709385775608,
+   "scan_period_ms": 7.429519461407034,
+   "samples_per_bit": 6.728354692887804,
+   "signal_fraction": 0.0,
+   "signal_lost": true,
+   "role_v4": "exploratory",
+   "role_v3": "exploratory",
+   "orig_err": 0,
+   "orig_bits": 0,
+   "orig_frames": 0,
+   "orig_known_err": 1516,
+   "orig_known_bits": 3048,
+   "v3_err": 0,
+   "v3_bits": 0,
+   "v3_frames": 0,
+   "v3_single_node": "Y1",
+   "v3_single_err": 0,
+   "v3_single_bits": 0,
+   "v3_known_err": 1520,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 0,
+   "v3_sent0_read1": 0,
+   "v3_nodes": "Y1,Y8,Y15",
+   "v4_err": 0,
+   "v4_bits": 0,
+   "v4_frames": 0,
+   "v4_single_node": "Y5",
+   "v4_single_err": 0,
+   "v4_single_bits": 0,
+   "v4_known_err": 1549,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y5,Y1,Y8",
+   "v4_frames_errorfree": 0,
+   "v4_singles": [
+    [
+     "Y5",
+     0,
+     0
+    ],
+    [
+     "Y1",
+     0,
+     0
+    ],
+    [
+     "Y8",
+     0,
+     0
+    ]
+   ],
+   "v4_delay_ms": -6.000041961669922,
+   "v4_clock_ppm": 140.0
+  },
+  {
+   "run": "stent_ber_c156_20bps_20261022_175518",
+   "time": "17:55:18",
+   "carrier_hz": 155692.0,
+   "bps": 20.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.5956786731429,
+   "scan_period_ms": 8.088481516517835,
+   "samples_per_bit": 6.179783933657146,
+   "signal_fraction": 0.12745098039215685,
+   "signal_lost": true,
+   "role_v4": "exploratory",
+   "role_v3": "exploratory",
+   "orig_err": 4,
+   "orig_bits": 381,
+   "orig_frames": 3,
+   "orig_known_err": 1303,
+   "orig_known_bits": 3048,
+   "v3_err": 4,
+   "v3_bits": 381,
+   "v3_frames": 3,
+   "v3_single_node": "Y3",
+   "v3_single_err": 3,
+   "v3_single_bits": 381,
+   "v3_known_err": 1303,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 4,
+   "v3_sent0_read1": 0,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 0,
+   "v4_frames": 0,
+   "v4_single_node": "Y3",
+   "v4_single_err": 0,
+   "v4_single_bits": 0,
+   "v4_known_err": 1373,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 0,
+   "v4_singles": [
+    [
+     "Y3",
+     0,
+     0
+    ],
+    [
+     "Y2",
+     0,
+     0
+    ],
+    [
+     "Y4",
+     0,
+     0
+    ]
+   ],
+   "v4_delay_ms": 9.502887725830078,
+   "v4_clock_ppm": 29.999999999999996
+  },
+  {
+   "run": "stent_ber_c156_20bps_20261022_180016",
+   "time": "18:00:16",
+   "carrier_hz": 155692.0,
+   "bps": 20.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 131.26796840363338,
+   "scan_period_ms": 7.596077487846518,
+   "samples_per_bit": 6.563398420181668,
+   "signal_fraction": 0.10714285714285714,
+   "signal_lost": true,
+   "role_v4": "exploratory",
+   "role_v3": "exploratory",
+   "orig_err": 0,
+   "orig_bits": 0,
+   "orig_frames": 0,
+   "orig_known_err": 1129,
+   "orig_known_bits": 2413,
+   "v3_err": 0,
+   "v3_bits": 0,
+   "v3_frames": 0,
+   "v3_single_node": "Y2",
+   "v3_single_err": 0,
+   "v3_single_bits": 0,
+   "v3_known_err": 1101,
+   "v3_known_bits": 2413,
+   "v3_sent1_read0": 0,
+   "v3_sent0_read1": 0,
+   "v3_nodes": "Y2,Y3,Y4",
+   "v4_err": 9,
+   "v4_bits": 127,
+   "v4_frames": 1,
+   "v4_single_node": "Y2",
+   "v4_single_err": 16,
+   "v4_single_bits": 127,
+   "v4_known_err": 1061,
+   "v4_known_bits": 2413,
+   "v4_sent1_read0": 3,
+   "v4_sent0_read1": 6,
+   "v4_nodes": "Y2,Y3,Y4",
+   "v4_frames_errorfree": 0,
+   "v4_singles": [
+    [
+     "Y2",
+     16,
+     127
+    ],
+    [
+     "Y3",
+     13,
+     127
+    ],
+    [
+     "Y4",
+     0,
+     0
+    ]
+   ],
+   "v4_delay_ms": 10.003089904785156,
+   "v4_clock_ppm": 40.0
+  },
+  {
+   "run": "stent_ber_c156_20bps_20261022_180358",
+   "time": "18:03:58",
+   "carrier_hz": 155692.0,
+   "bps": 20.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.46887226800118,
+   "scan_period_ms": 8.096823334698495,
+   "samples_per_bit": 6.173443613400059,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "exploratory",
+   "role_v3": "exploratory",
+   "orig_err": 20,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 24,
+   "orig_known_bits": 3048,
+   "v3_err": 2,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y2",
+   "v3_single_err": 4,
+   "v3_single_bits": 3048,
+   "v3_known_err": 2,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 2,
+   "v3_sent0_read1": 0,
+   "v3_nodes": "Y2,Y3,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 0,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     0,
+     3048
+    ],
+    [
+     "Y2",
+     0,
+     3048
+    ],
+    [
+     "Y4",
+     0,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.50202751159668,
+   "v4_clock_ppm": -10.0
+  },
+  {
+   "run": "stent_ber_c156_34bps_20261022_180957",
+   "time": "18:09:57",
+   "carrier_hz": 155692.0,
+   "bps": 34.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.85083966122406,
+   "scan_period_ms": 8.070215629458314,
+   "samples_per_bit": 3.642671754741884,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "exploratory",
+   "role_v3": "exploratory",
+   "orig_err": 16,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 462,
+   "orig_known_bits": 3048,
+   "v3_err": 7,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y2",
+   "v3_single_err": 19,
+   "v3_single_bits": 3048,
+   "v3_known_err": 7,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 0,
+   "v3_sent0_read1": 7,
+   "v3_nodes": "Y2,Y3,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 0,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     0,
+     3048
+    ],
+    [
+     "Y2",
+     0,
+     3048
+    ],
+    [
+     "Y4",
+     1,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.50202751159668,
+   "v4_clock_ppm": 10.0
+  },
+  {
+   "run": "stent_ber_c156_45bps_20261022_181139",
+   "time": "18:11:39",
+   "carrier_hz": 155692.0,
+   "bps": 45.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.59131780247961,
+   "scan_period_ms": 8.085957511591747,
+   "samples_per_bit": 2.7464737289439913,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "exploratory",
+   "role_v3": "exploratory",
+   "orig_err": 86,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 663,
+   "orig_known_bits": 3048,
+   "v3_err": 67,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y2",
+   "v3_single_err": 91,
+   "v3_single_bits": 3048,
+   "v3_known_err": 52,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 17,
+   "v3_sent0_read1": 50,
+   "v3_nodes": "Y2,Y3,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y2",
+   "v4_single_err": 1,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y2,Y3,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y2",
+     1,
+     3048
+    ],
+    [
+     "Y3",
+     1,
+     3048
+    ],
+    [
+     "Y4",
+     4,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 10.751724243164062,
+   "v4_clock_ppm": -20.0
+  },
+  {
+   "run": "stent_ber_c156_68bps_20261022_181556",
+   "time": "18:15:56",
+   "carrier_hz": 155692.0,
+   "bps": 68.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.94696503404074,
+   "scan_period_ms": 8.060332597032712,
+   "samples_per_bit": 1.8227494857947169,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "exploratory",
+   "role_v3": "validation",
+   "orig_err": 248,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 1838,
+   "orig_known_bits": 3048,
+   "v3_err": 209,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y2",
+   "v3_single_err": 249,
+   "v3_single_bits": 3048,
+   "v3_known_err": 224,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 107,
+   "v3_sent0_read1": 102,
+   "v3_nodes": "Y2,Y3,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y2",
+   "v4_single_err": 17,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y2,Y3,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y2",
+     17,
+     3048
+    ],
+    [
+     "Y3",
+     19,
+     3048
+    ],
+    [
+     "Y4",
+     36,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.25192642211914,
+   "v4_clock_ppm": -10.0
+  },
+  {
+   "run": "stent_ber_c156_38bps_20261022_182051",
+   "time": "18:20:51",
+   "carrier_hz": 155692.0,
+   "bps": 38.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.8240816959862,
+   "scan_period_ms": 8.071514700476715,
+   "samples_per_bit": 3.258528465683847,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "exploratory",
+   "role_v3": "validation",
+   "orig_err": 9,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 569,
+   "orig_known_bits": 3048,
+   "v3_err": 7,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 12,
+   "v3_single_bits": 3048,
+   "v3_known_err": 7,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 2,
+   "v3_sent0_read1": 5,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 3,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     3,
+     3048
+    ],
+    [
+     "Y2",
+     1,
+     3048
+    ],
+    [
+     "Y4",
+     5,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.50202751159668,
+   "v4_clock_ppm": 10.0
+  },
+  {
+   "run": "stent_ber_c156_40bps_20261022_182245",
+   "time": "18:22:45",
+   "carrier_hz": 155692.0,
+   "bps": 40.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.61732025315344,
+   "scan_period_ms": 8.08442704886858,
+   "samples_per_bit": 3.090433006328836,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "exploratory",
+   "role_v3": "validation",
+   "orig_err": 20,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 573,
+   "orig_known_bits": 3048,
+   "v3_err": 3,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 22,
+   "v3_single_bits": 3048,
+   "v3_known_err": 4,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 1,
+   "v3_sent0_read1": 2,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 3,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     3,
+     3048
+    ],
+    [
+     "Y2",
+     2,
+     3048
+    ],
+    [
+     "Y4",
+     2,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.25192642211914,
+   "v4_clock_ppm": -20.0
+  },
+  {
+   "run": "stent_ber_c160_34bps_20261022_182456",
+   "time": "18:24:56",
+   "carrier_hz": 159600.0,
+   "bps": 34.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 124.08773253680044,
+   "scan_period_ms": 8.05493019385944,
+   "samples_per_bit": 3.6496391922588365,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "exploratory",
+   "role_v3": "validation",
+   "orig_err": 10,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 494,
+   "orig_known_bits": 3048,
+   "v3_err": 10,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 12,
+   "v3_single_bits": 3048,
+   "v3_known_err": 8,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 3,
+   "v3_sent0_read1": 7,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 0,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     0,
+     3048
+    ],
+    [
+     "Y2",
+     0,
+     3048
+    ],
+    [
+     "Y4",
+     0,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.001825332641602,
+   "v4_clock_ppm": -10.0
+  },
+  {
+   "run": "stent_ber_c164~_34bps_20261022_190157",
+   "time": "19:01:57",
+   "carrier_hz": 163600.0,
+   "bps": 34.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 124.56412901590745,
+   "scan_period_ms": 8.024310021504869,
+   "samples_per_bit": 3.6636508534090426,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "exploratory",
+   "role_v3": "validation",
+   "orig_err": 10,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 524,
+   "orig_known_bits": 3048,
+   "v3_err": 4,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 10,
+   "v3_single_bits": 3048,
+   "v3_known_err": 7,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 0,
+   "v3_sent0_read1": 4,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 2,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     2,
+     3048
+    ],
+    [
+     "Y2",
+     0,
+     3048
+    ],
+    [
+     "Y4",
+     1,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 10.751724243164062,
+   "v4_clock_ppm": 20.0
+  },
+  {
+   "run": "stent_ber_c160_20bps_20261022_190624",
+   "time": "19:06:24",
+   "carrier_hz": 159600.0,
+   "bps": 20.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 121.40684131557977,
+   "scan_period_ms": 8.200775227943664,
+   "samples_per_bit": 6.0703420657789895,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 5,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 12,
+   "orig_known_bits": 3048,
+   "v3_err": 5,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 8,
+   "v3_single_bits": 3048,
+   "v3_known_err": 3,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 5,
+   "v3_sent0_read1": 0,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 0,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     0,
+     3048
+    ],
+    [
+     "Y2",
+     0,
+     3048
+    ],
+    [
+     "Y4",
+     0,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 12.502431869506836,
+   "v4_clock_ppm": -10.0
+  },
+  {
+   "run": "stent_ber_c164_20bps_20261022_191001",
+   "time": "19:10:01",
+   "carrier_hz": 163600.0,
+   "bps": 20.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 124.49007762850778,
+   "scan_period_ms": 8.03081813237977,
+   "samples_per_bit": 6.22450388142539,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 19,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 23,
+   "orig_known_bits": 3048,
+   "v3_err": 3,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 5,
+   "v3_single_bits": 3048,
+   "v3_known_err": 3,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 3,
+   "v3_sent0_read1": 0,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 0,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     0,
+     3048
+    ],
+    [
+     "Y2",
+     0,
+     3048
+    ],
+    [
+     "Y4",
+     1,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 10.751724243164062,
+   "v4_clock_ppm": 20.0
+  },
+  {
+   "run": "stent_ber_val4_38bps_20261022_192113",
+   "time": "19:21:13",
+   "carrier_hz": 155692.0,
+   "bps": 38.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.86770488312344,
+   "scan_period_ms": 8.068674592291476,
+   "samples_per_bit": 3.259676444292722,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 18,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 591,
+   "orig_known_bits": 3048,
+   "v3_err": 11,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 21,
+   "v3_single_bits": 3048,
+   "v3_known_err": 13,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 6,
+   "v3_sent0_read1": 5,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 0,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     0,
+     3048
+    ],
+    [
+     "Y2",
+     2,
+     3048
+    ],
+    [
+     "Y4",
+     1,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.001825332641602,
+   "v4_clock_ppm": 10.0
+  },
+  {
+   "run": "stent_ber_val4_40bps_20261022_192306",
+   "time": "19:23:06",
+   "carrier_hz": 155692.0,
+   "bps": 40.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 116.99491558298283,
+   "scan_period_ms": 8.435674394770576,
+   "samples_per_bit": 2.924872889574571,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 65,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 742,
+   "orig_known_bits": 3048,
+   "v3_err": 47,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 67,
+   "v3_single_bits": 3048,
+   "v3_known_err": 53,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 33,
+   "v3_sent0_read1": 14,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 2,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 3,
+   "v4_single_bits": 3048,
+   "v4_known_err": 2,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 2,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 22,
+   "v4_singles": [
+    [
+     "Y3",
+     3,
+     3048
+    ],
+    [
+     "Y2",
+     2,
+     3048
+    ],
+    [
+     "Y4",
+     4,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 12.002229690551758,
+   "v4_clock_ppm": -10.0
+  },
+  {
+   "run": "stent_ber_val4_45bps_20261022_192448",
+   "time": "19:24:48",
+   "carrier_hz": 155692.0,
+   "bps": 45.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.46981127386589,
+   "scan_period_ms": 8.093748897386135,
+   "samples_per_bit": 2.7437735838636863,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 82,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 729,
+   "orig_known_bits": 3048,
+   "v3_err": 60,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 86,
+   "v3_single_bits": 3048,
+   "v3_known_err": 62,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 13,
+   "v3_sent0_read1": 47,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 4,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     4,
+     3048
+    ],
+    [
+     "Y2",
+     2,
+     3048
+    ],
+    [
+     "Y4",
+     3,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.25192642211914,
+   "v4_clock_ppm": 29.999999999999996
+  },
+  {
+   "run": "stent_ber_val4_68bps_20261022_192559",
+   "time": "19:25:59",
+   "carrier_hz": 155692.0,
+   "bps": 68.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.47885717824394,
+   "scan_period_ms": 8.090663316421807,
+   "samples_per_bit": 1.8158655467388813,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 239,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 1867,
+   "orig_known_bits": 3048,
+   "v3_err": 201,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 303,
+   "v3_single_bits": 3048,
+   "v3_known_err": 212,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 84,
+   "v3_sent0_read1": 117,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 24,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     24,
+     3048
+    ],
+    [
+     "Y2",
+     24,
+     3048
+    ],
+    [
+     "Y4",
+     22,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 10.751724243164062,
+   "v4_clock_ppm": 49.99999999999999
+  },
+  {
+   "run": "stent_ber_val4_80bps_20261022_192702",
+   "time": "19:27:02",
+   "carrier_hz": 155692.0,
+   "bps": 80.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.69744623915385,
+   "scan_period_ms": 8.076091202280052,
+   "samples_per_bit": 1.5462180779894232,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 388,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 1769,
+   "orig_known_bits": 3048,
+   "v3_err": 350,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 384,
+   "v3_single_bits": 3048,
+   "v3_known_err": 354,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 159,
+   "v3_sent0_read1": 191,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 21,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     21,
+     3048
+    ],
+    [
+     "Y2",
+     27,
+     3048
+    ],
+    [
+     "Y4",
+     41,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.25192642211914,
+   "v4_clock_ppm": -20.0
+  },
+  {
+   "run": "stent_ber_val4_100bps_20261022_192753",
+   "time": "19:27:53",
+   "carrier_hz": 155692.0,
+   "bps": 100.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.74949296215205,
+   "scan_period_ms": 8.07112543995697,
+   "samples_per_bit": 1.2374949296215205,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 520,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 1647,
+   "orig_known_bits": 3048,
+   "v3_err": 487,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y2",
+   "v3_single_err": 518,
+   "v3_single_bits": 3048,
+   "v3_known_err": 491,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 223,
+   "v3_sent0_read1": 264,
+   "v3_nodes": "Y2,Y3,Y4",
+   "v4_err": 32,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y2",
+   "v4_single_err": 62,
+   "v4_single_bits": 3048,
+   "v4_known_err": 50,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 10,
+   "v4_sent0_read1": 22,
+   "v4_nodes": "Y2,Y3,Y4",
+   "v4_frames_errorfree": 4,
+   "v4_singles": [
+    [
+     "Y2",
+     62,
+     3048
+    ],
+    [
+     "Y3",
+     56,
+     3048
+    ],
+    [
+     "Y4",
+     66,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.752128601074219,
+   "v4_clock_ppm": -10.0
+  },
+  {
+   "run": "stent_ber_val4b_80bps_20261022_195008",
+   "time": "19:50:08",
+   "carrier_hz": 155692.0,
+   "bps": 80.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.55164627666592,
+   "scan_period_ms": 8.085909678008782,
+   "samples_per_bit": 1.544395578458324,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 407,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 1729,
+   "orig_known_bits": 3048,
+   "v3_err": 379,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 412,
+   "v3_single_bits": 3048,
+   "v3_known_err": 380,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 178,
+   "v3_sent0_read1": 201,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y2",
+   "v4_single_err": 37,
+   "v4_single_bits": 3048,
+   "v4_known_err": 0,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y2,Y3,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y2",
+     37,
+     3048
+    ],
+    [
+     "Y3",
+     37,
+     3048
+    ],
+    [
+     "Y4",
+     41,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.50202751159668,
+   "v4_clock_ppm": -10.0
+  },
+  {
+   "run": "stent_ber_val4b_80bps_20261022_195109",
+   "time": "19:51:09",
+   "carrier_hz": 155692.0,
+   "bps": 80.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.6409105043961,
+   "scan_period_ms": 8.080068479296157,
+   "samples_per_bit": 1.5455113813049515,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 387,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 1757,
+   "orig_known_bits": 3048,
+   "v3_err": 339,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 390,
+   "v3_single_bits": 3048,
+   "v3_known_err": 339,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 173,
+   "v3_sent0_read1": 166,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 0,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 35,
+   "v4_single_bits": 3048,
+   "v4_known_err": 2,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 24,
+   "v4_singles": [
+    [
+     "Y3",
+     35,
+     3048
+    ],
+    [
+     "Y2",
+     32,
+     3048
+    ],
+    [
+     "Y4",
+     40,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.25192642211914,
+   "v4_clock_ppm": -10.0
+  },
+  {
+   "run": "stent_ber_val4b_90bps_20261022_195206",
+   "time": "19:52:06",
+   "carrier_hz": 155692.0,
+   "bps": 90.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.65396040033673,
+   "scan_period_ms": 8.077117974706788,
+   "samples_per_bit": 1.3739328933370747,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 458,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 1690,
+   "orig_known_bits": 3048,
+   "v3_err": 421,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y2",
+   "v3_single_err": 463,
+   "v3_single_bits": 3048,
+   "v3_known_err": 414,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 187,
+   "v3_sent0_read1": 234,
+   "v3_nodes": "Y2,Y3,Y4",
+   "v4_err": 4,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 47,
+   "v4_single_bits": 3048,
+   "v4_known_err": 4,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 0,
+   "v4_sent0_read1": 4,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 20,
+   "v4_singles": [
+    [
+     "Y3",
+     47,
+     3048
+    ],
+    [
+     "Y2",
+     38,
+     3048
+    ],
+    [
+     "Y4",
+     47,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.50202751159668,
+   "v4_clock_ppm": -29.999999999999996
+  },
+  {
+   "run": "stent_ber_val4b_90bps_20261022_195302",
+   "time": "19:53:02",
+   "carrier_hz": 155692.0,
+   "bps": 90.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 123.42005317056075,
+   "scan_period_ms": 8.08888511478621,
+   "samples_per_bit": 1.3713339241173417,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 437,
+   "orig_bits": 2921,
+   "orig_frames": 23,
+   "orig_known_err": 1705,
+   "orig_known_bits": 3048,
+   "v3_err": 405,
+   "v3_bits": 2921,
+   "v3_frames": 23,
+   "v3_single_node": "Y3",
+   "v3_single_err": 434,
+   "v3_single_bits": 2921,
+   "v3_known_err": 418,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 179,
+   "v3_sent0_read1": 226,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 15,
+   "v4_bits": 2921,
+   "v4_frames": 23,
+   "v4_single_node": "Y3",
+   "v4_single_err": 41,
+   "v4_single_bits": 2921,
+   "v4_known_err": 2,
+   "v4_known_bits": 2921,
+   "v4_sent1_read0": 5,
+   "v4_sent0_read1": 10,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 14,
+   "v4_singles": [
+    [
+     "Y3",
+     41,
+     2921
+    ],
+    [
+     "Y2",
+     37,
+     2921
+    ],
+    [
+     "Y4",
+     57,
+     2921
+    ]
+   ],
+   "v4_delay_ms": 11.50202751159668,
+   "v4_clock_ppm": -59.99999999999999
+  },
+  {
+   "run": "stent_ber_val4b_80bps_20261022_200327",
+   "time": "20:03:27",
+   "carrier_hz": 163600.0,
+   "bps": 80.0,
+   "frames_sent": 24,
+   "payload_bits_sent": 3048,
+   "fresh_rate_hz": 124.96711005671985,
+   "scan_period_ms": 7.99415073044316,
+   "samples_per_bit": 1.5620888757089981,
+   "signal_fraction": 1.0,
+   "signal_lost": false,
+   "role_v4": "validation",
+   "role_v3": "validation",
+   "orig_err": 364,
+   "orig_bits": 3048,
+   "orig_frames": 24,
+   "orig_known_err": 1748,
+   "orig_known_bits": 3048,
+   "v3_err": 324,
+   "v3_bits": 3048,
+   "v3_frames": 24,
+   "v3_single_node": "Y3",
+   "v3_single_err": 364,
+   "v3_single_bits": 3048,
+   "v3_known_err": 334,
+   "v3_known_bits": 3048,
+   "v3_sent1_read0": 156,
+   "v3_sent0_read1": 168,
+   "v3_nodes": "Y3,Y2,Y4",
+   "v4_err": 3,
+   "v4_bits": 3048,
+   "v4_frames": 24,
+   "v4_single_node": "Y3",
+   "v4_single_err": 33,
+   "v4_single_bits": 3048,
+   "v4_known_err": 3,
+   "v4_known_bits": 3048,
+   "v4_sent1_read0": 3,
+   "v4_sent0_read1": 0,
+   "v4_nodes": "Y3,Y2,Y4",
+   "v4_frames_errorfree": 21,
+   "v4_singles": [
+    [
+     "Y3",
+     33,
+     3048
+    ],
+    [
+     "Y2",
+     39,
+     3048
+    ],
+    [
+     "Y4",
+     35,
+     3048
+    ]
+   ],
+   "v4_delay_ms": 11.001825332641602,
+   "v4_clock_ppm": 0.0
+  }
+ ],
+ "probes": [
+  {
+   "run": "stent_probe_trx_wide_20261022_104923",
+   "config": "Stent on top edge, 14-carrier coarse sweep (1 s blocks x 3)",
+   "fs_hz": 63.53622677905098,
+   "threshold_db": 10.834225376271624,
+   "best": {
+    "carrier_hz": 163000.0,
+    "node": "Y2",
+    "energy_db": 55.725861711835314,
+    "level_z": 13.251526190461327,
+    "responding_nodes": [
+     "Y1",
+     "Y2",
+     "Y3",
+     "Y4"
+    ]
+   },
+   "top": [
+    {
+     "carrier_hz": 163000.0,
+     "node": "Y2",
+     "energy_db": 55.725861711835314,
+     "nodes_over_6db": 23
+    },
+    {
+     "carrier_hz": 50000.0,
+     "node": "Y4",
+     "energy_db": 36.45540712524599,
+     "nodes_over_6db": 16
+    },
+    {
+     "carrier_hz": 2012.5,
+     "node": "Y2",
+     "energy_db": 23.379071781353456,
+     "nodes_over_6db": 12
+    },
+    {
+     "carrier_hz": 4012.5,
+     "node": "Y2",
+     "energy_db": 23.035712258275076,
+     "nodes_over_6db": 13
+    },
+    {
+     "carrier_hz": 500000.0,
+     "node": "Y2",
+     "energy_db": 22.30325301500587,
+     "nodes_over_6db": 16
+    },
+    {
+     "carrier_hz": 8012.5,
+     "node": "Y2",
+     "energy_db": 22.157790642354275,
+     "nodes_over_6db": 13
+    },
+    {
+     "carrier_hz": 20000.0,
+     "node": "Y16",
+     "energy_db": 20.485675161783398,
+     "nodes_over_6db": 15
+    },
+    {
+     "carrier_hz": 1012.5,
+     "node": "Y2",
+     "energy_db": 19.452810124384243,
+     "nodes_over_6db": 13
+    }
+   ],
+   "saved_best": {
+    "carrier_hz": 163000.0,
+    "node": "Y2",
+    "energy_db": 55.725861711835314,
+    "level_z": 13.251526190461327,
+    "responding_nodes": [
+     "Y1",
+     "Y2",
+     "Y3",
+     "Y4"
+    ]
+   }
+  },
+  {
+   "run": "stent_probe_trx_fine_20261022_105543",
+   "config": "Stent on top edge, 50-500 kHz fine sweep (2.5 % steps, 0.5 s blocks x 2)",
+   "fs_hz": 63.729688610318284,
+   "threshold_db": 16.82441675280791,
+   "best": {
+    "carrier_hz": 155692.5,
+    "node": "Y2",
+    "energy_db": 57.340327273106325,
+    "level_z": 53.696331992320545,
+    "responding_nodes": [
+     "Y2",
+     "Y3",
+     "Y4"
+    ]
+   },
+   "top": [
+    {
+     "carrier_hz": 155692.5,
+     "node": "Y2",
+     "energy_db": 57.340327273106325,
+     "nodes_over_6db": 13
+    },
+    {
+     "carrier_hz": 163574.5,
+     "node": "Y2",
+     "energy_db": 53.66735579170226,
+     "nodes_over_6db": 14
+    },
+    {
+     "carrier_hz": 159584.9,
+     "node": "Y3",
+     "energy_db": 53.42341302784302,
+     "nodes_over_6db": 11
+    },
+    {
+     "carrier_hz": 151895.2,
+     "node": "Y2",
+     "energy_db": 47.33322055869996,
+     "nodes_over_6db": 8
+    },
+    {
+     "carrier_hz": 52531.2,
+     "node": "Y3",
+     "energy_db": 47.02780276296465,
+     "nodes_over_6db": 14
+    },
+    {
+     "carrier_hz": 144576.0,
+     "node": "Y3",
+     "energy_db": 45.63630926279699,
+     "nodes_over_6db": 9
+    },
+    {
+     "carrier_hz": 472978.9,
+     "node": "Y4",
+     "energy_db": 44.78479531310582,
+     "nodes_over_6db": 16
+    },
+    {
+     "carrier_hz": 167663.8,
+     "node": "Y2",
+     "energy_db": 44.04414633951538,
+     "nodes_over_6db": 10
+    }
+   ],
+   "saved_best": {
+    "carrier_hz": 155692.5,
+    "node": "Y2",
+    "energy_db": 57.340327273106325,
+    "level_z": 53.696331992320545,
+    "responding_nodes": [
+     "Y2",
+     "Y3",
+     "Y4"
+    ]
+   }
+  },
+  {
+   "run": "stent_probe_trx_fine_20261022_155334",
+   "config": "Electrode on hand, finger on top edge, same fine sweep",
+   "fs_hz": 62.53239174623533,
+   "threshold_db": 13.929327465304622,
+   "best": {
+    "carrier_hz": 176151.8,
+    "node": "Y2",
+    "energy_db": 8.034739430999853,
+    "level_z": 157.31300154607803,
+    "responding_nodes": []
+   },
+   "top": [
+    {
+     "carrier_hz": 176151.8,
+     "node": "Y2",
+     "energy_db": 8.034739430999853,
+     "nodes_over_6db": 1
+    },
+    {
+     "carrier_hz": 72414.9,
+     "node": "Y3",
+     "energy_db": 7.991606295048563,
+     "nodes_over_6db": 2
+    },
+    {
+     "carrier_hz": 60920.1,
+     "node": "Y3",
+     "energy_db": 7.460719058832436,
+     "nodes_over_6db": 1
+    },
+    {
+     "carrier_hz": 303257.9,
+     "node": "Y19",
+     "energy_db": 7.059111057579442,
+     "nodes_over_6db": 2
+    },
+    {
+     "carrier_hz": 141049.8,
+     "node": "Y7",
+     "energy_db": 6.932529162067085,
+     "nodes_over_6db": 2
+    },
+    {
+     "carrier_hz": 334740.0,
+     "node": "Y16",
+     "energy_db": 6.638871449499588,
+     "nodes_over_6db": 1
+    },
+    {
+     "carrier_hz": 90436.3,
+     "node": "Y8",
+     "energy_db": 6.6320559378082535,
+     "nodes_over_6db": 1
+    },
+    {
+     "carrier_hz": 88230.5,
+     "node": "Y62",
+     "energy_db": 6.608493996910287,
+     "nodes_over_6db": 1
+    }
+   ],
+   "saved_best": {
+    "carrier_hz": 176151.8,
+    "node": "Y2",
+    "energy_db": 6.546734715634966,
+    "level_z": 1581.8024021994013,
+    "responding_nodes": []
+   }
+  },
+  {
+   "run": "stent_probe_phantom_sweep_20261022_203302",
+   "config": "Stent on skin, finger on top edge (body-coupled), same fine sweep",
+   "fs_hz": 62.95438422306858,
+   "threshold_db": 18.29304318128965,
+   "best": {
+    "carrier_hz": 163574.5,
+    "node": "Y1",
+    "energy_db": 56.73176318116077,
+    "level_z": 27.55679069852969,
+    "responding_nodes": [
+     "Y0",
+     "Y1",
+     "Y2"
+    ]
+   },
+   "top": [
+    {
+     "carrier_hz": 163574.5,
+     "node": "Y1",
+     "energy_db": 56.73176318116077,
+     "nodes_over_6db": 27
+    },
+    {
+     "carrier_hz": 159584.9,
+     "node": "Y1",
+     "energy_db": 55.864035356028396,
+     "nodes_over_6db": 27
+    },
+    {
+     "carrier_hz": 155692.5,
+     "node": "Y1",
+     "energy_db": 55.52522474660907,
+     "nodes_over_6db": 33
+    },
+    {
+     "carrier_hz": 52531.2,
+     "node": "Y0",
+     "energy_db": 54.75997366486352,
+     "nodes_over_6db": 24
+    },
+    {
+     "carrier_hz": 53844.5,
+     "node": "Y0",
+     "energy_db": 53.30715663296073,
+     "nodes_over_6db": 16
+    },
+    {
+     "carrier_hz": 51250.0,
+     "node": "Y0",
+     "energy_db": 53.00941433038767,
+     "nodes_over_6db": 18
+    },
+    {
+     "carrier_hz": 171855.4,
+     "node": "Y1",
+     "energy_db": 44.95859993263725,
+     "nodes_over_6db": 20
+    },
+    {
+     "carrier_hz": 151895.2,
+     "node": "Y2",
+     "energy_db": 44.930754145987294,
+     "nodes_over_6db": 14
+    }
+   ],
+   "saved_best": {
+    "carrier_hz": 163574.5,
+    "node": "Y1",
+    "energy_db": 56.73176318116077,
+    "level_z": 27.55679069852969,
+    "responding_nodes": [
+     "Y0",
+     "Y1",
+     "Y2"
+    ]
+   }
+  }
+ ],
+ "onoff": [
+  {
+   "run": "stent_onoff_trx_163kHz_20261022_104704",
+   "carrier": 163000.0,
+   "ny": 64,
+   "rates": {
+    "off1": 67.4,
+    "on": 62.2,
+    "off2": 62.3
+   },
+   "best": {
+    "node": "Y3",
+    "mean_off1": "3.775",
+    "std_off1": "4.973",
+    "mean_on": "-2.610",
+    "std_on": "2679.523",
+    "mean_off2": "3.844",
+    "std_off2": "5.092",
+    "step_on_minus_off": "-6.420",
+    "drift_off2_minus_off1": "0.069",
+    "std_ratio_on_off": "532.406",
+    "level_response": "1",
+    "noise_response": "1"
+   },
+   "detected": true
+  },
+  {
+   "run": "stent_onoff_precheck_155.692kHz_20261022_161009",
+   "carrier": 155692.0,
+   "ny": 28,
+   "rates": {
+    "off1": 134.3,
+    "on": 134.3,
+    "off2": 134.3
+   },
+   "best": {
+    "node": "Y14",
+    "mean_off1": "0.498",
+    "std_off1": "4.201",
+    "mean_on": "1.947",
+    "std_on": "4.409",
+    "mean_off2": "1.322",
+    "std_off2": "4.244",
+    "step_on_minus_off": "1.037",
+    "drift_off2_minus_off1": "0.824",
+    "std_ratio_on_off": "1.044",
+    "level_response": "0",
+    "noise_response": "0"
+   },
+   "detected": false
+  },
+  {
+   "run": "stent_onoff_precheck_155.692kHz_20261022_165856",
+   "carrier": 155692.0,
+   "ny": 28,
+   "rates": {
+    "off1": 123.4,
+    "on": 123.3,
+    "off2": 123.6
+   },
+   "best": {
+    "node": "Y1",
+    "mean_off1": "8.071",
+    "std_off1": "14.363",
+    "mean_on": "9.252",
+    "std_on": "14.356",
+    "mean_off2": "7.928",
+    "std_off2": "10.083",
+    "step_on_minus_off": "1.253",
+    "drift_off2_minus_off1": "-0.143",
+    "std_ratio_on_off": "1.157",
+    "level_response": "0",
+    "noise_response": "0"
+   },
+   "detected": false
+  },
+  {
+   "run": "stent_onoff_precheck_155.692kHz_20261022_174954",
+   "carrier": 155692.0,
+   "ny": 28,
+   "rates": {
+    "off1": 125.2,
+    "on": 121.1,
+    "off2": 123.5
+   },
+   "best": {
+    "node": "Y3",
+    "mean_off1": "3.267",
+    "std_off1": "4.070",
+    "mean_on": "39.097",
+    "std_on": "2510.887",
+    "mean_off2": "2.609",
+    "std_off2": "3.976",
+    "step_on_minus_off": "36.159",
+    "drift_off2_minus_off1": "-0.659",
+    "std_ratio_on_off": "624.052",
+    "level_response": "1",
+    "noise_response": "1"
+   },
+   "detected": true
+  }
+ ],
+ "timing_examples": {
+  "a_run": "stent_ber_c156_34bps_20261022_180957",
+  "a_frame": 9,
+  "a_bit": 19,
+  "a_node": 3,
+  "c_run": "stent_ber_c160_20bps_20261022_190624",
+  "c_frame": 0,
+  "c_bit": 44,
+  "c_node": 3
+ },
+ "checks": [
+  "probe stent_probe_trx_wide_20261022_104923: saved best 163000 Hz +55.7 dB; recomputed 163000 Hz +55.7 dB, threshold 10.8 dB (match)",
+  "probe stent_probe_trx_fine_20261022_105543: saved best 155692 Hz +57.3 dB; recomputed 155692 Hz +57.3 dB, threshold 16.8 dB (match)",
+  "probe stent_probe_trx_fine_20261022_155334: saved best 176152 Hz +6.5 dB; recomputed 176152 Hz +8.0 dB, threshold 13.9 dB (differs)",
+  "probe stent_probe_phantom_sweep_20261022_203302: saved best 163574 Hz +56.7 dB; recomputed 163574 Hz +56.7 dB, threshold 18.3 dB (match)"
+ ],
+ "problems": []
+}

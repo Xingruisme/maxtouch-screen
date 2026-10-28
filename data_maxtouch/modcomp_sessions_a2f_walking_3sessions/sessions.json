@@ -1,0 +1,99 @@
+{
+ "sessions": {
+  "walk_1026": "modcomp_ankle2finger_1mA_session1_1827",
+  "rep1_1027": "modcomp_a2f_val_rep1_20261027_152631",
+  "rep2_1027": "modcomp_a2f_val_rep2_20261027_153803"
+ },
+ "rates": [
+  20,
+  50,
+  80
+ ],
+ "decoder": "v4 (frozen)",
+ "rows": [
+  {
+   "modulation": "OOK",
+   "bps": 20,
+   "walk_1026 known": "4/1524 (0.26%)",
+   "walk_1026 blind": "4/1524 (0.26%), 12/12 fr",
+   "rep1_1027 known": "50/1524 (3.28%)",
+   "rep1_1027 blind": "50/1524 (3.28%), 12/12 fr",
+   "rep2_1027 known": "182/1524 (11.94%)",
+   "rep2_1027 blind": "106/1397 (7.59%), 11/12 fr",
+   "merged known": "236/4572 (5.16%)",
+   "merged known 95% CI": "4.54% - 5.84%",
+   "merged blind": "160/4445 (3.60%), 35/36 fr",
+   "average known": "5.16% (range 0.26% - 11.94%, n=3)"
+  },
+  {
+   "modulation": "OOK",
+   "bps": 50,
+   "walk_1026 known": "8/1524 (0.52%)",
+   "walk_1026 blind": "9/1524 (0.59%), 12/12 fr",
+   "rep1_1027 known": "225/1524 (14.76%)",
+   "rep1_1027 blind": "164/1397 (11.74%), 11/12 fr",
+   "rep2_1027 known": "191/1524 (12.53%)",
+   "rep2_1027 blind": "121/1397 (8.66%), 11/12 fr",
+   "merged known": "424/4572 (9.27%)",
+   "merged known 95% CI": "8.45% - 10.15%",
+   "merged blind": "294/4318 (6.81%), 34/36 fr",
+   "average known": "9.27% (range 0.52% - 14.76%, n=3)"
+  },
+  {
+   "modulation": "OOK",
+   "bps": 80,
+   "walk_1026 known": "30/1524 (1.97%)",
+   "walk_1026 blind": "29/1524 (1.90%), 12/12 fr",
+   "rep1_1027 known": "11/1524 (0.72%)",
+   "rep1_1027 blind": "10/1524 (0.66%), 12/12 fr",
+   "rep2_1027 known": "174/1524 (11.42%)",
+   "rep2_1027 blind": "116/1397 (8.30%), 11/12 fr",
+   "merged known": "215/4572 (4.70%)",
+   "merged known 95% CI": "4.11% - 5.36%",
+   "merged blind": "155/4445 (3.49%), 35/36 fr",
+   "average known": "4.70% (range 0.72% - 11.42%, n=3)"
+  },
+  {
+   "modulation": "FSK",
+   "bps": 20,
+   "walk_1026 known": "8/1524 (0.52%)",
+   "walk_1026 blind": "7/1524 (0.46%), 12/12 fr",
+   "rep1_1027 known": "261/1524 (17.13%)",
+   "rep1_1027 blind": "261/1524 (17.13%), 12/12 fr",
+   "rep2_1027 known": "294/1524 (19.29%)",
+   "rep2_1027 blind": "181/1270 (14.25%), 10/12 fr",
+   "merged known": "563/4572 (12.31%)",
+   "merged known 95% CI": "11.37% - 13.30%",
+   "merged blind": "449/4318 (10.40%), 34/36 fr",
+   "average known": "12.31% (range 0.52% - 19.29%, n=3)"
+  },
+  {
+   "modulation": "FSK",
+   "bps": 50,
+   "walk_1026 known": "13/1524 (0.85%)",
+   "walk_1026 blind": "14/1524 (0.92%), 12/12 fr",
+   "rep1_1027 known": "318/1524 (20.87%)",
+   "rep1_1027 blind": "291/1397 (20.83%), 11/12 fr",
+   "rep2_1027 known": "296/1524 (19.42%)",
+   "rep2_1027 blind": "35/1016 (3.44%), 8/12 fr",
+   "merged known": "627/4572 (13.71%)",
+   "merged known 95% CI": "12.73% - 14.75%",
+   "merged blind": "340/3937 (8.64%), 31/36 fr",
+   "average known": "13.71% (range 0.85% - 20.87%, n=3)"
+  },
+  {
+   "modulation": "FSK",
+   "bps": 80,
+   "walk_1026 known": "81/1524 (5.31%)",
+   "walk_1026 blind": "82/1524 (5.38%), 12/12 fr",
+   "rep1_1027 known": "37/1524 (2.43%)",
+   "rep1_1027 blind": "35/1524 (2.30%), 12/12 fr",
+   "rep2_1027 known": "203/1524 (13.32%)",
+   "rep2_1027 blind": "203/1524 (13.32%), 12/12 fr",
+   "merged known": "321/4572 (7.02%)",
+   "merged known 95% CI": "6.30% - 7.80%",
+   "merged blind": "320/4572 (7.00%), 36/36 fr",
+   "average known": "7.02% (range 2.43% - 13.32%, n=3)"
+  }
+ ]
+}

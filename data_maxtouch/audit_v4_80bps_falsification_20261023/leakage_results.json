@@ -1,0 +1,323 @@
+{
+ "decoder_sha": "59cb5e989bc9",
+ "static_trace": [
+  {
+   "line": 74,
+   "code": "c156_20bps_180358: 8 errors, all sent 0 with raw values -14..+3).\"\"\""
+  },
+  {
+   "line": 128,
+   "code": "def decode_frames(f, t, tau, Tb, eps, frame_bits, truth, frames, known_timing):"
+  },
+  {
+   "line": 129,
+   "code": "nb = len(frame_bits)"
+  },
+  {
+   "line": 130,
+   "code": "fb = np.array(frame_bits)"
+  },
+  {
+   "line": 131,
+   "code": "known_mask = np.zeros(nb, bool); known_mask[:len(HDR)] = True; known_mask[len(HDR) + len(truth):] = True"
+  },
+  {
+   "line": 132,
+   "code": "pl = slice(len(HDR), len(HDR) + len(truth))"
+  },
+  {
+   "line": 150,
+   "code": "kn = known_mask & ~np.isnan(v)"
+  },
+  {
+   "line": 151,
+   "code": "hi, lo = v[kn & (fb == 1)].mean(), v[kn & (fb == 0)].mean()"
+  },
+  {
+   "line": 154,
+   "code": "err = int(np.sum(got != np.array(truth)))"
+  },
+  {
+   "line": 157,
+   "code": "ber = err / len(truth)"
+  },
+  {
+   "line": 158,
+   "code": "out.append(dict(m=int(mm), s0=float(tau + mm * nb * Tb * (1 + eps)), r=r, bits=len(truth), errors=err, ber=ber,"
+  },
+  {
+   "line": 160,
+   "code": "valid=bool(known_timing or (r >= RX.R_LOCAL and ber < RX.BER_INVALID))))"
+  },
+  {
+   "line": 167,
+   "code": "w0, ok, n = meta[\"t_first\"], 0, 0"
+  },
+  {
+   "line": 168,
+   "code": "while w0 + V2.HEALTH_WIN_S <= meta[\"t_first\"] + total_s:"
+  },
+  {
+   "line": 180,
+   "code": "if meta.get(\"mode\") != \"ber\":"
+  },
+  {
+   "line": 187,
+   "code": "frame_bits, truth = TX.frame_bits(link.payload, link.prbs)"
+  },
+  {
+   "line": 188,
+   "code": "Tb, nb = 1.0 / plan[\"bps\"], len(frame_bits)"
+  },
+  {
+   "line": 191,
+   "code": "n_sent = meta.get(\"tx_frames\", 0) or 0"
+  },
+  {
+   "line": 205,
+   "code": "fr = decode_frames(f, t, tau, Tb, eps, frame_bits, truth, all_frames(tau, eps), False)"
+  },
+  {
+   "line": 206,
+   "code": "return V2.frames_summary(fr, n_sent, len(truth)), fr, tau, eps"
+  },
+  {
+   "line": 211,
+   "code": "single.append(dict(node=names[i], score_db=float(score[i]), **s, errors_by_type=V3.error_types(fr, truth)))"
+  },
+  {
+   "line": 221,
+   "code": "single_best_of_3_after_decoding=min(single, key=lambda s: (s[\"ber\"] is None, s[\"ber\"] or 0)),"
+  },
+  {
+   "line": 223,
+   "code": "combined_blind=dict(cs, errors_by_type=V3.error_types(cfr, truth), clock_ppm=eps_b * 1e6))"
+  },
+  {
+   "line": 225,
+   "code": "if meta.get(\"t_first\") and n_sent:"
+  },
+  {
+   "line": 226,
+   "code": "tau_k, eps_k = search(comb, t, Tb, nb, meta[\"t_first\"], meta[\"t_first\"] + 0.025,"
+  },
+  {
+   "line": 227,
+   "code": "lambda tau, eps: np.arange(n_sent))"
+  },
+  {
+   "line": 228,
+   "code": "kfr = decode_frames(comb, t, tau_k, Tb, eps_k, frame_bits, truth, np.arange(n_sent), True)"
+  },
+  {
+   "line": 229,
+   "code": "ks = V2.frames_summary(kfr, n_sent, len(truth))"
+  },
+  {
+   "line": 230,
+   "code": "res[\"combined_known_timing\"] = dict(ks, delay_ms=(tau_k - meta[\"t_first\"]) * 1e3, clock_ppm=eps_k * 1e6,"
+  },
+  {
+   "line": 231,
+   "code": "errors_by_type=V3.error_types(kfr, truth))"
+  },
+  {
+   "line": 232,
+   "code": "res[\"health\"] = health_raw(X[:, top[0]], t, meta, n_sent * plan[\"frame_s\"])"
+  },
+  {
+   "line": 234,
+   "code": "keep = (\"m\", \"s0\", \"r\", \"valid\", \"bits\", \"errors\", \"ber\", \"thr\", \"got\", \"norm\")"
+  },
+  {
+   "line": 236,
+   "code": "json.dump(dict(decoder=VERSION, rules_sha=RULES_SHA, sent_payload=[int(b) for b in truth], combined_nodes=res[\"nodes\"],"
+  },
+  {
+   "line": 251,
+   "code": "print(f\"  combined blind:        {V2.fmt(c)}   clock {c['clock_ppm']:+.0f} ppm   errors {c['errors_by_type']}\")"
+  },
+  {
+   "line": 277,
+   "code": "v3_comb_blind_ber=v3[\"combined_blind\"][\"ber\"] if v3 else None,"
+  },
+  {
+   "line": 278,
+   "code": "v4_single_top=V2.fmt(res[\"single_top_ranked\"]), v4_single_top_ber=res[\"single_top_ranked\"][\"ber\"],"
+  },
+  {
+   "line": 279,
+   "code": "v4_comb_blind=V2.fmt(res[\"combined_blind\"]), v4_comb_blind_ber=res[\"combined_blind\"][\"ber\"],"
+  }
+ ],
+ "runs": {
+  "stent_ber_val4_80bps_20261022_192702": {
+   "nodes": [
+    "Y3",
+    "Y2",
+    "Y4"
+   ],
+   "v4_search_tau_minus_blind_ms": 0.0,
+   "v4_search_eps_ppm": -20.0,
+   "blind_eps_ppm": -20.0,
+   "decode_frames_by_payload": {
+    "true_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 24,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.04149000605693519
+    },
+    "random_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 0,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.5102967898243489
+    },
+    "inverted_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 0,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.9585099939430648
+    },
+    "all_zero_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 0,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.5042398546335555
+    }
+   }
+  },
+  "stent_ber_val4b_80bps_20261022_195008": {
+   "nodes": [
+    "Y2",
+    "Y3",
+    "Y4"
+   ],
+   "v4_search_tau_minus_blind_ms": 0.0,
+   "v4_search_eps_ppm": -10.0,
+   "blind_eps_ppm": -10.0,
+   "decode_frames_by_payload": {
+    "true_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 24,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.03634161114476075
+    },
+    "random_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 0,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.5136281041792852
+    },
+    "inverted_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 0,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.9636583888552391
+    },
+    "all_zero_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 0,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.5015142337976984
+    }
+   }
+  },
+  "stent_ber_val4b_80bps_20261022_195109": {
+   "nodes": [
+    "Y3",
+    "Y2",
+    "Y4"
+   ],
+   "v4_search_tau_minus_blind_ms": 0.0,
+   "v4_search_eps_ppm": -10.0,
+   "blind_eps_ppm": -10.0,
+   "decode_frames_by_payload": {
+    "true_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 24,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.03967292549969715
+    },
+    "random_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 0,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.5096910963052695
+    },
+    "inverted_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 0,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.9603270745003029
+    },
+    "all_zero_payload": {
+     "frames": 26,
+     "identical_got": true,
+     "identical_thr": true,
+     "identical_norm": true,
+     "identical_r": true,
+     "identical_s0": true,
+     "accepted": 0,
+     "errors_in_accepted": 0,
+     "mean_frame_ber": 0.5006056935190794
+    }
+   }
+  }
+ }
+}

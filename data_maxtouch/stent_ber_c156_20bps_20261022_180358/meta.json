@@ -1,0 +1,62 @@
+{
+ "mode": "ber",
+ "args": {
+  "mode": "ber",
+  "dir": null,
+  "label": "c156",
+  "carrier": 155692.0,
+  "phase_s": 10.0,
+  "bps": 20.0,
+  "payload": 127,
+  "prbs": 7,
+  "carriers": "default",
+  "block": 1.0,
+  "reps": 3,
+  "start_delay": 1.5,
+  "start_tol": 2.0,
+  "seconds": null,
+  "lead": 4.0,
+  "y0": 0,
+  "ny": 28,
+  "patch": null,
+  "candidates": 8,
+  "combine": 3,
+  "tx": true,
+  "frames": 24,
+  "zero_hz": null,
+  "keep_noise_suppression": false,
+  "keep_touch": false,
+  "port": null,
+  "wave": "square"
+ },
+ "y0": 0,
+ "ny": 28,
+ "patch": null,
+ "t_prompt": 1792706432.2246628,
+ "t_first": 1792706432.7251706,
+ "tx": {
+  "line": "TeensyTRX - galvanic transceiver (Teensy 4.0, RX pin 14 = A0, AD9833 FSYNC 10 / SDATA 11 / SCLK 13)"
+ },
+ "tx_frames": 24,
+ "hid_errors": 0,
+ "chip_ctrl_orig": {
+  "T72": 125,
+  "T100": 131
+ },
+ "plan": {
+  "kind": "cap_ook",
+  "carrier_hz": 155692.0,
+  "zero_hz": null,
+  "wave": "square",
+  "bps": 20.0,
+  "bit_us": 50000,
+  "payload": 127,
+  "prbs": 7,
+  "frame_bits": 170,
+  "header_bits": 27,
+  "frame_s": 8.5
+ },
+ "tx_command": "cap_ook_tx.py --carrier 155692 --bps 20 --payload 127 --prbs 7",
+ "recorded_s": 210.4983994960785,
+ "samples": 25991
+}

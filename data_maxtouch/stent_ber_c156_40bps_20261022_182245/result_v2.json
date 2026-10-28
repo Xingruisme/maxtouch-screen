@@ -1,0 +1,95 @@
+{
+ "decoder": "v2",
+ "rules": "top 3 nodes by energy increase, logenergy, max of z, header-aligned known timing",
+ "run": "stent_ber_c156_40bps_20261022_182245",
+ "bps": 40.0,
+ "carrier_hz": 155692.0,
+ "samples_per_bit": 3.092365092650414,
+ "scan_period_ms": 8.08442704886858,
+ "nodes": [
+  "Y3",
+  "Y2",
+  "Y4"
+ ],
+ "single_top_ranked": {
+  "node": "Y3",
+  "score_db": 51.404860092392994,
+  "frames_valid": 24,
+  "frames_sent": 24,
+  "bits": 3048,
+  "errors": 239,
+  "ber": 0.07841207349081365,
+  "ber_upper95": null,
+  "ber_conservative": 0.07841207349081365
+ },
+ "single_best_of_3_after_decoding": {
+  "node": "Y3",
+  "score_db": 51.404860092392994,
+  "frames_valid": 24,
+  "frames_sent": 24,
+  "bits": 3048,
+  "errors": 239,
+  "ber": 0.07841207349081365,
+  "ber_upper95": null,
+  "ber_conservative": 0.07841207349081365
+ },
+ "single_all": [
+  {
+   "node": "Y3",
+   "score_db": 51.404860092392994,
+   "frames_valid": 24,
+   "frames_sent": 24,
+   "bits": 3048,
+   "errors": 239,
+   "ber": 0.07841207349081365,
+   "ber_upper95": null,
+   "ber_conservative": 0.07841207349081365
+  },
+  {
+   "node": "Y2",
+   "score_db": 49.933816545802436,
+   "frames_valid": 24,
+   "frames_sent": 24,
+   "bits": 3048,
+   "errors": 239,
+   "ber": 0.07841207349081365,
+   "ber_upper95": null,
+   "ber_conservative": 0.07841207349081365
+  },
+  {
+   "node": "Y4",
+   "score_db": 46.62637312326333,
+   "frames_valid": 24,
+   "frames_sent": 24,
+   "bits": 3048,
+   "errors": 242,
+   "ber": 0.07939632545931759,
+   "ber_upper95": null,
+   "ber_conservative": 0.07939632545931759
+  }
+ ],
+ "combined_blind": {
+  "frames_valid": 24,
+  "frames_sent": 24,
+  "bits": 3048,
+  "errors": 201,
+  "ber": 0.06594488188976377,
+  "ber_upper95": null,
+  "ber_conservative": 0.06594488188976377
+ },
+ "combined_known_timing": {
+  "frames_valid": 24,
+  "frames_sent": 24,
+  "bits": 3048,
+  "errors": 198,
+  "ber": 0.06496062992125984,
+  "ber_upper95": null,
+  "ber_conservative": 0.06496062992125984,
+  "header_offset_samples": 1.75
+ },
+ "health": {
+  "windows": 51,
+  "signal_fraction": 1.0,
+  "signal_lost": false
+ }
+}

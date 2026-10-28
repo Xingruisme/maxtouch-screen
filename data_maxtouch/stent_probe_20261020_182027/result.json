@@ -1,0 +1,3 @@
+{
+ "error": "recording ends before the schedule could have finished: it needs 286 s after the START TX prompt, got 271 s (cap_ook_rx would silently search the whole record instead)"
+}

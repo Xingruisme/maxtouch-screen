@@ -1,0 +1,104 @@
+{
+ "control_table": [
+  [
+   "OFF-only (A1-A4), all node choices",
+   318,
+   42,
+   0,
+   0
+  ],
+  [
+   "OFF bootstrap (60 realisations)",
+   1506,
+   192,
+   1,
+   0
+  ],
+  [
+   "sample-permuted (60)",
+   1511,
+   221,
+   1,
+   0
+  ],
+  [
+   "time-reversed (3)",
+   75,
+   70,
+   66,
+   0
+  ],
+  [
+   "tau shifted +-2 bits (real captures)",
+   156,
+   144,
+   null,
+   0
+  ],
+  [
+   "TRUE frames, 80 bps",
+   72,
+   72,
+   72,
+   72
+  ]
+ ],
+ "figD_bits": [
+  [
+   "random correct 1",
+   "80c",
+   19,
+   126,
+   0.5341366277688553
+  ],
+  [
+   "random correct 0",
+   "80b",
+   21,
+   0,
+   0.4843942091913101
+  ],
+  [
+   "lowest-margin sent 1",
+   "80c",
+   18,
+   49,
+   0.006536088203240934
+  ],
+  [
+   "2nd lowest-margin sent 1",
+   "80b",
+   12,
+   27,
+   0.012585623207845054
+  ],
+  [
+   "lowest-margin 1 -> 0",
+   "80c",
+   9,
+   104,
+   0.028200024708122735
+  ],
+  [
+   "2nd lowest-margin 1 -> 0",
+   "80a",
+   19,
+   21,
+   0.29727381886277926
+  ],
+  [
+   "random 1 -> 0",
+   "80c",
+   1,
+   43,
+   0.48043473296194594
+  ],
+  [
+   "lowest-margin edge-only (fallback) bit",
+   "80b",
+   21,
+   75,
+   0.2308244010129925
+  ]
+ ]
+}

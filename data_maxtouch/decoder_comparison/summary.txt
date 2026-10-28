@@ -1,0 +1,56 @@
+FSK-A decoder 1c6368a051a9 vs v4 59cb5e989bc9; 102 runs
+checks: v4 re-implementation reproduces v4 known timing in 98/101 runs, FSK-A re-implementation in 95/101; same 3 nodes in 102/102
+
+group                runs           known v4       known FSK-A           blind v4   frames        blind FSK-A   frames
+all                   102  11880/303149  3.92% 10765/304927  3.53%  6539/291465  2.24% 2295/2496 4157/262382  1.58% 2066/2496
+fa_dev                 26   756/38100  1.98%  711/39624  1.79%   619/37592  1.65% 296/312   754/39497  1.91% 311/312 
+existing, clean        49  5039/140716  3.58% 4806/140843  3.41%  890/131826  0.68% 1038/1188 452/130429  0.35% 1027/1188
+  of which v4_dev      11  3983/32893 12.11% 4076/32893 12.39%     9/24511  0.04% 193/264    66/24892  0.27% 196/264 
+existing, degraded     27  6085/124333  4.89% 5248/124460  4.22%  5030/122047  4.12% 961/996  2951/92456  3.19% 728/996 
+
+error types, clean existing runs (known timing): v4 0->1 / 1->0 = 2385 / 2654, FSK-A = 3310 / 1494 (+ 2 erased)
+
+runs where FSK-A is worse (difference > 2 sqrt(sum) and >= 5 errors), blind conservative or known:
+  stent_ber_c156_68bps_20261022_181556                           [v4_dev] known 0/3048 -> 6/3048
+  stent_ber_val4_68bps_20261022_192559                           [existing] known 0/3048 -> 28/3048
+  stent_ber_val4_80bps_20261022_192702                           [existing] known 0/3048 -> 6/3048; blind 0/3048 (24 fr) -> 0/2794 (22 fr)
+  stent_ber_val4b_80bps_20261022_200327                          [existing] blind 3/3048 (24 fr) -> 0/2794 (22 fr)
+  stent_ber_val4b_90bps_20261022_195206                          [existing] known 4/3048 -> 22/3048; blind 4/3048 (24 fr) -> 6/2921 (23 fr)
+  stent_ber_val4b_90bps_20261022_195302                          [existing] known 2/2921 -> 15/3048; blind 15/2921 (23 fr) -> 10/2540 (20 fr)
+  stent_mod_ankle2finger_1mA_fsk_50bps_20261026_184704           [fa_dev] blind 11/1524 (12 fr) -> 26/1524 (12 fr)
+  stent_mod_ankle2finger_fska_still_fsk_80bps_20261027_151000    [existing, degraded] known 202/1524 -> 346/1524; blind 162/1397 (11 fr) -> 61/889 (7 fr)
+  stent_mod_ankle2finger_still_6rates_ook_125bps_20261027_135139 [fa_dev] known 13/1143 -> 93/1524
+  stent_mod_ankle2finger_still_6rates_ook_50bps_20261027_132436  [fa_dev] known 3/1524 -> 11/1524
+  stent_mod_hand159_still_fsk_20bps_20261026_130652              [existing] known 4/1016 -> 13/1016; blind 4/1016 (8 fr) -> 13/1016 (8 fr)
+  stent_mod_hand159_swipe_ook_10bps_20261026_131018              [existing] blind 61/762 (6 fr) -> 18/508 (4 fr)
+  stent_mod_mc1_fsk_100bps_20261023_192301                       [existing, degraded] blind 476/5080 (40 fr) -> 210/2286 (18 fr)
+  stent_mod_mc1_fsk_10bps_20261023_164654                        [existing] known 0/5080 -> 6/5080; blind 0/5080 (40 fr) -> 6/5080 (40 fr)
+  stent_mod_mc1_fsk_10bps_20261023_175946                        [existing, degraded] blind 173/4953 (39 fr) -> 159/4826 (38 fr)
+  stent_mod_mc1_fsk_20bps_20261023_181744                        [existing, degraded] known 764/3048 -> 939/3048; blind 543/2413 (19 fr) -> 0/254 (2 fr)
+  stent_mod_mc1_fsk_20bps_20261023_190508                        [existing, degraded] blind 13/5080 (40 fr) -> 2/1524 (12 fr)
+  stent_mod_mc1_fsk_50bps_20261023_191419                        [existing, degraded] blind 202/5080 (40 fr) -> 60/2413 (19 fr)
+  stent_mod_mc1_fsk_80bps_20261023_191916                        [existing, degraded] blind 528/5080 (40 fr) -> 298/3048 (24 fr)
+  stent_mod_mc1_ook_100bps_20261023_172346                       [existing] blind 95/5080 (40 fr) -> 75/4953 (39 fr)
+  stent_mod_mc1_ook_100bps_20261023_192145                       [existing, degraded] blind 488/4953 (39 fr) -> 176/1778 (14 fr)
+  stent_mod_mc1_ook_100bps_20261023_202712                       [existing, degraded] blind 316/5080 (40 fr) -> 356/4572 (36 fr)
+  stent_mod_mc1_ook_10bps_20261023_163526                        [existing] known 0/5080 -> 7/5080; blind 0/5080 (40 fr) -> 7/5080 (40 fr)
+  stent_mod_mc1_ook_10bps_20261023_174817                        [existing, degraded] blind 9/4826 (38 fr) -> 46/4064 (32 fr)
+  stent_mod_mc1_ook_10bps_20261023_183324                        [existing, degraded] blind 1/5080 (40 fr) -> 0/3175 (25 fr)
+  stent_mod_mc1_ook_20bps_20261023_181412                        [existing, degraded] blind 20/5080 (40 fr) -> 1/2159 (17 fr)
+  stent_mod_mc1_ook_20bps_20261023_185919                        [existing, degraded] blind 24/5080 (40 fr) -> 3/1651 (13 fr)
+  stent_mod_mc1_ook_50bps_20261023_191155                        [existing, degraded] blind 237/5080 (40 fr) -> 106/3302 (26 fr)
+  stent_mod_mc1_ook_80bps_20261023_191743                        [existing, degraded] blind 476/5080 (40 fr) -> 299/3175 (25 fr)
+
+ablation, known timing, total errors / bits (FSK-A bit accounting) by run group:
+sync  feature calib   decide            fa_dev   existing clean         degraded
+v4    v4      mid     mean    867/39624  2.19% 5042/140843  3.58% 6098/124460  4.90%
+fa    v4      mid     mean    969/39624  2.45% 5091/140843  3.61% 6179/124460  4.96%
+v4    fa      mid     mean    1924/39624  4.86% 9870/140843  7.01% 6624/124460  5.32%
+fa    fa      mid     mean    2043/39624  5.16% 9950/140843  7.06% 6657/124460  5.35%
+v4    v4      affine  llr     1397/39624  3.53% 6844/140843  4.86% 6023/124460  4.84%
+fa    v4      affine  llr     1471/39624  3.71% 7055/140843  5.01% 5791/124460  4.65%
+v4    fa      scale   llr     615/39624  1.55% 4716/140843  3.35% 5169/124460  4.15%
+fa    fa      scale   llr     709/39624  1.79% 4811/140843  3.42% 5247/124460  4.22%
+fa    fa      none    llr     719/39624  1.81% 4765/140843  3.38% 4651/124460  3.74%
+fa    fa      affine  llr     761/39624  1.92% 6429/140843  4.56% 5104/124460  4.10%
+fa    v4      none    llr     1021/39624  2.58% 5166/140843  3.67% 5377/124460  4.32%

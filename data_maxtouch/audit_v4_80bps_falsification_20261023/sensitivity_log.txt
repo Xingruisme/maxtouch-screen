@@ -1,0 +1,95 @@
+stent_ber_val4_80bps_20261022_192702
+    {'variant': 'frozen v4 rules', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'frozen rules, acceptance: header errors <= 2', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'guard 0 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 48, 'bits': 3048, 'ber_conservative': 0.015748031496062992}
+    {'variant': 'guard 1 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 4, 'bits': 3048, 'ber_conservative': 0.0013123359580052493}
+    {'variant': 'guard 3 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'guard 4 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 18, 'bits': 3048, 'ber_conservative': 0.005905511811023622}
+    {'variant': 'mean of 3 nodes', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 18, 'bits': 3048, 'ber_conservative': 0.005905511811023622}
+    {'variant': 'nearest-to-centre sample', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'no clock correction (eps = 0)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'Y2 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 27, 'bits': 3048, 'ber_conservative': 0.008858267716535433}
+    {'variant': 'Y3 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 21, 'bits': 3048, 'ber_conservative': 0.006889763779527559}
+    {'variant': 'Y4 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 41, 'bits': 3048, 'ber_conservative': 0.013451443569553806}
+    {'variant': '2 nodes (top 2)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 20, 'bits': 3048, 'ber_conservative': 0.006561679790026247}
+stent_ber_val4b_80bps_20261022_195008
+    {'variant': 'frozen v4 rules', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'frozen rules, acceptance: header errors <= 2', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'guard 0 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 63, 'bits': 3048, 'ber_conservative': 0.02066929133858268}
+    {'variant': 'guard 1 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 2, 'bits': 3048, 'ber_conservative': 0.0006561679790026247}
+    {'variant': 'guard 3 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'guard 4 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 15, 'bits': 3048, 'ber_conservative': 0.004921259842519685}
+    {'variant': 'mean of 3 nodes', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 34, 'bits': 3048, 'ber_conservative': 0.01115485564304462}
+    {'variant': 'nearest-to-centre sample', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'no clock correction (eps = 0)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'Y2 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 37, 'bits': 3048, 'ber_conservative': 0.012139107611548556}
+    {'variant': 'Y3 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 37, 'bits': 3048, 'ber_conservative': 0.012139107611548556}
+    {'variant': 'Y4 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 41, 'bits': 3048, 'ber_conservative': 0.013451443569553806}
+    {'variant': '2 nodes (top 2)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 33, 'bits': 3048, 'ber_conservative': 0.010826771653543307}
+stent_ber_val4b_80bps_20261022_195109
+    {'variant': 'frozen v4 rules', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'frozen rules, acceptance: header errors <= 2', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'guard 0 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 55, 'bits': 3048, 'ber_conservative': 0.01804461942257218}
+    {'variant': 'guard 1 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 5, 'bits': 3048, 'ber_conservative': 0.0016404199475065617}
+    {'variant': 'guard 3 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 3, 'bits': 3048, 'ber_conservative': 0.000984251968503937}
+    {'variant': 'guard 4 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 17, 'bits': 3048, 'ber_conservative': 0.00557742782152231}
+    {'variant': 'mean of 3 nodes', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 28, 'bits': 3048, 'ber_conservative': 0.009186351706036745}
+    {'variant': 'nearest-to-centre sample', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 1, 'bits': 3048, 'ber_conservative': 0.00032808398950131233}
+    {'variant': 'no clock correction (eps = 0)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'Y2 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 32, 'bits': 3048, 'ber_conservative': 0.010498687664041995}
+    {'variant': 'Y3 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 35, 'bits': 3048, 'ber_conservative': 0.011482939632545932}
+    {'variant': 'Y4 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 40, 'bits': 3048, 'ber_conservative': 0.013123359580052493}
+    {'variant': '2 nodes (top 2)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 31, 'bits': 3048, 'ber_conservative': 0.010170603674540682}
+stent_ber_val4b_90bps_20261022_195206
+    {'variant': 'frozen v4 rules', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 4, 'bits': 3048, 'ber_conservative': 0.0013123359580052493}
+    {'variant': 'frozen rules, acceptance: header errors <= 2', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 4, 'bits': 3048, 'ber_conservative': 0.0013123359580052493}
+    {'variant': 'guard 0 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 55, 'bits': 3048, 'ber_conservative': 0.01804461942257218}
+    {'variant': 'guard 1 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 4, 'bits': 3048, 'ber_conservative': 0.0013123359580052493}
+    {'variant': 'guard 3 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 44, 'bits': 3048, 'ber_conservative': 0.014435695538057743}
+    {'variant': 'guard 4 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 55, 'bits': 3048, 'ber_conservative': 0.01804461942257218}
+    {'variant': 'mean of 3 nodes', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 44, 'bits': 3048, 'ber_conservative': 0.014435695538057743}
+    {'variant': 'nearest-to-centre sample', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 1, 'bits': 3048, 'ber_conservative': 0.00032808398950131233}
+    {'variant': 'no clock correction (eps = 0)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 10, 'bits': 3048, 'ber_conservative': 0.0032808398950131233}
+    {'variant': 'Y2 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 38, 'bits': 3048, 'ber_conservative': 0.012467191601049869}
+    {'variant': 'Y3 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 47, 'bits': 3048, 'ber_conservative': 0.01541994750656168}
+    {'variant': 'Y4 only', 'true_frames': 24, 'missing': 0, 'false_positive': 1, 'misaligned': 0, 'errors': 47, 'bits': 3048, 'ber_conservative': 0.037480314960629924}
+    {'variant': '2 nodes (top 2)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 38, 'bits': 3048, 'ber_conservative': 0.012467191601049869}
+stent_ber_val4b_90bps_20261022_195302
+    {'variant': 'frozen v4 rules', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 15, 'bits': 2921, 'ber_conservative': 0.02575459317585302}
+    {'variant': 'frozen rules, acceptance: header errors <= 2', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 15, 'bits': 2921, 'ber_conservative': 0.02575459317585302}
+    {'variant': 'guard 0 ms', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 84, 'bits': 2921, 'ber_conservative': 0.04839238845144357}
+    {'variant': 'guard 1 ms', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 21, 'bits': 2921, 'ber_conservative': 0.027723097112860893}
+    {'variant': 'guard 3 ms', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 70, 'bits': 2921, 'ber_conservative': 0.043799212598425195}
+    {'variant': 'guard 4 ms', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 84, 'bits': 2921, 'ber_conservative': 0.04839238845144357}
+    {'variant': 'mean of 3 nodes', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 34, 'bits': 2921, 'ber_conservative': 0.03198818897637795}
+    {'variant': 'nearest-to-centre sample', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 11, 'bits': 2921, 'ber_conservative': 0.02444225721784777}
+    {'variant': 'no clock correction (eps = 0)', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 13, 'bits': 2921, 'ber_conservative': 0.025098425196850394}
+    {'variant': 'Y2 only', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 37, 'bits': 2921, 'ber_conservative': 0.03297244094488189}
+    {'variant': 'Y3 only', 'true_frames': 23, 'missing': 1, 'false_positive': 1, 'misaligned': 0, 'errors': 41, 'bits': 2921, 'ber_conservative': 0.05149606299212599}
+    {'variant': 'Y4 only', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 57, 'bits': 2921, 'ber_conservative': 0.03953412073490813}
+    {'variant': '2 nodes (top 2)', 'true_frames': 23, 'missing': 1, 'false_positive': 0, 'misaligned': 0, 'errors': 37, 'bits': 2921, 'ber_conservative': 0.03297244094488189}
+stent_ber_val4_100bps_20261022_192753
+    {'variant': 'frozen v4 rules', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 32, 'bits': 3048, 'ber_conservative': 0.010498687664041995}
+    {'variant': 'frozen rules, acceptance: header errors <= 2', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 32, 'bits': 3048, 'ber_conservative': 0.010498687664041995}
+    {'variant': 'guard 0 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 32, 'bits': 3048, 'ber_conservative': 0.010498687664041995}
+    {'variant': 'guard 1 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'guard 3 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 32, 'bits': 3048, 'ber_conservative': 0.010498687664041995}
+    {'variant': 'guard 4 ms', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 32, 'bits': 3048, 'ber_conservative': 0.010498687664041995}
+    {'variant': 'mean of 3 nodes', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 62, 'bits': 3048, 'ber_conservative': 0.020341207349081365}
+    {'variant': 'nearest-to-centre sample', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 0, 'bits': 3048, 'ber_conservative': 0.0}
+    {'variant': 'no clock correction (eps = 0)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 55, 'bits': 3048, 'ber_conservative': 0.01804461942257218}
+    {'variant': 'Y2 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 62, 'bits': 3048, 'ber_conservative': 0.020341207349081365}
+    {'variant': 'Y3 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 56, 'bits': 3048, 'ber_conservative': 0.01837270341207349}
+    {'variant': 'Y4 only', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 66, 'bits': 3048, 'ber_conservative': 0.021653543307086614}
+    {'variant': '2 nodes (top 2)', 'true_frames': 24, 'missing': 0, 'false_positive': 0, 'misaligned': 0, 'errors': 57, 'bits': 3048, 'ber_conservative': 0.018700787401574805}
+stent_ber_val4_38bps_20261022_192113 {'bps': 38.0, 'deep_on_samples': 1047, 'deep_on_below_thr': 0, 'deep_off_samples': 1006, 'deep_off_above_thr': 0, 'on_margin_q001': 0.023039612542251616, 'off_margin_q999': -0.2878478989876212}
+stent_ber_val4_40bps_20261022_192306 {'bps': 40.0, 'deep_on_samples': 944, 'deep_on_below_thr': 1, 'deep_off_samples': 864, 'deep_off_above_thr': 3, 'on_margin_q001': 0.02759879143218991, 'off_margin_q999': 0.24945498905333602}
+stent_ber_val4_45bps_20261022_192448 {'bps': 45.0, 'deep_on_samples': 850, 'deep_on_below_thr': 0, 'deep_off_samples': 811, 'deep_off_above_thr': 0, 'on_margin_q001': 0.02736981479357063, 'off_margin_q999': -0.2876197853675883}
+stent_ber_val4_68bps_20261022_192559 {'bps': 68.0, 'deep_on_samples': 474, 'deep_on_below_thr': 0, 'deep_off_samples': 489, 'deep_off_above_thr': 0, 'on_margin_q001': 0.01978824574931779, 'off_margin_q999': -0.32215115742253775}
+stent_ber_val4_80bps_20261022_192702 {'bps': 80.0, 'deep_on_samples': 402, 'deep_on_below_thr': 0, 'deep_off_samples': 380, 'deep_off_above_thr': 0, 'on_margin_q001': 0.07014414027852595, 'off_margin_q999': -0.2949883111431447}
+stent_ber_val4b_80bps_20261022_195008 {'bps': 80.0, 'deep_on_samples': 406, 'deep_on_below_thr': 0, 'deep_off_samples': 377, 'deep_off_above_thr': 0, 'on_margin_q001': 0.035849603801581156, 'off_margin_q999': -0.3354546251333893}
+stent_ber_val4b_80bps_20261022_195109 {'bps': 80.0, 'deep_on_samples': 399, 'deep_on_below_thr': 0, 'deep_off_samples': 391, 'deep_off_above_thr': 0, 'on_margin_q001': 0.03246206059212986, 'off_margin_q999': -0.2988939513173641}
+stent_ber_val4b_90bps_20261022_195206 {'bps': 90.0, 'deep_on_samples': 334, 'deep_on_below_thr': 0, 'deep_off_samples': 317, 'deep_off_above_thr': 0, 'on_margin_q001': 0.008710038808313168, 'off_margin_q999': -0.28767884015606815}
+stent_ber_val4b_90bps_20261022_195302 {'bps': 90.0, 'deep_on_samples': 319, 'deep_on_below_thr': 0, 'deep_off_samples': 302, 'deep_off_above_thr': 0, 'on_margin_q001': 0.039663533389285806, 'off_margin_q999': -0.28429801090972345}
+stent_ber_val4_100bps_20261022_192753 {'bps': 100.0, 'deep_on_samples': 272, 'deep_on_below_thr': 0, 'deep_off_samples': 268, 'deep_off_above_thr': 0, 'on_margin_q001': 0.06333460009922298, 'off_margin_q999': -0.290546221405362}
+pooled {'deep_on_samples': 5447, 'deep_on_below_thr': 1, 'deep_off_samples': 5205, 'deep_off_above_thr': 3, 'p_on_upper95': None, 'p_off_upper95': None}

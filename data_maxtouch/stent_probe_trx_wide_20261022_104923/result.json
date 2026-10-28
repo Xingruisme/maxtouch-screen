@@ -1,0 +1,100 @@
+{
+ "mode": "probe",
+ "fs_hz": 63.53622677905098,
+ "missing": 0,
+ "clashes": -1,
+ "arrival_jitter_ms": 1.2882696994317826,
+ "tau_s": 4.53284707953351,
+ "start_delay_s": 0.5359559059143066,
+ "start_window_s": [
+  0.20050759315490724,
+  0.8005075931549073
+ ],
+ "align_peak": 1.0529250183477215,
+ "carriers_hz": [
+  100,
+  300,
+  1012.5,
+  2012.5,
+  4012.5,
+  8012.5,
+  20000.0,
+  50000.0,
+  163000.0,
+  500000.0,
+  1000000.0,
+  2000000.0,
+  3000000.0,
+  4000000.0
+ ],
+ "y0": 0,
+ "patch": null,
+ "noise_floor_db": {
+  "median": 0.5398172040530909,
+  "robust_sigma": 1.6991399624008157,
+  "threshold": 10.734656978457984
+ },
+ "significant": true,
+ "best": {
+  "carrier_hz": 163000.0,
+  "node": "Y2",
+  "energy_db": 55.725861711835314,
+  "level_z": 13.251526190461327,
+  "responding_nodes": [
+   "Y1",
+   "Y2",
+   "Y3",
+   "Y4"
+  ]
+ },
+ "top": [
+  {
+   "carrier_hz": 163000.0,
+   "node": "Y2",
+   "energy_db": 55.725861711835314,
+   "nodes_over_6db": 23
+  },
+  {
+   "carrier_hz": 50000.0,
+   "node": "Y4",
+   "energy_db": 36.45540712524599,
+   "nodes_over_6db": 16
+  },
+  {
+   "carrier_hz": 2012.5,
+   "node": "Y2",
+   "energy_db": 23.379071781353456,
+   "nodes_over_6db": 12
+  },
+  {
+   "carrier_hz": 4012.5,
+   "node": "Y2",
+   "energy_db": 23.035712258275076,
+   "nodes_over_6db": 13
+  },
+  {
+   "carrier_hz": 500000.0,
+   "node": "Y2",
+   "energy_db": 22.30325301500587,
+   "nodes_over_6db": 16
+  },
+  {
+   "carrier_hz": 8012.5,
+   "node": "Y2",
+   "energy_db": 22.157790642354275,
+   "nodes_over_6db": 13
+  },
+  {
+   "carrier_hz": 20000.0,
+   "node": "Y16",
+   "energy_db": 20.485675161783398,
+   "nodes_over_6db": 15
+  },
+  {
+   "carrier_hz": 1012.5,
+   "node": "Y2",
+   "energy_db": 19.452810124384243,
+   "nodes_over_6db": 13
+  }
+ ]
+}
