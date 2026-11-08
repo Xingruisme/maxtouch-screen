@@ -1,0 +1,12 @@
+<h3>v4 vs v5 (swipe60_1339) - v5 sha ff200990e353, frozen 2026-11-02 11:00:00; v4 sha 59cb5e989bc9</h3>
+<table border=1 cellspacing=0 cellpadding=4>
+<tr><th>Condition</th><th>Decoder</th><th>Runs</th><th>Errors / bits</th><th>BER (95 % CI)</th><th>Sent 1 read 0</th><th>Sent 0 read 1</th><th>In bursts</th><th>Frames recovered blind</th><th>Blind BER</th><th>Runs better than other decoder</th></tr>
+<tr><td>swipe</td><td>v4</td><td>2</td><td>705/2032</td><td>34.69 % (32.62 %-36.81 %)</td><td>403</td><td>302</td><td>617</td><td>8/16 (50.00 %)</td><td>21.65 %</td><td>0</td></tr>
+<tr><td>swipe</td><td>v5</td><td>2</td><td>573/2032</td><td>28.20 % (26.25 %-30.21 %)</td><td>349</td><td>224</td><td>490</td><td>11/16 (68.75 %)</td><td>21.98 %</td><td>2</td></tr>
+</table>
+<h3>Per run (known-timing errors / bits; blind frames recovered)</h3>
+<table border=1 cellspacing=0 cellpadding=4>
+<tr><th>Condition</th><th>Run</th><th>Role</th><th>Mod</th><th>bps</th><th>v4 errors</th><th>v5 errors</th><th>v4 1->0 / 0->1</th><th>v5 1->0 / 0->1</th><th>v4 blind frames</th><th>v5 blind frames</th></tr>
+<tr><td>swipe</td><td>ankle2finger_swipe_ook_60bps_20261102_133942</td><td>validation</td><td>OOK</td><td>60</td><td>337/1016</td><td>323/1016</td><td>210 / 127</td><td>203 / 120</td><td>5/8</td><td>4/8</td></tr>
+<tr><td>swipe</td><td>ankle2finger_swipe_fsk_60bps_20261102_134036</td><td>validation</td><td>FSK</td><td>60</td><td>368/1016</td><td>250/1016</td><td>193 / 175</td><td>146 / 104</td><td>3/8</td><td>7/8</td></tr>
+</table>

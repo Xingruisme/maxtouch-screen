@@ -1,0 +1,9 @@
+Modulation	Bit rate (bps)	BER known timing, sitting shaking, 3 sessions per rate	BER blind, sitting shaking, 3 sessions per rate	Frames recovered, sitting shaking, 3 sessions per rate	OFF drift (counts), sitting shaking, 3 sessions per rate
+OOK	20	1/3048 (0.03%)	5/3048 (0.16%)	24/24	406
+OOK	40	64/3048 (2.10%)	64/3048 (2.10%)	24/24	581
+OOK	50	13/3048 (0.43%)	12/3048 (0.39%)	24/24	698
+OOK	60	26/3048 (0.85%)	26/3048 (0.85%)	24/24	240
+FSK	20	21/3048 (0.69%)	22/3048 (0.72%)	24/24	693
+FSK	40	11/3048 (0.36%)	17/3048 (0.56%)	24/24	682
+FSK	50	13/3048 (0.43%)	9/3048 (0.30%)	24/24	385
+FSK	60	19/3048 (0.62%)	22/3048 (0.72%)	24/24	255

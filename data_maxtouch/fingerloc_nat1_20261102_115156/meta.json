@@ -1,0 +1,67 @@
+{
+ "args": {
+  "cmd": "record",
+  "what": null,
+  "label": "nat1",
+  "seconds": 5.0,
+  "patch_every": 0,
+  "patch_w": 4,
+  "patch_h": 12
+ },
+ "matrix": [
+  41,
+  71
+ ],
+ "row": {
+  "x": 0,
+  "y0": 0,
+  "ny": 28
+ },
+ "phases": [
+  [
+   1793638245.5337012,
+   6,
+   "LIFT the finger off the panel (calibration with nothing on it)"
+  ],
+  [
+   1793638251.5372603,
+   10,
+   "finger DOWN on position A (the corner where it sits in the stent runs), keep STILL"
+  ],
+  [
+   1793638261.5373201,
+   6,
+   "move to position B (~2 cm further along the top edge) and keep STILL"
+  ],
+  [
+   1793638267.53934,
+   6,
+   "move to position C (~2 cm further again) and keep STILL"
+  ],
+  [
+   1793638273.5403945,
+   6,
+   "move back to position A and keep STILL"
+  ],
+  [
+   1793638279.547438,
+   12,
+   "SLIDE slowly back and forth along the top edge between A and C, always touching"
+  ],
+  [
+   1793638291.547519,
+   20,
+   "rest the finger on position A and keep STILL (long hold: drift / recalibration check)"
+  ],
+  [
+   1793638311.5536358,
+   5,
+   "LIFT the finger"
+  ]
+ ],
+ "digitizer_reports": 0,
+ "chip_orig": {
+  "T72": 125,
+  "T100": 131
+ }
+}

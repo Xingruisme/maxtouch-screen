@@ -1,0 +1,145 @@
+condition,run,role,decoder,errors,bits,frames_known,frames_sent,blind_frames,blind_errors,blind_bits,sent1_read0,sent0_read1,in_bursts,nodes,node_switches,switches_per_s
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_121931,development,v5,15,1016,8,8,8,15,1016,11,4,0,Y2 Y1 Y0,,
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_121931,development,v7,9,1016,8,8,8,8,1016,4,5,0,,37,1.6326139073793937
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_121931,development,v7 nodes=v5,14,1016,8,8,8,15,1016,9,5,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_121931,development,v7 sigma=lead,6,1016,8,8,8,5,1016,2,4,0,,37,1.6326139073793937
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_121931,development,v7 z-score,8,1016,8,8,8,6,1016,2,6,0,,37,1.6326139073793937
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_121931,development,oracle nodes (uses bits),14,1016,8,8,8,15,1016,9,5,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122214,development,v5,9,1016,8,8,8,8,1016,4,5,0,Y1 Y0 Y2,,
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122214,development,v7,8,1016,8,8,8,8,1016,6,2,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122214,development,v7 nodes=v5,8,1016,8,8,8,8,1016,6,2,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122214,development,v7 sigma=lead,7,1016,8,8,8,7,1016,5,2,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122214,development,v7 z-score,7,1016,8,8,8,7,1016,2,5,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122214,development,oracle nodes (uses bits),8,1016,8,8,8,8,1016,6,2,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122727,development,v5,5,1016,8,8,8,4,1016,3,2,0,Y0 Y1 Y2,,
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122727,development,v7,12,1016,8,8,8,12,1016,9,3,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122727,development,v7 nodes=v5,12,1016,8,8,8,8,1016,9,3,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122727,development,v7 sigma=lead,12,1016,8,8,8,12,1016,9,3,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122727,development,v7 z-score,4,1016,8,8,8,3,1016,0,4,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_122727,development,oracle nodes (uses bits),12,1016,8,8,8,8,1016,9,3,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_123229,development,v5,7,1016,8,8,8,7,1016,4,3,0,Y0 Y1 Y2,,
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_123229,development,v7,6,1016,8,8,8,9,1016,3,3,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_123229,development,v7 nodes=v5,7,1016,8,8,8,9,1016,6,1,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_123229,development,v7 sigma=lead,9,1016,8,8,8,15,1016,7,2,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_123229,development,v7 z-score,3,1016,8,8,8,7,1016,0,3,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_fsk_60bps_20261030_123229,development,oracle nodes (uses bits),7,1016,8,8,8,9,1016,6,1,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_121900,development,v5,1,1016,8,8,8,7,1016,1,0,0,Y0 Y1 Y2,,
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_121900,development,v7,1,1016,8,8,8,5,1016,1,0,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_121900,development,v7 nodes=v5,1,1016,8,8,8,5,1016,1,0,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_121900,development,v7 sigma=lead,1,1016,8,8,8,9,1016,1,0,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_121900,development,v7 z-score,0,1016,8,8,8,7,1016,0,0,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_121900,development,oracle nodes (uses bits),1,1016,8,8,8,5,1016,1,0,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122143,development,v5,12,1016,8,8,8,12,1016,6,6,0,Y1 Y0 Y2,,
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122143,development,v7,13,1016,8,8,8,10,1016,5,8,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122143,development,v7 nodes=v5,10,1016,8,8,8,10,1016,4,6,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122143,development,v7 sigma=lead,13,1016,8,8,8,13,1016,5,8,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122143,development,v7 z-score,5,1016,8,8,8,4,1016,0,5,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122143,development,oracle nodes (uses bits),10,1016,8,8,8,10,1016,4,6,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122656,development,v5,7,1016,8,8,8,13,1016,5,2,0,Y0 Y1 Y2,,
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122656,development,v7,7,1016,8,8,8,8,1016,5,2,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122656,development,v7 nodes=v5,7,1016,8,8,8,8,1016,5,2,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122656,development,v7 sigma=lead,9,1016,8,8,8,14,1016,6,3,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122656,development,v7 z-score,7,1016,8,8,8,13,1016,5,2,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_122656,development,oracle nodes (uses bits),7,1016,8,8,8,8,1016,5,2,0,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_123158,development,v5,6,1016,8,8,8,1,1016,1,5,0,Y1 Y0 Y2,,
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_123158,development,v7,9,1016,8,8,8,5,1016,3,6,2,,2,0.08826886574478897
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_123158,development,v7 nodes=v5,11,1016,8,8,8,6,1016,5,6,2,,0,0.0
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_123158,development,v7 sigma=lead,11,1016,8,8,8,6,1016,5,6,2,,2,0.08826886574478897
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_123158,development,v7 z-score,4,1016,8,8,8,1,1016,0,4,0,,2,0.08826886574478897
+still,stent_mod_ankle2finger_sit_still_ook_60bps_20261030_123158,development,oracle nodes (uses bits),11,1016,8,8,8,6,1016,5,6,2,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123538,development,v5,7,1016,8,8,8,8,1016,2,5,0,Y1 Y2 Y0,,
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123538,development,v7,8,1016,8,8,8,8,1016,1,7,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123538,development,v7 nodes=v5,8,1016,8,8,8,8,1016,1,7,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123538,development,v7 sigma=lead,7,1016,8,8,8,8,1016,2,5,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123538,development,v7 z-score,9,1016,8,8,8,9,1016,2,7,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123538,development,oracle nodes (uses bits),8,1016,8,8,8,8,1016,1,7,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123817,development,v5,14,1016,8,8,8,10,1016,3,11,0,Y2 Y3 Y1,,
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123817,development,v7,18,1016,8,8,8,12,1016,6,12,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123817,development,v7 nodes=v5,18,1016,8,8,8,12,1016,6,12,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123817,development,v7 sigma=lead,19,1016,8,8,8,13,1016,7,12,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123817,development,v7 z-score,13,1016,8,8,8,9,1016,2,11,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_fsk_60bps_20261030_123817,development,oracle nodes (uses bits),18,1016,8,8,8,12,1016,6,12,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123507,development,v5,14,1016,8,8,8,17,1016,10,4,2,Y1 Y0 Y2,,
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123507,development,v7,13,1016,8,8,8,17,1016,9,4,2,,6,0.2648533309433291
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123507,development,v7 nodes=v5,13,1016,8,8,8,15,1016,9,4,2,,0,0.0
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123507,development,v7 sigma=lead,12,1016,8,8,8,14,1016,8,4,2,,6,0.2648533309433291
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123507,development,v7 z-score,13,1016,8,8,8,17,1016,9,4,2,,6,0.2648533309433291
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123507,development,oracle nodes (uses bits),13,1016,8,8,8,15,1016,9,4,2,,0,0.0
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123746,development,v5,7,1016,8,8,8,7,1016,2,5,0,Y2 Y1 Y3,,
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123746,development,v7,33,1016,8,8,8,34,1016,20,13,2,,0,0.0
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123746,development,v7 nodes=v5,10,1016,8,8,8,11,1016,5,5,0,,0,0.0
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123746,development,v7 sigma=lead,33,1016,8,8,8,34,1016,20,13,2,,0,0.0
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123746,development,v7 z-score,28,1016,8,8,8,22,1016,20,8,7,,0,0.0
+still,stent_mod_ankle2finger_stand_still_ook_60bps_20261030_123746,development,oracle nodes (uses bits),10,1016,8,8,8,11,1016,5,5,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164632,development,v5,12,1016,8,8,8,15,1016,12,0,0,Y0 Y1 Y2,,
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164632,development,v7,6,1016,8,8,8,7,1016,6,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164632,development,v7 nodes=v5,8,1016,8,8,8,10,1016,8,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164632,development,v7 sigma=lead,7,1016,8,8,8,7,1016,7,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164632,development,v7 z-score,0,1016,8,8,8,1,1016,0,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164632,development,oracle nodes (uses bits),8,1016,8,8,8,10,1016,8,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164942,development,v5,0,1016,8,8,8,0,1016,0,0,0,Y0 Y1 Y2,,
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164942,development,v7,9,1016,8,8,8,9,1016,8,1,2,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164942,development,v7 nodes=v5,9,1016,8,8,8,9,1016,8,1,2,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164942,development,v7 sigma=lead,9,1016,8,8,8,9,1016,8,1,2,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164942,development,v7 z-score,0,1016,8,8,8,0,1016,0,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_164942,development,oracle nodes (uses bits),9,1016,8,8,8,9,1016,8,1,2,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_165238,development,v5,5,1016,8,8,8,5,1016,5,0,0,Y1 Y0 Y2,,
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_165238,development,v7,10,1016,8,8,8,9,1016,6,4,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_165238,development,v7 nodes=v5,10,1016,8,8,8,9,1016,6,4,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_165238,development,v7 sigma=lead,10,1016,8,8,8,10,1016,9,1,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_165238,development,v7 z-score,4,1016,8,8,8,3,1016,4,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_fsk_60bps_20261101_165238,development,oracle nodes (uses bits),10,1016,8,8,8,9,1016,6,4,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164601,development,v5,8,1016,8,8,8,8,1016,8,0,0,Y0 Y1 Y2,,
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164601,development,v7,2,1016,8,8,8,3,1016,2,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164601,development,v7 nodes=v5,7,1016,8,8,8,7,1016,7,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164601,development,v7 sigma=lead,2,1016,8,8,8,2,1016,2,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164601,development,v7 z-score,1,1016,8,8,8,2,1016,0,1,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164601,development,oracle nodes (uses bits),7,1016,8,8,8,7,1016,7,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164911,development,v5,11,1016,8,8,8,13,1016,11,0,2,Y1 Y0 Y2,,
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164911,development,v7,2,1016,8,8,8,2,1016,2,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164911,development,v7 nodes=v5,1,1016,8,8,8,1,1016,1,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164911,development,v7 sigma=lead,8,1016,8,8,8,8,1016,8,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164911,development,v7 z-score,1,1016,8,8,8,1,1016,0,1,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164911,development,oracle nodes (uses bits),1,1016,8,8,8,1,1016,1,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_165207,development,v5,5,1016,8,8,8,3,1016,5,0,0,Y1 Y2 Y0,,
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_165207,development,v7,5,1016,8,8,8,6,1016,5,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_165207,development,v7 nodes=v5,5,1016,8,8,8,6,1016,5,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_165207,development,v7 sigma=lead,7,1016,8,8,8,7,1016,7,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_165207,development,v7 z-score,3,1016,8,8,8,3,1016,3,0,0,,0,0.0
+moving,stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_165207,development,oracle nodes (uses bits),5,1016,8,8,8,6,1016,5,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_172917,development,v5,15,1016,8,8,8,14,1016,15,0,2,Y2 Y1 Y0,,
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_172917,development,v7,6,1016,8,8,8,7,1016,6,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_172917,development,v7 nodes=v5,6,1016,8,8,8,7,1016,6,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_172917,development,v7 sigma=lead,6,1016,8,8,8,6,1016,6,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_172917,development,v7 z-score,7,1016,8,8,8,7,1016,7,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_172917,development,oracle nodes (uses bits),6,1016,8,8,8,7,1016,6,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173221,development,v5,5,1016,8,8,8,6,1016,5,0,0,Y0 Y1 Y2,,
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173221,development,v7,7,1016,8,8,8,5,1016,7,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173221,development,v7 nodes=v5,9,1016,8,8,8,9,1016,9,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173221,development,v7 sigma=lead,1,1016,8,8,8,1,1016,1,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173221,development,v7 z-score,0,1016,8,8,8,0,1016,0,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173221,development,oracle nodes (uses bits),9,1016,8,8,8,9,1016,9,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173631,development,v5,30,1016,8,8,8,30,1016,27,3,9,Y2 Y3 Y1,,
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173631,development,v7,24,1016,8,8,8,25,1016,21,3,7,,3,0.13239162176441316
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173631,development,v7 nodes=v5,24,1016,8,8,8,24,1016,21,3,7,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173631,development,v7 sigma=lead,23,1016,8,8,8,24,1016,20,3,7,,3,0.13239162176441316
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173631,development,v7 z-score,21,1016,8,8,8,21,1016,9,12,13,,3,0.13239162176441316
+moving,stent_mod_ankle2finger_stand-walking_fsk_60bps_20261101_173631,development,oracle nodes (uses bits),24,1016,8,8,8,24,1016,21,3,7,,1,0.044130540588137715
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_172846,development,v5,7,1016,8,8,8,6,1016,7,0,0,Y2 Y1 Y0,,
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_172846,development,v7,7,1016,8,8,8,6,1016,7,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_172846,development,v7 nodes=v5,7,1016,8,8,8,6,1016,7,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_172846,development,v7 sigma=lead,5,1016,8,8,8,5,1016,5,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_172846,development,v7 z-score,6,1016,8,8,8,5,1016,6,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_172846,development,oracle nodes (uses bits),7,1016,8,8,8,6,1016,7,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173150,development,v5,4,1016,8,8,8,4,1016,4,0,0,Y0 Y1 Y2,,
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173150,development,v7,0,1016,8,8,8,0,1016,0,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173150,development,v7 nodes=v5,0,1016,8,8,8,3,1016,0,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173150,development,v7 sigma=lead,0,1016,8,8,8,0,1016,0,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173150,development,v7 z-score,0,1016,8,8,8,0,1016,0,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173150,development,oracle nodes (uses bits),0,1016,8,8,8,3,1016,0,0,0,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173600,development,v5,40,1016,8,8,8,40,1016,29,11,19,Y2 Y3 Y1,,
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173600,development,v7,43,1016,8,8,8,43,1016,17,26,30,,9,0.39713983673502795
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173600,development,v7 nodes=v5,41,1016,8,8,8,41,1016,19,22,27,,0,0.0
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173600,development,v7 sigma=lead,31,1016,8,8,8,29,1016,26,5,13,,9,0.39713983673502795
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173600,development,v7 z-score,39,1016,8,8,8,40,1016,16,23,27,,9,0.39713983673502795
+moving,stent_mod_ankle2finger_stand-walking_ook_60bps_20261101_173600,development,oracle nodes (uses bits),42,1016,8,8,8,42,1016,18,24,29,,4,0.17650659410445688

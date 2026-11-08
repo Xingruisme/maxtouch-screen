@@ -1,0 +1,9 @@
+Modulation	Bit rate (bps)	BER known timing, static, 6 sessions/rate	BER known timing, moving, 6 sessions/rate	BER blind, static, 6 sessions/rate	BER blind, moving, 6 sessions/rate	Frames recovered, static, 6 sessions/rate	Frames recovered, moving, 6 sessions/rate	OFF drift (counts), static, 6 sessions/rate	OFF drift (counts), moving, 6 sessions/rate
+OOK	20	2/6096 (0.03%)	14/6604 (0.21%)	3/6096 (0.05%)	18/6604 (0.27%)	48/48	52/52	310	733
+OOK	40	7/6096 (0.11%)	72/6096 (1.18%)	10/6096 (0.16%)	72/6096 (1.18%)	48/48	48/48	310	594
+OOK	50	14/6096 (0.23%)	23/6604 (0.35%)	20/6096 (0.33%)	22/6604 (0.33%)	48/48	52/52	181	635
+OOK	60	72/6096 (1.18%)	81/6096 (1.33%)	80/6096 (1.31%)	79/6096 (1.30%)	48/48	48/48	196	455
+FSK	20	16/6096 (0.26%)	32/6604 (0.48%)	17/6096 (0.28%)	33/6604 (0.50%)	48/48	52/52	264	860
+FSK	40	6/6096 (0.10%)	52/6096 (0.85%)	9/6096 (0.15%)	59/6096 (0.97%)	48/48	48/48	199	610
+FSK	50	14/6096 (0.23%)	37/6604 (0.56%)	18/6096 (0.30%)	35/6604 (0.53%)	48/48	52/52	265	465
+FSK	60	72/6096 (1.18%)	81/6096 (1.33%)	63/6096 (1.03%)	84/6096 (1.38%)	48/48	48/48	314	414

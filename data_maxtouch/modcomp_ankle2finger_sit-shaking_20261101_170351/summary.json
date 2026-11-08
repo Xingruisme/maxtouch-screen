@@ -1,0 +1,508 @@
+{
+ "rows": [
+  {
+   "run": "stent_mod_ankle2finger_sit-shaking_fsk_20bps_20261101_170508",
+   "modulation": "fsk",
+   "bps": 20.0,
+   "carrier_hz": 159585.0,
+   "zero_hz": 180556.0,
+   "samples_per_bit": 6.262252098087791,
+   "nodes": "Y2 Y1 Y3",
+   "decoder": "v4 59cb5e989bc9",
+   "current_ma": 1.0,
+   "clip_fraction": 0.0002731494127287626,
+   "bits": 1016,
+   "errors": 21,
+   "ber": 0.02066929133858268,
+   "ber_upper95": null,
+   "ber_conservative": 0.02066929133858268,
+   "blind_bits": 1016,
+   "blind_errors": 21,
+   "blind_ber": 0.02066929133858268,
+   "delay_ms": 11.001825332641602,
+   "clock_ppm": 10.0,
+   "signal_present": 1.0,
+   "signal_lost": false,
+   "blind_frames_valid": 8,
+   "frames_sent": 8,
+   "frame_recovery": 1.0,
+   "blind_ber_conservative": 0.02066929133858268,
+   "blind_sent0_read1": 21,
+   "blind_sent1_read0": 0,
+   "blind_in_bursts": 20,
+   "es_n0_db": 46.986978943140734,
+   "noise_sigma": 14.825999999999999,
+   "signal_rms": 1872.9348353234766,
+   "contrast_db": 35.86412616994337,
+   "drift_counts": 212.14999999999998,
+   "off_jitter": 16.773704220594805,
+   "off_excursion": 0.068869241507678,
+   "fska_dec_errors": 4,
+   "fska_dec_bits": 1016,
+   "fska_dec_blind_errors": 4,
+   "fska_dec_blind_bits": 1016,
+   "fska_dec_frames_valid": 8,
+   "condition": "still",
+   "label": "ankle2finger_sit-shaking",
+   "capture_sha256": "5813973a6b50a871",
+   "t_first_local": "2026-11-01T17:03:58.072"
+  },
+  {
+   "run": "stent_mod_ankle2finger_sit-shaking_ook_20bps_20261101_170351",
+   "modulation": "ook",
+   "bps": 20.0,
+   "carrier_hz": 159585.0,
+   "zero_hz": 0.0,
+   "samples_per_bit": 6.270052168158373,
+   "nodes": "Y1 Y2 Y3",
+   "decoder": "v4 59cb5e989bc9",
+   "current_ma": 1.0,
+   "clip_fraction": 0.0005505092210294523,
+   "bits": 1016,
+   "errors": 0,
+   "ber": 0.0,
+   "ber_upper95": 0.002952755905511811,
+   "ber_conservative": 0.0,
+   "blind_bits": 1016,
+   "blind_errors": 3,
+   "blind_ber": 0.002952755905511811,
+   "delay_ms": 11.999845504760742,
+   "clock_ppm": 0.0,
+   "signal_present": 1.0,
+   "signal_lost": false,
+   "blind_frames_valid": 8,
+   "frames_sent": 8,
+   "frame_recovery": 1.0,
+   "blind_ber_conservative": 0.002952755905511811,
+   "blind_sent0_read1": 3,
+   "blind_sent1_read0": 0,
+   "blind_in_bursts": 0,
+   "es_n0_db": 51.10941553998414,
+   "noise_sigma": 8.8956,
+   "signal_rms": 1805.200494716246,
+   "contrast_db": 41.06087542774426,
+   "drift_counts": 108.79999999999973,
+   "off_jitter": 5.241782568935876,
+   "off_excursion": 0.0,
+   "condition": "still",
+   "label": "ankle2finger_sit-shaking",
+   "capture_sha256": "00b14f0c4bd73d53",
+   "t_first_local": "2026-11-01T17:02:41.626"
+  },
+  {
+   "run": "stent_mod_ankle2finger_sit-shaking_fsk_50bps_20261101_170619",
+   "modulation": "fsk",
+   "bps": 50.0,
+   "carrier_hz": 159585.0,
+   "zero_hz": 180556.0,
+   "samples_per_bit": 2.5035597759197814,
+   "nodes": "Y2 Y3 Y1",
+   "decoder": "v4 59cb5e989bc9",
+   "current_ma": 1.0,
+   "clip_fraction": 0.000691085003455425,
+   "bits": 1016,
+   "errors": 0,
+   "ber": 0.0,
+   "ber_upper95": 0.002952755905511811,
+   "ber_conservative": 0.0,
+   "blind_bits": 1016,
+   "blind_errors": 0,
+   "blind_ber": 0.0,
+   "delay_ms": 11.50202751159668,
+   "clock_ppm": -80.0,
+   "signal_present": 1.0,
+   "signal_lost": false,
+   "blind_frames_valid": 8,
+   "frames_sent": 8,
+   "frame_recovery": 1.0,
+   "blind_ber_conservative": 0.0,
+   "blind_sent0_read1": 0,
+   "blind_sent1_read0": 0,
+   "blind_in_bursts": 0,
+   "es_n0_db": 49.86851478622641,
+   "noise_sigma": 7.412999999999999,
+   "signal_rms": 2063.7436721902563,
+   "contrast_db": 33.03447547695443,
+   "drift_counts": 174.0,
+   "off_jitter": 19.91877376195633,
+   "off_excursion": 0.0274247491638796,
+   "fska_dec_errors": 0,
+   "fska_dec_bits": 1016,
+   "fska_dec_blind_errors": 1,
+   "fska_dec_blind_bits": 1016,
+   "fska_dec_frames_valid": 8,
+   "condition": "still",
+   "label": "ankle2finger_sit-shaking",
+   "capture_sha256": "42df1b7865d81322",
+   "t_first_local": "2026-11-01T17:05:50.136"
+  },
+  {
+   "run": "stent_mod_ankle2finger_sit-shaking_ook_50bps_20261101_170543",
+   "modulation": "ook",
+   "bps": 50.0,
+   "carrier_hz": 159585.0,
+   "zero_hz": 0.0,
+   "samples_per_bit": 2.5019357121933874,
+   "nodes": "Y2 Y3 Y1",
+   "decoder": "v4 59cb5e989bc9",
+   "current_ma": 1.0,
+   "clip_fraction": 0.0004438526409232135,
+   "bits": 1016,
+   "errors": 5,
+   "ber": 0.004921259842519685,
+   "ber_upper95": null,
+   "ber_conservative": 0.004921259842519685,
+   "blind_bits": 1016,
+   "blind_errors": 4,
+   "blind_ber": 0.003937007874015748,
+   "delay_ms": 11.752128601074219,
+   "clock_ppm": -89.99999999999999,
+   "signal_present": 1.0,
+   "signal_lost": false,
+   "blind_frames_valid": 8,
+   "frames_sent": 8,
+   "frame_recovery": 1.0,
+   "blind_ber_conservative": 0.003937007874015748,
+   "blind_sent0_read1": 0,
+   "blind_sent1_read0": 4,
+   "blind_in_bursts": 0,
+   "es_n0_db": 44.74158532610301,
+   "noise_sigma": 13.343399999999999,
+   "signal_rms": 2059.3145891869513,
+   "contrast_db": 13.913041572150798,
+   "drift_counts": 1376.5,
+   "off_jitter": 5.241782568935876,
+   "off_excursion": 0.6156417112299465,
+   "condition": "still",
+   "label": "ankle2finger_sit-shaking",
+   "capture_sha256": "4f359596dfd800bd",
+   "t_first_local": "2026-11-01T17:05:14.515"
+  }
+ ],
+ "curves": {
+  "ook": {
+   "run": "stent_mod_ankle2finger_sit-shaking_ook_20bps_20261101_170351",
+   "bps": 20.0,
+   "points": [
+    {
+     "es_n0_db": -2.0,
+     "errors": 447,
+     "bits": 1016,
+     "ber": 0.43996062992125984,
+     "added_sigma": 4023.8794552080126
+    },
+    {
+     "es_n0_db": 0.0,
+     "errors": 410,
+     "bits": 1016,
+     "ber": 0.4035433070866142,
+     "added_sigma": 3196.276496121873
+    },
+    {
+     "es_n0_db": 2.0,
+     "errors": 368,
+     "bits": 1016,
+     "ber": 0.36220472440944884,
+     "added_sigma": 2538.88691572481
+    },
+    {
+     "es_n0_db": 4.0,
+     "errors": 305,
+     "bits": 1016,
+     "ber": 0.3001968503937008,
+     "added_sigma": 2016.702321666873
+    },
+    {
+     "es_n0_db": 6.0,
+     "errors": 252,
+     "bits": 1016,
+     "ber": 0.24803149606299213,
+     "added_sigma": 1601.9144801376247
+    },
+    {
+     "es_n0_db": 8.0,
+     "errors": 161,
+     "bits": 1016,
+     "ber": 0.15846456692913385,
+     "added_sigma": 1272.4344260020196
+    },
+    {
+     "es_n0_db": 10.0,
+     "errors": 137,
+     "bits": 1016,
+     "ber": 0.13484251968503938,
+     "added_sigma": 1010.7161448382468
+    },
+    {
+     "es_n0_db": 12.0,
+     "errors": 93,
+     "bits": 1016,
+     "ber": 0.09153543307086615,
+     "added_sigma": 802.8221836461919
+    },
+    {
+     "es_n0_db": 14.0,
+     "errors": 82,
+     "bits": 1016,
+     "ber": 0.08070866141732283,
+     "added_sigma": 637.681430568769
+    },
+    {
+     "es_n0_db": 16.0,
+     "errors": 51,
+     "bits": 1016,
+     "ber": 0.05019685039370079,
+     "added_sigma": 506.4995376483927
+    },
+    {
+     "es_n0_db": 18.0,
+     "errors": 45,
+     "bits": 1016,
+     "ber": 0.04429133858267716,
+     "added_sigma": 402.2905893978691
+    },
+    {
+     "es_n0_db": 20.0,
+     "errors": 26,
+     "bits": 1016,
+     "ber": 0.025590551181102362,
+     "added_sigma": 319.5050766642758
+    },
+    {
+     "es_n0_db": 22.0,
+     "errors": 16,
+     "bits": 1016,
+     "ber": 0.015748031496062992,
+     "added_sigma": 253.734363707441
+    },
+    {
+     "es_n0_db": 24.0,
+     "errors": 7,
+     "bits": 1016,
+     "ber": 0.006889763779527559,
+     "added_sigma": 201.47590962643443
+    },
+    {
+     "es_n0_db": 26.0,
+     "errors": 4,
+     "bits": 1016,
+     "ber": 0.003937007874015748,
+     "added_sigma": 159.9467399929725
+    },
+    {
+     "es_n0_db": 28.0,
+     "errors": 3,
+     "bits": 1016,
+     "ber": 0.002952755905511811,
+     "added_sigma": 126.93523270701677
+    },
+    {
+     "es_n0_db": 30.0,
+     "errors": 2,
+     "bits": 1016,
+     "ber": 0.001968503937007874,
+     "added_sigma": 100.68331973073036
+    },
+    {
+     "es_n0_db": 32.0,
+     "errors": 0,
+     "bits": 1016,
+     "ber": 0.0,
+     "added_sigma": 79.79282049895212
+    },
+    {
+     "es_n0_db": 34.0,
+     "errors": 0,
+     "bits": 1016,
+     "ber": 0.0,
+     "added_sigma": 63.1508961658971
+    },
+    {
+     "es_n0_db": 36.0,
+     "errors": 0,
+     "bits": 1016,
+     "ber": 0.0,
+     "added_sigma": 49.87060691443363
+    },
+    {
+     "es_n0_db": 38.0,
+     "errors": 0,
+     "bits": 1016,
+     "ber": 0.0,
+     "added_sigma": 39.243302623689175
+    },
+    {
+     "es_n0_db": 40.0,
+     "errors": 0,
+     "bits": 1016,
+     "ber": 0.0,
+     "added_sigma": 30.700074230790516
+    }
+   ]
+  },
+  "fsk": {
+   "run": "stent_mod_ankle2finger_sit-shaking_fsk_20bps_20261101_170508",
+   "bps": 20.0,
+   "points": [
+    {
+     "es_n0_db": -2.0,
+     "errors": 440,
+     "bits": 1016,
+     "ber": 0.4330708661417323,
+     "added_sigma": 4172.248824709136
+    },
+    {
+     "es_n0_db": 0.0,
+     "errors": 406,
+     "bits": 1016,
+     "ber": 0.39960629921259844,
+     "added_sigma": 3314.122805347016
+    },
+    {
+     "es_n0_db": 2.0,
+     "errors": 381,
+     "bits": 1016,
+     "ber": 0.375,
+     "added_sigma": 2632.4859103060403
+    },
+    {
+     "es_n0_db": 4.0,
+     "errors": 309,
+     "bits": 1016,
+     "ber": 0.30413385826771655,
+     "added_sigma": 2091.0384892505735
+    },
+    {
+     "es_n0_db": 6.0,
+     "errors": 252,
+     "bits": 1016,
+     "ber": 0.24803149606299213,
+     "added_sigma": 1660.946492465364
+    },
+    {
+     "es_n0_db": 8.0,
+     "errors": 197,
+     "bits": 1016,
+     "ber": 0.19389763779527558,
+     "added_sigma": 1319.3059524917926
+    },
+    {
+     "es_n0_db": 10.0,
+     "errors": 146,
+     "bits": 1016,
+     "ber": 0.1437007874015748,
+     "added_sigma": 1047.9232641962471
+    },
+    {
+     "es_n0_db": 12.0,
+     "errors": 96,
+     "bits": 1016,
+     "ber": 0.09448818897637795,
+     "added_sigma": 832.346308664598
+    },
+    {
+     "es_n0_db": 14.0,
+     "errors": 68,
+     "bits": 1016,
+     "ber": 0.06692913385826772,
+     "added_sigma": 661.0948245935164
+    },
+    {
+     "es_n0_db": 16.0,
+     "errors": 60,
+     "bits": 1016,
+     "ber": 0.05905511811023622,
+     "added_sigma": 525.0490413617564
+    },
+    {
+     "es_n0_db": 18.0,
+     "errors": 28,
+     "bits": 1016,
+     "ber": 0.027559055118110236,
+     "added_sigma": 416.9640156891571
+    },
+    {
+     "es_n0_db": 20.0,
+     "errors": 16,
+     "bits": 1016,
+     "ber": 0.015748031496062992,
+     "added_sigma": 331.0838073901709
+    },
+    {
+     "es_n0_db": 22.0,
+     "errors": 12,
+     "bits": 1016,
+     "ber": 0.011811023622047244,
+     "added_sigma": 262.83494536754085
+    },
+    {
+     "es_n0_db": 24.0,
+     "errors": 5,
+     "bits": 1016,
+     "ber": 0.004921259842519685,
+     "added_sigma": 208.58285514881902
+    },
+    {
+     "es_n0_db": 26.0,
+     "errors": 3,
+     "bits": 1016,
+     "ber": 0.002952755905511811,
+     "added_sigma": 165.43826744465727
+    },
+    {
+     "es_n0_db": 28.0,
+     "errors": 1,
+     "bits": 1016,
+     "ber": 0.000984251968503937,
+     "added_sigma": 131.10327909538637
+    },
+    {
+     "es_n0_db": 30.0,
+     "errors": 1,
+     "bits": 1016,
+     "ber": 0.000984251968503937,
+     "added_sigma": 103.74882892446148
+    },
+    {
+     "es_n0_db": 32.0,
+     "errors": 0,
+     "bits": 1016,
+     "ber": 0.0,
+     "added_sigma": 81.91697993844633
+    },
+    {
+     "es_n0_db": 34.0,
+     "errors": 0,
+     "bits": 1016,
+     "ber": 0.0,
+     "added_sigma": 64.4426217483687
+    },
+    {
+     "es_n0_db": 36.0,
+     "errors": 0,
+     "bits": 1016,
+     "ber": 0.0,
+     "added_sigma": 50.390006798064576
+    },
+    {
+     "es_n0_db": 38.0,
+     "errors": 0,
+     "bits": 1016,
+     "ber": 0.0,
+     "added_sigma": 38.9997144932662
+    },
+    {
+     "es_n0_db": 40.0,
+     "errors": 4,
+     "bits": 1016,
+     "ber": 0.003937007874015748,
+     "added_sigma": 29.640389705935338
+    }
+   ]
+  }
+ },
+ "modcomp_sha": "93b41baabff0",
+ "dbpsk_rules": "nodes = top 3 by energy increase after START TX (v4 rule 1); y = sum of (x - OFF baseline) / OFF sigma over them; timing: carrier-on and carrier-off edges (first / last |y| > 10 lead rms, midpoint to the neighbouring sample) give the start and the clock (n_symbols bits apart, clipped to +-200 ppm as v4); bit k = 1 if y(last guarded sample of symbol k-1) * y(first guarded sample of symbol k) < 0, guard 2 ms as v4, no guarded sample -> any sample of the symbol, none -> decided 0",
+ "fska_rules": null,
+ "theory": "DBPSK 0.5exp(-g), FSK noncoh 0.5exp(-g/2), OOK noncoh ~0.5exp(-g/4), g = Es/N0"
+}

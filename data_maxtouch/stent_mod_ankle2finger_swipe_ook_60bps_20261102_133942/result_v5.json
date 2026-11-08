@@ -1,0 +1,47 @@
+{
+ "decoder": "v5",
+ "rules_sha": "ff200990e353",
+ "frozen_at": "2026-11-02 11:00:00",
+ "v4_rules_sha": "59cb5e989bc9",
+ "base_half_s": 0.25,
+ "role": "validation",
+ "run": "stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942",
+ "modulation": "ook",
+ "bps": 59.99880002399952,
+ "nodes": [
+  "Y5",
+  "Y7",
+  "Y6"
+ ],
+ "combined_blind": {
+  "frames_valid": 4,
+  "frames_sent": 8,
+  "bits": 508,
+  "errors": 110,
+  "ber": 0.21653543307086615,
+  "ber_upper95": null,
+  "ber_conservative": 0.35826771653543305,
+  "clock_ppm": -40.0,
+  "errors_by_type": {
+   "sent1_read0": 84,
+   "sent0_read1": 26,
+   "in_bursts": 84
+  }
+ },
+ "combined_known_timing": {
+  "frames_valid": 8,
+  "frames_sent": 8,
+  "bits": 1016,
+  "errors": 323,
+  "ber": 0.31791338582677164,
+  "ber_upper95": null,
+  "ber_conservative": 0.31791338582677164,
+  "delay_ms": 10.001420974731445,
+  "clock_ppm": 49.99999999999999,
+  "errors_by_type": {
+   "sent1_read0": 203,
+   "sent0_read1": 120,
+   "in_bursts": 276
+  }
+ }
+}

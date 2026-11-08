@@ -1,0 +1,134 @@
+{
+ "decoder": "v4",
+ "frozen_at": "2026-10-22 19:16",
+ "rules_sha": "59cb5e989bc9",
+ "role": "validation",
+ "rules": "raw-timestamp decoding, top 3 nodes, absdev, max of z, guard 2 ms, header-searched offset and clock drift",
+ "run": "stent_mod_ankle2finger_sit-shaking_ook_60bps_20261101_164601",
+ "bps": 59.99880002399952,
+ "carrier_hz": 159585.0,
+ "samples_per_bit": 2.0848099661035198,
+ "nodes": [
+  "Y0",
+  "Y1",
+  "Y2"
+ ],
+ "single_top_ranked": {
+  "node": "Y0",
+  "score_db": 45.201255343275335,
+  "frames_valid": 8,
+  "frames_sent": 8,
+  "bits": 1016,
+  "errors": 21,
+  "ber": 0.02066929133858268,
+  "ber_upper95": null,
+  "ber_conservative": 0.02066929133858268,
+  "errors_by_type": {
+   "sent1_read0": 21,
+   "sent0_read1": 0,
+   "in_bursts": 4
+  }
+ },
+ "single_best_of_3_after_decoding": {
+  "node": "Y1",
+  "score_db": 44.88488675887357,
+  "frames_valid": 8,
+  "frames_sent": 8,
+  "bits": 1016,
+  "errors": 8,
+  "ber": 0.007874015748031496,
+  "ber_upper95": null,
+  "ber_conservative": 0.007874015748031496,
+  "errors_by_type": {
+   "sent1_read0": 8,
+   "sent0_read1": 0,
+   "in_bursts": 0
+  }
+ },
+ "single_all": [
+  {
+   "node": "Y0",
+   "score_db": 45.201255343275335,
+   "frames_valid": 8,
+   "frames_sent": 8,
+   "bits": 1016,
+   "errors": 21,
+   "ber": 0.02066929133858268,
+   "ber_upper95": null,
+   "ber_conservative": 0.02066929133858268,
+   "errors_by_type": {
+    "sent1_read0": 21,
+    "sent0_read1": 0,
+    "in_bursts": 4
+   }
+  },
+  {
+   "node": "Y1",
+   "score_db": 44.88488675887357,
+   "frames_valid": 8,
+   "frames_sent": 8,
+   "bits": 1016,
+   "errors": 8,
+   "ber": 0.007874015748031496,
+   "ber_upper95": null,
+   "ber_conservative": 0.007874015748031496,
+   "errors_by_type": {
+    "sent1_read0": 8,
+    "sent0_read1": 0,
+    "in_bursts": 0
+   }
+  },
+  {
+   "node": "Y2",
+   "score_db": 40.970785731591135,
+   "frames_valid": 8,
+   "frames_sent": 8,
+   "bits": 1016,
+   "errors": 12,
+   "ber": 0.011811023622047244,
+   "ber_upper95": null,
+   "ber_conservative": 0.011811023622047244,
+   "errors_by_type": {
+    "sent1_read0": 12,
+    "sent0_read1": 0,
+    "in_bursts": 0
+   }
+  }
+ ],
+ "combined_blind": {
+  "frames_valid": 8,
+  "frames_sent": 8,
+  "bits": 1016,
+  "errors": 8,
+  "ber": 0.007874015748031496,
+  "ber_upper95": null,
+  "ber_conservative": 0.007874015748031496,
+  "errors_by_type": {
+   "sent1_read0": 8,
+   "sent0_read1": 0,
+   "in_bursts": 0
+  },
+  "clock_ppm": 49.99999999999999
+ },
+ "combined_known_timing": {
+  "frames_valid": 8,
+  "frames_sent": 8,
+  "bits": 1016,
+  "errors": 8,
+  "ber": 0.007874015748031496,
+  "ber_upper95": null,
+  "ber_conservative": 0.007874015748031496,
+  "delay_ms": 12.002229690551758,
+  "clock_ppm": -109.99999999999999,
+  "errors_by_type": {
+   "sent1_read0": 8,
+   "sent0_read1": 0,
+   "in_bursts": 0
+  }
+ },
+ "health": {
+  "windows": 11,
+  "signal_fraction": 1.0,
+  "signal_lost": false
+ }
+}

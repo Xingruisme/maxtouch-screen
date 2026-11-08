@@ -1,0 +1,9 @@
+Modulation	Bit rate (bps)	BER known timing, standing still, 3 sessions	BER known timing, sitting still, 3 sessions	BER blind, standing still, 3 sessions	BER blind, sitting still, 3 sessions	Frames recovered, standing still, 3 sessions	Frames recovered, sitting still, 3 sessions	OFF drift (counts), standing still, 3 sessions	OFF drift (counts), sitting still, 3 sessions
+OOK	20	0/3048 (0.00%)	2/3048 (0.07%)	1/3048 (0.03%)	2/3048 (0.07%)	24/24	24/24	328	291
+OOK	50	12/3048 (0.39%)	2/3048 (0.07%)	16/3048 (0.52%)	4/3048 (0.13%)	24/24	24/24	303	59
+OOK	80	43/3048 (1.41%)	4/3048 (0.13%)	44/3048 (1.44%)	5/3048 (0.16%)	24/24	24/24	334	191
+OOK	100	74/3048 (2.43%)	95/2921 (3.25%)	67/3048 (2.20%)	87/2921 (2.98%)	24/24	23/24	280	238
+FSK	20	0/3048 (0.00%)	16/3048 (0.52%)	0/3048 (0.00%)	17/3048 (0.56%)	24/24	24/24	295	233
+FSK	50	5/3048 (0.16%)	9/3048 (0.30%)	7/3048 (0.23%)	11/3048 (0.36%)	24/24	24/24	210	321
+FSK	80	34/3048 (1.12%)	17/3048 (0.56%)	39/3048 (1.28%)	17/3048 (0.56%)	24/24	24/24	202	191
+FSK	100	82/3048 (2.69%)	47/2540 (1.85%)	77/3048 (2.53%)	39/2667 (1.46%)	24/24	21/24	245	146

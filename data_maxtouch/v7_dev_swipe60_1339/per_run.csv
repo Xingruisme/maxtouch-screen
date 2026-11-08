@@ -1,0 +1,13 @@
+condition,run,role,decoder,errors,bits,frames_known,frames_sent,blind_frames,blind_errors,blind_bits,sent1_read0,sent0_read1,in_bursts,nodes,node_switches,switches_per_s
+swipe,stent_mod_ankle2finger_swipe_fsk_60bps_20261102_134036,development,v5,250,1016,8,8,7,197,889,146,104,214,Y8 Y9 Y6,,
+swipe,stent_mod_ankle2finger_swipe_fsk_60bps_20261102_134036,development,v7,42,1016,8,8,8,44,1016,9,33,31,,31,1.3681664832724376
+swipe,stent_mod_ankle2finger_swipe_fsk_60bps_20261102_134036,development,v7 nodes=v5,244,1016,8,8,7,192,889,144,100,210,,0,0.0
+swipe,stent_mod_ankle2finger_swipe_fsk_60bps_20261102_134036,development,v7 sigma=lead,51,1016,8,8,8,52,1016,10,41,38,,31,1.3681664832724376
+swipe,stent_mod_ankle2finger_swipe_fsk_60bps_20261102_134036,development,v7 z-score,79,1016,8,8,8,79,1016,47,32,52,,31,1.3681664832724376
+swipe,stent_mod_ankle2finger_swipe_fsk_60bps_20261102_134036,development,oracle nodes (uses bits),43,1016,8,8,8,43,1016,11,32,32,,20,0.8826880537241533
+swipe,stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942,development,v5,323,1016,8,8,4,110,508,203,120,276,Y5 Y7 Y6,,
+swipe,stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942,development,v7,101,1016,8,8,7,72,889,27,74,73,,48,2.1186395958880966
+swipe,stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942,development,v7 nodes=v5,333,1016,8,8,4,108,508,200,133,290,,0,0.0
+swipe,stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942,development,v7 sigma=lead,186,1016,8,8,6,80,762,117,69,149,,48,2.1186395958880966
+swipe,stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942,development,v7 z-score,123,1016,8,8,6,40,762,68,55,100,,48,2.1186395958880966
+swipe,stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942,development,oracle nodes (uses bits),94,1016,8,8,8,93,1016,16,78,71,,25,1.1034581228583835

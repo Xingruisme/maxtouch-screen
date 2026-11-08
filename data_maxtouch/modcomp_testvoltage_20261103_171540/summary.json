@@ -1,0 +1,212 @@
+{
+ "rows": [
+  {
+   "run": "stent_mod_testvoltage_ook_10bps_20261103_171540",
+   "modulation": "ook",
+   "bps": 10.0,
+   "carrier_hz": 159585.0,
+   "zero_hz": 0.0,
+   "samples_per_bit": 12.470020126964778,
+   "nodes": "Y3 Y2 Y4",
+   "decoder": "v4 59cb5e989bc9",
+   "current_ma": 1.0,
+   "clip_fraction": 0.0005952380952380953,
+   "bits": 254,
+   "errors": 110,
+   "ber": 0.4330708661417323,
+   "ber_upper95": null,
+   "ber_conservative": 0.48326771653543305,
+   "blind_bits": 0,
+   "blind_errors": 0,
+   "blind_ber": null,
+   "delay_ms": 7.250308990478516,
+   "clock_ppm": 189.99999999999997,
+   "signal_present": 1.0,
+   "signal_lost": false,
+   "blind_frames_valid": 0,
+   "frames_sent": 8,
+   "frame_recovery": 0.0,
+   "blind_ber_conservative": 0.5,
+   "blind_sent0_read1": 0,
+   "blind_sent1_read0": 0,
+   "blind_in_bursts": 0,
+   "es_n0_db": 49.66836876847185,
+   "noise_sigma": 17.7912,
+   "signal_rms": 2168.7280713011037,
+   "contrast_db": 10.728162136479531,
+   "drift_counts": 1559.0,
+   "off_jitter": 5.241782568935876,
+   "off_excursion": 0.6593944790739091,
+   "condition": "swipe",
+   "label": "testvoltage",
+   "capture_sha256": "000d8cf3327c5537",
+   "t_first_local": "2026-11-03T17:15:05.645"
+  }
+ ],
+ "curves": {
+  "ook": {
+   "run": "stent_mod_testvoltage_ook_10bps_20261103_171540",
+   "bps": 10.0,
+   "points": [
+    {
+     "es_n0_db": -2.0,
+     "errors": 108,
+     "bits": 254,
+     "ber": 0.4251968503937008,
+     "added_sigma": 6817.453766951427
+    },
+    {
+     "es_n0_db": 0.0,
+     "errors": 103,
+     "bits": 254,
+     "ber": 0.40551181102362205,
+     "added_sigma": 5415.285230641039
+    },
+    {
+     "es_n0_db": 2.0,
+     "errors": 116,
+     "bits": 254,
+     "ber": 0.4566929133858268,
+     "added_sigma": 4301.500379764833
+    },
+    {
+     "es_n0_db": 4.0,
+     "errors": 92,
+     "bits": 254,
+     "ber": 0.36220472440944884,
+     "added_sigma": 3416.786109541859
+    },
+    {
+     "es_n0_db": 6.0,
+     "errors": 91,
+     "bits": 254,
+     "ber": 0.35826771653543305,
+     "added_sigma": 2714.028158886425
+    },
+    {
+     "es_n0_db": 8.0,
+     "errors": 85,
+     "bits": 254,
+     "ber": 0.3346456692913386,
+     "added_sigma": 2155.802104167802
+    },
+    {
+     "es_n0_db": 10.0,
+     "errors": 95,
+     "bits": 254,
+     "ber": 0.37401574803149606,
+     "added_sigma": 1712.3803721142685
+    },
+    {
+     "es_n0_db": 12.0,
+     "errors": 80,
+     "bits": 254,
+     "ber": 0.31496062992125984,
+     "added_sigma": 1360.1491379970082
+    },
+    {
+     "es_n0_db": 14.0,
+     "errors": 79,
+     "bits": 254,
+     "ber": 0.3110236220472441,
+     "added_sigma": 1080.3508030811674
+    },
+    {
+     "es_n0_db": 16.0,
+     "errors": 77,
+     "bits": 254,
+     "ber": 0.3031496062992126,
+     "added_sigma": 858.0850835465836
+    },
+    {
+     "es_n0_db": 18.0,
+     "errors": 71,
+     "bits": 254,
+     "ber": 0.2795275590551181,
+     "added_sigma": 681.5155149486594
+    },
+    {
+     "es_n0_db": 20.0,
+     "errors": 67,
+     "bits": 254,
+     "ber": 0.2637795275590551,
+     "added_sigma": 541.2391151446134
+    },
+    {
+     "es_n0_db": 22.0,
+     "errors": 67,
+     "bits": 254,
+     "ber": 0.2637795275590551,
+     "added_sigma": 429.78563684900445
+    },
+    {
+     "es_n0_db": 24.0,
+     "errors": 65,
+     "bits": 254,
+     "ber": 0.2559055118110236,
+     "added_sigma": 341.2197410088055
+    },
+    {
+     "es_n0_db": 26.0,
+     "errors": 67,
+     "bits": 254,
+     "ber": 0.2637795275590551,
+     "added_sigma": 270.824900891367
+    },
+    {
+     "es_n0_db": 28.0,
+     "errors": 65,
+     "bits": 254,
+     "ber": 0.2559055118110236,
+     "added_sigma": 214.8521947616027
+    },
+    {
+     "es_n0_db": 30.0,
+     "errors": 68,
+     "bits": 254,
+     "ber": 0.2677165354330709,
+     "added_sigma": 170.32059141089314
+    },
+    {
+     "es_n0_db": 32.0,
+     "errors": 72,
+     "bits": 254,
+     "ber": 0.28346456692913385,
+     "added_sigma": 134.8580559198242
+    },
+    {
+     "es_n0_db": 34.0,
+     "errors": 70,
+     "bits": 254,
+     "ber": 0.2755905511811024,
+     "added_sigma": 106.5749363017198
+    },
+    {
+     "es_n0_db": 36.0,
+     "errors": 74,
+     "bits": 254,
+     "ber": 0.29133858267716534,
+     "added_sigma": 83.9627213505248
+    },
+    {
+     "es_n0_db": 38.0,
+     "errors": 69,
+     "bits": 254,
+     "ber": 0.27165354330708663,
+     "added_sigma": 65.81240340309543
+    },
+    {
+     "es_n0_db": 40.0,
+     "errors": 76,
+     "bits": 254,
+     "ber": 0.2992125984251969,
+     "added_sigma": 51.14720195826592
+    }
+   ]
+  }
+ },
+ "modcomp_sha": "169031c134f7",
+ "dbpsk_rules": "nodes = top 3 by energy increase after START TX (v4 rule 1); y = sum of (x - OFF baseline) / OFF sigma over them; timing: carrier-on and carrier-off edges (first / last |y| > 10 lead rms, midpoint to the neighbouring sample) give the start and the clock (n_symbols bits apart, clipped to +-200 ppm as v4); bit k = 1 if y(last guarded sample of symbol k-1) * y(first guarded sample of symbol k) < 0, guard 2 ms as v4, no guarded sample -> any sample of the symbol, none -> decided 0",
+ "fska_rules": null,
+ "theory": "DBPSK 0.5exp(-g), FSK noncoh 0.5exp(-g/2), OOK noncoh ~0.5exp(-g/4), g = Es/N0"
+}

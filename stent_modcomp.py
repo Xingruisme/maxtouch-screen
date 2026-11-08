@@ -8,6 +8,8 @@ run, raw recordings decoded offline. The maXTouch version of the stent-to-stent 
    python stent_modcomp.py run --carrier 159585 --fsk-zero 180556 --rates 80 --bits 254 --label smoke   # ~1 min check
    python stent_modcomp.py run --carrier 155692 --fsk-zero 180556 --mods ook,fsk --rates 10,20,50 --bits 1016 --pause
                               --current-ma 1 --label body1mA            # through-body: Enter before each run
+   python stent_modcomp.py run --carrier 159585 --fsk-zero 180556 --mods ook --rates 60 --bits 1016 --current-ma 1
+                              --condition still --calibrate finger-off --label a2f_offcal      # finger-off calibration
    python stent_modcomp.py analyse mc1                     # every run of a label -> table, csv, 3-panel figure
    python stent_modcomp.py analyse data_maxtouch/stent_mod_mc1_ook_10bps_<time> ...     # or explicit run folders
    python stent_modcomp.py compare data_maxtouch/modcomp_mc1_1mA data_maxtouch/modcomp_mc1_5mA --label currents
@@ -18,6 +20,18 @@ Setup as for maxtouch_stent_rx.py --tx: TeensyTRX (original firmware) and the ma
 X line 0, maxtouch_map closed. Runs go rate by rate, all modulations at one rate back to back, so slow drift of the
 phantom/panel hits every modulation alike. Each run: calibrate with the carrier off, --lead s of noise, schedule
 start (time known to ~1 ms), record until 2 s after the schedule ends. Ctrl+C saves the current run and stops.
+
+Calibration (--calibrate, body runs):
+  finger-on   (default, every run up to 2026-11-02) the run calibrates with the finger already on the panel, so the
+              deltas show only CHANGES of the finger since then (a still finger reads ~0).
+  finger-off  calibrate with the electrode on and the finger OFF the panel, then place the finger and press Enter:
+              the deltas then carry the whole touch (~+1500 counts on the finger's node, fingerloc_nat1_20261102_115156),
+              so the finger can be located from the recording (touch_vs_carrier.py). Implies the --pause prompts.
+              The decoders (frozen v4 / v5) are unchanged: both subtract a baseline anchored on the lead, which now
+              includes the touch. Not yet known: whether the touch level plus the carrier clips the int16 deltas, and
+              whether the chip recalibrates a long-held touch (none seen within 9 s, RPTEN on).
+  Saved in meta.json: calibration, t_calibrated, and the touch seen in the lead (lead_touch_node / _counts, per-node
+  lead_median); a finger-off run whose lead shows no touch is flagged when it is saved.
 
 Transmit schedules (one TeensyTRX sseg each, bit_us = round(1e6 / bps)):
   ook   one v4 frame (16-bit preamble, Barker-11 SFD, 127-bit PRBS7 payload, 16 zeros) = 170 words x ceil(bits/127)
@@ -80,6 +94,7 @@ EXPERIMENTAL = ("fska",)                        # amplitude-discriminated 2-FSK,
 ALL_MODS = MODS + EXPERIMENTAL
 PSK_ORDER = 9
 TAIL_S = 2.0                                    # recorded after the schedule ends (DBPSK needs the carrier-off edge)
+LEAD_TOUCH_MIN = 100.0                          # --calibrate finger-off: below this the lead shows no touch (warning)
 SNR_GRID_DB = np.arange(-2.0, 40.1, 2.0)       # energy detection of random-phase samples needs ~25 dB
 NOISE_SEED = 20261023
 RULES_SHA = hashlib.sha256(open(os.path.abspath(__file__), "rb").read()).hexdigest()[:12]
@@ -139,6 +154,15 @@ def zero_of(a, mod):
     return a.fska_zero if mod == "fska" else a.fsk_zero
 
 
+def lead_touch(t, X, t_prompt, names):
+    """touch level before START TX (no carrier): per-node median of the lead. ~0 after a finger-on calibration; the
+    whole touch (~+1500 counts on the finger's node) after a finger-off one"""
+    lead = t < t_prompt if t_prompt is not None else np.ones(len(t), bool)
+    m = np.median(X[lead], axis=0) if lead.any() else np.zeros(X.shape[1])
+    j = int(np.argmax(m))
+    return dict(lead_touch_node=names[j], lead_touch_counts=float(m[j]), lead_median=[float(v) for v in m])
+
+
 def run_dir(datadir, label, mod, bps):
     stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     return os.path.join(datadir, f"stent_mod_{label}_{mod}_{round(bps):g}bps_{stamp}")
@@ -154,15 +178,22 @@ def one_run(tx, tx_info, a, mod, bps):
             raise RuntimeError(f"psk not taken: {r!r}")
     print(f"  uploaded: {got}")
     seconds = STX.GO_DELAY_MS / 1e3 + plan["total_s"] + TAIL_S
-    if a.pause:                                 # body runs: settle the finger before the calibration (it counts as 'off')
-        todo = ("keep still until 'Recording nodes', then swipe along the top edge (Y0-Y5, ~1 swipe/s, always "
-                "touching) until the run ends" if a.condition == "swipe" else "keep still until the run ends")
+    finger_off = a.calibrate == "finger-off"
+    todo = ("keep still until 'Recording nodes', then swipe along the top edge (Y0-Y5, ~1 swipe/s, always "
+            "touching) until the run ends" if a.condition == "swipe" else "keep still until the run ends")
+    if finger_off:                              # calibrate with nothing on the panel, then place the finger
+        input(f"  [{a.condition or 'no condition'}] electrode on, finger OFF the panel - press Enter to calibrate ")
+    elif a.pause:                               # body runs: settle the finger before the calibration (it counts as 'off')
         input(f"  [{a.condition or 'no condition'}] finger on the panel, electrode on; {todo} "
               f"(~{seconds + a.lead + 2:.0f} s) - press Enter to start ")
     chip = status = None
+    t_cal = None
     try:
         chip = R.Chip(a)
         changed = chip.setup()
+        t_cal = time.time()
+        if finger_off:
+            input(f"  calibrated. Finger ON the panel now; {todo} (~{seconds + a.lead + 2:.0f} s) - press Enter to start ")
         t, X, t_prompt, t_first, errors = R.record(chip, a, seconds, lambda: tx.go()[0])
     finally:
         try:
@@ -177,8 +208,13 @@ def one_run(tx, tx_info, a, mod, bps):
         print("  too few samples recorded - nothing saved")
         return None, True
     d = run_dir(DATADIR, a.label, mod, plan["bps"])
-    R.save(d, t, X, run_meta(a, mod, plan, dict(y0=chip.y0, ny=chip.ny, patch=chip.patch), t, t_prompt, t_first,
-                             errors, changed, tx_info, status, seconds))
+    meta = run_meta(a, mod, plan, dict(y0=chip.y0, ny=chip.ny, patch=chip.patch), t, t_prompt, t_first,
+                    errors, changed, tx_info, status, seconds)
+    meta.update(calibration=a.calibrate, t_calibrated=t_cal, **lead_touch(t, X, t_prompt, chip.names))
+    R.save(d, t, X, meta)
+    print(f"  touch in the lead (before START TX): {meta['lead_touch_node']} {meta['lead_touch_counts']:+.0f} counts"
+          + (f"   ** finger-off calibration but no touch above {LEAD_TOUCH_MIN:g}: was the finger on the panel when "
+             f"calibrating, or off it while recording? **" if finger_off and meta['lead_touch_counts'] < LEAD_TOUCH_MIN else ""))
     ev = status.get("events", "?")
     want = f"{plan['n_steps']}/{plan['n_steps']}"
     print(f"  saved {os.path.relpath(d, HERE)}   transmitter: state {status.get('state')}, events {ev}"
@@ -908,31 +944,40 @@ def pool_rows(rows):
         for k in ("es_n0_db", "drift_counts", "off_jitter", "off_excursion", "signal_rms"):
             v = [r[k] for r in rr if r.get(k) is not None]
             q[k] = float(np.mean(v)) if v else None
+        v = [r["es_n0_db"] for r in rr if r.get("es_n0_db") is not None]
+        q["es_n0_min"], q["es_n0_max"] = (min(v), max(v)) if len(v) > 1 else (None, None)    # spread over sessions
         out.append(q)
     return out
 
 
 def pool_noise(noise):
-    """noise-added points of several sessions: errors and bits summed per modulation and Es/N0"""
+    """noise-added points of several sessions: errors and bits summed per modulation, recording rate and Es/N0"""
     acc = {}
     for p in noise:
-        k = (p["modulation"], float(p["es_n0_db"]))
+        k = (p["modulation"], round(float(p["bps"])), float(p["es_n0_db"]))
         a = acc.setdefault(k, dict(p, errors=0, bits=0))
         a["errors"] = int(a["errors"]) + int(p["errors"]); a["bits"] = int(a["bits"]) + int(p["bits"])
     return list(acc.values())
 
 
-def conditions(specs, out):
+CONDITION_COLORS = ("#1f5fbf", "#d62728", "#222222", "#9467bd")     # --color-by condition: blue, red, black, purple
+
+
+def conditions(specs, out, by_condition=False, colors=None, keep_rates=None, ber_min=None, snr_lim=None,
+               letters="abc", labels=True, percent=False, counts=False, panel_model=False,
+               noise_bps=None):
     """two or three analysed sessions of the same schedule under different conditions (NAME=modcomp_folder, e.g.
     still=... walking=...), from their summary.json / noise_curves.csv (nothing re-decoded), in the layout of the
     modulation-comparison slide: a = Es/N0 vs rate, b = known-timing BER vs rate, c = noise-added BER vs Es/N0.
-    Modulation = colour, condition = line style (first: solid + filled, then dashed / dash-dot + hollow).
+    Modulation = colour, condition = line style (first: solid + filled, then dashed / dash-dot + hollow); with
+    by_condition the other way round: condition = colour, OOK solid + filled, FSK dashed + hollow.
     The table (known-timing and blind BER, frame recovery, OFF drift) is written as csv, tsv and an html page
     whose table pastes into Google Slides as a table."""
+    from scipy.stats import beta
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    sets = []
+    sets, kref, sets_noise_bps = [], [], []
     for s in specs:                             # NAME=folder, or NAME=folder1+folder2: sessions pooled per mod x rate
         name, ds = s.split("=", 1)
         ds = ds.split("+")
@@ -941,9 +986,21 @@ def conditions(specs, out):
             rows += [r for r in json.load(open(os.path.join(d, "summary.json")))["rows"] if r["modulation"] != "dbpsk"]
             with open(os.path.join(d, "noise_curves.csv")) as f:
                 noise += list(csv.DictReader(f))
+        if keep_rates:                          # only these rates (rows, and noise curves recorded at them)
+            rows = [r for r in rows if round(r["bps"]) in keep_rates]
+            noise = [p for p in noise if round(float(p["bps"])) in keep_rates]
+        sets_noise_bps.append({round(float(p["bps"])) for p in noise})
+        nref = {round(float(p["bps"])) for p in noise}           # scans per bit of the noise-curve recordings
+        kref += [(r["samples_per_bit"], round(r["bps"])) for r in rows if round(r["bps"]) in nref and r.get("samples_per_bit")]
         if len(ds) > 1:
             rows, noise = pool_rows(rows), pool_noise(noise)
         sets.append((name, "+".join(os.path.basename(os.path.normpath(d)) for d in ds), rows, noise))
+    nb = noise_bps or min(set.union(*sets_noise_bps)) if any(sets_noise_bps) else None
+    if nb is not None and any(len(b) > 1 or b != {nb} for b in sets_noise_bps):
+        print(f"  panel c: noise-added curves from the {nb:g} bps recordings only "
+              f"(found {sorted(set.union(*sets_noise_bps))} bps; curves of different rates are not pooled)")
+    sets = [(name, folder, rows, [p for p in noise if round(float(p["bps"])) == nb]) for name, folder, rows, noise in sets]
+    kref = [k_ for k_, b_ in kref if b_ == nb]
     ink2, grid = "#52514e", "#e4e3df"
     fig, ax = plt.subplots(1, 3, figsize=(16, 5.0))
     rates = sorted({round(r["bps"]) for _, _, rows, _ in sets for r in rows})
@@ -957,17 +1014,42 @@ def conditions(specs, out):
             rr = sorted([r for r in rows if r["modulation"] == mod], key=lambda r: r["bps"])
             if not rr:
                 continue
-            c = COLORS[mod]
+            if by_condition:
+                c = (colors or CONDITION_COLORS)[k % len(colors or CONDITION_COLORS)]
+                st = dict(ls="-" if mod == "ook" else "--", filled=mod == "ook")
+            else:
+                c = COLORS[mod]
             kw = dict(color=c, ls=st["ls"], lw=2, ms=8, mew=1.8, mfc=c if st["filled"] else "white", marker=MARKERS[mod])
             lab = f"{NAMES[mod]}, {name}"
             bps = np.array([rates.index(round(r["bps"])) for r in rr]) + nudge[mod] + 0.025 * (k - (len(sets) - 1) / 2)
             ax[0].plot(bps, [r.get("es_n0_db", np.nan) for r in rr], label=lab, **kw)
+            sp = [(x, r) for x, r in zip(bps, rr) if r.get("es_n0_min") is not None]
+            if sp:                              # pooled sessions: bar = lowest to highest session Es/N0
+                ax[0].errorbar([x for x, _ in sp], [r["es_n0_db"] for _, r in sp], fmt="none", ecolor=c,
+                               elinewidth=1.2, capsize=4, capthick=1.2,
+                               yerr=[[r["es_n0_db"] - r["es_n0_min"] for _, r in sp],
+                                     [r["es_n0_max"] - r["es_n0_db"] for _, r in sp]])
             e = np.array([r["errors"] for r in rr], float); n = np.array([r["bits"] for r in rr], float)
-            ax[1].semilogy(bps, np.where(e == 0, 3.0 / n, e / n), **kw)     # 0 errors at the 95 % bound 3/N
-            if (e == 0).any():
-                ax[1].plot(bps[e == 0], 3.0 / n[e == 0], "v", color=c, ms=8)
-            for r, x, yy in zip(rr, bps, np.where(e == 0, 3.0 / n, e / n)):     # every point labelled errors/bits
-                notes.append((round(r["bps"]), x, yy, f"{r['errors']}/{r['bits']}", c))
+            if counts:                          # error counts on a linear axis; bars = 95 % Clopper-Pearson x bits
+                lo_all = np.where(e > 0, beta.ppf(0.025, np.maximum(e, 1), n - e + 1), 0.0) * n
+                hi_all = beta.ppf(0.975, e + 1, n - e) * n
+                ax[1].plot(bps, e, **kw)
+                ax[1].errorbar(bps, e, yerr=[e - lo_all, hi_all - e], fmt="none", ecolor=c, elinewidth=1.2,
+                               capsize=4, capthick=1.2)
+                for r, x, yy, l_, h_ in zip(rr, bps, e, lo_all, hi_all):
+                    notes.append((round(r["bps"]), x, yy, f"{r['errors']}/{r['bits']}", c, l_, h_))
+            else:
+                ax[1].semilogy(bps, np.where(e == 0, 3.0 / n, e / n), **kw)     # 0 errors at the 95 % bound 3/N
+                ok = e > 0                      # 95 % Clopper-Pearson bars; a 0-error point is already its upper bound
+                lo = beta.ppf(0.025, e[ok], n[ok] - e[ok] + 1); hi = beta.ppf(0.975, e[ok] + 1, n[ok] - e[ok])
+                ax[1].errorbar(bps[ok], e[ok] / n[ok], yerr=[e[ok] / n[ok] - lo, hi - e[ok] / n[ok]], fmt="none",
+                               ecolor=c, elinewidth=1.2, capsize=4, capthick=1.2)
+                if (e == 0).any():
+                    ax[1].plot(bps[e == 0], 3.0 / n[e == 0], "v", color=c, ms=8)
+                lo_all = np.where(ok, beta.ppf(0.025, np.maximum(e, 1), n - e + 1), 3.0 / n)   # bar ends, for labels
+                hi_all = np.where(ok, beta.ppf(0.975, e + 1, n - e), 3.0 / n)
+                for r, x, yy, l_, h_ in zip(rr, bps, np.where(e == 0, 3.0 / n, e / n), lo_all, hi_all):
+                    notes.append((round(r["bps"]), x, yy, f"{r['errors']}/{r['bits']}", c, l_, h_))   # all labelled
             nn = sorted([p for p in noise if p["modulation"] == mod], key=lambda p: float(p["es_n0_db"]))
             if nn:
                 g = np.array([float(p["es_n0_db"]) for p in nn])
@@ -981,20 +1063,60 @@ def conditions(specs, out):
     g = np.linspace(-3, 30, 200)
     for mod in mods:
         if mod != "fska":
-            ax[2].semilogy(g, theory(mod, g), ":", color=COLORS[mod], lw=1.2, alpha=0.7)
+            ax[2].semilogy(g, theory(mod, g), ":", color=ink2 if by_condition else COLORS[mod], lw=1.2, alpha=0.7)
+    if panel_model and kref:                    # simulated LLR detector on sparse random-phase scans (panel_model.py)
+        import panel_model as PM
+        kk = float(np.median(kref))
+        pm = PM.curve(kk)
+        os.makedirs(out, exist_ok=True)
+        with open(os.path.join(out, "panel_model.csv"), "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=list(pm[0])); w.writeheader(); w.writerows(pm)
+        gp = np.array([p["es_n0_db"] for p in pm]); bp = np.array([p["ber"] for p in pm])
+        ax[2].semilogy(gp, np.where(bp > 0, bp, np.nan), "-.", color="black", lw=1.8, zorder=4)
+        from matplotlib.lines import Line2D
+        ax[2].legend([Line2D([], [], color=ink2, lw=2, marker="s", ms=5),
+                      Line2D([], [], color="black", lw=1.8, ls="-."), Line2D([], [], color=ink2, lw=1.2, ls=":")],
+                     ["1  experimental: v4 decoder, noise added to the recording",
+                      f"2  simulated panel-aware detector (model, k = {kk:.2f} scans/bit)",
+                      "3  textbook AWGN reference (FSK left, OOK right)"],
+                     loc="upper right", fontsize=7.5, frameon=True, framealpha=0.9, edgecolor="none")
     ax[0].set_ylabel("Symbol SNR, Es/N0 (dB)")
-    ax[1].set_ylabel("Bit error rate (known timing)"); ax[1].set_ylim(1e-4, 1)
-    ax[1].axhline(0.5, color=ink2, ls="--", lw=0.8)
-    ax[1].text(0.97, 0.52, "chance", transform=ax[1].get_yaxis_transform(), ha="right", va="bottom", fontsize=8, color=ink2)
-    if any(r["errors"] == 0 for r in table):
-        ax[1].text(0.02, 0.03, "\u25bc = 0 errors (95 % upper bound 3/N)", transform=ax[1].transAxes, fontsize=8, color=ink2)
+    if any(r.get("es_n0_min") is not None for _, _, rows, _ in sets for r in rows):
+        ax[0].text(0.02, 0.03, "points: mean of sessions; bars: lowest to highest session", transform=ax[0].transAxes,
+                   fontsize=8, color=ink2)
+    ax[1].set_ylabel("Bit error rate (%, known timing)" if percent else "Bit error rate (known timing)")
+    if percent:                                 # same log axis, ticks written as percentages
+        from matplotlib.ticker import FuncFormatter
+        ax[1].yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v * 100:g}")); ax[1].set_ylim(1e-4, 1)
+    if counts:
+        top = max(100.0, 1.15 * max(q[6] for q in notes))
+        ax[1].set_ylabel("Bit errors (known timing)"); ax[1].set_ylim(-0.1 * top, top)
+        ax[1].axhline(0, color=ink2, lw=0.6)
+        ax[1].text(0.02, 0.97, "bars: 95 % Clopper-Pearson interval; labels: errors / bits sent",
+                   transform=ax[1].transAxes, fontsize=8, color=ink2, va="top")
+    else:
+        ax[1].axhline(0.5, color=ink2, ls="--", lw=0.8)
+        ax[1].text(0.97, 0.52, "chance", transform=ax[1].get_yaxis_transform(), ha="right", va="bottom", fontsize=8,
+                   color=ink2)
+        ax[1].text(0.02, 0.88, "bars: 95 % Clopper-Pearson interval" + ("\n\u25bc = 0 errors (95 % upper bound 3/N)"
+                   if any(r["errors"] == 0 for r in table) else ""), transform=ax[1].transAxes, fontsize=8, color=ink2,
+                   va="top")
+        ax[1].set_ylim(ber_min or min(1e-4, min(q[5] for q in notes) / 4), 1)     # room for labels under the lowest bars
+    if snr_lim:
+        ax[0].set_ylim(*snr_lim)
     ax[2].set_ylabel("Bit error rate"); ax[2].set_ylim(1e-4, 1); ax[2].set_xlim(-3, 30)
     ax[2].set_xlabel("Symbol SNR, Es/N0 (dB)")
     ax[2].axhline(1e-3, color=ink2, ls=":", lw=0.8)
     ref = {float(p["bps"]) for _, _, _, noise in sets for p in noise}
-    ax[2].text(0.02, 0.03, f"lines: noise added to the {'/'.join(f'{b:g}' for b in sorted(ref))} bps recordings "
-               "(gap = 0 errors)\ndotted: theory (AWGN)", transform=ax[2].transAxes, fontsize=8, color=ink2)
-    for a_, letter in zip(ax, "abc"):
+    if panel_model and kref:
+        ax[2].text(0.02, 0.03, f"1: {'/'.join(f'{b:g}' for b in sorted(ref))} bps recordings, colour as panels a-b "
+                   "(gap = 0 errors)\n2: random-phase scans, Gaussian noise, one node, likelihood-ratio decision\n"
+                   "all three: Es/N0 = k P1 / 2 sigma^2", transform=ax[2].transAxes, fontsize=7.5, color=ink2)
+    else:
+        ax[2].text(0.02, 0.03, f"lines: noise added to the {'/'.join(f'{b:g}' for b in sorted(ref))} bps recordings "
+                   "(gap = 0 errors)\ndotted: theory (AWGN)" + (", FSK left, OOK right" if by_condition else ""),
+                   transform=ax[2].transAxes, fontsize=8, color=ink2)
+    for a_, letter in zip(ax, letters):
         a_.grid(color=grid, lw=0.6, which="both"); a_.set_axisbelow(True)
         for sp in ("top", "right"):
             a_.spines[sp].set_visible(False)
@@ -1007,20 +1129,21 @@ def conditions(specs, out):
     fig.legend(h, l, loc="upper center", ncol=len(l), frameon=False, fontsize=10, handlelength=4, bbox_to_anchor=(0.5, 1.0))
     fig.tight_layout(rect=(0, 0, 1, 0.92))
     to_px, gap = ax[1].transData, 11 * fig.dpi / 72
-    for b in rates:                             # labels errors/bits: one set above/below, several in a column beside the rate
+    for b in (rates if labels else []):         # labels errors/bits: one set above/below, several in a column beside the rate
         grp = sorted([q for q in notes if q[0] == b], key=lambda q: -q[2])
-        if len(sets) == 1:
-            for _, x, yy, txt, _ in grp:
-                ax[1].annotate(txt, (x, yy), textcoords="offset points", xytext=(0, 9) if yy == grp[0][2] else (0, -15),
-                               ha="center", fontsize=8, color=ink2)
+        if len(sets) == 1:                      # highest point labelled above its error bar, the others below theirs
+            for i, (_, x, yy, txt, _, l_, h_) in enumerate(grp):
+                ax[1].annotate(txt, (x, h_ if i == 0 else l_), textcoords="offset points", xytext=(0, 4 if i == 0 else -4),
+                               ha="center", va="bottom" if i == 0 else "top", fontsize=8, color=ink2, zorder=5,
+                               bbox=dict(boxstyle="square,pad=0.1", fc="white", ec="none", alpha=0.85))
             continue
-        py = [to_px.transform((x, yy))[1] for _, x, yy, _, _ in grp]
+        py = [to_px.transform((x, yy))[1] for _, x, yy, *_ in grp]
         ly = [py[0]]
         for v in py[1:]:
             ly.append(min(v, ly[-1] - gap))
         ly = np.array(ly) + (np.mean(py) - np.mean(ly))
         lx = to_px.transform((rates.index(b) + 0.16, 1))[0]
-        for (_, x, yy, txt, c), v in zip(grp, ly):
+        for (_, x, yy, txt, c, _, _), v in zip(grp, ly):
             ax[1].annotate(txt, (x, yy), xytext=to_px.inverted().transform((lx, v)), textcoords="data",
                            ha="left", va="center", fontsize=7.5, color=ink2, zorder=5,
                            bbox=dict(boxstyle="square,pad=0.1", fc="white", ec="none", alpha=0.85),
@@ -1200,6 +1323,9 @@ def main():
                                                        "(set on the hardware; this program does not change it)")
     ap.add_argument("--ref-bps", type=float, help="rate of the noise-added curves (default: lowest rate)")
     ap.add_argument("--condition", help="run condition for the record, e.g. still / swipe (also sets the --pause prompt)")
+    ap.add_argument("--calibrate", choices=("finger-on", "finger-off"), default="finger-on",
+                    help="body runs: calibrate with the finger on the panel (default, as before) or off it, then "
+                         "place the finger (deltas show the whole touch; implies the --pause prompts)")
     ap.add_argument("--pause", action="store_true",
                     help="wait for Enter before each run (through-body: place the finger first, the run calibrates on it)")
     ap.add_argument("--lead", type=float, default=4.0, help="noise recorded before the schedule [s]")
@@ -1208,6 +1334,18 @@ def main():
     ap.add_argument("--patch", type=R.parse_patch, help="X0,Y0,SIZE: read a square elsewhere (slow)")
     ap.add_argument("--keep-noise-suppression", action="store_true")
     ap.add_argument("--keep-touch", action="store_true")
+    ap.add_argument("--color-by", choices=("modulation", "condition"), default="modulation",
+                    help="conditions: colour the lines by modulation (default) or by condition")
+    ap.add_argument("--ber-min", type=float, help="conditions: bottom of the BER axis (same on figures shown side by side)")
+    ap.add_argument("--counts", action="store_true", help="conditions: panel b shows error counts (linear axis)")
+    ap.add_argument("--panel-model", action="store_true",
+                    help="conditions: add the simulated panel-aware detector curve (panel_model.py) to panel c")
+    ap.add_argument("--noise-bps", type=float, help="conditions: recording rate of the panel c curves (default: lowest)")
+    ap.add_argument("--percent", action="store_true", help="conditions: BER axis of panel b in percent")
+    ap.add_argument("--no-labels", action="store_true", help="conditions: no errors/bits numbers on the BER panel")
+    ap.add_argument("--letters", default="abc", help="conditions: panel letters (e.g. def for a second row)")
+    ap.add_argument("--snr-lim", help="conditions: Es/N0 axis range LO,HI [dB]")
+    ap.add_argument("--colors", help="conditions --color-by condition: colours in condition order, e.g. '#d62728'")
     ap.add_argument("--datadir", help="synth: where to write (default: a new temp folder)")
     STX.add_hw_args(ap)
     a = ap.parse_args()
@@ -1219,7 +1357,12 @@ def main():
                  [int(float(r)) for r in a.rates.split(",")] if a.rates != "10,20,50,80,100" else None)
         return
     if a.cmd == "conditions":
-        conditions(a.what, os.path.join(DATADIR, f"modcomp_conditions_{a.label}"))
+        conditions(a.what, os.path.join(DATADIR, f"modcomp_conditions_{a.label}"), a.color_by == "condition",
+                   a.colors.split(",") if a.colors else None,
+                   [int(float(r)) for r in a.rates.split(",")] if a.rates != "10,20,50,80,100" else None,
+                   a.ber_min, [float(v) for v in a.snr_lim.split(",")] if a.snr_lim else None, a.letters,
+                   not a.no_labels, a.percent, a.counts, a.panel_model,
+                   a.noise_bps)
         return
     if a.cmd == "compare":
         compare(a.what, os.path.join(DATADIR, f"modcomp_compare_{a.label}"))

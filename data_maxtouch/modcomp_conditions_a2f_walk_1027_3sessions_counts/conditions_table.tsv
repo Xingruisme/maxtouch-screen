@@ -1,0 +1,9 @@
+Modulation	Bit rate (bps)	BER known timing, walking, 3 sessions	BER blind, walking, 3 sessions	Frames recovered, walking, 3 sessions	OFF drift (counts), walking, 3 sessions
+OOK	20	9/3048 (0.30%)	9/3048 (0.30%)	24/24	913
+OOK	50	8/3048 (0.26%)	7/3048 (0.23%)	24/24	429
+OOK	80	111/3048 (3.64%)	114/3048 (3.74%)	24/24	606
+OOK	100	114/2794 (4.08%)	112/2794 (4.01%)	22/24	470
+FSK	20	3/3048 (0.10%)	4/3048 (0.13%)	24/24	906
+FSK	50	20/3048 (0.66%)	21/3048 (0.69%)	24/24	437
+FSK	80	79/3048 (2.59%)	77/3048 (2.53%)	24/24	787
+FSK	100	239/3048 (7.84%)	225/2921 (7.70%)	23/24	607

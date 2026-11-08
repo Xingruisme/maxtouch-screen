@@ -1,0 +1,65 @@
+{
+ "rows": [
+  {
+   "run": "stent_mod_a2f_swipe_offcal_ook_60bps_20261102_165602",
+   "modulation": "ook",
+   "bps": 59.99880002399952,
+   "carrier_hz": 159585.0,
+   "zero_hz": 0.0,
+   "samples_per_bit": 2.2758695391250443,
+   "nodes": "Y1 Y13 Y21",
+   "decoder": "v4 59cb5e989bc9",
+   "current_ma": 1.0,
+   "clip_fraction": 0.0004399472063352398,
+   "bits": 1016,
+   "errors": 523,
+   "ber": 0.514763779527559,
+   "ber_upper95": null,
+   "ber_conservative": 0.514763779527559,
+   "blind_bits": 0,
+   "blind_errors": 0,
+   "blind_ber": null,
+   "delay_ms": 11.253595352172852,
+   "clock_ppm": -109.99999999999999,
+   "signal_present": 0.0,
+   "signal_lost": true,
+   "blind_frames_valid": 0,
+   "frames_sent": 8,
+   "frame_recovery": 0.0,
+   "blind_ber_conservative": 0.5,
+   "blind_sent0_read1": 0,
+   "blind_sent1_read0": 0,
+   "blind_in_bursts": 0,
+   "es_n0_db": -0.9006178112669316,
+   "noise_sigma": 4.4478,
+   "signal_rms": 3.758855894289127,
+   "contrast_db": -0.024386159374423948,
+   "drift_counts": 19.0,
+   "off_jitter": 5.241782568935876,
+   "off_excursion": 0.9375494071146245,
+   "condition": "swipe",
+   "label": "a2f_swipe_offcal",
+   "capture_sha256": "70f4701e66cd22cb",
+   "t_first_local": "2026-11-02T16:55:40.399"
+  }
+ ],
+ "curves": {
+  "ook": {
+   "run": "stent_mod_a2f_swipe_offcal_ook_60bps_20261102_165602",
+   "bps": 59.99880002399952,
+   "points": [
+    {
+     "es_n0_db": -2.0,
+     "errors": 532,
+     "bits": 1016,
+     "ber": 0.5236220472440944,
+     "added_sigma": 2.387214699892787
+    }
+   ]
+  }
+ },
+ "modcomp_sha": "169031c134f7",
+ "dbpsk_rules": "nodes = top 3 by energy increase after START TX (v4 rule 1); y = sum of (x - OFF baseline) / OFF sigma over them; timing: carrier-on and carrier-off edges (first / last |y| > 10 lead rms, midpoint to the neighbouring sample) give the start and the clock (n_symbols bits apart, clipped to +-200 ppm as v4); bit k = 1 if y(last guarded sample of symbol k-1) * y(first guarded sample of symbol k) < 0, guard 2 ms as v4, no guarded sample -> any sample of the symbol, none -> decided 0",
+ "fska_rules": null,
+ "theory": "DBPSK 0.5exp(-g), FSK noncoh 0.5exp(-g/2), OOK noncoh ~0.5exp(-g/4), g = Es/N0"
+}

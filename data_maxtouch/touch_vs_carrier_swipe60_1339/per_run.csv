@@ -1,0 +1,3 @@
+run,calibration,condition,modulation,bps,lead_touch_node,lead_touch_counts,v4_nodes,windows,touch_visible,same_node,within1,within2,abs_offset_median,signed_offset_median,top3_within2,carrier_in_v4,runmed_err_median,on_err_median
+stent_mod_ankle2finger_swipe_fsk_60bps_20261102_134036,finger-on,swipe,fsk,59.99880002399952,Y0,23.0,"['Y8', 'Y9', 'Y6']",88,1.0,0.8181818181818182,1.0,1.0,0.0,0.0,0.9886363636363636,0.32954545454545453,0.005805754015854037,0.1933138811759234
+stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942,finger-on,swipe,ook,59.99880002399952,Y3,1211.0,"['Y5', 'Y7', 'Y6']",88,0.7727272727272727,0.6617647058823529,0.9558823529411765,0.9558823529411765,0.0,0.0,0.9558823529411765,0.2840909090909091,0.0032920817122570334,0.2055057406302534

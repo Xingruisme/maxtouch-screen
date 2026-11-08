@@ -1,0 +1,12 @@
+{
+ "row 28 nodes": 136.48426695137502,
+ "row 28 nodes + digitizer thread open": 136.73028620315898,
+ "row 28 nodes + T5 drain in the scan wait (no finger: T44 polls only)": 128.18696484544685,
+ "patch X0-1 x Y0-7 only (frames/s)": 68.34768247405735,
+ "patch X0-3 x Y0-11 only (frames/s)": 30.292912662032435,
+ "patch X0-5 x Y0-27 only (frames/s)": 15.101726773454246,
+ "row + 4x12 patch every 25 rows: row samples/s": 117.35419176569623,
+ "row + 4x12 patch every 25 rows: gap per patch (ms)": 30.000052007380873,
+ "row + 4x12 patch every 125 rows: row samples/s": 131.58217538266476,
+ "row + 4x12 patch every 125 rows: gap per patch (ms)": 32.00597199611366
+}

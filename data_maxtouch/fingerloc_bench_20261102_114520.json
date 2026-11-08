@@ -1,0 +1,11 @@
+{
+ "row 28 nodes": 136.63542290695514,
+ "row 28 nodes + digitizer thread open": 136.83903993090544,
+ "patch X0-1 x Y0-7 only (frames/s)": 68.39436884570154,
+ "patch X0-3 x Y0-11 only (frames/s)": 30.363338697678277,
+ "patch X0-5 x Y0-27 only (frames/s)": 15.127332319157977,
+ "row + 4x12 patch every 25 rows: row samples/s": 117.3527561720672,
+ "row + 4x12 patch every 25 rows: gap per patch (ms)": 31.999752041883767,
+ "row + 4x12 patch every 125 rows: row samples/s": 132.54397220560256,
+ "row + 4x12 patch every 125 rows: gap per patch (ms)": 30.001257080584764
+}

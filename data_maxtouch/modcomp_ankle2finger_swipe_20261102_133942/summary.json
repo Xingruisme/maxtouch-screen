@@ -1,0 +1,398 @@
+{
+ "rows": [
+  {
+   "run": "stent_mod_ankle2finger_swipe_fsk_60bps_20261102_134036",
+   "modulation": "fsk",
+   "bps": 59.99880002399952,
+   "carrier_hz": 159585.0,
+   "zero_hz": 180556.0,
+   "samples_per_bit": 2.0688032812722277,
+   "nodes": "Y8 Y9 Y6",
+   "decoder": "v4 59cb5e989bc9",
+   "current_ma": 1.0,
+   "clip_fraction": 0.001639344262295082,
+   "bits": 1016,
+   "errors": 368,
+   "ber": 0.36220472440944884,
+   "ber_upper95": null,
+   "ber_conservative": 0.36220472440944884,
+   "blind_bits": 381,
+   "blind_errors": 67,
+   "blind_ber": 0.17585301837270342,
+   "delay_ms": 10.001420974731445,
+   "clock_ppm": 49.99999999999999,
+   "signal_present": 0.6363636363636364,
+   "signal_lost": true,
+   "blind_frames_valid": 3,
+   "frames_sent": 8,
+   "frame_recovery": 0.375,
+   "blind_ber_conservative": 0.3784448818897638,
+   "blind_sent0_read1": 3,
+   "blind_sent1_read0": 64,
+   "blind_in_bursts": 52,
+   "es_n0_db": 46.99913363189677,
+   "noise_sigma": 4.4478,
+   "signal_rms": 978.9428342616624,
+   "contrast_db": 6.440125616714633,
+   "drift_counts": 1454.0,
+   "off_jitter": 5.241782568935876,
+   "off_excursion": 0.21173469387755103,
+   "fska_dec_errors": 428,
+   "fska_dec_bits": 1016,
+   "fska_dec_blind_errors": 146,
+   "fska_dec_blind_bits": 508,
+   "fska_dec_frames_valid": 4,
+   "condition": "swipe",
+   "label": "ankle2finger_swipe",
+   "capture_sha256": "8fcd39b4955f8e53",
+   "t_first_local": "2026-11-02T13:40:11.623"
+  },
+  {
+   "run": "stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942",
+   "modulation": "ook",
+   "bps": 59.99880002399952,
+   "carrier_hz": 159585.0,
+   "zero_hz": 0.0,
+   "samples_per_bit": 2.067803191804764,
+   "nodes": "Y5 Y7 Y6",
+   "decoder": "v4 59cb5e989bc9",
+   "current_ma": 1.0,
+   "clip_fraction": 0.0021482277121374865,
+   "bits": 1016,
+   "errors": 337,
+   "ber": 0.3316929133858268,
+   "ber_upper95": null,
+   "ber_conservative": 0.3316929133858268,
+   "blind_bits": 635,
+   "blind_errors": 153,
+   "blind_ber": 0.2409448818897638,
+   "delay_ms": 10.001420974731445,
+   "clock_ppm": 59.99999999999999,
+   "signal_present": 0.9090909090909091,
+   "signal_lost": true,
+   "blind_frames_valid": 5,
+   "frames_sent": 8,
+   "frame_recovery": 0.625,
+   "blind_ber_conservative": 0.3380905511811024,
+   "blind_sent0_read1": 20,
+   "blind_sent1_read0": 133,
+   "blind_in_bursts": 119,
+   "es_n0_db": 35.986112811466946,
+   "noise_sigma": 17.7912,
+   "signal_rms": 1102.2275947065177,
+   "contrast_db": 4.898296764909681,
+   "drift_counts": 1570.0,
+   "off_jitter": 5.241782568935876,
+   "off_excursion": 0.2809083263246426,
+   "condition": "swipe",
+   "label": "ankle2finger_swipe",
+   "capture_sha256": "43fcbebe454e0d97",
+   "t_first_local": "2026-11-02T13:39:17.621"
+  }
+ ],
+ "curves": {
+  "ook": {
+   "run": "stent_mod_ankle2finger_swipe_ook_60bps_20261102_133942",
+   "bps": 59.99880002399952,
+   "points": [
+    {
+     "es_n0_db": -2.0,
+     "errors": 466,
+     "bits": 1016,
+     "ber": 0.45866141732283466,
+     "added_sigma": 1410.8354184491589
+    },
+    {
+     "es_n0_db": 0.0,
+     "errors": 420,
+     "bits": 1016,
+     "ber": 0.41338582677165353,
+     "added_sigma": 1120.6142890562217
+    },
+    {
+     "es_n0_db": 2.0,
+     "errors": 456,
+     "bits": 1016,
+     "ber": 0.44881889763779526,
+     "added_sigma": 890.0699529519061
+    },
+    {
+     "es_n0_db": 4.0,
+     "errors": 455,
+     "bits": 1016,
+     "ber": 0.4478346456692913,
+     "added_sigma": 706.9250796270022
+    },
+    {
+     "es_n0_db": 6.0,
+     "errors": 411,
+     "bits": 1016,
+     "ber": 0.4045275590551181,
+     "added_sigma": 561.4265288954081
+    },
+    {
+     "es_n0_db": 8.0,
+     "errors": 403,
+     "bits": 1016,
+     "ber": 0.39665354330708663,
+     "added_sigma": 445.82595671109743
+    },
+    {
+     "es_n0_db": 10.0,
+     "errors": 410,
+     "bits": 1016,
+     "ber": 0.4035433070866142,
+     "added_sigma": 353.9671797864911
+    },
+    {
+     "es_n0_db": 12.0,
+     "errors": 411,
+     "bits": 1016,
+     "ber": 0.4045275590551181,
+     "added_sigma": 280.95832074719704
+    },
+    {
+     "es_n0_db": 14.0,
+     "errors": 390,
+     "bits": 1016,
+     "ber": 0.3838582677165354,
+     "added_sigma": 222.9112664332343
+    },
+    {
+     "es_n0_db": 16.0,
+     "errors": 385,
+     "bits": 1016,
+     "ber": 0.37893700787401574,
+     "added_sigma": 176.73454845348897
+    },
+    {
+     "es_n0_db": 18.0,
+     "errors": 426,
+     "bits": 1016,
+     "ber": 0.41929133858267714,
+     "added_sigma": 139.96858308220644
+    },
+    {
+     "es_n0_db": 20.0,
+     "errors": 391,
+     "bits": 1016,
+     "ber": 0.38484251968503935,
+     "added_sigma": 110.65442747086179
+    },
+    {
+     "es_n0_db": 22.0,
+     "errors": 391,
+     "bits": 1016,
+     "ber": 0.38484251968503935,
+     "added_sigma": 87.22891540087198
+    },
+    {
+     "es_n0_db": 24.0,
+     "errors": 399,
+     "bits": 1016,
+     "ber": 0.3927165354330709,
+     "added_sigma": 68.44025973497496
+    },
+    {
+     "es_n0_db": 26.0,
+     "errors": 393,
+     "bits": 1016,
+     "ber": 0.3868110236220472,
+     "added_sigma": 53.278850813525096
+    },
+    {
+     "es_n0_db": 28.0,
+     "errors": 472,
+     "bits": 1016,
+     "ber": 0.4645669291338583,
+     "added_sigma": 40.917555001588916
+    },
+    {
+     "es_n0_db": 30.0,
+     "errors": 440,
+     "bits": 1016,
+     "ber": 0.4330708661417323,
+     "added_sigma": 30.652342719512014
+    },
+    {
+     "es_n0_db": 32.0,
+     "errors": 397,
+     "bits": 1016,
+     "ber": 0.390748031496063,
+     "added_sigma": 21.817750812245706
+    },
+    {
+     "es_n0_db": 34.0,
+     "errors": 385,
+     "bits": 1016,
+     "ber": 0.37893700787401574,
+     "added_sigma": 13.547427710199583
+    }
+   ]
+  },
+  "fsk": {
+   "run": "stent_mod_ankle2finger_swipe_fsk_60bps_20261102_134036",
+   "bps": 59.99880002399952,
+   "points": [
+    {
+     "es_n0_db": -2.0,
+     "errors": 425,
+     "bits": 1016,
+     "ber": 0.4183070866141732,
+     "added_sigma": 1253.4274393783376
+    },
+    {
+     "es_n0_db": 0.0,
+     "errors": 423,
+     "bits": 1016,
+     "ber": 0.41633858267716534,
+     "added_sigma": 995.6291388862521
+    },
+    {
+     "es_n0_db": 2.0,
+     "errors": 430,
+     "bits": 1016,
+     "ber": 0.42322834645669294,
+     "added_sigma": 790.8517205979142
+    },
+    {
+     "es_n0_db": 4.0,
+     "errors": 416,
+     "bits": 1016,
+     "ber": 0.4094488188976378,
+     "added_sigma": 628.1900402429715
+    },
+    {
+     "es_n0_db": 6.0,
+     "errors": 396,
+     "bits": 1016,
+     "ber": 0.38976377952755903,
+     "added_sigma": 498.9817701500767
+    },
+    {
+     "es_n0_db": 8.0,
+     "errors": 379,
+     "bits": 1016,
+     "ber": 0.37303149606299213,
+     "added_sigma": 396.3460986893874
+    },
+    {
+     "es_n0_db": 10.0,
+     "errors": 373,
+     "bits": 1016,
+     "ber": 0.3671259842519685,
+     "added_sigma": 314.8173019190368
+    },
+    {
+     "es_n0_db": 12.0,
+     "errors": 379,
+     "bits": 1016,
+     "ber": 0.37303149606299213,
+     "added_sigma": 250.05367376807754
+    },
+    {
+     "es_n0_db": 14.0,
+     "errors": 362,
+     "bits": 1016,
+     "ber": 0.3562992125984252,
+     "added_sigma": 198.60631418384114
+    },
+    {
+     "es_n0_db": 16.0,
+     "errors": 382,
+     "bits": 1016,
+     "ber": 0.37598425196850394,
+     "added_sigma": 157.73546228370583
+    },
+    {
+     "es_n0_db": 18.0,
+     "errors": 357,
+     "bits": 1016,
+     "ber": 0.3513779527559055,
+     "added_sigma": 125.26459341040373
+    },
+    {
+     "es_n0_db": 20.0,
+     "errors": 368,
+     "bits": 1016,
+     "ber": 0.36220472440944884,
+     "added_sigma": 99.46450988368765
+    },
+    {
+     "es_n0_db": 22.0,
+     "errors": 369,
+     "bits": 1016,
+     "ber": 0.3631889763779528,
+     "added_sigma": 78.96125216924571
+    },
+    {
+     "es_n0_db": 24.0,
+     "errors": 376,
+     "bits": 1016,
+     "ber": 0.3700787401574803,
+     "added_sigma": 62.662925011629184
+    },
+    {
+     "es_n0_db": 26.0,
+     "errors": 387,
+     "bits": 1016,
+     "ber": 0.3809055118110236,
+     "added_sigma": 49.70153894830057
+    },
+    {
+     "es_n0_db": 28.0,
+     "errors": 402,
+     "bits": 1016,
+     "ber": 0.3956692913385827,
+     "added_sigma": 39.38676432345486
+    },
+    {
+     "es_n0_db": 30.0,
+     "errors": 440,
+     "bits": 1016,
+     "ber": 0.4330708661417323,
+     "added_sigma": 31.169123187606992
+    },
+    {
+     "es_n0_db": 32.0,
+     "errors": 450,
+     "bits": 1016,
+     "ber": 0.44291338582677164,
+     "added_sigma": 24.610633922301172
+    },
+    {
+     "es_n0_db": 34.0,
+     "errors": 419,
+     "bits": 1016,
+     "ber": 0.4124015748031496,
+     "added_sigma": 19.36129088530272
+    },
+    {
+     "es_n0_db": 36.0,
+     "errors": 423,
+     "bits": 1016,
+     "ber": 0.41633858267716534,
+     "added_sigma": 15.140002147521113
+    },
+    {
+     "es_n0_db": 38.0,
+     "errors": 424,
+     "bits": 1016,
+     "ber": 0.41732283464566927,
+     "added_sigma": 11.718664089013632
+    },
+    {
+     "es_n0_db": 40.0,
+     "errors": 410,
+     "bits": 1016,
+     "ber": 0.4035433070866142,
+     "added_sigma": 8.907681610409185
+    }
+   ]
+  }
+ },
+ "modcomp_sha": "169031c134f7",
+ "dbpsk_rules": "nodes = top 3 by energy increase after START TX (v4 rule 1); y = sum of (x - OFF baseline) / OFF sigma over them; timing: carrier-on and carrier-off edges (first / last |y| > 10 lead rms, midpoint to the neighbouring sample) give the start and the clock (n_symbols bits apart, clipped to +-200 ppm as v4); bit k = 1 if y(last guarded sample of symbol k-1) * y(first guarded sample of symbol k) < 0, guard 2 ms as v4, no guarded sample -> any sample of the symbol, none -> decided 0",
+ "fska_rules": null,
+ "theory": "DBPSK 0.5exp(-g), FSK noncoh 0.5exp(-g/2), OOK noncoh ~0.5exp(-g/4), g = Es/N0"
+}
