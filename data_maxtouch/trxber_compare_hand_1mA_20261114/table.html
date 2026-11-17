@@ -1,0 +1,39 @@
+<table border=1 cellspacing=0 cellpadding=4 style='border-collapse:collapse;font-family:sans-serif;font-size:12px'>
+<tr><th>Scheme</th><th>Baud</th><th>Frame / decoder</th><th>Before FEC: code-bit BER</th><th>After FEC: info BER</th><th>Frame errors</th><th>CRC pass</th></tr>
+<tr><td>OOK 168 kHz</td><td>20</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>115/1152 = 10 %</td><td>4/12</td><td>8/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>20</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>60/1152 = 5.2 %</td><td>5/12</td><td>7/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>20</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>39/2304 = 1.7 %</td><td>6/1152 = 0.52 %</td><td>1/12</td><td>11/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>40</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>46/1152 = 4 %</td><td>4/12</td><td>8/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>40</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>62/1152 = 5.4 %</td><td>7/12</td><td>5/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>40</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>51/2304 = 2.2 %</td><td>4/1152 = 0.35 %</td><td>2/12</td><td>10/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>50</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>23/1152 = 2 %</td><td>4/12</td><td>8/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>50</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>46/1152 = 4 %</td><td>10/12</td><td>2/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>50</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>51/2304 = 2.2 %</td><td>0/1152 (&lt; 0.26 %)</td><td>0/12</td><td>12/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>60</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>71/1152 = 6.2 %</td><td>9/12</td><td>3/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>60</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>124/1152 = 11 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>OOK 168 kHz</td><td>60</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>252/2304 = 11 %</td><td>98/1152 = 8.5 %</td><td>3/12</td><td>9/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>20</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>260/1152 = 23 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>20</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>343/1152 = 30 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>20</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>449/2304 = 19 %</td><td>158/1152 = 14 %</td><td>10/12</td><td>2/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>40</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>311/1152 = 27 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>40</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>421/1152 = 37 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>40</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>534/2304 = 23 %</td><td>342/1152 = 30 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>50</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>304/1152 = 26 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>50</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>423/1152 = 37 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>50</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>603/2304 = 26 %</td><td>366/1152 = 32 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>60</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>357/1152 = 31 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>60</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>472/1152 = 41 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 168 / 171 kHz</td><td>60</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>650/2304 = 28 %</td><td>428/1152 = 37 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>20</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>8/1152 = 0.69 %</td><td>3/12</td><td>9/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>20</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>14/1152 = 1.2 %</td><td>5/12</td><td>7/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>20</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>15/2304 = 0.65 %</td><td>0/1152 (&lt; 0.26 %)</td><td>0/12</td><td>12/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>40</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>10/1152 = 0.87 %</td><td>4/12</td><td>8/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>40</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>77/1152 = 6.7 %</td><td>11/12</td><td>1/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>40</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>80/2304 = 3.5 %</td><td>0/1152 (&lt; 0.26 %)</td><td>0/12</td><td>12/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>50</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>64/1152 = 5.6 %</td><td>11/12</td><td>1/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>50</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>102/1152 = 8.9 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>50</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>133/2304 = 5.8 %</td><td>17/1152 = 1.5 %</td><td>3/12</td><td>9/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>60</td><td>No FEC (2 symbols/bit)</td><td>-</td><td>56/1152 = 4.9 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>60</td><td>No FEC (1 symbol/bit)</td><td>-</td><td>121/1152 = 11 %</td><td>12/12</td><td>0/12</td></tr>
+<tr><td>FSK 159 / 168 kHz</td><td>60</td><td>Conv K=4 soft — Bluetooth LE Coded</td><td>167/2304 = 7.2 %</td><td>22/1152 = 1.9 %</td><td>5/12</td><td>7/12</td></tr>
+</table>

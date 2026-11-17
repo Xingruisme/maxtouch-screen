@@ -1,0 +1,212 @@
+{
+ "rows": [
+  {
+   "run": "stent_mod_back2finger_sit_still_ook_40bps_20261115_025352",
+   "modulation": "ook",
+   "bps": 40.0,
+   "carrier_hz": 159585.0,
+   "zero_hz": 0.0,
+   "samples_per_bit": 3.1609357726473717,
+   "nodes": "Y2 Y1 Y3",
+   "decoder": "v4 59cb5e989bc9",
+   "current_ma": 1.0,
+   "clip_fraction": 0.015151515151515152,
+   "bits": 0,
+   "errors": 0,
+   "ber": null,
+   "ber_upper95": null,
+   "ber_conservative": 0.5,
+   "blind_bits": 0,
+   "blind_errors": 0,
+   "blind_ber": null,
+   "delay_ms": 9.751319885253906,
+   "clock_ppm": -199.99999999999997,
+   "signal_present": 1.0,
+   "signal_lost": false,
+   "blind_frames_valid": 0,
+   "frames_sent": 8,
+   "frame_recovery": 0.0,
+   "blind_ber_conservative": 0.5,
+   "blind_sent0_read1": 0,
+   "blind_sent1_read0": 0,
+   "blind_in_bursts": 0,
+   "es_n0_db": 47.22591059366063,
+   "noise_sigma": 7.412999999999999,
+   "signal_rms": 1354.8670840948816,
+   "contrast_db": 29.502705888863623,
+   "drift_counts": 110.0,
+   "off_jitter": 7.338495596510227,
+   "off_excursion": 1.0,
+   "condition": "still",
+   "label": "back2finger_sit_still",
+   "capture_sha256": "765af3b1a982f547",
+   "t_first_local": "2026-11-15T02:53:50.911"
+  }
+ ],
+ "curves": {
+  "ook": {
+   "run": "stent_mod_back2finger_sit_still_ook_40bps_20261115_025352",
+   "bps": 40.0,
+   "points": [
+    {
+     "es_n0_db": -2.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 2144.306858340372
+    },
+    {
+     "es_n0_db": 0.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 1703.2775283211558
+    },
+    {
+     "es_n0_db": 2.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 1352.953937684116
+    },
+    {
+     "es_n0_db": 4.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 1074.680077732698
+    },
+    {
+     "es_n0_db": 6.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 853.6368506264898
+    },
+    {
+     "es_n0_db": 8.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 678.05289834972
+    },
+    {
+     "es_n0_db": 10.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 538.5777349058189
+    },
+    {
+     "es_n0_db": 12.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 427.78379870840774
+    },
+    {
+     "es_n0_db": 14.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 339.77090757664325
+    },
+    {
+     "es_n0_db": 16.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 269.85205198895784
+    },
+    {
+     "es_n0_db": 18.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 214.30379367604664
+    },
+    {
+     "es_n0_db": 20.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 170.16797683914638
+    },
+    {
+     "es_n0_db": 22.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 135.0941913319723
+    },
+    {
+     "es_n0_db": 24.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 107.21459626116952
+    },
+    {
+     "es_n0_db": 26.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 85.044433587185
+    },
+    {
+     "es_n0_db": 28.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 67.40292490904649
+    },
+    {
+     "es_n0_db": 30.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 53.35032073055255
+    },
+    {
+     "es_n0_db": 32.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 42.13771162585783
+    },
+    {
+     "es_n0_db": 34.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 33.16684569030583
+    },
+    {
+     "es_n0_db": 36.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 25.957624242532518
+    },
+    {
+     "es_n0_db": 38.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 20.121086365538414
+    },
+    {
+     "es_n0_db": 40.0,
+     "errors": 0,
+     "bits": 0,
+     "ber": null,
+     "added_sigma": 15.335200034733248
+    }
+   ]
+  }
+ },
+ "modcomp_sha": "169031c134f7",
+ "dbpsk_rules": "nodes = top 3 by energy increase after START TX (v4 rule 1); y = sum of (x - OFF baseline) / OFF sigma over them; timing: carrier-on and carrier-off edges (first / last |y| > 10 lead rms, midpoint to the neighbouring sample) give the start and the clock (n_symbols bits apart, clipped to +-200 ppm as v4); bit k = 1 if y(last guarded sample of symbol k-1) * y(first guarded sample of symbol k) < 0, guard 2 ms as v4, no guarded sample -> any sample of the symbol, none -> decided 0",
+ "fska_rules": null,
+ "theory": "DBPSK 0.5exp(-g), FSK noncoh 0.5exp(-g/2), OOK noncoh ~0.5exp(-g/4), g = Es/N0"
+}

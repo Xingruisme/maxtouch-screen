@@ -1,0 +1,40 @@
+[
+ {
+  "run": "stent_mod_ankle2finger_sit_still_ook_20bps_20261029_161342",
+  "mod": "ook",
+  "bps": 20.0,
+  "carrier": 159585.0,
+  "zero_hz": 0.0,
+  "node": "Y0",
+  "base": 6.0,
+  "Tb": 0.0499975,
+  "hdr": 27,
+  "frame": 0,
+  "frame_errors": 0,
+  "frame_bits_n": 127,
+  "run_errors": 2,
+  "run_bits": 1016,
+  "delay_ms": 12.752532958984375,
+  "current_ma": 1.0,
+  "norm": 2483.2000000000007
+ },
+ {
+  "run": "stent_mod_ankle2finger_sit_still_fsk_20bps_20261029_161459",
+  "mod": "fsk",
+  "bps": 20.0,
+  "carrier": 159585.0,
+  "zero_hz": 180556.0,
+  "node": "Y0",
+  "base": 5.0,
+  "Tb": 0.0499975,
+  "hdr": 27,
+  "frame": 0,
+  "frame_errors": 0,
+  "frame_bits_n": 127,
+  "run_errors": 13,
+  "run_bits": 1016,
+  "delay_ms": 12.752532958984375,
+  "current_ma": 1.0,
+  "norm": 2876.1600000000035
+ }
+]

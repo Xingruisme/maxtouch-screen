@@ -1,0 +1,9 @@
+state,modulation,bps,runs,errors,bits,ber,ci95_lo,ci95_hi
+sitting still,ook,60,3,19,3048,6.234e-03,3.757e-03,9.717e-03
+sitting still,fsk,60,3,33,3048,1.083e-02,7.464e-03,1.517e-02
+standing still,ook,60,3,53,3048,1.739e-02,1.305e-02,2.268e-02
+standing still,fsk,60,3,39,3048,1.280e-02,9.114e-03,1.745e-02
+sitting shaking,ook,60,3,26,3048,8.530e-03,5.580e-03,1.247e-02
+sitting shaking,fsk,60,3,19,3048,6.234e-03,3.757e-03,9.717e-03
+standing walking,ook,60,3,55,3048,1.804e-02,1.362e-02,2.342e-02
+standing walking,fsk,60,3,62,3048,2.034e-02,1.563e-02,2.600e-02
