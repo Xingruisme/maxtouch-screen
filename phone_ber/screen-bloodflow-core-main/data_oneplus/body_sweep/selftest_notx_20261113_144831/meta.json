@@ -1,0 +1,92 @@
+{
+ "args": {
+  "mode": "run",
+  "dir": null,
+  "carriers": "100e3,150e3,200e3",
+  "block": 2.0,
+  "reps": 2,
+  "lead": 6.0,
+  "tail": 4.0,
+  "wave": "square",
+  "port": null,
+  "serial": null,
+  "adb": null,
+  "no_tx": true,
+  "label": "selftest_notx",
+  "site": "",
+  "current": "",
+  "note": "",
+  "jump": 50.0,
+  "yes": true
+ },
+ "pad_model": "OPD2203",
+ "adb_serial": "T8UCTCNV7HOFPNLN",
+ "carriers_hz_requested": [
+  100000.0,
+  150000.0,
+  200000.0
+ ],
+ "carriers_hz_actual": [
+  100000.01639127731,
+  150000.02458691597,
+  200000.03278255463
+ ],
+ "blocks": [
+  {
+   "carrier": 0,
+   "rep": 0,
+   "on": 0.0,
+   "off": 2.0
+  },
+  {
+   "carrier": 0,
+   "rep": 1,
+   "on": 4.0,
+   "off": 6.0
+  },
+  {
+   "carrier": 1,
+   "rep": 0,
+   "on": 8.0,
+   "off": 10.0
+  },
+  {
+   "carrier": 1,
+   "rep": 1,
+   "on": 12.0,
+   "off": 14.0
+  },
+  {
+   "carrier": 2,
+   "rep": 0,
+   "on": 16.0,
+   "off": 18.0
+  },
+  {
+   "carrier": 2,
+   "rep": 1,
+   "on": 20.0,
+   "off": 22.0
+  }
+ ],
+ "schedule_s": 24.0,
+ "t_first": 1794599283.0691395,
+ "clock_offset_start": {
+  "offset_s": 1.1131021976470947,
+  "rtt_s": 0.026621580123901367
+ },
+ "clock_offset_end": {
+  "offset_s": 1.1111986637115479,
+  "rtt_s": 0.024926424026489258
+ },
+ "clock_offset_used_s": 1.1121504306793213,
+ "frames_without_device_stamp": 0,
+ "skipped_frames": 0,
+ "tx": null,
+ "guard_s": {
+  "start": 0.35,
+  "end": 0.1
+ },
+ "source": "delta",
+ "recorded_at": "20261113_144831"
+}

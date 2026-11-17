@@ -1,0 +1,2117 @@
+{
+ "run": "hand_1k_500k_20261114_202504",
+ "frames": 1005,
+ "fps": 2.4038467930973217,
+ "frame_gap_p95_ms": 442.99983978271484,
+ "transmitted": true,
+ "thresholds": {
+  "level_z": 5.9643107221132805,
+  "noise_db": 12.372212874354487,
+  "min_blob_nodes": 2
+ },
+ "jump_counts": 50.0,
+ "node_noise_counts": {
+  "median": 1.796899038300748,
+  "floor": 0.5
+ },
+ "lead_touch": {
+  "max": 1355.3333333333333,
+  "node": [
+   3,
+   14
+  ]
+ },
+ "responding": [
+  5054.473876953125,
+  21113.82782459259,
+  9849.6675491333,
+  15863.124281167984,
+  88197.45853543282,
+  276801.4557659626,
+  54763.72316479683,
+  1331.046223640442,
+  999.9610483646393,
+  17449.44602251053,
+  37404.33603525162,
+  6727.501749992371,
+  10834.727436304092,
+  23225.22923350334,
+  1099.9850928783417
+ ],
+ "top": [
+  {
+   "carrier_hz": 5054.473876953125,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     10,
+     13
+    ],
+    "z": -11.942720436674865,
+    "counts": -24.0
+   },
+   "noise": {
+    "node": [
+     5,
+     29
+    ],
+    "db": 10.66946789630613,
+    "on_rms": 4.47213595499958
+   },
+   "nodes_over_z": 2,
+   "nodes_over_db": 0,
+   "blob_z": 2,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 21113.82782459259,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 2,
+   "level": {
+    "node": [
+     15,
+     13
+    ],
+    "z": 10.735915592265734,
+    "counts": 23.5
+   },
+   "noise": {
+    "node": [
+     6,
+     27
+    ],
+    "db": 12.833012287035498,
+    "on_rms": 4.266145801540309
+   },
+   "nodes_over_z": 7,
+   "nodes_over_db": 1,
+   "blob_z": 2,
+   "blob_db": 1,
+   "responds": true,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 9849.6675491333,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     13,
+     13
+    ],
+    "z": 10.716196520359686,
+    "counts": 28.5
+   },
+   "noise": {
+    "node": [
+     7,
+     29
+    ],
+    "db": 10.66946789630613,
+    "on_rms": 4.47213595499958
+   },
+   "nodes_over_z": 6,
+   "nodes_over_db": 0,
+   "blob_z": 3,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 15863.124281167984,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     6
+    ],
+    "z": 9.580028585836418,
+    "counts": 15.75
+   },
+   "noise": {
+    "node": [
+     12,
+     3
+    ],
+    "db": 8.860566476931632,
+    "on_rms": 4.358898943540674
+   },
+   "nodes_over_z": 50,
+   "nodes_over_db": 0,
+   "blob_z": 9,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 88197.45853543282,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     6
+    ],
+    "z": 9.275900694222564,
+    "counts": 15.25
+   },
+   "noise": {
+    "node": [
+     5,
+     25
+    ],
+    "db": 9.688420180096132,
+    "on_rms": 4.8166378315169185
+   },
+   "nodes_over_z": 56,
+   "nodes_over_db": 0,
+   "blob_z": 14,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 276801.4557659626,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     9
+    ],
+    "z": -9.08024096606765,
+    "counts": -18.5
+   },
+   "noise": {
+    "node": [
+     9,
+     23
+    ],
+    "db": 9.030899869919436,
+    "on_rms": 4.0743097574926725
+   },
+   "nodes_over_z": 46,
+   "nodes_over_db": 0,
+   "blob_z": 11,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 54763.72316479683,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     6
+    ],
+    "z": -8.819708856801782,
+    "counts": -14.5
+   },
+   "noise": {
+    "node": [
+     3,
+     10
+    ],
+    "db": 8.613352388849425,
+    "on_rms": 4.560701700396552
+   },
+   "nodes_over_z": 36,
+   "nodes_over_db": 0,
+   "blob_z": 7,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 1331.046223640442,
+   "reps_used": 1,
+   "frames_on": 8,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     5,
+     22
+    ],
+    "z": 8.566200496180706,
+    "counts": 13.5
+   },
+   "noise": {
+    "node": [
+     9,
+     19
+    ],
+    "db": 6.665548648796644,
+    "on_rms": 4.6291004988627575
+   },
+   "nodes_over_z": 14,
+   "nodes_over_db": 0,
+   "blob_z": 2,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  }
+ ],
+ "carriers": [
+  {
+   "carrier_hz": 999.9610483646393,
+   "reps_used": 1,
+   "frames_on": 8,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     13,
+     25
+    ],
+    "z": 8.499208906022885,
+    "counts": 17.75
+   },
+   "noise": {
+    "node": [
+     12,
+     7
+    ],
+    "db": 5.5284196865778075,
+    "on_rms": 4.5197977198732495
+   },
+   "nodes_over_z": 23,
+   "nodes_over_db": 0,
+   "blob_z": 4,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 1099.9850928783417,
+   "reps_used": 1,
+   "frames_on": 8,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     13,
+     27
+    ],
+    "z": 6.53505110457838,
+    "counts": 14.0
+   },
+   "noise": {
+    "node": [
+     14,
+     23
+    ],
+    "db": 5.85026652029182,
+    "on_rms": 4.5197977198732495
+   },
+   "nodes_over_z": 4,
+   "nodes_over_db": 0,
+   "blob_z": 2,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 1209.9742889404297,
+   "reps_used": 1,
+   "frames_on": 8,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     11,
+     29
+    ],
+    "z": 7.472978698485586,
+    "counts": 17.0
+   },
+   "noise": {
+    "node": [
+     12,
+     2
+    ],
+    "db": 3.4350301591139383,
+    "on_rms": 4.69041575982343
+   },
+   "nodes_over_z": 7,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 1331.046223640442,
+   "reps_used": 1,
+   "frames_on": 8,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     5,
+     22
+    ],
+    "z": 8.566200496180706,
+    "counts": 13.5
+   },
+   "noise": {
+    "node": [
+     9,
+     19
+    ],
+    "db": 6.665548648796644,
+    "on_rms": 4.6291004988627575
+   },
+   "nodes_over_z": 14,
+   "nodes_over_db": 0,
+   "blob_z": 2,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 1464.1322195529938,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     5,
+     31
+    ],
+    "z": 5.8878405775518985,
+    "counts": 12.0
+   },
+   "noise": {
+    "node": [
+     8,
+     1
+    ],
+    "db": 10.299632233774432,
+    "on_rms": 3.7416573867739413
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 1610.536128282547,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     6,
+     14
+    ],
+    "z": -5.665210722165531,
+    "counts": -30.5
+   },
+   "noise": {
+    "node": [
+     10,
+     26
+    ],
+    "db": 10.047988828817687,
+    "on_rms": 4.147288270665544
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 1771.5618014335632,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     1,
+     32
+    ],
+    "z": 3.3880051494016357,
+    "counts": 6.5
+   },
+   "noise": {
+    "node": [
+     1,
+     33
+    ],
+    "db": 10.66946789630613,
+    "on_rms": 4.47213595499958
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 1948.6993551254272,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     11,
+     14
+    ],
+    "z": 6.762185944836671,
+    "counts": 16.75
+   },
+   "noise": {
+    "node": [
+     6,
+     17
+    ],
+    "db": 9.461246192171455,
+    "on_rms": 4.494441010848846
+   },
+   "nodes_over_z": 1,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 2143.625169992447,
+   "reps_used": 1,
+   "frames_on": 7,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     8,
+     22
+    ],
+    "z": -3.7527767497325684,
+    "counts": -6.5
+   },
+   "noise": {
+    "node": [
+     12,
+     5
+    ],
+    "db": 9.622114391106003,
+    "on_rms": 4.58257569495584
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 2357.9224944114685,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     14,
+     14
+    ],
+    "z": -4.718988563931728,
+    "counts": -10.75
+   },
+   "noise": {
+    "node": [
+     9,
+     17
+    ],
+    "db": 8.29303772831025,
+    "on_rms": 3.8987177379235853
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 2593.7333703041077,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     14,
+     14
+    ],
+    "z": -4.9384764041146,
+    "counts": -11.25
+   },
+   "noise": {
+    "node": [
+     14,
+     32
+    ],
+    "db": 8.372727025023002,
+    "on_rms": 3.1622776601683795
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 2853.1067073345184,
+   "reps_used": 1,
+   "frames_on": 7,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     12,
+     14
+    ],
+    "z": -5.34617248914473,
+    "counts": -15.5
+   },
+   "noise": {
+    "node": [
+     5,
+     28
+    ],
+    "db": 8.40299157132488,
+    "on_rms": 4.123105625617661
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 3138.3708119392395,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     9,
+     24
+    ],
+    "z": -3.247497684597429,
+    "counts": -7.5
+   },
+   "noise": {
+    "node": [
+     0,
+     0
+    ],
+    "db": 7.695510786217261,
+    "on_rms": 4.358898943540674
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 3452.3196518421173,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     9,
+     11
+    ],
+    "z": 3.2562881323932644,
+    "counts": 7.0
+   },
+   "noise": {
+    "node": [
+     2,
+     10
+    ],
+    "db": 9.208187539523752,
+    "on_rms": 3.7416573867739413
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 3797.4677979946136,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     14,
+     13
+    ],
+    "z": 3.268966396943816,
+    "counts": 8.25
+   },
+   "noise": {
+    "node": [
+     4,
+     1
+    ],
+    "db": 10.457574905606752,
+    "on_rms": 4.358898943540674
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 4177.168011665344,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     15,
+     13
+    ],
+    "z": -5.367957796132867,
+    "counts": -11.75
+   },
+   "noise": {
+    "node": [
+     11,
+     2
+    ],
+    "db": 8.069775765623497,
+    "on_rms": 4.560701700396552
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 4594.959318637848,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     9,
+     14
+    ],
+    "z": 5.137802161054263,
+    "counts": 12.5
+   },
+   "noise": {
+    "node": [
+     4,
+     10
+    ],
+    "db": 8.45098040014257,
+    "on_rms": 3.9749213828703582
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 5054.473876953125,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     10,
+     13
+    ],
+    "z": -11.942720436674865,
+    "counts": -24.0
+   },
+   "noise": {
+    "node": [
+     5,
+     29
+    ],
+    "db": 10.66946789630613,
+    "on_rms": 4.47213595499958
+   },
+   "nodes_over_z": 2,
+   "nodes_over_db": 0,
+   "blob_z": 2,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 5559.902638196945,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     15,
+     14
+    ],
+    "z": -5.007137762377681,
+    "counts": -13.5
+   },
+   "noise": {
+    "node": [
+     6,
+     8
+    ],
+    "db": 9.352746703633448,
+    "on_rms": 4.626013402488151
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 6115.902215242386,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     9,
+     14
+    ],
+    "z": -7.398435111918139,
+    "counts": -18.0
+   },
+   "noise": {
+    "node": [
+     13,
+     31
+    ],
+    "db": 11.59700842867512,
+    "on_rms": 5.0
+   },
+   "nodes_over_z": 2,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 6727.501749992371,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     11,
+     14
+    ],
+    "z": 7.771467429140652,
+    "counts": 19.25
+   },
+   "noise": {
+    "node": [
+     9,
+     13
+    ],
+    "db": 9.688420180096132,
+    "on_rms": 4.8166378315169185
+   },
+   "nodes_over_z": 5,
+   "nodes_over_db": 0,
+   "blob_z": 3,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 7400.196045637131,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     14
+    ],
+    "z": 4.48611243440948,
+    "counts": 15.75
+   },
+   "noise": {
+    "node": [
+     4,
+     22
+    ],
+    "db": 9.453790491080197,
+    "on_rms": 4.2895221179054435
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 8140.3180956840515,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     9,
+     14
+    ],
+    "z": -6.987410939033798,
+    "counts": -17.0
+   },
+   "noise": {
+    "node": [
+     15,
+     1
+    ],
+    "db": 9.688420180096132,
+    "on_rms": 4.8166378315169185
+   },
+   "nodes_over_z": 1,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 8954.29402589798,
+   "reps_used": 1,
+   "frames_on": 7,
+   "touch_jumps": 2,
+   "level": {
+    "node": [
+     8,
+     13
+    ],
+    "z": -7.56978119245116,
+    "counts": -19.0
+   },
+   "noise": {
+    "node": [
+     1,
+     13
+    ],
+    "db": 7.715206714846305,
+    "on_rms": 5.0
+   },
+   "nodes_over_z": 2,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 9849.6675491333,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     13,
+     13
+    ],
+    "z": 10.716196520359686,
+    "counts": 28.5
+   },
+   "noise": {
+    "node": [
+     7,
+     29
+    ],
+    "db": 10.66946789630613,
+    "on_rms": 4.47213595499958
+   },
+   "nodes_over_z": 6,
+   "nodes_over_db": 0,
+   "blob_z": 3,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 10834.727436304092,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     10,
+     13
+    ],
+    "z": 7.713006948685851,
+    "counts": 15.5
+   },
+   "noise": {
+    "node": [
+     6,
+     1
+    ],
+    "db": 10.0,
+    "on_rms": 5.0
+   },
+   "nodes_over_z": 6,
+   "nodes_over_db": 0,
+   "blob_z": 2,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 11918.22811961174,
+   "reps_used": 1,
+   "frames_on": 7,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     12,
+     13
+    ],
+    "z": 7.7981956675953645,
+    "counts": 16.5
+   },
+   "noise": {
+    "node": [
+     9,
+     24
+    ],
+    "db": 8.880262405560677,
+    "on_rms": 4.0
+   },
+   "nodes_over_z": 2,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 13110.041618347168,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     10,
+     13
+    ],
+    "z": -5.473746866809313,
+    "counts": -11.0
+   },
+   "noise": {
+    "node": [
+     8,
+     7
+    ],
+    "db": 9.234831456337869,
+    "on_rms": 4.560701700396552
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 14420.971274375916,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     10,
+     13
+    ],
+    "z": 5.971360218337432,
+    "counts": 12.0
+   },
+   "noise": {
+    "node": [
+     13,
+     12
+    ],
+    "db": 12.376873303021931,
+    "on_rms": 4.8166378315169185
+   },
+   "nodes_over_z": 1,
+   "nodes_over_db": 1,
+   "blob_z": 1,
+   "blob_db": 1,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 15863.124281167984,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     6
+    ],
+    "z": 9.580028585836418,
+    "counts": 15.75
+   },
+   "noise": {
+    "node": [
+     12,
+     3
+    ],
+    "db": 8.860566476931632,
+    "on_rms": 4.358898943540674
+   },
+   "nodes_over_z": 50,
+   "nodes_over_db": 0,
+   "blob_z": 9,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 17449.44602251053,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     6
+    ],
+    "z": 7.907325181960219,
+    "counts": 13.0
+   },
+   "noise": {
+    "node": [
+     7,
+     21
+    ],
+    "db": 10.949755132308567,
+    "on_rms": 4.626013402488151
+   },
+   "nodes_over_z": 22,
+   "nodes_over_db": 0,
+   "blob_z": 3,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 19194.278866052628,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     12,
+     27
+    ],
+    "z": -3.3432262933727026,
+    "counts": -8.0
+   },
+   "noise": {
+    "node": [
+     14,
+     28
+    ],
+    "db": 9.242792860618817,
+    "on_rms": 2.7202941017470885
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 21113.82782459259,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 2,
+   "level": {
+    "node": [
+     15,
+     13
+    ],
+    "z": 10.735915592265734,
+    "counts": 23.5
+   },
+   "noise": {
+    "node": [
+     6,
+     27
+    ],
+    "db": 12.833012287035498,
+    "on_rms": 4.266145801540309
+   },
+   "nodes_over_z": 7,
+   "nodes_over_db": 1,
+   "blob_z": 2,
+   "blob_db": 1,
+   "responds": true,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 23225.22923350334,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     13,
+     12
+    ],
+    "z": 6.79183570605654,
+    "counts": 16.5
+   },
+   "noise": {
+    "node": [
+     9,
+     26
+    ],
+    "db": 9.234831456337869,
+    "on_rms": 4.560701700396552
+   },
+   "nodes_over_z": 3,
+   "nodes_over_db": 0,
+   "blob_z": 2,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 25547.66833782196,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     15,
+     13
+    ],
+    "z": -3.5405679080876356,
+    "counts": -7.75
+   },
+   "noise": {
+    "node": [
+     8,
+     0
+    ],
+    "db": 7.481880270062005,
+    "on_rms": 3.9749213828703582
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 28102.37929224968,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     9,
+     12
+    ],
+    "z": 5.062240943253934,
+    "counts": 12.0
+   },
+   "noise": {
+    "node": [
+     12,
+     6
+    ],
+    "db": 9.072459467631013,
+    "on_rms": 4.47213595499958
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 30912.738293409348,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     11,
+     31
+    ],
+    "z": -4.064670704147808,
+    "counts": -8.5
+   },
+   "noise": {
+    "node": [
+     9,
+     19
+    ],
+    "db": 10.0,
+    "on_rms": 4.358898943540674
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 34003.89105081558,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     11,
+     31
+    ],
+    "z": -4.064670704147808,
+    "counts": -8.5
+   },
+   "noise": {
+    "node": [
+     13,
+     15
+    ],
+    "db": 8.613352388849425,
+    "on_rms": 4.560701700396552
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 37404.33603525162,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     6
+    ],
+    "z": 7.907325181960219,
+    "counts": 13.0
+   },
+   "noise": {
+    "node": [
+     7,
+     17
+    ],
+    "db": 10.122344564170117,
+    "on_rms": 3.6606010435446255
+   },
+   "nodes_over_z": 16,
+   "nodes_over_db": 0,
+   "blob_z": 2,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 41144.806891679764,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     14,
+     30
+    ],
+    "z": 4.338478284190648,
+    "counts": 7.5
+   },
+   "noise": {
+    "node": [
+     6,
+     29
+    ],
+    "db": 9.352746703633448,
+    "on_rms": 4.626013402488151
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 45259.296894073486,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     11
+    ],
+    "z": -3.128762794860938,
+    "counts": -7.5
+   },
+   "noise": {
+    "node": [
+     2,
+     19
+    ],
+    "db": 10.387525889920166,
+    "on_rms": 3.924283374069717
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 49785.24520993233,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     8,
+     31
+    ],
+    "z": -3.7858251421441294,
+    "counts": -8.0
+   },
+   "noise": {
+    "node": [
+     5,
+     4
+    ],
+    "db": 9.684829485539352,
+    "on_rms": 4.1952353926806065
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 54763.72316479683,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     6
+    ],
+    "z": -8.819708856801782,
+    "counts": -14.5
+   },
+   "noise": {
+    "node": [
+     3,
+     10
+    ],
+    "db": 8.613352388849425,
+    "on_rms": 4.560701700396552
+   },
+   "nodes_over_z": 36,
+   "nodes_over_db": 0,
+   "blob_z": 7,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 60240.086168050766,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     13,
+     22
+    ],
+    "z": -3.4601436399263665,
+    "counts": -8.5
+   },
+   "noise": {
+    "node": [
+     2,
+     20
+    ],
+    "db": 9.075904882186201,
+    "on_rms": 4.2895221179054435
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 66264.0668451786,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     8,
+     33
+    ],
+    "z": -2.873747895395861,
+    "counts": -5.25
+   },
+   "noise": {
+    "node": [
+     2,
+     22
+    ],
+    "db": 9.072459467631013,
+    "on_rms": 4.47213595499958
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 72890.5200958252,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     13,
+     13
+    ],
+    "z": 4.888089640865822,
+    "counts": 13.0
+   },
+   "noise": {
+    "node": [
+     9,
+     4
+    ],
+    "db": 10.0,
+    "on_rms": 5.0
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 80179.51622605324,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     1,
+     31
+    ],
+    "z": 3.7005162105737504,
+    "counts": 7.5
+   },
+   "noise": {
+    "node": [
+     14,
+     19
+    ],
+    "db": 8.155777483242673,
+    "on_rms": 4.560701700396552
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 88197.45853543282,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     6
+    ],
+    "z": 9.275900694222564,
+    "counts": 15.25
+   },
+   "noise": {
+    "node": [
+     5,
+     25
+    ],
+    "db": 9.688420180096132,
+    "on_rms": 4.8166378315169185
+   },
+   "nodes_over_z": 56,
+   "nodes_over_db": 0,
+   "blob_z": 14,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 97017.17644929886,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     7,
+     16
+    ],
+    "z": -4.141889803163831,
+    "counts": -8.5
+   },
+   "noise": {
+    "node": [
+     8,
+     20
+    ],
+    "db": 10.078253375119566,
+    "on_rms": 4.626013402488151
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 106719.04310584068,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 2,
+   "level": {
+    "node": [
+     1,
+     27
+    ],
+    "z": -3.459224036806402,
+    "counts": -6.5
+   },
+   "noise": {
+    "node": [
+     6,
+     7
+    ],
+    "db": 7.8238830332689835,
+    "on_rms": 4.427188724235731
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 117390.88222384453,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     3,
+     28
+    ],
+    "z": 3.1882430297926287,
+    "counts": 5.25
+   },
+   "noise": {
+    "node": [
+     5,
+     7
+    ],
+    "db": 8.45098040014257,
+    "on_rms": 3.9749213828703582
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 129129.92388010025,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     14,
+     13
+    ],
+    "z": 4.4576814503779305,
+    "counts": 11.25
+   },
+   "noise": {
+    "node": [
+     1,
+     11
+    ],
+    "db": 6.7778070526608065,
+    "on_rms": 4.358898943540674
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 142042.89764165878,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     10,
+     27
+    ],
+    "z": -3.2531295144468095,
+    "counts": -6.5
+   },
+   "noise": {
+    "node": [
+     4,
+     23
+    ],
+    "db": 7.469932683932568,
+    "on_rms": 4.8166378315169185
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 156247.24328517914,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 2,
+   "level": {
+    "node": [
+     10,
+     11
+    ],
+    "z": 2.8037876922038554,
+    "counts": 5.75
+   },
+   "noise": {
+    "node": [
+     9,
+     30
+    ],
+    "db": 8.786653876605254,
+    "on_rms": 4.8166378315169185
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 171871.8558549881,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     12,
+     13
+    ],
+    "z": 4.017252313609733,
+    "counts": 8.5
+   },
+   "noise": {
+    "node": [
+     7,
+     17
+    ],
+    "db": 7.781512503836435,
+    "on_rms": 4.266145801540309
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 189059.13457274437,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     9,
+     12
+    ],
+    "z": 4.8513142372850195,
+    "counts": 11.5
+   },
+   "noise": {
+    "node": [
+     6,
+     11
+    ],
+    "db": 7.6056607558253075,
+    "on_rms": 4.8166378315169185
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 207965.07596969604,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     15,
+     11
+    ],
+    "z": 3.5818722284057505,
+    "counts": 7.0
+   },
+   "noise": {
+    "node": [
+     10,
+     26
+    ],
+    "db": 8.970158392797504,
+    "on_rms": 3.63318042491699
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 228761.60219311714,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     11,
+     13
+    ],
+    "z": -4.820531426878498,
+    "counts": -12.5
+   },
+   "noise": {
+    "node": [
+     0,
+     27
+    ],
+    "db": 10.34762106259212,
+    "on_rms": 5.0
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 251637.67859339714,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     6
+    ],
+    "z": 6.842877561311727,
+    "counts": 11.25
+   },
+   "noise": {
+    "node": [
+     11,
+     3
+    ],
+    "db": 9.542425094393248,
+    "on_rms": 3.7416573867739413
+   },
+   "nodes_over_z": 1,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 276801.4557659626,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     0,
+     9
+    ],
+    "z": -9.08024096606765,
+    "counts": -18.5
+   },
+   "noise": {
+    "node": [
+     9,
+     23
+    ],
+    "db": 9.030899869919436,
+    "on_rms": 4.0743097574926725
+   },
+   "nodes_over_z": 46,
+   "nodes_over_db": 0,
+   "blob_z": 11,
+   "blob_db": 0,
+   "responds": true,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 304481.5734028816,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     14,
+     13
+    ],
+    "z": 4.358621862591755,
+    "counts": 11.0
+   },
+   "noise": {
+    "node": [
+     2,
+     10
+    ],
+    "db": 9.688420180096132,
+    "on_rms": 4.8166378315169185
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 334929.76799607277,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     5,
+     18
+    ],
+    "z": -4.362616357099257,
+    "counts": -8.5
+   },
+   "noise": {
+    "node": [
+     8,
+     33
+    ],
+    "db": 8.507019175322553,
+    "on_rms": 5.0
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 368422.82861471176,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     3,
+     20
+    ],
+    "z": -3.9175530911810537,
+    "counts": -8.5
+   },
+   "noise": {
+    "node": [
+     14,
+     8
+    ],
+    "db": 9.684829485539352,
+    "on_rms": 4.1952353926806065
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 405265.11147618294,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 2,
+   "level": {
+    "node": [
+     6,
+     28
+    ],
+    "z": -2.862290749265933,
+    "counts": -5.5
+   },
+   "noise": {
+    "node": [
+     1,
+     31
+    ],
+    "db": 9.902401627108437,
+    "on_rms": 4.0743097574926725
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 445791.6133105755,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 0,
+   "level": {
+    "node": [
+     10,
+     13
+    ],
+    "z": -6.966586921393671,
+    "counts": -14.0
+   },
+   "noise": {
+    "node": [
+     3,
+     9
+    ],
+    "db": 8.081144737610868,
+    "on_rms": 3.7416573867739413
+   },
+   "nodes_over_z": 1,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": false
+  },
+  {
+   "carrier_hz": 490370.6721961498,
+   "reps_used": 1,
+   "frames_on": 6,
+   "touch_jumps": 1,
+   "level": {
+    "node": [
+     3,
+     11
+    ],
+    "z": -3.657567354387593,
+    "counts": -18.0
+   },
+   "noise": {
+    "node": [
+     13,
+     24
+    ],
+    "db": 9.960338127823986,
+    "on_rms": 4.560701700396552
+   },
+   "nodes_over_z": 0,
+   "nodes_over_db": 0,
+   "blob_z": 0,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  }
+ ]
+}

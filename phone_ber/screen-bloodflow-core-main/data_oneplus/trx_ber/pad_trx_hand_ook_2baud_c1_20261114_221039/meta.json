@@ -1,0 +1,85 @@
+{
+ "mode": "pad_trx_ber",
+ "modulation": "ook",
+ "args": {
+  "cmd": "run",
+  "what": [],
+  "label": "hand",
+  "mods": "ook,fsk",
+  "rates": "2",
+  "carrier": 37400.0,
+  "fsk_zero": 156250.0,
+  "send": "none_full,cc4",
+  "rounds": 3,
+  "rounds_per_rec": 1,
+  "seed": 1027,
+  "current_ma": 0.1,
+  "phantom": false,
+  "site": "hand2finger",
+  "condition": "still",
+  "wave": "square",
+  "port": null,
+  "serial": null,
+  "adb": null,
+  "yes": false,
+  "out": null,
+  "synth_rates": "2,3,4,5,6"
+ },
+ "plan": {
+  "modulation": "ook",
+  "sym_us": 500000,
+  "baud": 2.0,
+  "carrier_hz": 37399.958819150925,
+  "n_symbols": 384,
+  "total_s": 192.0,
+  "n_steps": 384,
+  "zero_hz": 0.0
+ },
+ "t_first": 1794712045.315508,
+ "pad_model": "OPD2203",
+ "tx": {
+  "line": "TeensyTRX - galvanic transceiver (Teensy 4.0, RX pin 14 = A0, AD9833 FSYNC 10 / SDATA 11 / SCLK 13)"
+ },
+ "tx_status": {
+  "state": "done",
+  "t0": "457500081",
+  "events": "384/384",
+  "late_max": "1",
+  "late_n": "0",
+  "sps": "1000000",
+  "wave": "square",
+  "psk_us": "0",
+  "psk_n": "0",
+  "psk_mode": "off",
+  "psk_src": "prbs",
+  "line": "# sweep state=done t0=457500081 events=384/384 late_max=1 late_n=0 sps=1000000 wave=square psk_us=0 psk_n=0 psk_mode=off psk_src=prbs"
+ },
+ "clock_offset_start": {
+  "offset_s": 2.392735004425049,
+  "rtt_s": 0.027540922164916992
+ },
+ "clock_offset_end": {
+  "offset_s": 2.3907482624053955,
+  "rtt_s": 0.0229189395904541
+ },
+ "clock_offset_used_s": 2.391741633415222,
+ "reads": 1355,
+ "frames_without_device_stamp": 0,
+ "skipped_frames": 0,
+ "send": [
+  "none_full",
+  "cc4"
+ ],
+ "seed": 1027,
+ "seq_k": 2,
+ "chunk": 1,
+ "round0": 1,
+ "round1": 2,
+ "frame_index0": 2,
+ "current_ma": 0.1,
+ "site": "hand2finger",
+ "condition": "still",
+ "decoder": "trx-pad-1",
+ "decoder_rules_sha": "1423f84f62b0",
+ "tool_sha": "3bdfefae6ce1"
+}

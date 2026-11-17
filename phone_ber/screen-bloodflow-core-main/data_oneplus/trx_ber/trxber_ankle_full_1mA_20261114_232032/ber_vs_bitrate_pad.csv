@@ -1,0 +1,13 @@
+panel,modulation,baud,errors,bits
+Before FEC (cc4 code bits),ook,2.0,32,576
+Before FEC (cc4 code bits),ook,3.0,3,576
+Before FEC (cc4 code bits),ook,4.0,3,576
+Before FEC (cc4 code bits),fsk,2.0,2,576
+Before FEC (cc4 code bits),fsk,3.0,2,576
+Before FEC (cc4 code bits),fsk,4.0,2,576
+After FEC (cc4 decoded info bits),ook,2.0,21,288
+After FEC (cc4 decoded info bits),ook,3.0,0,288
+After FEC (cc4 decoded info bits),ook,4.0,0,288
+After FEC (cc4 decoded info bits),fsk,2.0,0,288
+After FEC (cc4 decoded info bits),fsk,3.0,0,288
+After FEC (cc4 decoded info bits),fsk,4.0,0,288

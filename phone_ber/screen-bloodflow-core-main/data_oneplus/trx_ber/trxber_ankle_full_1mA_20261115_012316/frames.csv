@@ -1,0 +1,6 @@
+run,modulation,baud,frame,decoder,i,round,erasures,reference_ok,pre_err,code_bits,info_err,info_bits,frame_err,crc_ok,crc_missed
+pad_trx_ankle_full_1mA_ook_2baud_c0_20261115_012316,ook,2.0,cc4,cc4,0,0,218,True,97,192,50,96,True,False,False
+pad_trx_ankle_full_1mA_ook_2baud_c0_20261115_012316,ook,2.0,cc4,cc4q4,0,0,218,True,97,192,50,96,True,False,False
+pad_trx_ankle_full_1mA_ook_2baud_c0_20261115_012316,ook,2.0,cc4,cc4q3,0,0,218,True,97,192,50,96,True,False,False
+pad_trx_ankle_full_1mA_ook_2baud_c0_20261115_012316,ook,2.0,cc4,cc4h,0,0,218,True,97,192,50,96,True,False,False
+pad_trx_ankle_full_1mA_ook_2baud_c0_20261115_012316,ook,2.0,none_full,none_full,1,0,128,False,54,96,54,96,True,False,False

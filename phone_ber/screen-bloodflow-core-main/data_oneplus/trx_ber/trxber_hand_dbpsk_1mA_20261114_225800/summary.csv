@@ -1,0 +1,6 @@
+modulation,baud,frame,decoder,label,coded,air_symbols,info_bps,frames,frame_errors,fer,fer_lo,fer_hi,crc_pass,crc_missed,pre_fec_errors,pre_fec_bits,pre_fec_ber,post_fec_errors,post_fec_bits,post_fec_ber,post_fec_ber_upper95,erasures,reference_failed,state_ber
+dbpsk,3.0,none_full,none_full,"No FEC (DBPSK, 1 symbol/bit)",False,128,2.25,3,3,1.0,0.43849391955098227,1.0,0,0,146,288,0.5069444444444444,146,288,0.5069444444444444,,0,0,0.4661458333333333
+dbpsk,3.0,cc4,cc4,Conv K=4 soft — Bluetooth LE Coded,True,256,1.125,3,3,1.0,0.43849391955098227,1.0,0,0,280,576,0.4861111111111111,129,288,0.4479166666666667,,0,0,0.4661458333333333
+dbpsk,3.0,cc4,cc4q4,"Conv K=4, 4-bit soft",True,256,1.125,3,3,1.0,0.43849391955098227,1.0,0,0,280,576,0.4861111111111111,131,288,0.4548611111111111,,0,0,0.4661458333333333
+dbpsk,3.0,cc4,cc4q3,"Conv K=4, 3-bit soft",True,256,1.125,3,3,1.0,0.43849391955098227,1.0,0,0,280,576,0.4861111111111111,131,288,0.4548611111111111,,0,0,0.4661458333333333
+dbpsk,3.0,cc4,cc4h,Conv K=4 hard,True,256,1.125,3,3,1.0,0.43849391955098227,1.0,0,0,280,576,0.4861111111111111,132,288,0.4583333333333333,,0,0,0.4661458333333333

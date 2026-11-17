@@ -1,0 +1,373 @@
+{
+ "run": "ctl_20261114_203433",
+ "frames": 47,
+ "fps": 3.0211493941572294,
+ "frame_gap_p95_ms": 356.99987411499023,
+ "transmitted": false,
+ "thresholds": {
+  "level_z": 5.0,
+  "noise_db": 6.0,
+  "min_blob_nodes": 2
+ },
+ "jump_counts": 50.0,
+ "node_noise_counts": {
+  "median": 6.6583281184793925,
+  "floor": 0.5
+ },
+ "lead_touch": {
+  "max": 1418.3333333333333,
+  "node": [
+   7,
+   15
+  ]
+ },
+ "responding": [],
+ "top": [
+  {
+   "carrier_hz": 999.9610483646393,
+   "reps_used": 1,
+   "frames_on": 8,
+   "touch_jumps": 14,
+   "level": {
+    "node": [
+     3,
+     3
+    ],
+    "z": -7.778174593052025,
+    "counts": -8.25
+   },
+   "noise": {
+    "node": [
+     14,
+     19
+    ],
+    "db": 3.2602168253874257,
+    "on_rms": 4.551294949163998
+   },
+   "nodes_over_z": 4,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 1099.9850928783417,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1209.9742889404297,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1331.046223640442,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1464.1322195529938,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1610.536128282547,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1771.5618014335632,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1948.6993551254272,
+   "error": "no frames in its blocks"
+  }
+ ],
+ "carriers": [
+  {
+   "carrier_hz": 999.9610483646393,
+   "reps_used": 1,
+   "frames_on": 8,
+   "touch_jumps": 14,
+   "level": {
+    "node": [
+     3,
+     3
+    ],
+    "z": -7.778174593052025,
+    "counts": -8.25
+   },
+   "noise": {
+    "node": [
+     14,
+     19
+    ],
+    "db": 3.2602168253874257,
+    "on_rms": 4.551294949163998
+   },
+   "nodes_over_z": 4,
+   "nodes_over_db": 0,
+   "blob_z": 1,
+   "blob_db": 0,
+   "responds": false,
+   "touch_artifact_risk": true
+  },
+  {
+   "carrier_hz": 1099.9850928783417,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1209.9742889404297,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1331.046223640442,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1464.1322195529938,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1610.536128282547,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1771.5618014335632,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 1948.6993551254272,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 2143.625169992447,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 2357.9224944114685,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 2593.7333703041077,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 2853.1067073345184,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 3138.3708119392395,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 3452.3196518421173,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 3797.4677979946136,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 4177.168011665344,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 4594.959318637848,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 5054.473876953125,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 5559.902638196945,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 6115.902215242386,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 6727.501749992371,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 7400.196045637131,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 8140.3180956840515,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 8954.29402589798,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 9849.6675491333,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 10834.727436304092,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 11918.22811961174,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 13110.041618347168,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 14420.971274375916,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 15863.124281167984,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 17449.44602251053,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 19194.278866052628,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 21113.82782459259,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 23225.22923350334,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 25547.66833782196,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 28102.37929224968,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 30912.738293409348,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 34003.89105081558,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 37404.33603525162,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 41144.806891679764,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 45259.296894073486,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 49785.24520993233,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 54763.72316479683,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 60240.086168050766,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 66264.0668451786,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 72890.5200958252,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 80179.51622605324,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 88197.45853543282,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 97017.17644929886,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 106719.04310584068,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 117390.88222384453,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 129129.92388010025,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 142042.89764165878,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 156247.24328517914,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 171871.8558549881,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 189059.13457274437,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 207965.07596969604,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 228761.60219311714,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 251637.67859339714,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 276801.4557659626,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 304481.5734028816,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 334929.76799607277,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 368422.82861471176,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 405265.11147618294,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 445791.6133105755,
+   "error": "no frames in its blocks"
+  },
+  {
+   "carrier_hz": 490370.6721961498,
+   "error": "no frames in its blocks"
+  }
+ ]
+}

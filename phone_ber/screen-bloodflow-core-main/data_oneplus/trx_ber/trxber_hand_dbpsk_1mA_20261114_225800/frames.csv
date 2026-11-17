@@ -1,0 +1,16 @@
+run,modulation,baud,frame,decoder,i,round,erasures,reference_ok,pre_err,code_bits,info_err,info_bits,frame_err,crc_ok,crc_missed
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c0_20261114_225800,dbpsk,3.0,cc4,cc4,0,0,0,True,96,192,48,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c0_20261114_225800,dbpsk,3.0,cc4,cc4q4,0,0,0,True,96,192,50,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c0_20261114_225800,dbpsk,3.0,cc4,cc4q3,0,0,0,True,96,192,50,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c0_20261114_225800,dbpsk,3.0,cc4,cc4h,0,0,0,True,96,192,51,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c0_20261114_225800,dbpsk,3.0,none_full,none_full,1,0,0,True,48,96,48,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c1_20261114_230021,dbpsk,3.0,none_full,none_full,2,1,0,True,52,96,52,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c1_20261114_230021,dbpsk,3.0,cc4,cc4,3,1,0,True,91,192,41,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c1_20261114_230021,dbpsk,3.0,cc4,cc4q4,3,1,0,True,91,192,41,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c1_20261114_230021,dbpsk,3.0,cc4,cc4q3,3,1,0,True,91,192,41,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c1_20261114_230021,dbpsk,3.0,cc4,cc4h,3,1,0,True,91,192,41,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c2_20261114_230244,dbpsk,3.0,cc4,cc4,4,2,0,True,93,192,40,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c2_20261114_230244,dbpsk,3.0,cc4,cc4q4,4,2,0,True,93,192,40,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c2_20261114_230244,dbpsk,3.0,cc4,cc4q3,4,2,0,True,93,192,40,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c2_20261114_230244,dbpsk,3.0,cc4,cc4h,4,2,0,True,93,192,40,96,True,False,False
+pad_trx_hand_dbpsk_1mA_dbpsk_3baud_c2_20261114_230244,dbpsk,3.0,none_full,none_full,5,2,0,True,46,96,46,96,True,False,False
