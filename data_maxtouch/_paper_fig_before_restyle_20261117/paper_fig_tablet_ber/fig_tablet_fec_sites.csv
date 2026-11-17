@@ -1,0 +1,13 @@
+location,modulation,bit_rate_on_air_bps,frames,post_fec_errors,post_fec_bits,post_fec_ber,ci95_hi
+Direct contact,ook,40,12,0,1152,0.000e+00,3.197e-03
+Direct contact,ook,60,12,0,1152,0.000e+00,3.197e-03
+Direct contact,fsk,40,12,0,1152,0.000e+00,3.197e-03
+Direct contact,fsk,60,12,0,1152,0.000e+00,3.197e-03
+Shoulder,ook,40,12,0,1152,0.000e+00,3.197e-03
+Shoulder,ook,60,12,0,1152,0.000e+00,3.197e-03
+Shoulder,fsk,40,12,0,1152,0.000e+00,3.197e-03
+Shoulder,fsk,60,12,0,1152,0.000e+00,3.197e-03
+Knee,ook,40,8,6,768,7.812e-03,1.693e-02
+Knee,ook,60,8,0,768,0.000e+00,4.792e-03
+Knee,fsk,40,8,0,768,0.000e+00,4.792e-03
+Knee,fsk,60,8,0,768,0.000e+00,4.792e-03

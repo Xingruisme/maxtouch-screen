@@ -12,13 +12,14 @@ The FSK runs of the first session (tones 168 / 171 kHz, 3 kHz apart) are left ou
 even after FEC - the panel cannot tell the two tones apart.
 Before FEC = code-bit BER of the cc4 frames as the decoder sees them (2304 code bits per rate); after FEC = info-bit
 BER of the same frames after Viterbi decoding (1152 info bits per rate). A point with 0 errors after FEC is drawn as a
-hollow downward triangle at its 95 % upper bound (3 / 1152). No error bars. x = symbol rate on the air; the info
+hollow downward triangle at its 95 % upper bound (3 / 1152). Error bar = lowest to highest BER of the 2 recording
+chunks behind each point (paper_runs.py). x = symbol rate on the air; the info
 rate is 0.375 x the symbol rate (rate-1/2 code, frame overhead).
 
    python paper_fig_tablet_fec.py
 
 Output: data_maxtouch/paper_fig_tablet_ber/ (fig_tablet_fec.{pdf,png,svg}, fig_tablet_fec.csv)
-   \\includegraphics[width=\\columnwidth]{fig_tablet_fec.pdf}   (3.5 in wide, fonts 7-8 pt at 100 %)
+   \\includegraphics[width=\\columnwidth]{fig_tablet_fec.pdf}   (3.5 in wide, fonts 6-8 pt at 100 %)
 """
 from __future__ import annotations
 
@@ -28,11 +29,13 @@ import os
 
 import matplotlib
 matplotlib.use("Agg")
+import paper_runs as PR
 import matplotlib.pyplot as plt
 import numpy as np
 
+import paper_style as PS
 from paper_fig_tablet_ber import HERE, RC, STYLE, cp
-from paper_fig_tablet_ber_snr import FS, FS_TICK, INK, tidy
+from paper_fig_tablet_ber_snr import tidy
 
 D = os.path.join(HERE, "data_maxtouch")
 PANELS = [("a", "OOK, 168 kHz", "ook", "trxber_hand_trx_1mA_20261114_133911"),
@@ -67,39 +70,31 @@ def main():
                             f"{cp(qe, qn)[1]:.3e}"])
 
     with plt.rc_context(RC):
-        fig, axs = plt.subplots(1, 2, figsize=(3.5, 2.1), sharey=True, layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02, wspace=0.06)
-        for ax, (letter, title, mod, _) in zip(axs, PANELS):
+        fig, axs = PS.figure(3.5, 2.1, 1, 2, sharey=True)
+        for ax, (letter, title, mod, folder) in zip(axs, PANELS):
             c = STYLE[mod]["color"]
             rates = sorted(data[letter])
             x = np.array(rates, float)
-            pre = np.array([data[letter][b][0] / data[letter][b][1] for b in rates])
+            pre = [data[letter][b][0] / data[letter][b][1] for b in rates]
             k = np.array([data[letter][b][2] for b in rates]); n = np.array([data[letter][b][3] for b in rates])
             zero = k == 0
             post = np.where(zero, np.nan, k / np.maximum(n, 1))          # no point and no line where 0 errors
-            ax.plot(x, pre, color=c, ls=(0, (3, 1.5)), marker="o", ms=3.5, mfc="white", mew=0.9, lw=1.0,
-                    label="before FEC", zorder=3)
-            ax.plot(x, post, color=c, ls="-", marker="o", ms=3.5, lw=1.1, label="after FEC", zorder=3)
+            PS.series(ax, x - 0.6, pre, [PR.spread(PR.trx(folder, CODE, mod, b)) for b in rates],
+                      **PS.marks(c, "o", hollow=True, ls=PS.DASH))
+            PS.series(ax, x + 0.6, post, [None if z else PR.spread(PR.trx(folder, CODE, mod, b, after_fec=True))
+                                          for z, b in zip(zero, rates)], **PS.marks(c, "o", ms=PS.MS - 0.4))
             if zero.any():
-                ax.plot(x[zero], [cp(0, int(m))[1] for m in n[zero]], ls="none", marker="v", ms=4, color=c,
-                        mfc="white", mew=0.9, zorder=4)
+                ax.plot(x[zero] + 0.6, [cp(0, int(m))[1] for m in n[zero]], zorder=4,
+                        **PS.marks(c, "v", hollow=True, ls="none"))
             ax.set_yscale("log"); ax.set_ylim(1e-3, 1)
-            tidy(ax, rates, "Bit error rate" if letter == "a" else "", letter)
-            ax.set_xlabel("Symbol rate (baud)", fontsize=FS, color=INK, labelpad=1)
-            ax.text(0.04, 0.97, title, transform=ax.transAxes, fontsize=FS_TICK, color=INK, va="top")
-            if letter == "b":
-                ax.tick_params(labelleft=False)
+            tidy(ax, rates, "Bit error rate" if letter == "a" else "")
+            ax.set_xlabel("Symbol rate (baud)")
+            PS.note(ax, title)
+            PS.panel(ax, letter, dx=-22 if letter == "a" else -6)
         # one neutral key above both panels (colour = modulation, given by each panel's title)
-        g = "#52514e"
-        key = [plt.Line2D([], [], color=g, ls=(0, (3, 1.5)), marker="o", ms=3.5, mfc="white", mew=0.9, lw=1.0),
-               plt.Line2D([], [], color=g, ls="-", marker="o", ms=3.5, lw=1.1),
-               plt.Line2D([], [], color=g, ls="none", marker="v", ms=4, mfc="white", mew=0.9)]
-        fig.legend(key, ["before FEC", "after FEC", "0 errors after FEC (95 % bound)"], loc="outside upper center",
-                   ncol=3, frameon=False, prop={"size": FS_TICK - 1}, handlelength=1.8, handletextpad=0.3,
-                   columnspacing=0.8, borderaxespad=0.1)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(os.path.join(a.out, f"fig_tablet_fec.{ext}"), dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        PS.top_legend(fig, [PS.key(hollow=True, ls=PS.DASH), PS.key(ms=PS.MS - 0.4), PS.key(marker="v", hollow=True, ls="none")],
+                      ["Before FEC", "After FEC", "0 errors (95% bound)"], columnspacing=1.0, handletextpad=0.4)
+        PS.save(fig, os.path.join(a.out, "fig_tablet_fec"))
     for letter, title, mod, _ in PANELS:
         print(title + ": " + "  ".join(f"{b} baud {pe}/{pn} -> {qe}/{qn}" for b, (pe, pn, qe, qn, _) in
                                        sorted(data[letter].items())))

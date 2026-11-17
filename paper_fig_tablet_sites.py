@@ -17,8 +17,8 @@ Data (nothing re-decoded; all uncoded, no FEC):
   stent_modcomp runs: errors / bits from the stent_modcomp analyses, frozen decode_v4, known timing.
 The back session of 2026-11-15 02:53 (modcomp_back2finger_sit_still_20261115_025352) is left out: its only run stopped
 after 6 s and decoded no bits. Sites ordered by body path length to the finger, as paper_fig_body_sites.py.
-Bar = pooled errors / bits, value printed above it. No error bars; the csv keeps the bit counts and the
-Clopper-Pearson 95 % interval.
+Bar = pooled errors / bits, value printed above it; error bar = lowest to highest per-run BER (paper_runs.py; a
+trxber session counts per recording chunk). The csv keeps the bit counts and the Clopper-Pearson 95 % interval.
 
    python paper_fig_tablet_sites.py [--bps 40]
 
@@ -28,7 +28,7 @@ are left out of it.
 
 Output: data_maxtouch/paper_fig_tablet_ber/ (fig_tablet_sites_40bps.{pdf,png,svg}, fig_tablet_sites_40bps.csv,
         fig_tablet_distance_40bps.{pdf,png,svg})
-   \\includegraphics[width=\\columnwidth]{fig_tablet_distance_40bps.pdf}   (3.5 in wide, fonts ~9 pt at 100 %)
+   \\includegraphics[width=\\columnwidth]{fig_tablet_distance_40bps.pdf}   (3.5 in wide, fonts 6-7 pt at 100 %)
 """
 from __future__ import annotations
 
@@ -39,11 +39,12 @@ import os
 
 import matplotlib
 matplotlib.use("Agg")
+import paper_runs as PR
 import matplotlib.pyplot as plt
 import numpy as np
 
+import paper_style as PS
 from paper_fig_tablet_ber import HERE, RC, STYLE, cp
-from paper_fig_tablet_snr import FS, FS_TICK, INK
 
 D = os.path.join(HERE, "data_maxtouch")
 # (axis label, source): a list of modcomp session / trxber summary folders, or (conditions table, condition prefix)
@@ -79,33 +80,37 @@ def counts(src, m, bps):
     return k, n, runs
 
 
-def line_vs_distance(data, bps, out):
+def run_list(src, m, bps):
+    """[(errors, bits) per run] behind counts(), for the error bars"""
+    if isinstance(src, tuple):
+        table, prefix = src
+        row = next(r for r in csv.DictReader(open(os.path.join(D, table, "conditions.csv")))
+                   if r["condition"].startswith(prefix) and r["modulation"] == m and round(float(r["bps"])) == bps)
+        return PR.conditions_row(row)
+    out = []
+    for s in src:
+        out += PR.trx(s, "none_full", m, bps) if s.startswith("trxber_") else PR.sessions([s], m, bps)
+    return out
+
+
+def line_vs_distance(data, bps, out, rr):
     """the same counts as a line chart: BER (log) vs assumed body path to the finger, one line per modulation"""
     with plt.rc_context(RC):
-        fig, ax = plt.subplots(figsize=(3.5, 2.4), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02)
+        fig, ax = PS.figure(3.5, 2.4)
         sites = sorted((s for s in SITES if s[0] in DISTANCE_M), key=lambda s: DISTANCE_M[s[0]])
         x = np.array([DISTANCE_M[lab] for lab, _ in sites])
         for m in ("ook", "fsk"):
             st = STYLE[m]
             ber = [data[lab, m][0] / data[lab, m][1] for lab, _ in sites]
-            ax.plot(x, ber, color=st["color"], marker=st["marker"], ms=4.5, lw=1.3, label=st["label"], zorder=3)
+            PS.series(ax, x + (-0.012 if m == "ook" else 0.012), ber, [PR.spread(rr[lab, m]) for lab, _ in sites],
+                      **PS.marks(st["color"], st["marker"], label=st["label"]))
         ax.set_yscale("log"); ax.set_ylim(1e-4, 1e-1)
         ax.set_xticks(x, [f"{d:g}\n{lab}" for d, (lab, _) in zip(x, sites)])
         ax.set_xlim(x[0] - 0.15, x[-1] + 0.15)
-        ax.set_xlabel("Body transmission distance (m)", fontsize=FS, color=INK, labelpad=2)
-        ax.set_ylabel(f"Bit error rate, {bps} bps", fontsize=FS, color=INK, labelpad=2)
-        ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=3, pad=2)
-        ax.tick_params(which="minor", width=0.5, length=1.5)
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        for sp in ("left", "bottom"):
-            ax.spines[sp].set_linewidth(0.6)
-        ax.legend(loc="upper left", frameon=False, prop={"size": FS_TICK}, handlelength=1.8, handletextpad=0.4,
-                  borderaxespad=0.2)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(f"{out}.{ext}", dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        ax.set_xlabel("Body transmission distance (m)"); ax.set_ylabel(f"Bit error rate, {bps} bps")
+        PS.finish(ax)
+        ax.legend(loc="upper left")
+        PS.save(fig, out)
 
 
 def main():
@@ -115,6 +120,9 @@ def main():
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     data = {(lab, m): counts(src, m, a.bps) for lab, src in SITES for m in ("ook", "fsk")}
+    rr = {(lab, m): run_list(src, m, a.bps) for lab, src in SITES for m in ("ook", "fsk")}
+    for key, rl in rr.items():                          # the per-run lists must add up to the pooled counts
+        assert (sum(e for e, _ in rl), sum(n for _, n in rl)) == data[key][:2], key
     name = f"fig_tablet_sites_{a.bps}bps"
     with open(os.path.join(a.out, name + ".csv"), "w", newline="") as f:
         w = csv.writer(f); w.writerow(["site", "modulation", "bps", "runs", "errors", "bits", "ber", "ci95_lo", "ci95_hi"])
@@ -124,35 +132,21 @@ def main():
                 w.writerow([lab.lower(), m, a.bps, runs, k, n, f"{k / n:.3e}", *(f"{x:.3e}" for x in cp(k, n))])
 
     with plt.rc_context(RC):
-        fig, ax = plt.subplots(figsize=(3.5, 2.4), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02)
-        x = np.arange(len(SITES))
-        wd = 0.34
-        top = 0.0
+        fig, ax = PS.figure(3.5, 2.4)
+        x = np.arange(len(SITES)); wd = 0.34; top = 0.0
         for j, m in enumerate(("ook", "fsk")):
             st = STYLE[m]
-            pct = np.array([100 * data[lab, m][0] / data[lab, m][1] for lab, _ in SITES])
-            top = max(top, pct.max())
-            xb = x + (j - 0.5) * (wd + 0.04)
-            ax.bar(xb, pct, width=wd, color=st["color"], label=st["label"], zorder=3)
-            for xi, v in zip(xb, pct):
-                ax.text(xi, v + 0.04 * top, f"{v:.2f}", ha="center", va="bottom", fontsize=FS_TICK - 2, color=INK)
+            pct = [100 * data[lab, m][0] / data[lab, m][1] for lab, _ in SITES]
+            runs = [[100 * e / n for e, n in rr[lab, m]] for lab, _ in SITES]
+            top = max(top, max(max(r) for r in runs))
+            PS.bars(ax, x + (j - 0.5) * (wd + 0.05), pct, runs, st["color"], wd, st["label"])
         ax.set_xticks(x, [lab for lab, _ in SITES])
-        ax.set_ylim(0, top * 1.18)
-        ax.set_xlabel("TX electrode location on the body", fontsize=FS, color=INK, labelpad=2)
-        ax.set_ylabel(f"Bit error rate (%), {a.bps} bps", fontsize=FS, color=INK, labelpad=2)
-        ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=3, pad=2)
-        ax.tick_params(axis="x", length=0)
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        for sp in ("left", "bottom"):
-            ax.spines[sp].set_linewidth(0.6)
-        ax.legend(loc="upper right", frameon=False, prop={"size": FS_TICK}, handlelength=1.2, handletextpad=0.4,
-                  borderaxespad=0.2)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(os.path.join(a.out, f"{name}.{ext}"), dpi=600 if ext == "png" else None)
-        plt.close(fig)
-    line_vs_distance(data, a.bps, os.path.join(a.out, f"fig_tablet_distance_{a.bps}bps"))
+        PS.pct_axis(ax, top)
+        ax.set_xlabel("TX electrode location on the body"); ax.set_ylabel(f"Bit error rate (%), {a.bps} bps")
+        PS.finish(ax, categorical=True)
+        ax.legend(loc="upper right", handlelength=1.0)
+        PS.save(fig, os.path.join(a.out, name))
+    line_vs_distance(data, a.bps, os.path.join(a.out, f"fig_tablet_distance_{a.bps}bps"), rr)
     for lab, _ in SITES:
         print(f"{lab:6s} " + "  ".join(f"{m.upper()} {data[lab, m][0]}/{data[lab, m][1]} = "
                                       f"{data[lab, m][0] / data[lab, m][1]:.2%} ({data[lab, m][2]} run(s))"

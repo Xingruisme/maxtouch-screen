@@ -18,7 +18,7 @@ and 40 and 60 bps together in one line chart (fig_tablet_states_line_40_60bps: s
 
 Output: data_maxtouch/paper_fig_tablet_ber/ (fig_tablet_states_40bps.{pdf,png,svg}, fig_tablet_states_40bps.csv,
         fig_tablet_states_line_40bps.{pdf,png,svg})
-   \\includegraphics[width=\\columnwidth]{fig_tablet_states_line_40bps.pdf}   (3.5 in wide, fonts ~9 pt at 100 %)
+   \\includegraphics[width=\\columnwidth]{fig_tablet_states_line_40bps.pdf}   (3.5 in wide, fonts 6-7 pt at 100 %)
 """
 from __future__ import annotations
 
@@ -32,8 +32,8 @@ import paper_runs as PR
 import matplotlib.pyplot as plt
 import numpy as np
 
+import paper_style as PS
 from paper_fig_tablet_ber import HERE, RC, STYLE, cp
-from paper_fig_tablet_snr import FS, FS_TICK, INK
 
 D = os.path.join(HERE, "data_maxtouch")
 SRCS = [os.path.join(D, "modcomp_conditions_a2f_stand_vs_sit_still_20to60", "conditions.csv"),
@@ -63,70 +63,54 @@ def run_counts(bps):
             for _, prefix in STATES for m in ("ook", "fsk")}
 
 
-RATE_LS = {40: "-", 60: (0, (3, 1.5))}         # line style per bit rate in the two-rate chart
+RATE_LS = {40: "-", 60: PS.DASH}               # line style per bit rate in the two-rate chart
+
+
+def state_axis(ax):
+    """the four body states along x; the two with motion stand on a faint band"""
+    ax.set_xticks(np.arange(len(STATES)), [lab for lab, _ in STATES]); ax.set_xlim(-0.4, len(STATES) - 0.6)
+    PS.band(ax, 1.5, len(STATES) - 0.6, "in motion")
+    PS.finish(ax, categorical=True)
 
 
 def line_chart_rates(rates, out):
     """BER (log) per body state at several bit rates: colour = modulation, line style / fill = bit rate"""
     with plt.rc_context(RC):
-        fig, ax = plt.subplots(figsize=(3.5, 2.5), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02)
+        fig, ax = PS.figure(3.5, 2.5)
         x = np.arange(len(STATES))
         for i, bps in enumerate(rates):
             data, rr = load(bps), run_counts(bps)
             for m in ("ook", "fsk"):
                 st = STYLE[m]
                 ber = [data[p, m][0] / data[p, m][1] for _, p in STATES]
-                dx = (-0.04 if m == "ook" else 0.04) + (-0.015 if i == 0 else 0.015)   # four series, bars apart
-                ax.errorbar(x + dx, ber, yerr=PR.yerr(ber, [PR.spread(rr[p, m]) for _, p in STATES]),
-                            color=st["color"], marker=st["marker"], ms=4, lw=1.2, ls=RATE_LS.get(bps, "-"),
-                            mfc=st["color"] if i == 0 else "white", mew=0.9, label=f"{st['label']}, {bps} bps",
-                            zorder=3, **PR.EB)
+                dx = (-0.05 if m == "ook" else 0.05) + (-0.02 if i == 0 else 0.02)   # four series, bars apart
+                PS.series(ax, x + dx, ber, [PR.spread(rr[p, m]) for _, p in STATES],
+                          **PS.marks(st["color"], st["marker"], hollow=i > 0, ls=RATE_LS.get(bps, "-"),
+                                     label=f"{st['label']}, {bps} bps"))
         ax.set_yscale("log"); ax.set_ylim(1e-4, 1e-1)
-        ax.set_xticks(x, [lab for lab, _ in STATES]); ax.set_xlim(-0.35, len(STATES) - 0.65)
-        ax.set_ylabel("Bit error rate", fontsize=FS, color=INK, labelpad=2)
-        ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=3, pad=2)
-        ax.tick_params(which="minor", width=0.5, length=1.5)
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        for sp in ("left", "bottom"):
-            ax.spines[sp].set_linewidth(0.6)
+        ax.set_ylabel("Bit error rate")
+        state_axis(ax)
         h, l = ax.get_legend_handles_labels()
         order = [i for m in ("OOK", "FSK") for i, lab in enumerate(l) if lab.startswith(m)]   # rows: OOK, FSK
-        fig.legend([h[i] for i in order], [l[i] for i in order], loc="outside upper center", ncol=len(rates),
-                   frameon=False, prop={"size": FS_TICK}, handlelength=2.2, handletextpad=0.4, columnspacing=1.2,
-                   borderaxespad=0.1)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(f"{out}.{ext}", dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        PS.top_legend(fig, [h[i] for i in order], [l[i] for i in order], ncol=len(rates), handlelength=2.6)
+        PS.save(fig, out)
 
 
 def line_chart(data, bps, out, rr):
     """the same counts as a line chart: BER (log) per body state, one line per modulation"""
     with plt.rc_context(RC):
-        fig, ax = plt.subplots(figsize=(3.5, 2.4), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02)
+        fig, ax = PS.figure(3.5, 2.4)
         x = np.arange(len(STATES))
         for m in ("ook", "fsk"):
             st = STYLE[m]
             ber = [data[p, m][0] / data[p, m][1] for _, p in STATES]
-            ax.errorbar(x + (-0.04 if m == "ook" else 0.04), ber,
-                        yerr=PR.yerr(ber, [PR.spread(rr[p, m]) for _, p in STATES]), color=st["color"],
-                        marker=st["marker"], ms=4.5, lw=1.3, label=st["label"], zorder=3, **PR.EB)
+            PS.series(ax, x + (-0.04 if m == "ook" else 0.04), ber, [PR.spread(rr[p, m]) for _, p in STATES],
+                      **PS.marks(st["color"], st["marker"], label=st["label"]))
         ax.set_yscale("log"); ax.set_ylim(1e-4, 1e-1)
-        ax.set_xticks(x, [lab for lab, _ in STATES]); ax.set_xlim(-0.35, len(STATES) - 0.65)
-        ax.set_ylabel(f"Bit error rate, {bps} bps", fontsize=FS, color=INK, labelpad=2)
-        ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=3, pad=2)
-        ax.tick_params(which="minor", width=0.5, length=1.5)
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        for sp in ("left", "bottom"):
-            ax.spines[sp].set_linewidth(0.6)
-        ax.legend(loc="upper left", frameon=False, prop={"size": FS_TICK}, handlelength=1.8, handletextpad=0.4,
-                  borderaxespad=0.2)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(f"{out}.{ext}", dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        ax.set_ylabel(f"Bit error rate, {bps} bps")
+        state_axis(ax)
+        ax.legend(loc="upper left")
+        PS.save(fig, out)
 
 
 def main():
@@ -145,36 +129,20 @@ def main():
                 w.writerow([prefix, m, a.bps, runs, k, n, f"{k / n:.3e}", *(f"{x:.3e}" for x in cp(k, n))])
 
     with plt.rc_context(RC):
-        fig, ax = plt.subplots(figsize=(3.5, 2.4), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02)
-        x = np.arange(len(STATES))
-        wd = 0.36
-        top = 0.0
+        fig, ax = PS.figure(3.5, 2.4)
+        x = np.arange(len(STATES)); wd = 0.34; top = 0.0
         for j, m in enumerate(("ook", "fsk")):
             st = STYLE[m]
-            pct = np.array([100 * data[p, m][0] / data[p, m][1] for _, p in STATES])
-            sp = [PR.spread(rr[p, m], 100) for _, p in STATES]
-            hi = np.array([v if q is None else max(v, q[1]) for v, q in zip(pct, sp)])
-            top = max(top, hi.max())
-            xb = x + (j - 0.5) * (wd + 0.04)
-            ax.bar(xb, pct, width=wd, color=st["color"], label=st["label"], zorder=3)
-            ax.errorbar(xb, pct, yerr=PR.yerr(pct, sp), fmt="none", ecolor=INK, zorder=4, **PR.EB)
-            for xi, v, h in zip(xb, pct, hi):         # value above the bar and its error bar
-                ax.text(xi, h + 0.03 * top, f"{v:.2f}", ha="center", va="bottom", fontsize=FS_TICK - 2, color=INK)
+            pct = [100 * data[p, m][0] / data[p, m][1] for _, p in STATES]
+            runs = [[100 * e / n for e, n in rr[p, m]] for _, p in STATES]
+            top = max(top, max(max(r) for r in runs))
+            PS.bars(ax, x + (j - 0.5) * (wd + 0.05), pct, runs, st["color"], wd, st["label"])
         ax.set_xticks(x, [lab for lab, _ in STATES])
-        ax.set_ylim(0, top * 1.15)
-        ax.set_ylabel(f"Bit error rate (%), {a.bps} bps", fontsize=FS, color=INK, labelpad=2)
-        ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=3, pad=2)
-        ax.tick_params(axis="x", length=0)
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        for sp in ("left", "bottom"):
-            ax.spines[sp].set_linewidth(0.6)
-        ax.legend(loc="upper left", frameon=False, prop={"size": FS_TICK}, handlelength=1.2, handletextpad=0.4,
-                  borderaxespad=0.2)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(os.path.join(a.out, f"{name}.{ext}"), dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        PS.pct_axis(ax, top)
+        ax.set_ylabel(f"Bit error rate (%), {a.bps} bps")
+        PS.finish(ax, categorical=True)
+        ax.legend(loc="upper left", handlelength=1.0)
+        PS.save(fig, os.path.join(a.out, name))
     line_chart(data, a.bps, os.path.join(a.out, f"fig_tablet_states_line_{a.bps}bps"), rr)
     line_chart_rates([40, 60], os.path.join(a.out, "fig_tablet_states_line_40_60bps"))
     for _, prefix in STATES:

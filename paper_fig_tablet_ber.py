@@ -23,13 +23,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import beta
 
+from paper_style import RC, STYLE              # the look of the print-size figures, which import both from here
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "data_maxtouch", "modcomp_conditions_a2f_sitstill_20to60_ber", "conditions.csv")
-RC = {"font.family": "serif", "font.serif": ["Times New Roman", "Liberation Serif", "Nimbus Roman", "DejaVu Serif"],
-      "mathtext.fontset": "stix", "pdf.fonttype": 42, "ps.fonttype": 42, "svg.fonttype": "none"}
+# this script's own two large-format figures (fig_tablet_ber, fig_tablet_snr) keep their earlier look
+RC_BIG = {"font.family": "serif", "font.serif": ["Times New Roman", "Liberation Serif", "Nimbus Roman", "DejaVu Serif"],
+          "mathtext.fontset": "stix", "pdf.fonttype": 42, "ps.fonttype": 42, "svg.fonttype": "none"}
 INK, GRID = "#1a1a1a", "#d9d9d9"
-STYLE = {"ook": dict(color="#1f5fbf", marker="o", label="OOK"),      # same colours as the Fig. 1 call-out
-         "fsk": dict(color="#00897b", marker="s", label="FSK")}
 FS = 20
 
 
@@ -56,7 +57,7 @@ def main():
             for p in sorted(data[m]):
                 w.writerow([m, *p[:3], f"{p[3]:.3e}", f"{p[4]:.3e}", f"{p[5]:.3e}"])
 
-    with plt.rc_context(RC):
+    with plt.rc_context(RC_BIG):
         fig, ax = plt.subplots(figsize=(6.4, 4.8))
         fig.subplots_adjust(left=0.19, right=0.97, top=0.95, bottom=0.17)
         off = {"ook": -0.6, "fsk": 0.6}                     # small x offset so the error bars don't overlap
@@ -113,7 +114,7 @@ def snr_figure(rows, out):
         for (m, b), v in sorted(per.items()):
             w.writerow([m, b, len(v), f"{np.mean(v):.2f}", f"{min(v):.2f}", f"{max(v):.2f}",
                         " ".join(f"{x:.2f}" for x in v)])
-    with plt.rc_context(RC):
+    with plt.rc_context(RC_BIG):
         fig, ax = plt.subplots(figsize=(6.4, 4.8))
         fig.subplots_adjust(left=0.17, right=0.97, top=0.95, bottom=0.17)
         off = {"ook": -0.6, "fsk": 0.6}

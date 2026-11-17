@@ -14,7 +14,7 @@ OOK and FSK drawn 0.5 bps apart: their BERs are identical at 50 and 60 bps.
    python paper_fig_tablet_ber_column.py
 
 Output: data_maxtouch/paper_fig_tablet_ber/ (fig_tablet_ber_column.{pdf,png,svg}, fig_tablet_ber_column.csv)
-   \\includegraphics[width=\\columnwidth]{fig_tablet_ber_column.pdf}   (3.5 in wide, fonts ~9 pt at 100 %)
+   \\includegraphics[width=\\columnwidth]{fig_tablet_ber_column.pdf}   (3.5 in wide, fonts 6-7 pt at 100 %)
 """
 from __future__ import annotations
 
@@ -28,8 +28,9 @@ import paper_runs as PR
 import matplotlib.pyplot as plt
 import numpy as np
 
+import paper_style as PS
 from paper_fig_tablet_ber import HERE, RC, STYLE, cp
-from paper_fig_tablet_snr import FS, FS_TICK, INK, SRC
+from paper_fig_tablet_snr import SRC
 
 
 def main():
@@ -50,30 +51,18 @@ def main():
             w.writerow([m, b, k, n, f"{k / n:.3e}", *(f"{x:.3e}" for x in cp(k, n))])
 
     with plt.rc_context(RC):
-        fig, ax = plt.subplots(figsize=(3.5, 2.4), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02)
-        off = {"ook": -0.5, "fsk": 0.5}          # OOK and FSK are equal at 50 and 60 bps: keep both markers visible
-        for m in ("ook", "fsk"):
+        fig, ax = PS.figure(3.5, 2.4)
+        for m, side in (("ook", -1), ("fsk", 1)):   # OOK and FSK are equal at 50 and 60 bps: drawn 1.2 bps apart
             st = STYLE[m]
-            ber = [data[m, b][0] / data[m, b][1] for b in rates]
-            ax.errorbar(np.array(rates, float) + off[m], ber, yerr=PR.yerr(ber, [PR.spread(runs[m, b]) for b in rates]),
-                        color=st["color"], marker=st["marker"], ms=4.5, lw=1.3, label=st["label"], zorder=3, **PR.EB)
+            PS.series(ax, np.array(rates, float) + 0.6 * side, [data[m, b][0] / data[m, b][1] for b in rates],
+                      [PR.spread(runs[m, b]) for b in rates], **PS.marks(st["color"], st["marker"], label=st["label"]))
         ax.set_yscale("log")
         ax.set_ylim(1e-4, 1e-1)
         ax.set_xticks(rates); ax.set_xlim(rates[0] - 3, rates[-1] + 3)
-        ax.set_xlabel("Bit rate (bps)", fontsize=FS, color=INK, labelpad=2)
-        ax.set_ylabel("Bit error rate", fontsize=FS, color=INK, labelpad=2)
-        ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=3, pad=2)
-        ax.tick_params(which="minor", width=0.5, length=1.5)
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        for sp in ("left", "bottom"):
-            ax.spines[sp].set_linewidth(0.6)
-        ax.legend(loc="upper left", frameon=False, prop={"size": FS_TICK}, handlelength=1.8, handletextpad=0.4,
-                  borderaxespad=0.2)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(os.path.join(a.out, f"fig_tablet_ber_column.{ext}"), dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        ax.set_xlabel("Bit rate (bps)"); ax.set_ylabel("Bit error rate")
+        PS.finish(ax)
+        ax.legend(loc="upper left")
+        PS.save(fig, os.path.join(a.out, "fig_tablet_ber_column"))
     for (m, b), (k, n) in sorted(data.items()):
         print(f"{m} {b} bps: {k}/{n} = {k / n:.2%}")
     print("->", a.out)

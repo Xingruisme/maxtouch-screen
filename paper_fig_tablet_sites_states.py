@@ -5,7 +5,7 @@ side (3.5 x 2.3 in, the layout of fig_tablet_ber_snr / the paper's Figure 13):
   a  BER (%) per TX electrode location, sitting still - fig_tablet_sites_<bps>bps (paper_fig_tablet_sites.py)
   b  BER (log) per body state, ankle to finger        - fig_tablet_states_line_<bps>bps (paper_fig_tablet_states.py)
 Same data and counting as those two scripts (their loaders are called unchanged; nothing re-decoded), all without
-error correction.
+error correction. Error bar = lowest to highest per-run BER (paper_runs.py).
 
    python paper_fig_tablet_sites_states.py [--bps 60]
 
@@ -23,25 +23,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 import paper_fig_tablet_sites as SI
+import paper_runs as PR
 import paper_fig_tablet_states as ST
+import paper_style as PS
 from paper_fig_tablet_ber import HERE, RC, STYLE
-from paper_fig_tablet_ber_snr import FS, FS_TICK, INK, tidy
 
 MODS = ("ook", "fsk")
-
-
-def style_axes(ax, letter, ylabel):
-    ax.set_ylabel(ylabel, fontsize=FS, color=INK, labelpad=1)
-    ax.text(-0.30, 1.04, letter, transform=ax.transAxes, fontsize=FS + 2, fontweight="bold", color=INK,
-            ha="left", va="bottom")
-    ax.tick_params(labelsize=FS_TICK - 1, colors=INK, width=0.6, length=2.5, pad=1.5)
-    ax.tick_params(which="minor", width=0.5, length=1.5)
-    ax.tick_params(axis="x", length=0)
-    for sp in ("top", "right"):
-        ax.spines[sp].set_visible(False)
-    for sp in ("left", "bottom"):
-        ax.spines[sp].set_linewidth(0.6)
-
 
 def main():
     ap = argparse.ArgumentParser()
@@ -51,40 +38,39 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     sites = {(lab, m): SI.counts(src, m, a.bps) for lab, src in SI.SITES for m in MODS}
     states = ST.load(a.bps)
+    sites_rr = {(lab, m): SI.run_list(src, m, a.bps) for lab, src in SI.SITES for m in MODS}
+    states_rr = ST.run_counts(a.bps)
 
     with plt.rc_context(RC):
-        fig, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(3.5, 2.3), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02, wspace=0.08)
+        fig, (ax_a, ax_b) = PS.figure(3.5, 2.3, 1, 2, wspace=0.08, width_ratios=(0.86, 1))
         # a: bars per location, linear %
         x = np.arange(len(SI.SITES)); wd = 0.36; top = 0.0
         for j, m in enumerate(MODS):
-            pct = np.array([100 * sites[lab, m][0] / sites[lab, m][1] for lab, _ in SI.SITES])
-            top = max(top, pct.max())
-            xb = x + (j - 0.5) * (wd + 0.04)
-            ax_a.bar(xb, pct, width=wd, color=STYLE[m]["color"], label=STYLE[m]["label"], zorder=3)
-            for xi, v in zip(xb, pct):              # a zero-height bar would read as missing data: mark it
-                if v == 0:
-                    ax_a.text(xi, 0, "0", ha="center", va="bottom", fontsize=FS_TICK - 1, color=STYLE[m]["color"])
+            pct = [100 * sites[lab, m][0] / sites[lab, m][1] for lab, _ in SI.SITES]
+            runs = [[100 * e / n for e, n in sites_rr[lab, m]] for lab, _ in SI.SITES]
+            top = max(top, max(max(r) for r in runs))
+            PS.bars(ax_a, x + (j - 0.5) * (wd + 0.05), pct, runs, STYLE[m]["color"], wd, STYLE[m]["label"])
         ax_a.set_xticks(x, [lab for lab, _ in SI.SITES])
-        ax_a.set_ylim(0, top * 1.15)
-        ax_a.set_xlabel("TX electrode location", fontsize=FS, color=INK, labelpad=1)
-        style_axes(ax_a, "a", "Bit error rate (%)")
+        PS.pct_axis(ax_a, top)
+        ax_a.set_xlabel("TX electrode location"); ax_a.set_ylabel("Bit error rate (%)")
+        PS.finish(ax_a, categorical=True)
+        PS.panel(ax_a, "a", dx=-22)
         # b: lines per body state, log
         xs = np.arange(len(ST.STATES))
         for m in MODS:
             st = STYLE[m]
-            ax_b.plot(xs, [states[p, m][0] / states[p, m][1] for _, p in ST.STATES], color=st["color"],
-                      marker=st["marker"], ms=3.5, lw=1.1, zorder=3)
+            y = [states[p, m][0] / states[p, m][1] for _, p in ST.STATES]
+            PS.series(ax_b, xs + (-0.06 if m == "ook" else 0.06), y, [PR.spread(states_rr[p, m]) for _, p in ST.STATES],
+                      **PS.marks(st["color"], st["marker"], ms=PS.MS - 0.4))
         ax_b.set_yscale("log"); ax_b.set_ylim(1e-4, 1e-1)
-        ax_b.set_xticks(xs, [lab for lab, _ in ST.STATES]); ax_b.set_xlim(-0.4, len(ST.STATES) - 0.6)
-        ax_b.set_xlabel("Body state", fontsize=FS, color=INK, labelpad=1)
-        style_axes(ax_b, "b", "Bit error rate")
-        fig.legend(*ax_a.get_legend_handles_labels(), loc="outside upper center", ncol=2, frameon=False,
-                   prop={"size": FS_TICK}, handlelength=1.4, handletextpad=0.4, columnspacing=1.6, borderaxespad=0.1)
+        ax_b.set_xlabel("Body state"); ax_b.set_ylabel("Bit error rate")
+        ST.state_axis(ax_b)
+        PS.panel(ax_b, "b")
+        for ax in (ax_a, ax_b):                     # eight category names across one column
+            ax.tick_params(axis="x", labelsize=PS.FS_TICK - 0.5)
+        PS.top_legend(fig, [PS.key(STYLE[m]["color"], STYLE[m]["marker"], label=STYLE[m]["label"]) for m in MODS])
         name = f"fig_tablet_sites_states_{a.bps}bps"
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(os.path.join(a.out, f"{name}.{ext}"), dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        PS.save(fig, os.path.join(a.out, name))
     print("->", os.path.join(a.out, f"{name}.pdf"))
 
 

@@ -14,14 +14,15 @@ Ankle 0.5 mA = the 15:19 sweep of the summary (the 16:29 repeat: no carrier eith
 Metric per carrier (cap_ook_rx.analyse_probe 'energy_db'): 10 log10 of the mean squared scan-to-scan change of the
 node's delta, (x[n] - x[n-1])^2, in that carrier's ON blocks over its interleaved OFF blocks (2 x 0.5 s each, edges
 trimmed); best node of Y0-Y3.
-Dotted line = 159.585 kHz, the carrier of every BER run.
+Dashed rule = 159.585 kHz, the carrier of every BER run.
 
    python paper_fig_body_sweeps.py
 
-Output: data_maxtouch/paper_fig_body_sweeps/, drawn at print size (fonts ~9 pt at 100 %, so include without scaling):
+Output: data_maxtouch/paper_fig_body_sweeps/, drawn at print size (fonts 6-7 pt at 100 %, so include without scaling):
   fig_body_sweeps_wide.{pdf,png,svg}    1 x 3, 7.16 in wide   \\begin{figure*} ... \\includegraphics[width=\\textwidth]{...}
   fig_body_sweeps_column.{pdf,png,svg}  3 x 1, 3.5 in wide    \\begin{figure}  ... \\includegraphics[width=\\columnwidth]{...}
-  fig_body_sweeps_1mA.{pdf,png,svg}     the three sites at 1 mA in one panel, 3.5 in wide (\\columnwidth)
+  fig_body_sweeps_1mA.{pdf,png,svg}     the three sites at 1 mA in one panel, 3.5 in wide (\\columnwidth), in the
+                                        colours of fig_freq_sweep (paper_style.PATH)
   fig_body_sweeps.csv
 """
 from __future__ import annotations
@@ -36,10 +37,10 @@ import os
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.ticker import FixedLocator, NullFormatter
 import numpy as np
 
 import maxtouch_stent_rx as R
+import paper_style as PS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.path.join(HERE, "data_maxtouch")
@@ -48,22 +49,14 @@ SITES = [("Back", "body_sweep_back2finger_20261026.json"),
          ("Ankle", "body_sweep_currents_20261026.json")]
 NODES = 4                                       # Y0-Y3, where the finger sits
 CARRIER = 159584.9
-RC = {"font.family": "serif", "font.serif": ["Times New Roman", "Liberation Serif", "Nimbus Roman", "DejaVu Serif"],
-      "mathtext.fontset": "stix", "pdf.fonttype": 42, "ps.fonttype": 42, "svg.fonttype": "none"}
-INK, INK2, GRID = "#1a1a1a", "#52514e", "#d9d9d9"
 CUR = {0.5: dict(color="#CC79A7", marker="v", label="0.5 mA"),       # Okabe-Ito: distinct hues, colour-blind safe
        0.75: dict(color="#009E73", marker="^", label="0.75 mA"),
        1.0: dict(color="#0072B2", marker="o", label="1 mA"),
        2.5: dict(color="#D55E00", marker="s", label="2.5 mA"),
        4.0: dict(color="#000000", marker="D", label="4 mA")}
-NO_CARRIER = (0, (3, 1.5))
-FS, FS_TICK = 9, 8                              # pt at print size
 # IEEE two-column: \textwidth 7.16 in, \columnwidth 3.5 in
-LAYOUTS = {"wide": dict(size=(7.16, 2.45), grid=(1, 3), legend_cols=6),
-           "column": dict(size=(3.5, 5.4), grid=(3, 1), legend_cols=3)}
-SITE_STYLE = {"Back": dict(color="#CC6677", marker="^"),   # Tol muted: hues not used for the currents above
-              "Knee": dict(color="#117733", marker="s"),
-              "Ankle": dict(color="#332288", marker="o")}
+LAYOUTS = {"wide": dict(size=(7.16, 2.3), grid=(1, 3), legend_cols=6),
+           "column": dict(size=(3.5, 5.0), grid=(3, 1), legend_cols=3)}
 
 
 def sweep(run):
@@ -85,86 +78,50 @@ def load():
     return out
 
 
+def cur_key(cur, solid=True):
+    st = CUR[cur]
+    return plt.Line2D([], [], color=st["color"], marker=st["marker"], ms=3.0, mec="white", mew=0.4, lw=PS.LW,
+                      ls="-" if solid else PS.DASH, label=st["label"])
+
+
 def plot(data, car, layout, out):
     rows, cols = layout["grid"]
-    ticks = [50, 100, 200, 500]
-    with plt.rc_context(RC):
-        fig, axs = plt.subplots(rows, cols, figsize=layout["size"], sharex=True, sharey=True, layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02, wspace=0.03, hspace=0.04)
+    with plt.rc_context(PS.RC):
+        fig, axs = PS.figure(*layout["size"], rows, cols, sharex=True, sharey=True, wspace=0.03, hspace=0.04)
         for k, (ax, (site, _)) in enumerate(zip(axs.flat, SITES)):
-            ax.axvline(CARRIER / 1e3, color=INK2, ls=":", lw=1.0, zorder=1)
+            PS.vmark(ax, CARRIER / 1e3, "159.6 kHz" if k == 0 else None)
             for cur, run, det, c, y in sorted(data[site], key=lambda r: r[2]):     # no-carrier sweeps underneath
-                st = CUR[cur]
-                ax.plot(c / 1e3, y, color=st["color"], lw=1.1 if det else 0.8, ls="-" if det else NO_CARRIER,
-                        marker=st["marker"], ms=3.0, markevery=(k % 3, 6), mec="white", mew=0.3,
-                        zorder=3 if det else 2)
-            ax.set_xscale("log")
-            ax.xaxis.set_major_locator(FixedLocator(ticks)); ax.set_xticklabels([str(t) for t in ticks])
-            ax.xaxis.set_minor_formatter(NullFormatter())
-            ax.set_xlim(car[0] / 1e3 * 0.97, car[-1] / 1e3 * 1.03)
+                PS.trace(ax, c / 1e3, y, CUR[cur]["color"], CUR[cur]["marker"], (k % 3, 6), solid=det)
+            PS.khz_axis(ax, car)
             ax.set_ylim(-10, 70); ax.set_yticks(range(0, 70, 20))
-            ax.set_title(f"({'abc'[k]}) {site}", fontsize=FS, fontweight="bold", color=INK, loc="left", pad=3)
-            ax.grid(True, which="major", color=GRID, lw=0.5, zorder=0)
-            ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=3, pad=2)
-            ax.tick_params(which="minor", width=0.5, length=1.5)
-            for lab in ax.get_xticklabels() + ax.get_yticklabels():
-                lab.set_fontweight("bold")
-            for sp in ("top", "right"):
-                ax.spines[sp].set_visible(False)
-            for sp in ("left", "bottom"):
-                ax.spines[sp].set_linewidth(0.6)
-            if k == 0:
-                ax.text(CARRIER / 1e3 * 1.04, 67, "159.6 kHz", fontsize=FS_TICK - 1, color=INK2, va="top")
-        fig.supxlabel("Carrier frequency (kHz)", fontsize=FS, fontweight="bold", color=INK)
-        fig.supylabel("SNR (dB)", fontsize=FS, fontweight="bold", color=INK)
+            PS.finish(ax)
+            PS.note(ax, site)
+            PS.panel(ax, "abc"[k], dx=-6 if cols > 1 and k else -20)
+        fig.supxlabel("Carrier frequency (kHz)", fontsize=PS.FS); fig.supylabel("SNR (dB)", fontsize=PS.FS)
         never = {cur for cur in CUR if not any(r[2] for rows in data.values() for r in rows if r[0] == cur)}
-        handles = [plt.Line2D([], [], color=st["color"], marker=st["marker"], ms=3.5, mec="white", mew=0.3, lw=1.3,
-                              ls=NO_CARRIER if cur in never else "-", label=st["label"]) for cur, st in CUR.items()]
-        handles.append(plt.Line2D([], [], color=INK2, ls=NO_CARRIER, lw=0.9, label="no carrier"))
-        fig.legend(handles=handles, loc="outside upper center", ncol=layout["legend_cols"], frameon=False,
-                   prop={"size": FS_TICK, "weight": "bold"}, handlelength=2.0, columnspacing=1.2, handletextpad=0.5,
-                   borderaxespad=0.1)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(f"{out}.{ext}", dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        handles = [cur_key(cur, cur not in never) for cur in CUR]
+        handles.append(plt.Line2D([], [], color=PS.INK2, ls=PS.DASH, lw=0.7, label="no carrier"))
+        PS.top_legend(fig, handles, ncol=layout["legend_cols"], handlelength=2.2)
+        PS.save(fig, out)
 
 
 def plot_sites(data, car, cur, out):
     """one panel: every site at one set current, single column"""
-    ticks = [50, 100, 200, 500]
-    with plt.rc_context(RC):
-        fig, ax = plt.subplots(figsize=(3.5, 2.5), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02)
-        ax.axvline(CARRIER / 1e3, color=INK2, ls=":", lw=1.0, zorder=1)
+    with plt.rc_context(PS.RC):
+        fig, ax = PS.figure(3.5, 2.4)
+        PS.vmark(ax, CARRIER / 1e3, "159.6 kHz")
         for k, (site, _) in enumerate(SITES):
             _, run, det, c, y = next(r for r in data[site] if r[0] == cur)
             assert det, f"{run}: no carrier at {cur:g} mA"
-            st = SITE_STYLE[site]
-            ax.plot(c / 1e3, y, color=st["color"], lw=1.1, marker=st["marker"], ms=3.0, markevery=(2 * k, 6),
-                    mec="white", mew=0.3, label=site, zorder=3)
-        ax.set_xscale("log")
-        ax.xaxis.set_major_locator(FixedLocator(ticks)); ax.set_xticklabels([str(t) for t in ticks])
-        ax.xaxis.set_minor_formatter(NullFormatter())
-        ax.set_xlim(car[0] / 1e3 * 0.97, car[-1] / 1e3 * 1.03)
+            st = PS.PATH[site.lower()]
+            PS.trace(ax, c / 1e3, y, st["color"], st["marker"], (2 * k, 6), label=site)
+        PS.khz_axis(ax, car)
         ax.set_ylim(0, 70); ax.set_yticks(range(0, 70, 20))
-        ax.grid(True, which="major", color=GRID, lw=0.5, zorder=0)
-        ax.set_xlabel("Carrier frequency (kHz)", fontsize=FS, fontweight="bold", color=INK, labelpad=2)
-        ax.set_ylabel("SNR (dB)", fontsize=FS, fontweight="bold", color=INK, labelpad=2)
-        ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=3, pad=2)
-        ax.tick_params(which="minor", width=0.5, length=1.5)
-        for lab in ax.get_xticklabels() + ax.get_yticklabels():
-            lab.set_fontweight("bold")
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        for sp in ("left", "bottom"):
-            ax.spines[sp].set_linewidth(0.6)
-        ax.text(CARRIER / 1e3 * 1.04, 69, "159.6 kHz", fontsize=FS_TICK - 1, color=INK2, va="top")
-        fig.legend(loc="outside upper center", ncol=len(SITES), frameon=False, prop={"size": FS_TICK, "weight": "bold"},
-                   handlelength=2.0, columnspacing=1.4, handletextpad=0.5, borderaxespad=0.1,
-                   title=f"TX electrode site, {cur:g} mA", title_fontproperties={"size": FS_TICK, "weight": "bold"})
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(f"{out}.{ext}", dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        ax.set_xlabel("Carrier frequency (kHz)"); ax.set_ylabel("SNR (dB)")
+        PS.finish(ax)
+        PS.top_legend(fig, *ax.get_legend_handles_labels(), handlelength=2.2,
+                      title=f"TX electrode location, {cur:g} mA", title_fontproperties={"size": PS.FS_TICK})
+        PS.save(fig, out)
 
 
 def main():

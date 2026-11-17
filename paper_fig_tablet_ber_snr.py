@@ -7,7 +7,7 @@ bold a / b at each panel's top left, legend inside panel a) at print size:
                         per point (6096 bits); error bar = lowest to highest per-run BER (paper_runs.py), down to the
                         axis where a run had no error
   b  symbol SNR       - as fig_tablet_snr_column (paper_fig_tablet_snr.py): median of the 6 recordings; error bar =
-                        lowest to highest recording
+                        lowest to highest recording; small open dots = the 6 recordings
 OOK and FSK drawn 1 bps apart in both panels (equal or close at several rates).
 Same data and processing as those two scripts (nothing re-decoded): the 'static' rows of
 data_maxtouch/modcomp_conditions_a2f_static_vs_moving_20to60/conditions.csv, ankle to finger, 1 mA, 159.6 kHz.
@@ -15,7 +15,7 @@ data_maxtouch/modcomp_conditions_a2f_static_vs_moving_20to60/conditions.csv, ank
    python paper_fig_tablet_ber_snr.py
 
 Output: data_maxtouch/paper_fig_tablet_ber/ (fig_tablet_ber_snr.{pdf,png,svg})
-   \\includegraphics[width=\\columnwidth]{fig_tablet_ber_snr.pdf}   (3.5 in wide, fonts 7-8 pt at 100 %)
+   \\includegraphics[width=\\columnwidth]{fig_tablet_ber_snr.pdf}   (3.5 in wide, fonts 6-7 pt at 100 %)
 """
 from __future__ import annotations
 
@@ -29,26 +29,22 @@ import paper_runs as PR
 import matplotlib.pyplot as plt
 import numpy as np
 
+import paper_style as PS
 from paper_fig_tablet_ber import HERE, RC, STYLE, per_run_snr
-from paper_fig_tablet_snr import INK, SRC
+from paper_fig_tablet_snr import SRC
+from paper_style import FS, FS_TICK, INK        # pt at print size; the two-panel figure scripts take them from here
 
 MODS = ("ook", "fsk")
-FS, FS_TICK = 8, 7                              # pt at print size: two panels share one 3.5 in column
 
 
-def tidy(ax, rates, ylabel, letter):
-    ax.set_xticks(rates); ax.set_xlim(rates[0] - 3, rates[-1] + 3)
-    ax.set_xlabel("Bit rate (bps)", fontsize=FS, color=INK, labelpad=1)
-    ax.set_ylabel(ylabel, fontsize=FS, color=INK, labelpad=1)
-    # panel letter in bold at the top left, outside the axes (as the paper's other figures)
-    ax.text(-0.30, 1.04, letter, transform=ax.transAxes, fontsize=FS + 2, fontweight="bold", color=INK,
-            ha="left", va="bottom")
-    ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=2.5, pad=1.5)
-    ax.tick_params(which="minor", width=0.5, length=1.5)
-    for sp in ("top", "right"):
-        ax.spines[sp].set_visible(False)
-    for sp in ("left", "bottom"):
-        ax.spines[sp].set_linewidth(0.6)
+def tidy(ax, rates, ylabel, letter=None):
+    """bit-rate axis, labels, open axes and the panel's bold letter above its top left corner"""
+    ax.set_xticks(rates); ax.set_xlim(rates[0] - 4, rates[-1] + 4)
+    ax.set_xlabel("Bit rate (bps)")
+    ax.set_ylabel(ylabel)
+    PS.finish(ax)
+    if letter:
+        PS.panel(ax, letter)
 
 
 def main():
@@ -66,27 +62,23 @@ def main():
     rates = sorted({b for _, b in ber})
 
     with plt.rc_context(RC):
-        fig, (ax_b, ax_s) = plt.subplots(1, 2, figsize=(3.5, 2.1), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02, wspace=0.08)
-        off = {"ook": -0.5, "fsk": 0.5}          # OOK and FSK BERs are equal at 50 and 60 bps: keep both markers visible
-        for m in MODS:
+        fig, (ax_b, ax_s) = PS.figure(3.5, 2.1, 1, 2, wspace=0.08)
+        for m, side in (("ook", -1), ("fsk", 1)):    # OOK and FSK BERs are equal at 50 and 60 bps: drawn apart
             st = STYLE[m]
-            kw = dict(color=st["color"], marker=st["marker"], ms=3.5, lw=1.1, label=st["label"], zorder=3, **PR.EB)
-            x = np.array(rates, float) + off[m]
-            y = [ber[m, b][0] / ber[m, b][1] for b in rates]
-            ax_b.errorbar(x, y, yerr=PR.yerr(y, [PR.spread(runs[m, b]) for b in rates]), **kw)
-            kw.pop("label")
-            ys = [np.median(snr[m, b]) for b in rates]
-            ax_s.errorbar(x, ys, yerr=PR.yerr(ys, [(min(snr[m, b]), max(snr[m, b])) for b in rates]), **kw)
+            kw = PS.marks(st["color"], st["marker"], ms=PS.MS - 0.4)
+            x = np.array(rates, float) + 0.8 * side
+            PS.series(ax_b, x, [ber[m, b][0] / ber[m, b][1] for b in rates], [PR.spread(runs[m, b]) for b in rates],
+                      label=st["label"], **kw)
+            PS.series(ax_s, x, [np.median(snr[m, b]) for b in rates],
+                      [(min(snr[m, b]), max(snr[m, b])) for b in rates], **kw)
+            for xi, b in zip(x, rates):                 # the recordings behind each median, beside its range bar
+                PS.run_dots(ax_s, xi + 1.9 * side, snr[m, b], st["color"], ms=1.6)
         ax_b.set_yscale("log"); ax_b.set_ylim(1e-4, 1e-1)
         ax_s.set_ylim(30, 70); ax_s.set_yticks(range(30, 71, 10))
         tidy(ax_b, rates, "Bit error rate", "a")
         tidy(ax_s, rates, "Symbol SNR (dB)", "b")
-        ax_b.legend(loc="upper left", frameon=False, prop={"size": FS_TICK}, handlelength=1.6, handletextpad=0.4,
-                    borderaxespad=0.2, labelspacing=0.3)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(os.path.join(a.out, f"fig_tablet_ber_snr.{ext}"), dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        ax_b.legend(loc="upper left")
+        PS.save(fig, os.path.join(a.out, "fig_tablet_ber_snr"))
     for m in MODS:
         print(m, "  ".join(f"{b} bps: BER {ber[m, b][0]}/{ber[m, b][1]}, SNR {np.median(snr[m, b]):.1f} dB" for b in rates))
     print("->", os.path.join(a.out, "fig_tablet_ber_snr.pdf"))

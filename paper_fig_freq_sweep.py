@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Paper figure: tablet (maXTouch) frequency response, direct contact vs through body from three TX electrode sites,
-all at 1 mA.
+all at 1 mA, one column at print size (3.5 in), colours and markers of paper_style.PATH.
 
 Data = four existing 94-carrier probe sweeps (log 50-500 kHz, 2.5 % steps, 0.5 s on / off blocks x 2), re-analysed with
 maxtouch_stent_rx.analyse_probe as body_current_sweeps.py does (nothing re-recorded):
@@ -16,6 +16,7 @@ trimmed); best node of Y0-Y3 (where the finger sits). Dashed line = 159.585 kHz,
    python paper_fig_freq_sweep.py
 
 Output: data_maxtouch/paper_fig_freq_sweep/ (fig_freq_sweep.{png,pdf,svg}, fig_freq_sweep.csv)
+   \\includegraphics[width=\\columnwidth]{fig_freq_sweep.pdf}   (3.5 in wide, fonts 6-7 pt at 100 %)
 """
 from __future__ import annotations
 
@@ -29,10 +30,10 @@ import os
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.ticker import FixedLocator, NullFormatter
 import numpy as np
 
 import maxtouch_stent_rx as R
+import paper_style as PS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.path.join(HERE, "data_maxtouch")
@@ -42,14 +43,7 @@ SWEEPS = [("direct", "stent_probe_frequency_sweep_new_20261026_113719"),
           ("ankle", "stent_probe_body_1mA_20261026_155003")]
 NODES = 4                                       # Y0-Y3, where the finger sits
 CARRIER = 159584.9
-RC = {"font.family": "serif", "font.serif": ["Times New Roman", "Liberation Serif", "Nimbus Roman", "DejaVu Serif"],
-      "mathtext.fontset": "stix", "pdf.fonttype": 42, "ps.fonttype": 42, "svg.fonttype": "none"}
-INK, INK2, GRID = "#1a1a1a", "#52514e", "#d9d9d9"
-STYLE = {"direct": dict(color="#1f5fbf", marker="o", ls="-", label="Direct contact"),
-         "back": dict(color="#D55E00", marker="^", ls="-", label="Back to finger"),
-         "knee": dict(color="#882255", marker="D", ls="-", label="Knee to finger"),
-         "ankle": dict(color="#00897b", marker="s", ls="-", label="Ankle to finger")}
-FS = 20
+LABEL = {"direct": "Direct contact", "back": "Back to finger", "knee": "Knee to finger", "ankle": "Ankle to finger"}
 
 
 def load(d):
@@ -73,39 +67,19 @@ def main():
         for j, c in enumerate(car):
             w.writerow([f"{c:.1f}", *(f"{curves[k][1][j]:.2f}" for k, _ in SWEEPS)])
 
-    with plt.rc_context(RC):
-        fig, ax = plt.subplots(figsize=(9.6, 4.8))
-        fig.subplots_adjust(left=0.12, right=0.98, top=0.86, bottom=0.17)
-        ax.axvline(CARRIER / 1e3, color=INK2, ls="--", lw=1.2, zorder=1)
+    with plt.rc_context(PS.RC):
+        fig, ax = PS.figure(3.5, 2.3)
+        PS.vmark(ax, CARRIER / 1e3, "159.6 kHz")
         for i, (k, _) in enumerate(SWEEPS):
             x, y = curves[k]
-            st = STYLE[k]
-            # every 4th carrier marked, staggered per line, so four dense lines stay readable
-            ax.plot(x / 1e3, y, color=st["color"], marker=st["marker"], ls=st["ls"], ms=6, markevery=(i, 4),
-                    mec="white", mew=0.6, lw=1.8, label=st["label"], zorder=3)
-        ax.set_xscale("log")
-        ticks = [50, 100, 200, 500]
-        ax.xaxis.set_major_locator(FixedLocator(ticks)); ax.set_xticklabels([str(t) for t in ticks])
-        ax.xaxis.set_minor_formatter(NullFormatter())
-        ax.set_xlim(car[0] / 1e3 * 0.97, car[-1] / 1e3 * 1.03)
-        ax.set_ylim(0, 65)
-        ax.grid(True, which="major", color=GRID, lw=0.8, zorder=0)
-        ax.set_xlabel("Carrier frequency (kHz)", fontsize=FS, fontweight="bold", color=INK)
-        ax.set_ylabel("SNR (dB)", fontsize=FS, fontweight="bold", color=INK)
-        ax.tick_params(labelsize=FS, colors=INK, width=1.0, length=5)
-        ax.tick_params(which="minor", length=2.5)
-        for lab in ax.get_xticklabels() + ax.get_yticklabels():
-            lab.set_fontweight("bold")
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        for sp in ("left", "bottom"):
-            ax.spines[sp].set_linewidth(1.0)
-        ax.text(CARRIER / 1e3 * 1.02, 63, "159.6 kHz", fontsize=FS - 4, color=INK2, va="top", fontweight="bold")
-        fig.legend(*ax.get_legend_handles_labels(), loc="upper center", bbox_to_anchor=(0.54, 1.0), ncol=len(SWEEPS),
-                   frameon=False, prop={"size": FS - 4, "weight": "bold"}, handlelength=1.6, columnspacing=0.9)
-        for ext in ("png", "pdf", "svg"):
-            fig.savefig(os.path.join(a.out, f"fig_freq_sweep.{ext}"), dpi=600 if ext == "png" else None)
-        plt.close(fig)
+            # every 8th carrier marked, staggered per line, so four dense lines stay readable
+            PS.trace(ax, x / 1e3, y, PS.PATH[k]["color"], PS.PATH[k]["marker"], (2 * i, 8), label=LABEL[k])
+        PS.khz_axis(ax, car)
+        ax.set_ylim(0, 65); ax.set_yticks(range(0, 61, 20))
+        ax.set_xlabel("Carrier frequency (kHz)"); ax.set_ylabel("SNR (dB)")
+        PS.finish(ax)
+        PS.top_legend(fig, *ax.get_legend_handles_labels(), ncol=2, handlelength=2.2)
+        PS.save(fig, os.path.join(a.out, "fig_freq_sweep"))
     j = int(np.argmin(abs(car - CARRIER)))
     for k, _ in SWEEPS:
         y = curves[k][1]

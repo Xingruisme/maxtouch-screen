@@ -8,7 +8,8 @@ moving sessions (standing walking, sitting shaking) left out. SNR per recording 
 (nothing re-decoded):
   SNR = symbol Es/N0 = k P1 / (2 sigma^2) (stent_modcomp.es_n0_db): k = panel samples per bit, P1 = carrier power of the
   sent-1 samples over the OFF baseline, sigma = OFF noise of the top node.
-Markers = median of the 6 recordings, error bar = lowest to highest recording (the csv keeps quartiles, min, max).
+Markers = median of the 6 recordings, error bar = lowest to highest recording, small open dots = the 6 recordings
+(the csv keeps quartiles, min, max).
 Note: 20 and 50 bps were recorded on 2026-10-29, 40 and 60 bps on 2026-10-30, so the zig-zag between neighbouring
 rates is mostly the day, not the rate.
 
@@ -16,7 +17,7 @@ rates is mostly the day, not the rate.
                                   [--condition static]   (rows whose condition starts with this)
 
 Output: data_maxtouch/paper_fig_tablet_ber/ (fig_tablet_snr_column.{pdf,png,svg}, fig_tablet_snr_column.csv)
-   \\includegraphics[width=\\columnwidth]{fig_tablet_snr_column.pdf}   (3.5 in wide, fonts ~9 pt at 100 %)
+   \\includegraphics[width=\\columnwidth]{fig_tablet_snr_column.pdf}   (3.5 in wide, fonts 6-7 pt at 100 %)
 """
 from __future__ import annotations
 
@@ -30,10 +31,9 @@ import paper_runs as PR
 import matplotlib.pyplot as plt
 import numpy as np
 
+import paper_style as PS
 from paper_fig_tablet_ber import HERE, RC, STYLE, per_run_snr
-
-INK = "#1a1a1a"
-FS, FS_TICK = 9, 8                              # pt at print size
+from paper_style import FS, FS_TICK, INK        # pt at print size; the other figure scripts take them from here
 SRC = os.path.join(HERE, "data_maxtouch", "modcomp_conditions_a2f_static_vs_moving_20to60", "conditions.csv")
 
 
@@ -57,29 +57,20 @@ def main():
                         " ".join(f"{x:.2f}" for x in v)])
 
     with plt.rc_context(RC):
-        fig, ax = plt.subplots(figsize=(3.5, 2.4), layout="constrained")
-        fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02)
-        x = np.array(rates, float)
-        for m in ("ook", "fsk"):
+        fig, ax = PS.figure(3.5, 2.4)
+        for m, side in (("ook", -1), ("fsk", 1)):
             st = STYLE[m]
-            med = [q[m, b][1] for b in rates]
-            ax.errorbar(x + (-0.5 if m == "ook" else 0.5), med,
-                        yerr=PR.yerr(med, [(min(per[m, b]), max(per[m, b])) for b in rates]), color=st["color"],
-                        marker=st["marker"], ms=4.5, lw=1.3, label=st["label"], zorder=3, **PR.EB)
+            x = np.array(rates, float) + 0.6 * side
+            PS.series(ax, x, [q[m, b][1] for b in rates], [(min(per[m, b]), max(per[m, b])) for b in rates],
+                      **PS.marks(st["color"], st["marker"], label=st["label"]))
+            for xi, b in zip(x, rates):                 # the recordings behind each median, beside its range bar
+                PS.run_dots(ax, xi + 1.0 * side, per[m, b], st["color"])
         ax.set_xticks(rates); ax.set_xlim(rates[0] - 3, rates[-1] + 3)
         ax.set_ylim(30, 70); ax.set_yticks(range(30, 71, 10))
-        ax.set_xlabel("Bit rate (bps)", fontsize=FS, color=INK, labelpad=2)
-        ax.set_ylabel("Symbol SNR (dB)", fontsize=FS, color=INK, labelpad=2)
-        ax.tick_params(labelsize=FS_TICK, colors=INK, width=0.6, length=3, pad=2)
-        for sp in ("top", "right"):
-            ax.spines[sp].set_visible(False)
-        for sp in ("left", "bottom"):
-            ax.spines[sp].set_linewidth(0.6)
-        ax.legend(loc="upper right", frameon=False, prop={"size": FS_TICK}, handlelength=1.8, handletextpad=0.4,
-                  borderaxespad=0.2)
-        for ext in ("pdf", "svg", "png"):
-            fig.savefig(os.path.join(a.out, f"fig_tablet_snr_column.{ext}"), dpi=600 if ext == "png" else None)
-        plt.close(fig)
+        ax.set_xlabel("Bit rate (bps)"); ax.set_ylabel("Symbol SNR (dB)")
+        PS.finish(ax)
+        ax.legend(loc="upper right")
+        PS.save(fig, os.path.join(a.out, "fig_tablet_snr_column"))
     for (m, b), v in sorted(per.items()):
         print(f"{m} {b} bps: median {np.median(v):.1f} dB ({' '.join(f'{x:.1f}' for x in v)})")
     print("->", a.out)
