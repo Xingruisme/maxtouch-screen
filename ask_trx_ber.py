@@ -42,6 +42,11 @@ BER before / after FEC, symbol errors.
                                                         no tablet recording) - for a scope or a first look
    python ask_trx_ber.py plan   [--bitrates 20,30,40,50,60] [--rounds 50] [--send cc4] [--schemes ook,ask2,ask4]
    python ask_trx_ber.py run    --label body_ask --condition through_body --current-ma 1     (the user runs it)
+   python ask_trx_ber.py rx     --label body_ask --condition through_body --current-ma 1     (THIS laptop: maXTouch only)
+   python ask_trx_ber.py tx     --label body_ask --current-ma 1     (OTHER laptop: Teensy only - no shared ground)
+        same arguments on both; per run: rx calibrates, prints >>> START TX NOW <<<, then Enter on the tx laptop within
+        --start-window s (default 10). rx finds each frame start by correlating the known symbol levels (1 ms steps);
+        the frozen decoders refine it as usual (meta.json: split_tx, start_corr).
    python ask_trx_ber.py analyse data_maxtouch/stent_trx_<label>_ask*
    python ask_trx_ber.py synth  [--ladder-db 0,-9,-20,-40]                                    (simulated panel)
 Output: run folders data_maxtouch/stent_trx_<label>_{ook,ask2,ask4}_<baud>baud_c<k>_<time>/, session summary
@@ -567,6 +572,106 @@ def run(a):
                      levels_file=a.levels_file, schemes=list(a.schemes), ask2_index=a.ask2_index))
 
 
+# ================================================================ split set-up: TX on another laptop (no shared ground)
+def tx_only(a):
+    """the OTHER laptop: drive the Teensy only (same plan as 'run' for the same arguments), one run per Enter"""
+    need_current(a)
+    runs = plan_all(a)
+    show_plan(a, runs)
+    ba = ber_args(a)
+    tx, info = open_ask(ba)
+    print(f"Transmitter: {info['line']}")
+    log = dict(info=info["line"], args={k: v for k, v in vars(a).items() if k != "what"}, runs=[])
+    path = os.path.join(B.DATADIR, f"asktx_{a.label}_{datetime.datetime.now():%Y%m%d_%H%M%S}.json")
+    try:
+        for i, r in enumerate(runs):
+            sched, plan = schedule(r["mod"], r["rate"], r["seq"]["phase"], ba)
+            got = tx.upload_schedule(sched)
+            input(f"\n[{i + 1}/{len(runs)}] {r['bit_rate']:g} bit/s {MOD_NAME[r['mod']]} chunk {r['chunk']} "
+                  f"({plan['total_s']:.1f} s) uploaded {got}.\n  Press Enter when the maXTouch laptop shows "
+                  f">>> START TX NOW <<< ")
+            t_first, _ = tx.go()
+            ok = tx.wait_done(STX.GO_DELAY_MS / 1e3 + plan["total_s"] + 5)
+            st = tx.status()
+            tx.off()
+            print(f"  sent: state {st.get('state')}, steps {st.get('events')}" + ("" if ok else "  ** did not finish **"))
+            log["runs"].append(dict(mod=r["mod"], rate=r["rate"], chunk=r["chunk"], t_first_local=t_first, status=st))
+            json.dump(log, open(path, "w"), indent=1)
+    except KeyboardInterrupt:
+        print("stopped (Ctrl+C)")
+    finally:
+        try:
+            tx.off()
+        finally:
+            tx.close()
+    print(f"log: {os.path.relpath(path, HERE)}")
+
+
+def find_start(t, X, t_prompt, plan, phase, window_s):
+    """frame start from the recording itself: correlate the known symbol levels with the panel feature over
+    [t_prompt, t_prompt + window] in 1 ms steps (the frozen decoders then refine it within 0-25 ms)"""
+    M = 4 if plan["modulation"] == "ask4" else 2
+    lv = MF.levels_of_states(phase, M)
+    tmpl = 10 ** (np.asarray(plan["ladder_db"])[lv] / 20)
+    _, y, _ = B.D.front(dict(t_prompt=t_prompt, modulation="fsk"), t, X)
+    Ts, n = plan["sym_us"] / 1e6, len(lv)
+    best = (-np.inf, t_prompt)
+    for d in np.arange(0.0, window_s, 0.001):
+        c = B.D.corr_states(B.D.sym_values(t, y, t_prompt + d, Ts, 0.0, n), tmpl)
+        if c > best[0]:
+            best = (c, t_prompt + d)
+    return best[1], best[0]
+
+
+def rx_only(a):
+    """THIS laptop: maXTouch only, no Teensy. Records each run of the same plan; the TX laptop starts it by hand."""
+    runs = plan_all(a)
+    show_plan(a, runs)
+    signal.signal(signal.SIGTERM, lambda *_: sys.exit(1))
+    ba = ber_args(a)
+    done = []
+    for i, r in enumerate(runs):
+        sl, mod, rate = r["seq"], r["mod"], r["rate"]
+        _, plan = schedule(mod, rate, sl["phase"], ba)
+        seconds = a.start_window + plan["total_s"] + B.TAIL_S
+        print(f"\n[{i + 1}/{len(runs)}] {r['bit_rate']:g} bit/s {MOD_NAME[mod]} {rate:g} baud, chunk {r['chunk']}")
+        input(f"  TX laptop at the same run, transmitter OFF; finger on the panel, electrode on; keep still "
+              f"(~{seconds + a.lead + 2:.0f} s) - press Enter to calibrate and record ")
+        chip = R.Chip(ba)
+        try:
+            changed = chip.setup()
+            t_cal = time.time()
+            t, X, t_prompt, _, errors = R.record(chip, ba, seconds)
+        finally:
+            chip.restore()
+        if len(t) < 50 or t_prompt is None:
+            print("  too few samples recorded - nothing saved, stopping the session")
+            break
+        tau, c = find_start(t, X, t_prompt, plan, sl["phase"], a.start_window)
+        print(f"  frame start found {tau - t_prompt:.3f} s after the prompt (correlation {c:.2f})"
+              + ("   ** weak - was the TX started? **" if c < 0.5 else ""))
+        meta = dict(mode="trx_ber", modulation=mod, args=vars(ba), plan=plan, y0=chip.y0, ny=chip.ny, patch=chip.patch,
+                    t_prompt=t_prompt, t_first=tau - 0.005, split_tx=True, start_corr=c, start_window_s=a.start_window,
+                    tx=None, tx_status=None, hid_errors=errors, chip_ctrl_orig=changed, recorded_s=float(t[-1] - t[0]),
+                    seconds_planned=seconds, samples=int(len(t)), send=sl["keys"], seed=a.seed, seq_k=int(round(rate)),
+                    chunk=r["chunk"], round0=r["rounds"][0], round1=r["rounds"][1],
+                    frame_index0=int(sl["frame_index0"]), pb=None, calibration="finger-on", t_calibrated=t_cal,
+                    decoder_rules_sha=B.D.RULES_SHA, trx_shas=B.D.TRX_SHAS,
+                    tool_sha=__import__("hashlib").sha256(open(__file__, "rb").read()).hexdigest()[:12],
+                    **B.SM.lead_touch(t, X, t_prompt, chip.names))
+        d = B.run_dir(ba, mod, rate, r["chunk"])
+        R.save(d, t, X, meta)
+        B.save_seq(d, sl)
+        print(f"  saved {os.path.relpath(d, HERE)}")
+        done.append(d)
+    if done:
+        stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        analyse(done, os.path.join(B.DATADIR, f"askber_{a.label}_{stamp}"),
+                dict(frame=frame_note(B.send_list(a)), split_tx=True,
+                     current_ma=a.current_ma, condition=a.condition, carrier_hz=a.carrier, ladder_db=a.ladder_db,
+                     levels_file=a.levels_file, schemes=list(a.schemes), ask2_index=a.ask2_index))
+
+
 def frame_mode(keys):
     """one session = one frame type: i2o with or without preamble (48 info bits) or the trx frames (96)"""
     keys = set(keys)
@@ -612,7 +717,7 @@ def synth(a):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=("levels", "send", "plan", "run", "analyse", "synth"))
+    ap.add_argument("cmd", choices=("levels", "send", "plan", "run", "tx", "rx", "analyse", "synth"))
     ap.add_argument("what", nargs="*", help="analyse: run folders (globs ok)")
     ap.add_argument("--label", default="ask")
     ap.add_argument("--bitrates", default="20,30,40,50,60", help="bit rates [bit/s]; OOK / 2-ASK baud = rate, 4-ASK baud = rate/2")
@@ -644,6 +749,8 @@ def main():
     ap.add_argument("--keep-noise-suppression", action="store_true")
     ap.add_argument("--keep-touch", action="store_true")
     ap.add_argument("--out", help="analyse: output folder")
+    ap.add_argument("--start-window", type=float, default=10.0,
+                    help="rx: seconds after START TX NOW in which the TX laptop must start; the frame start is searched there")
     STX.add_hw_args(ap)
     a = ap.parse_args()
     a.schemes = [m.strip() for m in a.schemes.split(",") if m.strip()]
@@ -665,11 +772,15 @@ def main():
                 title=("SYNC IGNORED (decoded as if sent without preamble) - " + ", ".join(keys)) if IGNORE_SYNC else None)
         return
     frame_mode(B.send_list(a))
-    resolve_ladder(a, need=(a.cmd == "run" and a.schemes != ["ook"]))   # OOK = full / off, needs no measured ladder
+    resolve_ladder(a, need=(a.cmd in ("run", "rx") and a.schemes != ["ook"]))   # OOK = full / off, needs no measured ladder
     if a.cmd == "plan":
         show_plan(a, plan_all(a))
     elif a.cmd == "run":
         run(a)
+    elif a.cmd == "tx":
+        tx_only(a)
+    elif a.cmd == "rx":
+        rx_only(a)
     else:
         synth(a)
 
