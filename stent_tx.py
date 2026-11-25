@@ -5,7 +5,10 @@ Host driver for the stent transmitter: Teensy 4.0 + AD9833 running the ORIGINAL 
 stent_frames.py, i.e. the same bits the TeensyTRX sent in the CapTIvate tests.
 
    python stent_tx.py id                                    # is TeensyTRX there? (first line of its '?' help)
-   python stent_tx.py tone 163000                           # continuous carrier ('cw'), until 'python stent_tx.py off'
+   python stent_tx.py tone 163000                           # continuous carrier ('cw') until Ctrl+C (2026-11-24: the
+                                                            # command now stays in the foreground and keeps the carrier
+                                                            # alive; firmware rev 2 switches a cw off after 60 s
+                                                            # without a byte from the host)
    python stent_tx.py selftest 163000                       # A0 (E+) stream with the carrier off / on / off
    python stent_tx.py off
    python stent_tx.py status                                # 'sstat' of the last schedule
@@ -200,18 +203,36 @@ class StentTX:
     def off(self):
         return self.ask("off", r"^# off")
 
+    def fs(self):
+        """fail-safe status of TeensyTRX ask2 rev 2 (watchdog resets, last stage before a reset, cw hold);
+        None from older firmware, which ignores the command"""
+        try:
+            s = self.ask("fs", r"^# fs ", timeout=0.6)
+        except TimeoutError:
+            return None
+        return dict(re.findall(r"(\w+)=(\S+)", s)) | {"line": s}
+
     def a0(self, sps=1000000, seconds=0.2):
         """A0 (E+ through the TX/RX path) via the 'mono' stream -> 12-bit ADC counts.
-        Stream format: 2 bytes per sample, 0x80 | high 7 bits, then low 7 bits, of adc12 << 2."""
+        Stream format: 2 bytes per sample, 0x80 | high 7 bits, then low 7 bits, of adc12 << 2.
+        2026-11-24: the stop is now checked - the firmware answers x with '# mono stopped'; without that line (or
+        with too little data) this raises instead of leaving the failure to the next command."""
         need = int(2 * sps * seconds) + 40000
         self.dev.reset_input_buffer()
         self.send(f"mono {sps}")
         buf, end = b"", time.time() + seconds + 5
         while len(buf) < need and time.time() < end:
             buf += self.dev.read(1 << 16)
+        if len(buf) < need:
+            raise TimeoutError(f"A0 stream delivered {len(buf)} of {need} bytes - not TeensyTRX, or it stopped answering")
         self.send("x")
-        time.sleep(0.3)
-        self.dev.reset_input_buffer()           # '# mono stopped ...'
+        tail, end = buf[-32:], time.time() + 2.0
+        while b"# mono stopped" not in tail and time.time() < end:
+            tail = tail[-32:] + self.dev.read(1 << 16)
+        if b"# mono stopped" not in tail:
+            raise TimeoutError("no '# mono stopped' after x - the A0 stream did not stop (firmware not answering)")
+        time.sleep(0.05)
+        self.dev.reset_input_buffer()           # rest of the '# mono stopped ...' line
         a = np.frombuffer(buf[20000:], np.uint8)            # skip the first ~10 ms
         j = next(i for i in range(len(a) - 1) if a[i] & 0x80 and not a[i + 1] & 0x80)
         pr = a[j:j + (len(a) - j) // 2 * 2].reshape(-1, 2)
@@ -230,6 +251,16 @@ def open_configured(a):
     return tx, info
 
 
+def carrier_line_db(v, hz, sps=1e6):
+    """the carrier line in an A0 stream: strongest of the 7 bins around hz (aliased above sps / 2) over the spectrum
+    median [dB]"""
+    alias = abs(hz - round(hz / sps) * sps)
+    sp = np.abs(np.fft.rfft((v - v.mean()) * np.hanning(len(v))))
+    fr = np.fft.rfftfreq(len(v), 1 / sps)
+    j = int(np.argmin(np.abs(fr - alias)))
+    return float(20 * np.log10(sp[max(j - 3, 0):j + 4].max() / np.median(sp)))
+
+
 def selftest(tx, hz):
     """Does a carrier really come out? Stream A0 (the TeensyTRX electrode input) with the carrier off, on, off and
     look for the carrier line. 2026-10-22, restored TeensyTRX, square: ~2 Vpp and the carrier 80-85 dB over the
@@ -238,10 +269,7 @@ def selftest(tx, hz):
     alias = abs(hz - round(hz / sps) * sps)
 
     def show(name, v):
-        sp = np.abs(np.fft.rfft((v - v.mean()) * np.hanning(len(v))))
-        fr = np.fft.rfftfreq(len(v), 1 / sps)
-        j = int(np.argmin(np.abs(fr - alias)))
-        db = 20 * np.log10(sp[max(j - 3, 0):j + 4].max() / np.median(sp))
+        db = carrier_line_db(v, hz, sps)
         print(f"  {name:9s} {v.min():5.0f}..{v.max():5.0f} ({(v.max() - v.min()) * 3.3 / 4095:4.2f} Vpp)  "
               f"std {v.std():6.1f}   line at {alias / 1e3:g} kHz: {db:5.1f} dB over the median")
         return db
@@ -278,9 +306,13 @@ def main():
     signal.signal(signal.SIGTERM, lambda *_: sys.exit(1))     # kill -> SystemExit -> the finally below turns it off
     tx, info = open_configured(a)
     print(info["line"])
-    if a.cmd == "tone":                         # deliberately left on: the user turns it off
-        print(tx.tone(a.hz)); print("carrier on until 'python stent_tx.py off'"); tx.dev.close(); return
     try:
+        if a.cmd == "tone":                     # in the foreground: a keep-alive every 5 s (firmware rev 2 switches a cw
+            print(tx.tone(a.hz))                # off after 60 s of host silence), Ctrl+C / kill -> finally -> off
+            print("carrier on - Ctrl+C turns it off", flush=True)
+            while True:
+                time.sleep(5.0)
+                tx.send("ka")                   # any byte counts as 'host alive'; the firmware ignores the line
         if a.cmd == "off":
             print(tx.off()); return
         if a.cmd == "selftest":

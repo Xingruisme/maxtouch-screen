@@ -44,7 +44,8 @@ BER before / after FEC, symbol errors.
    python ask_trx_ber.py run    --label body_ask --condition through_body --current-ma 1     (the user runs it)
    python ask_trx_ber.py rx     --label body_ask --condition through_body --current-ma 1     (THIS laptop: maXTouch only)
    python ask_trx_ber.py tx     --label body_ask --current-ma 1     (OTHER laptop: Teensy only - no shared ground)
-        same arguments on both; per run: rx calibrates, prints >>> START TX NOW <<<, then Enter on the tx laptop within
+        same arguments on both, and the same 'plan id' line on both screens (it covers every symbol that is sent);
+        per run: rx calibrates, prints >>> START TX NOW <<<, then Enter on the tx laptop within
         --start-window s (default 10). rx finds each frame start by correlating the known symbol levels (1 ms steps);
         the frozen decoders refine it as usual (meta.json: split_tx, start_corr).
    python ask_trx_ber.py analyse data_maxtouch/stent_trx_<label>_ask*
@@ -160,6 +161,22 @@ def plan_all(a):
     return runs
 
 
+def plan_id(a, runs):
+    """fingerprint of everything that goes on air and of the frames' info bits, over all recordings of the plan.
+    The two laptops of the split set-up ('tx' / 'rx') must print the same one: it differs if the arguments, the
+    frame code (i2o_frame, trx_psk_node) or the random generator differ. The ladder [dB] is not part of it - it
+    only tells the receiver where to expect the levels, it does not change what is sent."""
+    import hashlib
+    h, ba = hashlib.sha256(), ber_args(a)
+    for r in runs:
+        sched, plan = schedule(r["mod"], r["rate"], r["seq"]["phase"], ba)
+        h.update(f"{r['mod']}|{plan['sym_us']}|{r['chunk']}|{r['rounds']}|".encode())
+        for step_us, reps, words in sched:
+            h.update(np.asarray([step_us, reps] + list(words), np.uint64).tobytes())
+        h.update(np.ascontiguousarray(r["seq"]["u"]).tobytes())
+    return h.hexdigest()[:8]
+
+
 def show_plan(a, runs):
     keys = B.send_list(a)
     if set(keys) & set(I2O.KEYS):
@@ -177,6 +194,9 @@ def show_plan(a, runs):
         print(f"  {r['bit_rate']:4g} bit/s  {MOD_NAME[r['mod']]:5s} {r['rate']:5g} baud  chunk {r['chunk']}"
               f"  {len(r['seq']['phase'])} states  {s:6.1f} s on air")
     print(f"{len(runs)} recordings, about {tot / 60:.0f} min")
+    a.plan_id = plan_id(a, runs)
+    print(f"plan id {a.plan_id}  (split set-up: 'tx' and 'rx' must show the same id, or the receiver decodes against "
+          "other frames than were sent)")
 
 
 # ================================================================ levels (the 4 switch levels at E+)
@@ -246,6 +266,11 @@ def resolve_ladder(a, need=True):
     else:
         a.levels_file = a.levels or latest_levels()
         if not a.levels_file:
+            if need and a.cmd == "rx":          # split set-up: 'levels' needs the Teensy, which is on the other laptop
+                raise SystemExit("2-ASK / 4-ASK need the measured levels, and this laptop has none: on the Teensy "
+                                 "laptop run  python ask_trx_ber.py levels --current-ma 1  and copy its "
+                                 "data_maxtouch/asklevels_*.json here (or give the same 4 values with --ladder-db). "
+                                 "OOK alone needs no levels: --schemes ook")
             if need:
                 raise SystemExit("no levels measured with the ADG729 circuit yet: run  python ask_trx_ber.py levels "
                                  "--current-ma 1  first (same set-up as the run), or give --ladder-db")
@@ -581,7 +606,7 @@ def tx_only(a):
     ba = ber_args(a)
     tx, info = open_ask(ba)
     print(f"Transmitter: {info['line']}")
-    log = dict(info=info["line"], args={k: v for k, v in vars(a).items() if k != "what"}, runs=[])
+    log = dict(info=info["line"], plan_id=a.plan_id, args={k: v for k, v in vars(a).items() if k != "what"}, runs=[])
     path = os.path.join(B.DATADIR, f"asktx_{a.label}_{datetime.datetime.now():%Y%m%d_%H%M%S}.json")
     try:
         for i, r in enumerate(runs):
@@ -652,6 +677,7 @@ def rx_only(a):
               + ("   ** weak - was the TX started? **" if c < 0.5 else ""))
         meta = dict(mode="trx_ber", modulation=mod, args=vars(ba), plan=plan, y0=chip.y0, ny=chip.ny, patch=chip.patch,
                     t_prompt=t_prompt, t_first=tau - 0.005, split_tx=True, start_corr=c, start_window_s=a.start_window,
+                    plan_id=a.plan_id,
                     tx=None, tx_status=None, hid_errors=errors, chip_ctrl_orig=changed, recorded_s=float(t[-1] - t[0]),
                     seconds_planned=seconds, samples=int(len(t)), send=sl["keys"], seed=a.seed, seq_k=int(round(rate)),
                     chunk=r["chunk"], round0=r["rounds"][0], round1=r["rounds"][1],

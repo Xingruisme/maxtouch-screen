@@ -34,6 +34,33 @@
     sstat adds amp= adg= adg_err= (failed I2C writes since sgo) dry= fw=ask2. sgo / cw refuse when the ADG729 does not
     answer (with every switch open nothing would be sent).
 
+  rev 2 (2026-11-24 night) - fail-safe. Reason: twice in one evening the board stopped answering after an A0 stream
+  (stent_tx.py selftest: mono / x, then the next command got no reply), once with the carrier still on. The hung
+  board did not answer USB control requests either (port open took the 5 s control time-out), so not only loop() but
+  also the USB interrupt was dead, and it did not reboot (a fault reboots after 8 s). What is in here:
+    1) Watchdog (WDOG1, 2 s). loop() feeds it. If loop() stops for 2 s - whatever the cause - the processor resets;
+       setup() then writes the AD9833 off and opens every ADG729 switch, and the board is back on USB by itself (no
+       replug). The carrier can outlive a hang by at most ~2 s + the boot time (~1 s).
+       0.5 s before the reset a watchdog interrupt (priority 0, above everything) stores where the processor was
+       stuck: the stacked PC and the active exception number. fs shows them after the reboot.
+    2) Sample-clock stop with the PIT interrupt held off (stopSampling). IntervalTimer::end() removes its handler
+       BEFORE it stops the PIT channel; a tick in between leaves the PIT interrupt asserted with nobody to clear its
+       flag, and pit_isr is entered again and again at priority 32: loop() and the USB interrupt (112) never run
+       again. That is the one interrupt storm this firmware can produce and it matches the symptoms above.
+    3) cw hold: a continuous carrier (cw) is switched off when no byte has arrived from the host for cw_hold seconds
+       (default 60; fs hold <s>, 0 = never). A schedule (sgo / ask2 / ask4) or a frame (ftx) ends by itself and is
+       not cut. Any byte counts as 'host alive'; an unknown line such as "ka" is ignored and is a fine keep-alive.
+    4) Stage marks: loop() / the stream stop / the output switching write a stage number that survives a reset.
+    New commands:
+      fs               "# fs rev=2 wdt_ms=2000 cw_hold_s=60 trips=<cw switched off by 3> boot=<power|wdog|...>
+                        wdog_resets=<since power-up> last_stage=<hex, see stage()> last_cmd=<first 4 chars>
+                        stuck_pc=<hex> stuck_exc=<exception number, 0 = loop(), 138 = PIT, 129 = USB>
+                        mono=<streams started>:<samples>/<slips>/<bytes the USB core dropped> of the last stopped stream"
+                       (last_* / stuck_* describe the run BEFORE the last reset)
+      fs hold <s>      cw hold time (0 = never switch a cw off)
+      fs hang [irq]    TEST: stop loop() on purpose (irq = with interrupts disabled) - the watchdog must reset
+    sstat ends with rev=2. The first line of the help still starts with "TeensyTRX ask2" (the tools look for that).
+
   TeensyTRX - Teensy 4.0 + AD9833 갈바닉 트랜시버. 전극쌍 하나를 송신과 수신이 같이 쓴다.
   결선도: https://claude.ai/artifact/PS91BH4sDXn1jEkRHCZx21
 
@@ -202,6 +229,82 @@ volatile uint8_t  fr_state = F_IDLE;
 volatile uint32_t fr_count = 0, fr_refused = 0;
 volatile bool     tx_on = false;        // AD9833 출력이 켜져 있는 동안 (mark 1 이면 스트림에 싣는다)
 bool     mark_en = false;
+
+// ------------------------------------------------------------------ rev 2: fail-safe (watchdog, stage marks, cw hold)
+const uint16_t WDT_WT      = 3;         // WDOG1 time-out = (WT + 1) x 0.5 s = 2 s
+const uint32_t WDT_FEED_MS = 50;        // loop() feeds at most this often
+const uint32_t FS_MAGIC    = 0x46533032;   // "FS02": the marks below are ours and valid
+uint32_t cw_hold_ms = 60000;            // cw is switched off after this long without a byte from the host (0 = never)
+uint32_t host_ms = 0;                   // millis() of the last byte from the host
+uint32_t fs_trips = 0;                  // cw switched off by the hold since boot
+uint32_t wdt_fed = 0;
+uint32_t boot_srsr = 0, boot_stage = 0, boot_cmd = 0, boot_pc = 0, boot_exc = 0, wdog_resets = 0;
+uint32_t cur_stage = 0;
+uint32_t usb_short = 0, mono_n = 0, last_wr = 0, last_slips = 0, last_short = 0;   // stream bookkeeping for 'fs' (mono=)
+// The marks live in CrashReport's breadcrumb row (0x2027FFC0, top of RAM2): it is not cleared at boot and
+// CrashReport.breadcrumb() flushes the cache row, so a value written just before a reset is still there after it.
+//   slot 1 stage | state bits   2 first 4 chars of the command   3 FS_MAGIC   4 watchdog resets since power-up
+//   slot 5 stacked PC, 6 stacked xPSR of whatever the watchdog interrupt interrupted
+typedef struct crashreport_breadcrumbs_struct FsCrumbs;   // the core's layout: bitmask, value[6], checksum
+static volatile FsCrumbs *const FSBC = (volatile FsCrumbs *)0x2027FFC0;
+// stage numbers: 0x01 setup  0x10 loop idle  0x11 / 0x12 stream write before / after  0x20 in a command
+//   0x30 stopMono  0x31 its delay  0x32 its reply  0x38 stopSampling before / 0x39 after the timer stop / 0x3A ADC stopped
+//   0x40 outputOff  0x41 switch to VREF  0x42 AD9833 off  0x43 idle byte  0x44 sample clock
+//   0x50 startSampling  0x51 ADC set up  0x52 timer started   0x60 startCW   0x70 cw hold trip   0x7F fs hang
+// state bits: 0x10000 cw on, 0x20000 streaming, 0x40000 sample clock on, 0x80000 output on (tx_on)
+static inline void stage(uint32_t s) {
+  s |= (cw_on ? 0x10000u : 0) | (streaming ? 0x20000u : 0) | (sampling ? 0x40000u : 0) | (tx_on ? 0x80000u : 0);
+  if (s == cur_stage) return;
+  cur_stage = s;
+  CrashReport.breadcrumb(1, s);
+}
+static inline void wdtFeed() { WDOG1_WSR = 0x5555; WDOG1_WSR = 0xAAAA; }
+extern "C" void wdog_capture(uint32_t *frame) {     // frame = r0 r1 r2 r3 r12 lr pc xpsr of the interrupted code
+  FSBC->value[4] = frame[6];
+  FSBC->value[5] = frame[7];
+  FSBC->bitmask |= 0x30;
+  arm_dcache_flush((void *)FSBC, sizeof(FsCrumbs));
+  WDOG1_WICR = (uint16_t)(1 << 14);                 // clear the interrupt (WTIS), leave it disabled: the reset follows
+  NVIC_DISABLE_IRQ(IRQ_WDOG1);
+}
+__attribute__((naked)) static void wdog_isr() { __asm__ volatile("mrs r0, msp\n" "b wdog_capture\n"); }
+static void wdtBegin() {
+  CCM_CCGR3 |= CCM_CCGR3_WDOG1(CCM_CCGR_ON);
+  attachInterruptVector(IRQ_WDOG1, wdog_isr);
+  NVIC_SET_PRIORITY(IRQ_WDOG1, 0);                  // above the sample interrupt (32): it must get through a storm
+  NVIC_ENABLE_IRQ(IRQ_WDOG1);
+  WDOG1_WMCR = 0;                                   // power-down counter off
+  WDOG1_WICR = (uint16_t)((1 << 15) | (1 << 14) | 1);   // WIE, clear WTIS, interrupt 0.5 s before the time-out
+  // SRS = 1 and WDA = 1 are 'no software reset / do not pull WDOG_B now'; WDBG stops the count under a debugger
+  // (the bootloader chip halts the processor over JTAG when it programs it). WDE cannot be cleared again.
+  WDOG1_WCR = WDOG_WCR_WT(WDT_WT) | WDOG_WCR_SRS | WDOG_WCR_WDA | WDOG_WCR_WDBG;
+  WDOG1_WCR |= WDOG_WCR_WDE;
+  wdtFeed();
+}
+static void bootCause() {                            // first thing in setup(): why did we boot, where was the last run
+  boot_srsr = SRC_SRSR;
+  SRC_SRSR = boot_srsr;                              // write-1-to-clear: the next boot shows its own cause only
+  bool valid = FSBC->value[2] == FS_MAGIC;
+  if (valid) { boot_stage = FSBC->value[0]; boot_cmd = FSBC->value[1]; wdog_resets = FSBC->value[3];
+               boot_pc = FSBC->value[4]; boot_exc = FSBC->value[5] & 0x1FF; }
+  bool wd = boot_srsr & (SRC_SRSR_WDOG_RST_B | SRC_SRSR_WDOG3_RST_B);
+  if (!wd) { boot_pc = 0; boot_exc = 0; }
+  if (boot_srsr & SRC_SRSR_IPP_RESET_B) wdog_resets = 0;          // power-up
+  if (wd) wdog_resets++;
+  CrashReport.breadcrumb(3, FS_MAGIC);
+  CrashReport.breadcrumb(4, wdog_resets);
+  CrashReport.breadcrumb(5, 0);
+  CrashReport.breadcrumb(6, 0);
+  CrashReport.breadcrumb(2, 0);
+}
+static const char *bootName() {
+  if (boot_srsr & (SRC_SRSR_WDOG_RST_B | SRC_SRSR_WDOG3_RST_B)) return "wdog";
+  if (boot_srsr & SRC_SRSR_IPP_RESET_B) return "power";
+  if (boot_srsr & SRC_SRSR_LOCKUP_SYSRESETREQ) return "soft";    // software reset / crash reboot / lockup
+  if (boot_srsr & (SRC_SRSR_JTAG_RST_B | SRC_SRSR_JTAG_SW_RST)) return "jtag";
+  if (boot_srsr & SRC_SRSR_IPP_USER_RESET_B) return "user";
+  return "other";
+}
 
 // ------------------------------------------------------------------ AD9833
 volatile uint16_t dbgw[96]; volatile uint8_t ndbg = 0;   // 디버그: 최근 sgo 이후 쓴 단어
@@ -397,23 +500,45 @@ static void startSampling(uint32_t sps) {
   if (sps < SPS_MIN) sps = SPS_MIN;
   if (sps > SPS_MAX) sps = SPS_MAX;
   tps = (PIT_HZ + sps / 2) / sps;
+  stage(0x50);
   adc->adc0->setAveraging(1);
   adc->adc0->setResolution(12);
   adc->adc0->setConversionSpeed(ADC_CONVERSION_SPEED::VERY_HIGH_SPEED);
   adc->adc0->setSamplingSpeed(ADC_SAMPLING_SPEED::VERY_HIGH_SPEED);
   adc->adc0->startContinuous(PIN_RX);
   delayMicroseconds(200);
+  stage(0x51);
   cur_sps = PIT_HZ / tps;
   sampling = true;
   tmr.begin(sample_isr, (float)tps / (float)(PIT_HZ / 1000000));   // 정확히 tps 틱
   tmr.priority(32);
+  stage(0x52);
 }
 
+// rev 2: IntervalTimer::end() (Teensyduino 1.62 cores/teensy4/IntervalTimer.cpp) empties its handler slot and only
+// THEN stops the PIT channel (TCTRL = 0, TFLG = 1). A PIT tick between the two - the timer runs at up to 1 MS/s -
+// enters pit_isr with an empty slot: it returns without clearing TFLG, the interrupt stays asserted and is entered
+// again at once, for ever, at priority 32. loop() never gets another instruction and the USB interrupt (112) never
+// runs: the board is silent and whatever the AD9833 was doing goes on. So the PIT interrupt is held off at the NVIC
+// while the timer stops; by the time it is let in again the channel is stopped and its flag cleared.
+// Measured 2026-11-25 (trx_switch_test.py --dry, 1 MS/s): the old stop hung 8 times in ~900 stream stops, every time
+// caught by the watchdog at stage 0x38 with the PC inside IntervalTimer::end() / pit_isr; this stop: 0 in 5700.
 static void stopSampling() {
   if (!sampling) return;
+  stage(0x38);
+#ifndef FS_TEST_UNGUARDED_STOP                   // (test builds only: the stop as it was before rev 2)
+  NVIC_DISABLE_IRQ(IRQ_PIT);
+  __asm__ volatile("dsb\n" "isb\n");
+#endif
   tmr.end();
+#ifndef FS_TEST_UNGUARDED_STOP
+  NVIC_CLEAR_PENDING(IRQ_PIT);
+  NVIC_ENABLE_IRQ(IRQ_PIT);
+#endif
   sampling = false;
+  stage(0x39);
   adc->adc0->stopContinuous();
+  stage(0x3A);
 }
 
 static bool sweepActive() { return sw_state == S_ARMED || sw_state == S_RUN; }
@@ -421,19 +546,26 @@ static bool clockNeeded() { return sweepActive() || fr_state != F_IDLE; }   // �
 
 // ------------------------------------------------------------------ 출력
 static void outputOff() {
+  uint32_t back = cur_stage & 0xFFFF;
+  stage(0x40);
   noInterrupts();
   armed = false;
   if (sweepActive()) sw_state = S_STOP;   // 걸려 있던 step_isr 은 이 상태를 보고 그냥 나간다
   fr_state = F_IDLE;
   interrupts();
+  stage(0x41);
   if (cw_on || tx_on || run_f) adgMain(ADG_L0);   // ask2: a running carrier leaves E+ before the AD9833 stops
+  stage(0x42);
   adw(OFFW);
   run_f = 0;
+  stage(0x43);
   adgMain(adg_idle);
   cw_on = false;
   tx_on = false;
   digitalWriteFast(PIN_TR, LOW);
+  stage(0x44);
   if (!streaming) stopSampling();
+  stage(back);
 }
 
 static uint32_t fword(double hz) {
@@ -442,6 +574,7 @@ static uint32_t fword(double hz) {
 
 static bool startCW(double hz) {
   outputOff();
+  stage(0x60);
   uint32_t w = fword(hz);
   cw_hz = w * MCLK / 268435456.0;
   adw(OFFW);
@@ -629,6 +762,7 @@ static void startMono(uint32_t sps) {
   if (!sampling) startSampling(sps);       // 스윕 중이면 표본 시계를 그대로 둔다 (시각이 표본 수로 정해지므로)
   noInterrupts();
   wr = rd = slips = 0;
+  usb_short = 0; mono_n++;
   stream0 = samp;
   streaming = true;
   interrupts();
@@ -637,18 +771,25 @@ static void startMono(uint32_t sps) {
 static void stopMono() {
   if (!streaming) return;
   noInterrupts(); streaming = false; interrupts();
+  stage(0x30);
   if (!clockNeeded()) stopSampling();
+  stage(0x31);
   delay(20);
+  stage(0x32);
   Serial.print(F("# mono stopped  "));
   Serial.print(cur_sps); Serial.print(F(" S/s  slips "));
   Serial.print(slips);   Serial.print(F("  total "));
   Serial.println(wr);
+  last_wr = wr; last_slips = slips; last_short = usb_short;
+  stage(0x20);
 }
 
 // ------------------------------------------------------------------ 명령
 static void help() {
   Serial.printf("TeensyTRX ask2 - galvanic transceiver (Teensy 4.0, RX pin 14 = A0, AD9833 FSYNC 10 / SDATA 11 / SCLK 13, "
-                "ADG729 level switch SDA 18 / SCL 19: %s 0x%02x)\n", adg_found ? "found at" : "NOT ANSWERING, expected", adg_addr);
+                "ADG729 level switch SDA 18 / SCL 19: %s 0x%02x) rev 2: watchdog 2 s, cw hold %lu s, last boot %s\n",
+                adg_found ? "found at" : "NOT ANSWERING, expected", adg_addr, (unsigned long)(cw_hold_ms / 1000), bootName());
+  Serial.println(F("  fs   fs hold <s> (cw goes off after <s> s without a byte from the host; 0 = never)   fs hang [irq] (test)"));
   Serial.println(F("  mono [sps]   stream A0, 2 bytes/sample (TeensyLink format; default 500000, max 1000000)"));
   Serial.println(F("  x            stop stream"));
   Serial.println(F("  wave sine|square (square at boot)   cw <hz>   off   amp <0-3> (cw level; schedule words carry it in bits 28-29)"));
@@ -694,7 +835,7 @@ static void sstat() {
   static const char *names[] = {"idle", "armed", "run", "done", "stop"};
   uint32_t ev; schedSum(nullptr, &ev);
   long t0 = t0_seen ? (long)(t0_samp - stream0) - (long)t0_slips : -1;
-  Serial.printf("# sweep state=%s t0=%ld events=%lu/%lu late_max=%lu late_n=%lu sps=%lu wave=%s psk_us=%lu psk_n=%lu psk_mode=%s psk_src=%s amp=%u adg=0x%02x adg_err=%lu dry=%u fw=ask2\n",
+  Serial.printf("# sweep state=%s t0=%ld events=%lu/%lu late_max=%lu late_n=%lu sps=%lu wave=%s psk_us=%lu psk_n=%lu psk_mode=%s psk_src=%s amp=%u adg=0x%02x adg_err=%lu dry=%u fw=ask2 rev=2\n",
                 names[sw_state], t0, (unsigned long)ev_done, (unsigned long)ev,
                 (unsigned long)late_max, (unsigned long)late_n, (unsigned long)cur_sps,
                 (runw & OPBITEN) ? "square" : "sine", (unsigned long)psk_us, (unsigned long)psk_n,
@@ -703,6 +844,7 @@ static void sstat() {
 }
 
 static bool quiet() { return streaming; }      // 스트리밍 중에는 출력 금지
+static char fsChar(uint32_t c) { c &= 0xFF; return (c >= 0x20 && c < 0x7F) ? (char)c : '.'; }
 
 static void handleLine(char *line) {
   while (*line == ' ') line++;
@@ -712,6 +854,25 @@ static void handleLine(char *line) {
 
   if (!strcmp(line, "x") || !strcmp(line, "X")) { stopMono(); return; }
   if (line[0] == '?') { if (!quiet()) help(); return; }
+  if (!strncmp(line, "fs", 2) && (line[2] == ' ' || line[2] == 0)) {     // rev 2: fail-safe status / hold time / test
+    if (!strncmp(arg, "hold", 4)) {
+      char *q; long v = strtol(arg + 4, &q, 10);
+      if (q != arg + 4 && v >= 0 && v <= 86400) cw_hold_ms = (uint32_t)v * 1000;
+    } else if (!strncmp(arg, "hang", 4)) {                                // test: stop loop() - the watchdog must reset
+      if (!quiet()) { Serial.println(F("# fs hang: loop() stops now, the watchdog resets in 2 s")); Serial.flush(); }
+      stage(0x7F);
+      if (strstr(arg, "irq")) noInterrupts();
+      for (;;) {}
+    }
+    if (!quiet())
+      Serial.printf("# fs rev=2 wdt_ms=%lu cw_hold_s=%lu trips=%lu boot=%s wdog_resets=%lu last_stage=0x%lx last_cmd=%c%c%c%c "
+                    "stuck_pc=0x%lx stuck_exc=%lu mono=%lu:%lu/%lu/%lu\n", (unsigned long)((WDT_WT + 1) * 500), (unsigned long)(cw_hold_ms / 1000),
+                    (unsigned long)fs_trips, bootName(), (unsigned long)wdog_resets, (unsigned long)boot_stage,
+                    fsChar(boot_cmd >> 24), fsChar(boot_cmd >> 16), fsChar(boot_cmd >> 8), fsChar(boot_cmd),
+                    (unsigned long)boot_pc, (unsigned long)boot_exc, (unsigned long)mono_n,
+                    (unsigned long)last_wr, (unsigned long)last_slips, (unsigned long)last_short);
+    return;
+  }
   if (!strncmp(line, "mono", 4) || !strncmp(line, "listen", 6)) {   // R4 GUI 가 listen 을 보내도 mono 로
     long v = atol(arg);
     stopMono();
@@ -770,6 +931,7 @@ static void handleLine(char *line) {
     if (clockNeeded() || cw_on) { Serial.println(F("# busy (transmitting)")); return; }
     Serial.print(F("# i2c:"));
     for (uint8_t a = 0x08; a < 0x78; a++) {
+      wdtFeed();                             // a stuck bus makes every address wait for the Wire time-out
       Wire.beginTransmission(a);
       if (Wire.endTransmission() == 0) Serial.printf(" 0x%02x", a);
     }
@@ -956,6 +1118,8 @@ static void handleLine(char *line) {
 }
 
 void setup() {
+  bootCause();                             // rev 2: reset cause and the marks of the run before, then output off below
+  stage(0x01);
   pinMode(PIN_FSYNC, OUTPUT); digitalWriteFast(PIN_FSYNC, HIGH);
   pinMode(PIN_TR, OUTPUT);    digitalWriteFast(PIN_TR, LOW);
   pinMode(PIN_RX, INPUT_DISABLE);          // 디지털 입력 버퍼 끔 (아날로그 핀 잡음 감소)
@@ -979,17 +1143,40 @@ void setup() {
   uint32_t t0 = millis();
   while (!Serial && millis() - t0 < 2000) {}
   help();
+  host_ms = wdt_fed = millis();
+  wdtBegin();                              // rev 2: from here on loop() has to come round at least every 2 s
+  stage(0x10);
 }
 
 void loop() {
   static char line[512]; static uint16_t n = 0;
+  uint32_t now = millis();
+  if (now - wdt_fed >= WDT_FEED_MS) { wdtFeed(); wdt_fed = now; }
   while (Serial.available()) {
     char c = Serial.read();
-    if (c == '\n' || c == '\r') { line[n] = 0; if (n) handleLine(line); n = 0; }
+    host_ms = now;
+    if (c == '\n' || c == '\r') {
+      line[n] = 0;
+      if (n) {
+        CrashReport.breadcrumb(2, ((uint32_t)(uint8_t)line[0] << 24) | ((uint32_t)(uint8_t)line[n > 1 ? 1 : 0] << 16) |
+                                  ((uint32_t)(uint8_t)line[n > 2 ? 2 : 0] << 8) | (uint8_t)line[n > 3 ? 3 : 0]);
+        stage(0x20);
+        handleLine(line);
+        stage(0x10);
+      }
+      n = 0;
+    }
     else if (n < sizeof(line) - 1) line[n++] = c;
   }
+  if (cw_on && cw_hold_ms && millis() - host_ms > cw_hold_ms) {   // rev 2: nobody has talked to us - carrier off
+    stage(0x70);
+    outputOff();
+    fs_trips++;
+    if (!quiet()) Serial.printf("# failsafe: cw off, no byte from the host for %lu s\n", (unsigned long)(cw_hold_ms / 1000));
+    stage(0x10);
+  }
   if (sampling && !streaming && !clockNeeded()) stopSampling();   // 스트림 없이 돌던 스윕·프레임이 끝나면
-  if (!streaming) return;
+  if (!streaming) { stage(0x10); return; }
 
   // 링버퍼 -> USB. 한 번에 최대 1024 샘플 (2 kB). 형식은 TeensyLink mono 와 같다
   static uint8_t out[2048];
@@ -1003,5 +1190,8 @@ void loop() {
     out[2*i + 1] = (uint8_t)(v14 & 0x7F);
   }
   rd += avail;
-  Serial.write(out, 2 * avail);
+  stage(0x11);
+  size_t w = Serial.write(out, 2 * avail);
+  if (w != 2 * avail) usb_short += 2 * avail - w;   // the core gave up on the host (120 ms without a free buffer)
+  stage(0x12);
 }
