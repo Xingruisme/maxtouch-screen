@@ -1,6 +1,6 @@
 # Through-body BER on phones and the OnePlus Pad (trx frames + FEC)
 
-Copies of the phone / tablet BER tools and their data, taken 2026-11-17 from the working folders
+Copies of the phone / tablet BER tools and their data, taken 2026-11-17 (Pad data refreshed 2026-11-24) from the working folders
 `screen-bloodflow-core-main/` and `device-phone-pixel6/` (siblings of this repo's checkout `maxtouch-screen-main/`).
 The scripts expect that sibling layout (`decode_trx_pad.py` loads `../maxtouch-screen-main/decode_trx_tablet.py`,
 `pad_trx_ber.py` loads `stent_trx_ber.py` from there), so run them from the original folders, not from here.
@@ -22,6 +22,8 @@ Both decoders call the frozen `decode_trx_tablet.py` functions unchanged; their 
 Data:
 
 - `screen-bloodflow-core-main/data_oneplus/trx_ber/`: Pad BER sessions 2026-11-14, among them
-  `trxber_ankle_full_1mA_20261114_232032` (ankle to finger, 1 mA, 2/3/4 baud x 3 rounds, figures + scripts)
+  `trxber_ankle_full_1mA_20261114_232032` (ankle to finger, 1 mA, 2/3/4 baud x 3 rounds, figures + scripts);
+  session 2026-11-20 `trxber_hand_full_1mA_20261120_113343` (hand to finger, 1 mA, OOK and FSK at 4 baud, 3 frames
+  per frame type) with its six `pad_trx_hand_full_1mA_*` recordings
 - `screen-bloodflow-core-main/data_oneplus/body_sweep/`, `device-phone-pixel6/data/body_sweep/`: 1-500 kHz body sweeps
 - `screen-bloodflow-core-main/data_body_sweep_all/`: all-device response-vs-frequency figure (`make_figure.py`)
