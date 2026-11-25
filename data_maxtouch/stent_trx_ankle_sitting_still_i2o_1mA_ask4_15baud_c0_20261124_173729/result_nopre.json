@@ -1,0 +1,856 @@
+{
+ "decoder": "trx-nopre-1",
+ "rules_sha": "a0827fd5c9c0",
+ "run": "stent_trx_ankle_sitting_still_i2o_1mA_ask4_15baud_c0_20261124_173729",
+ "modulation": "ask4",
+ "M": 4,
+ "baud": 14.999925000374997,
+ "bits_per_symbol": 2,
+ "bit_rate": 29.999850000749994,
+ "ladder_db": [
+  0.0,
+  -3.5,
+  -9.5,
+  -40.0
+ ],
+ "nodes": [
+  "Y3",
+  "Y0",
+  "Y2"
+ ],
+ "symbols": 2048,
+ "scans_per_symbol": 7.74560546875,
+ "delay_ms": 11.898040771484375,
+ "clock_ppm": -10.0,
+ "timing_r": 0.8654801879462957,
+ "erasures": 0,
+ "signal_lost": false,
+ "sync_symbols_ignored": 1024,
+ "recording_levels": {
+  "Y3": [
+   1088.8448559876742,
+   733.8432255826548,
+   366.0841230577454,
+   5.501906699584624
+  ],
+  "Y0": [
+   780.9564570901458,
+   520.8801857220672,
+   254.8495507316851,
+   3.9552380939151672
+  ],
+  "Y2": [
+   949.8978248357986,
+   640.2396592655102,
+   319.24667774244085,
+   4.794186395846307
+  ]
+ },
+ "symbol_errors": 1,
+ "symbols_decoded": 1536,
+ "state_errors": 1,
+ "state_symbols": 3072,
+ "frames": [
+  {
+   "i": 0,
+   "round": 0,
+   "frame": "i2o",
+   "t0": 1795559711.9554367,
+   "erasures": 0,
+   "node": "Y3",
+   "reference_ok": true,
+   "levels": [
+    1088.8448559876742,
+    733.8432255826548,
+    366.0841230577454,
+    5.501906699584624
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "round": 1,
+   "frame": "i2o",
+   "t0": 1795559716.222082,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "round": 2,
+   "frame": "i2o",
+   "t0": 1795559720.4887273,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "round": 3,
+   "frame": "i2o",
+   "t0": 1795559724.7553728,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 4,
+   "round": 4,
+   "frame": "i2o",
+   "t0": 1795559729.022018,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 5,
+   "round": 5,
+   "frame": "i2o",
+   "t0": 1795559733.2886634,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 6,
+   "round": 6,
+   "frame": "i2o",
+   "t0": 1795559737.5553086,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 7,
+   "round": 7,
+   "frame": "i2o",
+   "t0": 1795559741.821954,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 8,
+   "round": 8,
+   "frame": "i2o",
+   "t0": 1795559746.0885994,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 9,
+   "round": 9,
+   "frame": "i2o",
+   "t0": 1795559750.3552446,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 10,
+   "round": 10,
+   "frame": "i2o",
+   "t0": 1795559754.62189,
+   "erasures": 0,
+   "node": "Y2",
+   "reference_ok": true,
+   "levels": [
+    949.8978248357986,
+    640.2396592655102,
+    319.24667774244085,
+    4.794186395846307
+   ],
+   "pre_err": 1,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 11,
+   "round": 11,
+   "frame": "i2o",
+   "t0": 1795559758.8885353,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 12,
+   "round": 12,
+   "frame": "i2o",
+   "t0": 1795559763.1551807,
+   "erasures": 0,
+   "node": "Y3",
+   "reference_ok": true,
+   "levels": [
+    1088.8448559876742,
+    733.8432255826548,
+    366.0841230577454,
+    5.501906699584624
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 13,
+   "round": 13,
+   "frame": "i2o",
+   "t0": 1795559767.4218261,
+   "erasures": 0,
+   "node": "Y2",
+   "reference_ok": true,
+   "levels": [
+    949.8978248357986,
+    640.2396592655102,
+    319.24667774244085,
+    4.794186395846307
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 14,
+   "round": 14,
+   "frame": "i2o",
+   "t0": 1795559771.6884713,
+   "erasures": 0,
+   "node": "Y2",
+   "reference_ok": true,
+   "levels": [
+    949.8978248357986,
+    640.2396592655102,
+    319.24667774244085,
+    4.794186395846307
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 15,
+   "round": 15,
+   "frame": "i2o",
+   "t0": 1795559775.9551167,
+   "erasures": 0,
+   "node": "Y2",
+   "reference_ok": true,
+   "levels": [
+    949.8978248357986,
+    640.2396592655102,
+    319.24667774244085,
+    4.794186395846307
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 16,
+   "round": 16,
+   "frame": "i2o",
+   "t0": 1795559780.221762,
+   "erasures": 0,
+   "node": "Y2",
+   "reference_ok": true,
+   "levels": [
+    949.8978248357986,
+    640.2396592655102,
+    319.24667774244085,
+    4.794186395846307
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 17,
+   "round": 17,
+   "frame": "i2o",
+   "t0": 1795559784.4884074,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 18,
+   "round": 18,
+   "frame": "i2o",
+   "t0": 1795559788.7550526,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 19,
+   "round": 19,
+   "frame": "i2o",
+   "t0": 1795559793.021698,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 20,
+   "round": 20,
+   "frame": "i2o",
+   "t0": 1795559797.2883434,
+   "erasures": 0,
+   "node": "Y3",
+   "reference_ok": true,
+   "levels": [
+    1088.8448559876742,
+    733.8432255826548,
+    366.0841230577454,
+    5.501906699584624
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 21,
+   "round": 21,
+   "frame": "i2o",
+   "t0": 1795559801.5549886,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 22,
+   "round": 22,
+   "frame": "i2o",
+   "t0": 1795559805.821634,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 23,
+   "round": 23,
+   "frame": "i2o",
+   "t0": 1795559810.0882792,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 24,
+   "round": 24,
+   "frame": "i2o",
+   "t0": 1795559814.3549247,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 25,
+   "round": 25,
+   "frame": "i2o",
+   "t0": 1795559818.62157,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 26,
+   "round": 26,
+   "frame": "i2o",
+   "t0": 1795559822.8882153,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 27,
+   "round": 27,
+   "frame": "i2o",
+   "t0": 1795559827.1548607,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 28,
+   "round": 28,
+   "frame": "i2o",
+   "t0": 1795559831.421506,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 29,
+   "round": 29,
+   "frame": "i2o",
+   "t0": 1795559835.6881514,
+   "erasures": 0,
+   "node": "Y3",
+   "reference_ok": true,
+   "levels": [
+    1088.8448559876742,
+    733.8432255826548,
+    366.0841230577454,
+    5.501906699584624
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 30,
+   "round": 30,
+   "frame": "i2o",
+   "t0": 1795559839.9547968,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 31,
+   "round": 31,
+   "frame": "i2o",
+   "t0": 1795559844.221442,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    780.9564570901458,
+    520.8801857220672,
+    254.8495507316851,
+    3.9552380939151672
+   ],
+   "pre_err": 0,
+   "code_bits": 96,
+   "decoders": {
+    "i2o": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  }
+ ],
+ "decoded_with_rules": "fsk4"
+}

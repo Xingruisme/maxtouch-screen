@@ -1,0 +1,5 @@
+state,run,node,frame0_errors,frame_bits,run_errors,run_bits
+Sitting still,stent_mod_ankle2finger_sit_still_ook_40bps_20261030_121747,Y1,0,127,0,1016
+Standing still,stent_mod_ankle2finger_sit_still_ook_40bps_20261030_123044,Y1,0,127,3,1016
+Sitting shaking,stent_mod_ankle2finger_sit-shaking_ook_40bps_20261101_164447,Y2,6,127,52,1016
+Standing walking,stent_mod_ankle2finger_stand-walking_ook_40bps_20261101_172732,Y1,0,127,6,1016

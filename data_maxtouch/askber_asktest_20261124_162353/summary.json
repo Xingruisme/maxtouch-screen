@@ -1,0 +1,115 @@
+{
+ "current_ma": 1.0,
+ "condition": "within_agar",
+ "carrier_hz": 159585.0,
+ "ladder_db": [
+  0.0,
+  -3.5,
+  -9.5,
+  -40.0
+ ],
+ "levels_file": null,
+ "schemes": [
+  "ask2",
+  "ask4"
+ ],
+ "ask2_index": 2,
+ "mfsk_decoder": "trx-mfsk-1",
+ "mfsk_rules_sha": "a4f274d45a1f",
+ "tablet_decoder": "trx-tablet-1",
+ "tablet_rules_sha": "e76afd59a7b5",
+ "runs": [
+  {
+   "scheme": "2-ASK (full / reduced level), level decoder M=2",
+   "run": "stent_trx_asktest_ask2_40baud_c0_20261124_162313",
+   "bit_rate": 40.0,
+   "baud": 40.0,
+   "timing_r": 0.8116523040372601,
+   "symbol_errors": 9,
+   "symbols": 1280,
+   "state_errors": 9,
+   "state_symbols": 1280,
+   "frames_sent": 5,
+   "frames_decoded": 5,
+   "ladder_db": [
+    0.0,
+    -9.5
+   ],
+   "levels_file": null
+  },
+  {
+   "scheme": "4-ASK, level decoder M=4",
+   "run": "stent_trx_asktest_ask4_20baud_c0_20261124_162353",
+   "bit_rate": 40.0,
+   "baud": 20.0,
+   "timing_r": 0.8600736241792796,
+   "symbol_errors": 2,
+   "symbols": 640,
+   "state_errors": 2,
+   "state_symbols": 1280,
+   "frames_sent": 5,
+   "frames_decoded": 5,
+   "ladder_db": [
+    0.0,
+    -3.5,
+    -9.5,
+    -40.0
+   ],
+   "levels_file": null
+  }
+ ],
+ "summary": [
+  {
+   "scheme": "2-ASK (full / reduced level), level decoder M=2",
+   "bit_rate": 40.0,
+   "baud": 40.0,
+   "frame": "cc4",
+   "packets_sent": 5,
+   "packets_decoded": 5,
+   "packets_lost": 0,
+   "packet_errors": 0,
+   "per": 0.0,
+   "per_lo": 0.0,
+   "per_hi": 0.43449149475208104,
+   "crc_pass": 5,
+   "crc_missed": 0,
+   "pre_fec_errors": 7,
+   "pre_fec_bits": 960,
+   "pre_fec_ber": 0.007291666666666667,
+   "post_fec_errors": 0,
+   "post_fec_bits": 480,
+   "post_fec_ber": 0.0,
+   "symbol_errors": 9,
+   "symbols": 1280,
+   "symbol_error_rate": 0.00703125,
+   "timing_r": 0.8116523040372601,
+   "info_bps": 15.0
+  },
+  {
+   "scheme": "4-ASK, level decoder M=4",
+   "bit_rate": 40.0,
+   "baud": 20.0,
+   "frame": "cc4",
+   "packets_sent": 5,
+   "packets_decoded": 5,
+   "packets_lost": 0,
+   "packet_errors": 0,
+   "per": 0.0,
+   "per_lo": 0.0,
+   "per_hi": 0.43449149475208104,
+   "crc_pass": 5,
+   "crc_missed": 0,
+   "pre_fec_errors": 1,
+   "pre_fec_bits": 960,
+   "pre_fec_ber": 0.0010416666666666667,
+   "post_fec_errors": 0,
+   "post_fec_bits": 480,
+   "post_fec_ber": 0.0,
+   "symbol_errors": 2,
+   "symbols": 640,
+   "symbol_error_rate": 0.003125,
+   "timing_r": 0.8600736241792796,
+   "info_bps": 15.0
+  }
+ ]
+}

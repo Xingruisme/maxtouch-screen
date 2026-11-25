@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .venv/
+
+# raw A0 streams of the touch-drive recordings (24-212 MB each; GitHub rejects files over 100 MB) - kept on disk only
+data_touchdrive/**/rx.npy

@@ -1,0 +1,31 @@
+state,modulation,bit_rate_on_air_bps,sessions,errors,bits,ber_after_fec,ci95_hi,snr_db_median,snr_db_per_session
+Sitting still,ook,20,1,0,384,0.000e+00,9.560e-03,23.40,23.40
+Sitting still,ook,30,1,0,384,0.000e+00,9.560e-03,25.43,25.43
+Sitting still,ook,40,1,0,384,0.000e+00,9.560e-03,22.22,22.22
+Sitting still,ook,50,1,0,384,0.000e+00,9.560e-03,22.18,22.18
+Sitting still,ook,60,1,0,384,0.000e+00,9.560e-03,21.39,21.39
+Sitting still,fsk,20,1,0,384,0.000e+00,9.560e-03,22.36,22.36
+Sitting still,fsk,30,1,7,384,1.823e-02,3.720e-02,18.69,18.69
+Sitting still,fsk,40,1,0,384,0.000e+00,9.560e-03,21.14,21.14
+Sitting still,fsk,50,1,0,384,0.000e+00,9.560e-03,20.89,20.89
+Sitting still,fsk,60,1,0,384,0.000e+00,9.560e-03,19.18,19.18
+Standing still,ook,20,2,0,768,0.000e+00,4.792e-03,18.00,17.90 18.09
+Standing still,ook,30,2,0,768,0.000e+00,4.792e-03,18.88,20.64 17.13
+Standing still,ook,40,2,0,768,0.000e+00,4.792e-03,15.87,20.32 11.42
+Standing still,ook,50,2,0,768,0.000e+00,4.792e-03,14.38,19.62 9.15
+Standing still,ook,60,2,0,768,0.000e+00,4.792e-03,16.16,17.17 15.16
+Standing still,fsk,20,2,15,768,1.953e-02,3.201e-02,10.74,9.59 11.90
+Standing still,fsk,30,2,0,768,0.000e+00,4.792e-03,15.28,13.05 17.52
+Standing still,fsk,40,2,0,768,0.000e+00,4.792e-03,16.88,18.77 14.99
+Standing still,fsk,50,2,3,768,3.906e-03,1.137e-02,16.56,19.45 13.66
+Standing still,fsk,60,2,7,768,9.115e-03,1.869e-02,16.93,19.98 13.87
+Sitting shaking,ook,20,1,0,384,0.000e+00,9.560e-03,17.47,17.47
+Sitting shaking,ook,30,1,5,384,1.302e-02,3.012e-02,18.14,18.14
+Sitting shaking,ook,40,1,0,384,0.000e+00,9.560e-03,19.79,19.79
+Sitting shaking,ook,50,1,0,384,0.000e+00,9.560e-03,21.42,21.42
+Sitting shaking,ook,60,1,0,384,0.000e+00,9.560e-03,19.18,19.18
+Sitting shaking,fsk,20,1,0,384,0.000e+00,9.560e-03,22.55,22.55
+Sitting shaking,fsk,30,1,0,384,0.000e+00,9.560e-03,19.47,19.47
+Sitting shaking,fsk,40,1,0,384,0.000e+00,9.560e-03,19.16,19.16
+Sitting shaking,fsk,50,1,0,384,0.000e+00,9.560e-03,18.54,18.54
+Sitting shaking,fsk,60,1,0,384,0.000e+00,9.560e-03,17.78,17.78

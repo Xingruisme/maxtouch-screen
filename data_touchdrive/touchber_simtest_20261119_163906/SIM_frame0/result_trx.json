@@ -1,0 +1,66 @@
+{
+ "decoder": "trx-tablet-1",
+ "rules_sha": "e76afd59a7b5",
+ "frozen_at": "2026-11-14 14:00",
+ "trx_shas": {
+  "stent_fec.py": "98e83f64d3e7",
+  "trx_psk_link_v2.py": "581d87179160"
+ },
+ "run": "SIM_frame0",
+ "modulation": "ook",
+ "baud": 40.0,
+ "carrier_hz": 159585.01026034355,
+ "zero_hz": 0.0,
+ "nodes": [
+  "Y3",
+  "Y4",
+  "Y2"
+ ],
+ "symbols": 256,
+ "samples_per_symbol": 3.1249999879946704,
+ "signal_lost": false,
+ "delay_ms": 11.899998993612826,
+ "clock_ppm": -119.99999999999999,
+ "timing_r": 0.9864024399365382,
+ "erasures": 0,
+ "state_errors": 0,
+ "state_symbols": 256,
+ "frames": [
+  {
+   "i": 0,
+   "round": 0,
+   "frame": "cc4",
+   "t0": 1000000.511899999,
+   "erasures": 0,
+   "reference_ok": true,
+   "pre_err": 0,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  }
+ ]
+}

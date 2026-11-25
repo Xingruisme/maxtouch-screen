@@ -1,0 +1,253 @@
+{
+ "decoder": "trx-nopre-1",
+ "rules_sha": "a0827fd5c9c0",
+ "run": "stent_trx_asktest_ask2_40baud_c0_20261124_162313",
+ "modulation": "ask2",
+ "M": 2,
+ "baud": 40.0,
+ "bits_per_symbol": 1,
+ "bit_rate": 40.0,
+ "ladder_db": [
+  0.0,
+  -9.5
+ ],
+ "nodes": [
+  "Y2",
+  "Y0",
+  "Y3"
+ ],
+ "symbols": 1280,
+ "scans_per_symbol": 2.5953125,
+ "delay_ms": 12.69841194152832,
+ "clock_ppm": -29.999999999999996,
+ "timing_r": 0.8116523040372601,
+ "erasures": 0,
+ "signal_lost": false,
+ "sync_symbols_ignored": 320,
+ "recording_levels": {
+  "Y2": [
+   908.2670522031494,
+   304.8472351286752
+  ],
+  "Y0": [
+   798.3315308824226,
+   258.6446983675098
+  ],
+  "Y3": [
+   861.2144809362821,
+   289.08886528017047
+  ]
+ },
+ "symbol_errors": 7,
+ "symbols_decoded": 960,
+ "state_errors": 7,
+ "state_symbols": 960,
+ "frames": [
+  {
+   "i": 0,
+   "round": 0,
+   "frame": "cc4",
+   "t0": 1795555360.8207388,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    798.3315308824226,
+    258.6446983675098
+   ],
+   "pre_err": 1,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "round": 1,
+   "frame": "cc4",
+   "t0": 1795555367.2205467,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    798.3315308824226,
+    258.6446983675098
+   ],
+   "pre_err": 2,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "round": 2,
+   "frame": "cc4",
+   "t0": 1795555373.620355,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    798.3315308824226,
+    258.6446983675098
+   ],
+   "pre_err": 1,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "round": 3,
+   "frame": "cc4",
+   "t0": 1795555380.0201628,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    798.3315308824226,
+    258.6446983675098
+   ],
+   "pre_err": 3,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 4,
+   "round": 4,
+   "frame": "cc4",
+   "t0": 1795555386.4199708,
+   "erasures": 0,
+   "node": "Y0",
+   "reference_ok": true,
+   "levels": [
+    798.3315308824226,
+    258.6446983675098
+   ],
+   "pre_err": 0,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 0,
+     "crc_ok": true,
+     "frame_err": false,
+     "crc_missed": false
+    }
+   }
+  }
+ ],
+ "decoded_with_rules": "ook"
+}

@@ -53,6 +53,16 @@ def trx(folder, decoder, mod, baud, after_fec=False, base=D):
     return list(acc.values())
 
 
+def trx_frames(folder, decoder, mod, baud, after_fec=False, base=D):
+    """[(errors, bits)] per frame of a stent_trx_ber summary folder (frames.csv, one row per frame; 96 info bits or 192
+    code bits each) - the finest resolution the coded sessions have, used where a point is a single recording"""
+    ke, kn = ("info_err", "info_bits") if after_fec else ("pre_err", "code_bits")
+    out = [(int(r[ke]), int(r[kn])) for r in csv.DictReader(open(os.path.join(base, folder, "frames.csv")))
+           if r["decoder"] == decoder and r["modulation"] == mod and round(float(r["baud"])) == baud]
+    assert out, (folder, decoder, mod, baud)
+    return out
+
+
 def spread(runs, scale=1.0):
     """(lowest, highest) per-run BER x scale, or None for a single run"""
     if len(runs) < 2:

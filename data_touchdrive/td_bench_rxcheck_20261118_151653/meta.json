@@ -1,0 +1,42 @@
+{
+ "version": "touchdrive-1",
+ "args": {
+  "cmd": "run",
+  "what": [],
+  "label": "bench_rxcheck",
+  "site": null,
+  "condition": null,
+  "cycles": 6,
+  "hold": 8.0,
+  "rest": 8.0,
+  "lead": 10.0,
+  "free": 3.0,
+  "sps": 1000000,
+  "port": null,
+  "yes": true,
+  "out": null
+ },
+ "t0": 1795033013.986885,
+ "sps": 1000000,
+ "samples": 3014656,
+ "host_s": 3.5181667804718018,
+ "rate": 856882.6289684087,
+ "slips": 0,
+ "aborted": false,
+ "teensy": "TeensyTRX - galvanic transceiver (Teensy 4.0, RX pin 14 = A0, AD9833 FSYNC 10 / SDATA 11 / SCLK 13)",
+ "tx_off_before": "# off",
+ "tx_off_after": "# off",
+ "chip": {
+  "T7": {
+   "raw": "ffff3242000000",
+   "idleacqint_ms": 255,
+   "actvacqint_ms": 255,
+   "actv2idleto_200ms": 50
+  },
+  "T100_ctrl": 131,
+  "touch_reports_on": true,
+  "T72_ctrl": 125
+ },
+ "digitizer_reports": 0,
+ "digitizer_found": true
+}

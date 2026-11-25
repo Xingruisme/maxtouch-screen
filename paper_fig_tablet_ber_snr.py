@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
 Paper figure: tablet (maXTouch) through-body link vs bit rate, static sessions (sitting + standing still), OOK and FSK,
-as one single-column figure with the two panels side by side (3.5 x 2.1 in, the layout of the paper's Figure 13:
+as one single-column figure with the two panels side by side (3.5 x 1.7 in, the layout of the paper's Figure 13:
 bold a / b at each panel's top left, legend inside panel a) at print size:
   a  bit error rate   - as fig_tablet_ber_column (paper_fig_tablet_ber_column.py): pooled errors / bits of the 6 runs
                         per point (6096 bits); error bar = lowest to highest per-run BER (paper_runs.py), down to the
                         axis where a run had no error
   b  symbol SNR       - as fig_tablet_snr_column (paper_fig_tablet_snr.py): median of the 6 recordings; error bar =
-                        lowest to highest recording; small open dots = the 6 recordings
+                        lowest to highest recording (no single-run dots in either panel)
 OOK and FSK drawn 1 bps apart in both panels (equal or close at several rates).
 Same data and processing as those two scripts (nothing re-decoded): the 'static' rows of
 data_maxtouch/modcomp_conditions_a2f_static_vs_moving_20to60/conditions.csv, ankle to finger, 1 mA, 159.6 kHz.
@@ -62,7 +62,7 @@ def main():
     rates = sorted({b for _, b in ber})
 
     with plt.rc_context(RC):
-        fig, (ax_b, ax_s) = PS.figure(3.5, 2.1, 1, 2, wspace=0.08)
+        fig, (ax_b, ax_s) = PS.figure(3.5, 1.7, 1, 2, wspace=0.08)
         for m, side in (("ook", -1), ("fsk", 1)):    # OOK and FSK BERs are equal at 50 and 60 bps: drawn apart
             st = STYLE[m]
             kw = PS.marks(st["color"], st["marker"], ms=PS.MS - 0.4)
@@ -71,8 +71,6 @@ def main():
                       label=st["label"], **kw)
             PS.series(ax_s, x, [np.median(snr[m, b]) for b in rates],
                       [(min(snr[m, b]), max(snr[m, b])) for b in rates], **kw)
-            for xi, b in zip(x, rates):                 # the recordings behind each median, beside its range bar
-                PS.run_dots(ax_s, xi + 1.9 * side, snr[m, b], st["color"], ms=1.6)
         ax_b.set_yscale("log"); ax_b.set_ylim(1e-4, 1e-1)
         ax_s.set_ylim(30, 70); ax_s.set_yticks(range(30, 71, 10))
         tidy(ax_b, rates, "Bit error rate", "a")

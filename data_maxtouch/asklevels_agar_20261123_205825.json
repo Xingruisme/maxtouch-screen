@@ -1,0 +1,39 @@
+{
+ "kind": "ask_levels",
+ "created": "20261123_205825",
+ "carrier_hz": 159585.0,
+ "current_ma": 1.0,
+ "condition": "within_agar",
+ "firmware": "TeensyTRX ask1 - galvanic transceiver (Teensy 4.0, RX pin 14 = A0, AD9833 FSYNC 10 / SDATA 11 / SCLK 13)",
+ "point": "A0 = E+ through the TX/RX path",
+ "counts": [
+  0.48033964082677727,
+  0.46426198495731785,
+  0.4606120857505323,
+  0.44311074261991656
+ ],
+ "off_counts": 0.058960673073067744,
+ "db": [
+  0.0,
+  -0.2957061018190903,
+  -0.36426199993173586,
+  -0.7007229990129817
+ ],
+ "ladder4_db": [
+  0.0,
+  -0.3,
+  -0.4,
+  -40.0
+ ],
+ "amp_index4": [
+  0,
+  1,
+  2,
+  -1
+ ],
+ "warnings": [
+  "index 0 is not the strongest - check S1/S2 wiring (pin 3 = S1 across R1, pin 4 = S2 across R2)",
+  "index 1 at -0.3 dB, wanted -3..-12 dB (change R1)",
+  "index 2 at -0.4 dB, wanted >= 6 dB below index 1 and above -26 dB (change R2)"
+ ]
+}

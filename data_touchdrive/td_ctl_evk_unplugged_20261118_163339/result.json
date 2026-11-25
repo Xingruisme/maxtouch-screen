@@ -1,0 +1,50 @@
+{
+ "version": "touchdrive-1",
+ "truth_source": "prompts",
+ "touch_intervals": [],
+ "blocks": 1500,
+ "block_s": 0.02,
+ "touched_blocks": 0,
+ "untouched_blocks": 1500,
+ "note": "not enough touched / untouched blocks for statistics - spectrum lines over the floor only",
+ "lines_all": [
+  {
+   "f_khz": 19.04296875,
+   "over_floor_db": 5.4198609578434365
+  },
+  {
+   "f_khz": 345.703125,
+   "over_floor_db": 4.947095009612497
+  },
+  {
+   "f_khz": 89.35546875,
+   "over_floor_db": 4.775423398385197
+  },
+  {
+   "f_khz": 314.94140625,
+   "over_floor_db": 4.435281675200189
+  },
+  {
+   "f_khz": 432.6171875,
+   "over_floor_db": 3.656806919290023
+  },
+  {
+   "f_khz": 431.15234375,
+   "over_floor_db": 3.622866053752105
+  },
+  {
+   "f_khz": 429.6875,
+   "over_floor_db": 3.555738355822111
+  },
+  {
+   "f_khz": 436.5234375,
+   "over_floor_db": 3.290115593537548
+  }
+ ],
+ "run": "td_ctl_evk_unplugged_20261118_163339",
+ "slips": 0,
+ "chip": {
+  "evk_connected": false,
+  "note": "receiver-only control, EVK unplugged (no drive, no touch reports)"
+ }
+}

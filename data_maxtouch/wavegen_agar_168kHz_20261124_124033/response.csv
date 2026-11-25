@@ -1,0 +1,4 @@
+step,amplitude_Vpp,samples,samples_per_s,rms_counts,net_counts,db_over_off,peak_counts,mean_shift_counts
+0,off,627,125.4,37.867,,,72.93,
+1,6,589,118.1,2648.279,2648.008,36.89,4191.98,222.379
+3,0.25,626,125.2,117.684,111.426,9.85,209.08,-2.758

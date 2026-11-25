@@ -1,0 +1,145 @@
+{
+ "session": "live_quicktest_20261118_193112",
+ "validity": {
+  "slips_zero": true,
+  "poll_gap_p99_ok": true,
+  "clock_jump_ok": true,
+  "detector_frozen": true,
+  "tablet_touches_present": true
+ },
+ "clock": {
+  "ppm": -3.2,
+  "arrival_lag_ms_p50": 0.18,
+  "arrival_lag_ms_p99": 0.4
+ },
+ "time_minus_monotonic_drift_ms": 0.0,
+ "tablet_poll": {
+  "polls": 61411,
+  "gap_ms_p50": 4.0,
+  "gap_ms_p99": 4.2,
+  "gap_ms_max": 18.08
+ },
+ "tablet_touches": 34,
+ "detected": 20,
+ "missed": 14,
+ "hit_rate": 0.588,
+ "hit_ci95": [
+  0.407,
+  0.754
+ ],
+ "touch_latency_ms_p5_p50_p95": [
+  -0.3,
+  12.2,
+  111.0
+ ],
+ "touch_wall_latency_ms_p5_p50_p95": [
+  2.6,
+  17.0,
+  114.2
+ ],
+ "release_latency_ms_p5_p50_p95": [
+  -19.2,
+  1.9,
+  39.6
+ ],
+ "false_positives": 0,
+ "false_positives_by_phase": {},
+ "nocontact_minutes": 0.0,
+ "nocontact_fp": 0,
+ "nocontact_fp_per_min": null,
+ "nocontact_fp_per_min_ci95": null,
+ "fragments": 0,
+ "bezel": {
+  "prompted": 0,
+  "excluded_tablet_touch": 0,
+  "triggered": 0,
+  "rate": null,
+  "ci95": [
+   null,
+   null
+  ]
+ },
+ "hover": {
+  "prompted": 0,
+  "excluded_tablet_touch": 0,
+  "triggered": 0,
+  "rate": null,
+  "ci95": [
+   null,
+   null
+  ]
+ },
+ "missed_list": [
+  {
+   "t": 1.62,
+   "phase": "outside",
+   "dur_s": 0.77
+  },
+  {
+   "t": 18.75,
+   "phase": "outside",
+   "dur_s": 3.39
+  },
+  {
+   "t": 22.52,
+   "phase": "outside",
+   "dur_s": 0.06
+  },
+  {
+   "t": 24.87,
+   "phase": "outside",
+   "dur_s": 1.18
+  },
+  {
+   "t": 26.57,
+   "phase": "outside",
+   "dur_s": 1.69
+  },
+  {
+   "t": 28.62,
+   "phase": "outside",
+   "dur_s": 1.81
+  },
+  {
+   "t": 30.66,
+   "phase": "outside",
+   "dur_s": 1.32
+  },
+  {
+   "t": 51.42,
+   "phase": "outside",
+   "dur_s": 0.85
+  },
+  {
+   "t": 52.73,
+   "phase": "outside",
+   "dur_s": 0.08
+  },
+  {
+   "t": 52.91,
+   "phase": "outside",
+   "dur_s": 1.18
+  },
+  {
+   "t": 55.5,
+   "phase": "outside",
+   "dur_s": 0.09
+  },
+  {
+   "t": 55.86,
+   "phase": "outside",
+   "dur_s": 0.28
+  },
+  {
+   "t": 56.43,
+   "phase": "outside",
+   "dur_s": 0.2
+  },
+  {
+   "t": 57.44,
+   "phase": "outside",
+   "dur_s": 2.73
+  }
+ ],
+ "fp_list": []
+}

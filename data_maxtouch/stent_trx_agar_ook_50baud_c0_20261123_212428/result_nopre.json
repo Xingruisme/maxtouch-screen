@@ -1,0 +1,704 @@
+{
+ "decoder": "trx-nopre-1",
+ "rules_sha": "a0827fd5c9c0",
+ "run": "stent_trx_agar_ook_50baud_c0_20261123_212428",
+ "modulation": "ook",
+ "M": 2,
+ "baud": 50.0,
+ "bits_per_symbol": 1,
+ "bit_rate": 50.0,
+ "ladder_db": [
+  0.0,
+  -40.0
+ ],
+ "nodes": [
+  "Y24",
+  "Y4",
+  "Y19"
+ ],
+ "symbols": 4096,
+ "scans_per_symbol": 2.1259765625,
+ "delay_ms": 9.499549865722656,
+ "clock_ppm": 150.0,
+ "timing_r": 0.03381004541564199,
+ "erasures": 0,
+ "signal_lost": false,
+ "sync_symbols_ignored": 1024,
+ "recording_levels": {
+  "Y24": [
+   NaN,
+   NaN
+  ],
+  "Y4": [
+   NaN,
+   NaN
+  ],
+  "Y19": [
+   NaN,
+   NaN
+  ]
+ },
+ "symbol_errors": 1554,
+ "symbols_decoded": 3072,
+ "state_errors": 1518,
+ "state_symbols": 3072,
+ "frames": [
+  {
+   "i": 0,
+   "round": 0,
+   "frame": "cc4",
+   "t0": 1795486985.8645332,
+   "erasures": 0,
+   "node": "Y19",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 93,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "round": 1,
+   "frame": "cc4",
+   "t0": 1795486990.9853013,
+   "erasures": 0,
+   "node": "Y24",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 93,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "round": 2,
+   "frame": "cc4",
+   "t0": 1795486996.1060693,
+   "erasures": 0,
+   "node": "Y4",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 113,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "round": 3,
+   "frame": "cc4",
+   "t0": 1795487001.2268374,
+   "erasures": 0,
+   "node": "Y4",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 95,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 4,
+   "round": 4,
+   "frame": "cc4",
+   "t0": 1795487006.3476052,
+   "erasures": 0,
+   "node": "Y24",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 98,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 5,
+   "round": 5,
+   "frame": "cc4",
+   "t0": 1795487011.4683733,
+   "erasures": 0,
+   "node": "Y4",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 93,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 6,
+   "round": 6,
+   "frame": "cc4",
+   "t0": 1795487016.5891414,
+   "erasures": 0,
+   "node": "Y4",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 90,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 7,
+   "round": 7,
+   "frame": "cc4",
+   "t0": 1795487021.7099092,
+   "erasures": 0,
+   "node": "Y24",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 87,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 8,
+   "round": 8,
+   "frame": "cc4",
+   "t0": 1795487026.8306773,
+   "erasures": 0,
+   "node": "Y4",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 90,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 9,
+   "round": 9,
+   "frame": "cc4",
+   "t0": 1795487031.9514453,
+   "erasures": 0,
+   "node": "Y19",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 101,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 10,
+   "round": 10,
+   "frame": "cc4",
+   "t0": 1795487037.0722132,
+   "erasures": 0,
+   "node": "Y19",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 91,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 54,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 54,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 54,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 54,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 11,
+   "round": 11,
+   "frame": "cc4",
+   "t0": 1795487042.1929812,
+   "erasures": 0,
+   "node": "Y24",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 102,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 42,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 42,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 42,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 42,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 12,
+   "round": 12,
+   "frame": "cc4",
+   "t0": 1795487047.3137493,
+   "erasures": 0,
+   "node": "Y24",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 76,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 44,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 44,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 44,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 44,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 13,
+   "round": 13,
+   "frame": "cc4",
+   "t0": 1795487052.4345174,
+   "erasures": 0,
+   "node": "Y4",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 101,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 14,
+   "round": 14,
+   "frame": "cc4",
+   "t0": 1795487057.5552852,
+   "erasures": 0,
+   "node": "Y4",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 106,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 44,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 44,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 44,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 44,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 15,
+   "round": 15,
+   "frame": "cc4",
+   "t0": 1795487062.6760533,
+   "erasures": 0,
+   "node": "Y24",
+   "reference_ok": false,
+   "levels": [
+    NaN,
+    NaN
+   ],
+   "pre_err": 89,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 46,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  }
+ ],
+ "decoded_with_rules": "ook"
+}

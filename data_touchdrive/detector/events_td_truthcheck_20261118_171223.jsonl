@@ -1,0 +1,7 @@
+{"event": "TOUCH", "t": 5.67, "onset": 5.65, "level_db": -0.45355549272534607, "baseline_db": -7.472551006883901}
+{"event": "RELEASE", "t": 7.4, "onset": 7.37, "level_db": -6.078827071283811, "baseline_db": -7.472551006883901}
+{"event": "TOUCH", "t": 8.78, "onset": 8.76, "level_db": -0.6331173877900222, "baseline_db": -6.932881414534348}
+{"event": "RELEASE", "t": 10.8, "onset": 10.77, "level_db": -6.453231602610513, "baseline_db": -6.932881414534348}
+{"event": "TOUCH", "t": 12.69, "onset": 12.67, "level_db": 0.37288080172627736, "baseline_db": -6.5859391014559385}
+{"event": "RELEASE", "t": 15.56, "onset": 15.53, "level_db": -5.765085011471306, "baseline_db": -6.5859391014559385}
+{"event": "TOUCH", "t": 16.93, "onset": 16.91, "level_db": 0.3865832141829392, "baseline_db": -6.70156309510805}

@@ -1,0 +1,62 @@
+{
+ "version": "touchdrive-1",
+ "truth_mode": "auto",
+ "truth_source": "prompts",
+ "timing_valid": false,
+ "tablet_reports": 0,
+ "tablet_reports_in_intervals": 0,
+ "tablet_reports_outside": 0,
+ "touch_intervals": [],
+ "blocks": 1500,
+ "block_s": 0.02,
+ "touched_blocks": 0,
+ "untouched_blocks": 1500,
+ "note": "not enough touched / untouched blocks for statistics - spectrum lines over the floor only",
+ "lines_all": [
+  {
+   "f_khz": 345.703125,
+   "over_floor_db": 6.915644351051258
+  },
+  {
+   "f_khz": 71.2890625,
+   "over_floor_db": 6.728172259802241
+  },
+  {
+   "f_khz": 211.9140625,
+   "over_floor_db": 6.45313073758798
+  },
+  {
+   "f_khz": 314.94140625,
+   "over_floor_db": 6.1229854131932
+  },
+  {
+   "f_khz": 352.5390625,
+   "over_floor_db": 5.477945645010278
+  },
+  {
+   "f_khz": 68.84765625,
+   "over_floor_db": 3.9999055590663612
+  },
+  {
+   "f_khz": 421.38671875,
+   "over_floor_db": 3.748151809101339
+  },
+  {
+   "f_khz": 19.04296875,
+   "over_floor_db": 3.6473694851295058
+  }
+ ],
+ "run": "td_ctl_notouch_20261118_163617",
+ "slips": 0,
+ "chip": {
+  "T7": {
+   "raw": "ffff3242000000",
+   "idleacqint_ms": 255,
+   "actvacqint_ms": 255,
+   "actv2idleto_200ms": 50
+  },
+  "T100_ctrl": 131,
+  "touch_reports_on": true,
+  "T72_ctrl": 125
+ }
+}

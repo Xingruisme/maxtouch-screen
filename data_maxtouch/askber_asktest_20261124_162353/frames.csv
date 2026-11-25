@@ -1,0 +1,11 @@
+scheme,run,bit_rate,baud,frame,i,pre_err,code_bits,info_err,info_bits,packet_err,crc_ok,crc_missed,erasures,node
+"2-ASK (full / reduced level), level decoder M=2",stent_trx_asktest_ask2_40baud_c0_20261124_162313,40.0,40.0,cc4,0,1,192,0,96,0,1,0,0,Y0
+"2-ASK (full / reduced level), level decoder M=2",stent_trx_asktest_ask2_40baud_c0_20261124_162313,40.0,40.0,cc4,1,2,192,0,96,0,1,0,0,Y0
+"2-ASK (full / reduced level), level decoder M=2",stent_trx_asktest_ask2_40baud_c0_20261124_162313,40.0,40.0,cc4,2,1,192,0,96,0,1,0,0,Y0
+"2-ASK (full / reduced level), level decoder M=2",stent_trx_asktest_ask2_40baud_c0_20261124_162313,40.0,40.0,cc4,3,3,192,0,96,0,1,0,0,Y0
+"2-ASK (full / reduced level), level decoder M=2",stent_trx_asktest_ask2_40baud_c0_20261124_162313,40.0,40.0,cc4,4,0,192,0,96,0,1,0,0,Y0
+"4-ASK, level decoder M=4",stent_trx_asktest_ask4_20baud_c0_20261124_162353,40.0,20.0,cc4,0,0,192,0,96,0,1,0,0,Y0
+"4-ASK, level decoder M=4",stent_trx_asktest_ask4_20baud_c0_20261124_162353,40.0,20.0,cc4,1,0,192,0,96,0,1,0,0,Y0
+"4-ASK, level decoder M=4",stent_trx_asktest_ask4_20baud_c0_20261124_162353,40.0,20.0,cc4,2,0,192,0,96,0,1,0,0,Y3
+"4-ASK, level decoder M=4",stent_trx_asktest_ask4_20baud_c0_20261124_162353,40.0,20.0,cc4,3,1,192,0,96,0,1,0,0,Y0
+"4-ASK, level decoder M=4",stent_trx_asktest_ask4_20baud_c0_20261124_162353,40.0,20.0,cc4,4,0,192,0,96,0,1,0,0,Y0

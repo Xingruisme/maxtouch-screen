@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-The shared look of the paper figures (paper_fig_*.py), after the figures of the Nature-family journals: Arial /
-Helvetica type at 6-7 pt, bold 8 pt lowercase panel letters, 0.5 pt open axes with outward ticks, no grid, 1 pt data
+The shared look of the paper figures (paper_fig_*.py), after the figures of the Nature-family journals: Times New Roman
+type at 7-8 pt, bold 9 pt lowercase panel letters, 0.5 pt open axes with outward ticks, no grid, 1 pt data
 lines, filled markers with a thin white rim, thin range bars drawn under the markers, the single runs shown as small
 open dots where the axis can hold them, frameless legends. Sizes are in pt at print size: every figure is drawn at the
 width it is printed at (\\columnwidth 3.5 in, \\textwidth 7.16 in), so it goes into the paper unscaled.
@@ -15,10 +15,10 @@ import numpy as np
 from matplotlib.ticker import FixedFormatter, FixedLocator, MaxNLocator, NullFormatter
 
 INK, INK2, RULE = "#1a1a1a", "#595959", "#cfcfcf"       # text and axes / secondary text / reference rules
-FS, FS_TICK, FS_PANEL = 7, 6, 8                         # axis labels / ticks and legends / panel letters
-LW_AX, LW, MS = 0.5, 1.0, 4.2
+FS, FS_TICK, FS_PANEL = 8, 7, 9                         # axis labels / ticks and legends / panel letters
+LW_AX, LW, MS = 0.7, 1.2, 4.4
 DASH = (0, (3, 1.5))
-FONTS = ["Arial", "Helvetica", "Liberation Sans", "Nimbus Sans", "DejaVu Sans"]   # Liberation Sans = Arial's metrics
+FONTS = ["Times New Roman", "Liberation Serif", "Nimbus Roman", "DejaVu Serif"]   # Liberation Serif = Times New Roman's metrics
 # colour follows the modulation in every figure (and the Fig. 1 call-out)
 STYLE = {"ook": dict(color="#1f5fbf", marker="o", label="OOK"),
          "fsk": dict(color="#00897b", marker="s", label="FSK")}
@@ -31,7 +31,7 @@ PATH = {"direct": dict(color="#555555", marker="D"), "back": dict(color="#D55E00
 def rc(scale=1.0):
     """rcParams of the look; scale > 1 for a figure drawn larger than it is printed"""
     s = scale
-    return {"font.family": "sans-serif", "font.sans-serif": FONTS, "mathtext.default": "regular",
+    return {"font.family": "serif", "font.weight": "bold", "axes.labelweight": "bold", "axes.titleweight": "bold", "font.serif": FONTS, "mathtext.fontset": "stix", "mathtext.default": "regular",
             "font.size": FS * s, "axes.labelsize": FS * s, "axes.titlesize": FS * s, "legend.fontsize": FS_TICK * s,
             "xtick.labelsize": FS_TICK * s, "ytick.labelsize": FS_TICK * s,
             "text.color": INK, "axes.labelcolor": INK, "axes.edgecolor": INK, "xtick.color": INK, "ytick.color": INK,
@@ -125,12 +125,12 @@ def khz_axis(ax, car_hz):
     ax.set_xlim(car_hz[0] / 1e3 * 0.97, car_hz[-1] / 1e3 * 1.03)
 
 
-def vmark(ax, x, text=None, y=0.99):
+def vmark(ax, x, text=None, y=0.99, scale=1.0):
     """a reference frequency: thin dashed rule, its name beside the top of it"""
     ax.axvline(x, color=INK2, ls=DASH, lw=0.6, zorder=1)
     if text:
         ax.annotate(text, xy=(x, y), xycoords=("data", "axes fraction"), xytext=(3, 0), textcoords="offset points",
-                    fontsize=FS_TICK, color=INK2, ha="left", va="top")
+                    fontsize=FS_TICK * scale, color=INK2, ha="left", va="top")
 
 
 def band(ax, x0, x1, text=None):

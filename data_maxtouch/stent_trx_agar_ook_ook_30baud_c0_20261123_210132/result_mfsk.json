@@ -1,0 +1,312 @@
+{
+ "decoder": "trx-mfsk-1",
+ "rules_sha": "a4f274d45a1f",
+ "frozen_at": "2026-11-20 12:40",
+ "run": "stent_trx_agar_ook_ook_30baud_c0_20261123_210132",
+ "modulation": "ook",
+ "M": 2,
+ "baud": 30.000300003000028,
+ "bits_per_symbol": 1,
+ "bit_rate": 30.000300003000028,
+ "ladder_db": [
+  0.0,
+  -40.0
+ ],
+ "nodes": [
+  "Y22",
+  "Y3",
+  "Y1"
+ ],
+ "symbols": 1536,
+ "scans_per_symbol": 3.9173177083333335,
+ "delay_ms": 2.000093460083008,
+ "clock_ppm": 89.99999999999999,
+ "timing_r": -0.015456153297312605,
+ "erasures": 0,
+ "signal_lost": false,
+ "recording_levels": {
+  "Y22": [
+   0.9729514593420728,
+   0.9538739797471301
+  ],
+  "Y3": [
+   1.3163460920510397,
+   1.2352668037725334
+  ],
+  "Y1": [
+   1.112852976371652,
+   1.1064938165066711
+  ]
+ },
+ "symbol_errors": 792,
+ "symbols_decoded": 1536,
+ "state_errors": 744,
+ "state_symbols": 1536,
+ "frames": [
+  {
+   "i": 0,
+   "round": 0,
+   "frame": "cc4",
+   "t0": 1795485638.9590824,
+   "erasures": 0,
+   "node": "Y1",
+   "reference_ok": false,
+   "gain": 1.0,
+   "levels": [
+    1.112852976371652,
+    1.1064938165066711
+   ],
+   "pre_err": 92,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 52,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "round": 0,
+   "frame": "none_full",
+   "t0": 1795485647.4930983,
+   "erasures": 0,
+   "node": "Y22",
+   "reference_ok": false,
+   "gain": 1.0,
+   "levels": [
+    0.9729514593420728,
+    0.9538739797471301
+   ],
+   "pre_err": 48,
+   "code_bits": 96,
+   "decoders": {
+    "none_full": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "round": 1,
+   "frame": "none_full",
+   "t0": 1795485651.7601063,
+   "erasures": 0,
+   "node": "Y3",
+   "reference_ok": false,
+   "gain": 1.0,
+   "levels": [
+    1.3163460920510397,
+    1.2352668037725334
+   ],
+   "pre_err": 48,
+   "code_bits": 96,
+   "decoders": {
+    "none_full": {
+     "info_err": 48,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "round": 1,
+   "frame": "cc4",
+   "t0": 1795485656.0271144,
+   "erasures": 0,
+   "node": "Y1",
+   "reference_ok": false,
+   "gain": 1.0,
+   "levels": [
+    1.112852976371652,
+    1.1064938165066711
+   ],
+   "pre_err": 91,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 4,
+   "round": 2,
+   "frame": "cc4",
+   "t0": 1795485664.5611303,
+   "erasures": 0,
+   "node": "Y3",
+   "reference_ok": false,
+   "gain": 1.0,
+   "levels": [
+    1.3163460920510397,
+    1.2352668037725334
+   ],
+   "pre_err": 98,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 5,
+   "round": 2,
+   "frame": "none_full",
+   "t0": 1795485673.0951464,
+   "erasures": 0,
+   "node": "Y3",
+   "reference_ok": false,
+   "gain": 1.0,
+   "levels": [
+    1.3163460920510397,
+    1.2352668037725334
+   ],
+   "pre_err": 54,
+   "code_bits": 96,
+   "decoders": {
+    "none_full": {
+     "info_err": 54,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 6,
+   "round": 3,
+   "frame": "none_full",
+   "t0": 1795485677.3621542,
+   "erasures": 0,
+   "node": "Y3",
+   "reference_ok": false,
+   "gain": 1.0,
+   "levels": [
+    1.3163460920510397,
+    1.2352668037725334
+   ],
+   "pre_err": 38,
+   "code_bits": 96,
+   "decoders": {
+    "none_full": {
+     "info_err": 38,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  },
+  {
+   "i": 7,
+   "round": 3,
+   "frame": "cc4",
+   "t0": 1795485681.6291623,
+   "erasures": 0,
+   "node": "Y3",
+   "reference_ok": false,
+   "gain": 1.0,
+   "levels": [
+    1.3163460920510397,
+    1.2352668037725334
+   ],
+   "pre_err": 98,
+   "code_bits": 192,
+   "decoders": {
+    "cc4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q4": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4q3": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    },
+    "cc4h": {
+     "info_err": 50,
+     "crc_ok": false,
+     "frame_err": true,
+     "crc_missed": false
+    }
+   }
+  }
+ ],
+ "decoded_with_rules": "ook"
+}

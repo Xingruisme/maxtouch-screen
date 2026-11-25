@@ -1,0 +1,17 @@
+location,modulation,bit_rate_on_air_bps,frames,post_fec_errors,post_fec_bits,post_fec_ber,ci95_hi
+Shoulder,ook,40,10,11,960,1.146e-02,2.041e-02
+Shoulder,ook,60,10,0,960,0.000e+00,3.835e-03
+Shoulder,fsk,40,10,39,960,4.063e-02,5.512e-02
+Shoulder,fsk,60,10,9,960,9.375e-03,1.772e-02
+Back,ook,40,10,0,960,0.000e+00,3.835e-03
+Back,ook,60,10,5,960,5.208e-03,1.211e-02
+Back,fsk,40,10,0,960,0.000e+00,3.835e-03
+Back,fsk,60,10,16,960,1.667e-02,2.692e-02
+Knee,ook,40,10,0,960,0.000e+00,3.835e-03
+Knee,ook,60,10,0,960,0.000e+00,3.835e-03
+Knee,fsk,40,10,0,960,0.000e+00,3.835e-03
+Knee,fsk,60,10,0,960,0.000e+00,3.835e-03
+Ankle,ook,40,10,0,960,0.000e+00,3.835e-03
+Ankle,ook,60,10,0,960,0.000e+00,3.835e-03
+Ankle,fsk,40,10,0,960,0.000e+00,3.835e-03
+Ankle,fsk,60,10,44,960,4.583e-02,6.104e-02

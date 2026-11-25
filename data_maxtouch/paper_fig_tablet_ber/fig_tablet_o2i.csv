@@ -1,0 +1,7 @@
+condition,stage,frames,errors,bits,ber,ci95_hi,frame_bers
+phantom_tx1,before_fec,3,0,576,0.000e+00,6.384e-03,0.000 0.000 0.000
+phantom_tx1,after_fec,3,0,288,0.000e+00,1.273e-02,0.000 0.000 0.000
+dtap_check,before_fec,3,278,576,4.826e-01,5.243e-01,0.458 0.510 0.479
+dtap_check,after_fec,3,165,288,5.729e-01,6.308e-01,0.562 0.562 0.594
+dtap_tx1,before_fec,3,3,576,5.208e-03,1.514e-02,0.016 0.000 0.000
+dtap_tx1,after_fec,3,0,288,0.000e+00,1.273e-02,0.000 0.000 0.000

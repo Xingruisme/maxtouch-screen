@@ -1,0 +1,13 @@
+run,modulation,baud,frame,decoder,i,round,erasures,reference_ok,pre_err,code_bits,info_err,info_bits,frame_err,crc_ok,crc_missed
+stent_trx_dtap_check_ook_40baud_c0_20261119_200117,ook,40.0,cc4,cc4,0,0,0,True,88,192,54,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c0_20261119_200117,ook,40.0,cc4,cc4q4,0,0,0,True,88,192,54,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c0_20261119_200117,ook,40.0,cc4,cc4q3,0,0,0,True,88,192,54,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c0_20261119_200117,ook,40.0,cc4,cc4h,0,0,0,True,88,192,54,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c1_20261119_200206,ook,40.0,cc4,cc4,1,1,0,True,98,192,54,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c1_20261119_200206,ook,40.0,cc4,cc4q4,1,1,0,True,98,192,54,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c1_20261119_200206,ook,40.0,cc4,cc4q3,1,1,0,True,98,192,54,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c1_20261119_200206,ook,40.0,cc4,cc4h,1,1,0,True,98,192,55,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c2_20261119_200236,ook,40.0,cc4,cc4,2,2,0,True,92,192,57,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c2_20261119_200236,ook,40.0,cc4,cc4q4,2,2,0,True,92,192,57,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c2_20261119_200236,ook,40.0,cc4,cc4q3,2,2,0,True,92,192,57,96,True,False,False
+stent_trx_dtap_check_ook_40baud_c2_20261119_200236,ook,40.0,cc4,cc4h,2,2,0,True,92,192,59,96,True,False,False

@@ -1,0 +1,189 @@
+{
+ "mode": "wavegen_response",
+ "created": "20261124_123000",
+ "freq_hz": 168000.0,
+ "wave": "sine",
+ "unit": "Vpp",
+ "seconds": 5.0,
+ "condition": "direct_contact",
+ "note": "condition corrected 2026-11-24: the run was direct contact (label/folder name still say agar)",
+ "simulated": false,
+ "names": [
+  "Y0",
+  "Y1",
+  "Y2",
+  "Y3",
+  "Y4",
+  "Y5",
+  "Y6",
+  "Y7",
+  "Y8",
+  "Y9",
+  "Y10",
+  "Y11",
+  "Y12",
+  "Y13",
+  "Y14",
+  "Y15",
+  "Y16",
+  "Y17",
+  "Y18",
+  "Y19",
+  "Y20",
+  "Y21",
+  "Y22",
+  "Y23",
+  "Y24",
+  "Y25",
+  "Y26",
+  "Y27"
+ ],
+ "y0": 0,
+ "ny": 28,
+ "patch": null,
+ "chip_ctrl_orig": {
+  "T72": 125,
+  "T100": 131
+ },
+ "steps": [
+  {
+   "k": 0,
+   "amp": null,
+   "t0": 1795540795.6794608,
+   "t1": 1795540800.6694503,
+   "n": 607,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 1,
+   "amp": 0.05,
+   "t0": 1795540819.2785797,
+   "t1": 1795540824.2724676,
+   "n": 609,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 2,
+   "amp": 0.1,
+   "t0": 1795540834.1906817,
+   "t1": 1795540839.1844997,
+   "n": 623,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 3,
+   "amp": 0.2,
+   "t0": 1795540845.4576268,
+   "t1": 1795540850.4494963,
+   "n": 625,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 4,
+   "amp": 0.5,
+   "t0": 1795540867.4106917,
+   "t1": 1795540872.402527,
+   "n": 618,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 5,
+   "amp": 1.0,
+   "t0": 1795540880.6706429,
+   "t1": 1795540885.6625354,
+   "n": 591,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 6,
+   "amp": 2.0,
+   "t0": 1795540890.8136072,
+   "t1": 1795540895.8075473,
+   "n": 602,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 7,
+   "amp": 5.0,
+   "t0": 1795540906.8686008,
+   "t1": 1795540911.860563,
+   "n": 597,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 8,
+   "amp": null,
+   "t0": 1795540922.2957246,
+   "t1": 1795540927.2915812,
+   "n": 607,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 9,
+   "amp": 0.02,
+   "t0": 1795540970.660821,
+   "t1": 1795540975.656638,
+   "n": 608,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 10,
+   "amp": 0.04,
+   "t0": 1795541001.8977957,
+   "t1": 1795541006.8936667,
+   "n": 607,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 11,
+   "amp": 0.08,
+   "t0": 1795541356.644198,
+   "t1": 1795541361.642053,
+   "n": 611,
+   "hid_errors": 0,
+   "discarded": false
+  },
+  {
+   "k": 12,
+   "amp": 0.8,
+   "t0": 1795541388.3992133,
+   "t1": 1795541393.3970847,
+   "n": 589,
+   "hid_errors": 0,
+   "discarded": false
+  }
+ ],
+ "args": {
+  "cmd": "run",
+  "what": [],
+  "label": "agar",
+  "freq": 168000.0,
+  "amps": "0.05,0.1,0.2,0.5,1,2,5",
+  "unit": "Vpp",
+  "wave": "sine",
+  "seconds": 5.0,
+  "settle": 0.3,
+  "top": null,
+  "condition": "within_agar",
+  "note": null,
+  "y0": 0,
+  "ny": 28,
+  "keep_noise_suppression": false,
+  "keep_touch": false,
+  "simulate": false,
+  "datadir": null,
+  "patch": null
+ },
+ "condition_recorded_as": "within_agar"
+}

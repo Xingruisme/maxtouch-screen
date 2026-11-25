@@ -1,0 +1,46 @@
+{
+ "version": "touchdrive-1",
+ "args": {
+  "cmd": "run",
+  "what": [],
+  "label": "ctl_bezel",
+  "site": "wrist",
+  "condition": "still",
+  "cycles": 6,
+  "hold": 8.0,
+  "rest": 8.0,
+  "lead": 10.0,
+  "free": null,
+  "sps": 1000000,
+  "port": null,
+  "yes": false,
+  "no_evk": false,
+  "out": null
+ },
+ "t0": 1795039467.4960835,
+ "sps": 1000000,
+ "samples": 106004480,
+ "host_s": 106.50676584243774,
+ "rate": 995284.0006128737,
+ "slips": 0,
+ "aborted": false,
+ "teensy": "TeensyTRX - galvanic transceiver (Teensy 4.0, RX pin 14 = A0, AD9833 FSYNC 10 / SDATA 11 / SCLK 13)",
+ "tx_off_before": "# off",
+ "tx_off_after": "# off",
+ "chip": {
+  "T7": {
+   "raw": "ffff3242000000",
+   "idleacqint_ms": 255,
+   "actvacqint_ms": 255,
+   "actv2idleto_200ms": 50
+  },
+  "T100_ctrl": 131,
+  "touch_reports_on": true,
+  "T72_ctrl": 125
+ },
+ "digitizer_reports": 0,
+ "digitizer_found": true,
+ "no_evk": false,
+ "note": "CONFIRMED 2026-11-18 (user): real BEZEL control - the hand touched the bezel, not the screen (site wrist). The on-screen prompts of this older script version said 'TOUCH the screen'; ignore that wording.",
+ "corrected_condition": "bezel touch (prompted), not screen"
+}

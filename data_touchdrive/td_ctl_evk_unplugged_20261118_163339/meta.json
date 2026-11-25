@@ -1,0 +1,37 @@
+{
+ "version": "touchdrive-1",
+ "args": {
+  "cmd": "run",
+  "what": [],
+  "label": "ctl_evk_unplugged",
+  "site": "wrist",
+  "condition": null,
+  "cycles": 6,
+  "hold": 8.0,
+  "rest": 8.0,
+  "lead": 10.0,
+  "free": 30.0,
+  "sps": 1000000,
+  "port": null,
+  "yes": false,
+  "no_evk": true,
+  "out": null
+ },
+ "t0": 1795037621.1360204,
+ "sps": 1000000,
+ "samples": 30015488,
+ "host_s": 30.517579317092896,
+ "rate": 983547.4723641769,
+ "slips": 0,
+ "aborted": false,
+ "teensy": "TeensyTRX - galvanic transceiver (Teensy 4.0, RX pin 14 = A0, AD9833 FSYNC 10 / SDATA 11 / SCLK 13)",
+ "tx_off_before": "# off",
+ "tx_off_after": "# off",
+ "chip": {
+  "evk_connected": false,
+  "note": "receiver-only control, EVK unplugged (no drive, no touch reports)"
+ },
+ "digitizer_reports": 0,
+ "digitizer_found": false,
+ "no_evk": true
+}

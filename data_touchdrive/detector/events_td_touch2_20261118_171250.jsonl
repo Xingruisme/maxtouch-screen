@@ -1,0 +1,12 @@
+{"event": "TOUCH", "t": 15.56, "onset": 15.54, "level_db": -0.6523215532137221, "baseline_db": -7.5849881445514065}
+{"event": "RELEASE", "t": 18.8, "onset": 18.77, "level_db": -6.435022987633102, "baseline_db": -7.5849881445514065}
+{"event": "TOUCH", "t": 26.93, "onset": 26.91, "level_db": 0.6204562824540382, "baseline_db": -6.215583616457114}
+{"event": "RELEASE", "t": 34.05, "onset": 34.02, "level_db": -4.916295219072845, "baseline_db": -6.215583616457114}
+{"event": "TOUCH", "t": 43.35, "onset": 43.33, "level_db": -0.20137296185072331, "baseline_db": -7.741712258071269}
+{"event": "RELEASE", "t": 50.72, "onset": 50.69, "level_db": -6.600583143363239, "baseline_db": -7.741712258071269}
+{"event": "TOUCH", "t": 59.27, "onset": 59.25, "level_db": -1.1807940342025351, "baseline_db": -8.108451835446601}
+{"event": "RELEASE", "t": 69.84, "onset": 69.81, "level_db": -5.445206458401933, "baseline_db": -8.108451835446601}
+{"event": "TOUCH", "t": 74.6, "onset": 74.58, "level_db": 0.7985028965538798, "baseline_db": -7.097053724713712}
+{"event": "RELEASE", "t": 86.55, "onset": 86.52, "level_db": -6.725017527283288, "baseline_db": -7.097053724713712}
+{"event": "TOUCH", "t": 92.22, "onset": 92.2, "level_db": -0.45215420938815726, "baseline_db": -8.510763244652342}
+{"event": "RELEASE", "t": 101.11, "onset": 101.08, "level_db": -6.417169465730992, "baseline_db": -8.510763244652342}

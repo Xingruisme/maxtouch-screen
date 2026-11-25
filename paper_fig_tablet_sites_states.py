@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Paper figure: tablet (maXTouch) BER at one bit rate (default 60 bps), OOK and FSK, one column with two panels side by
-side (3.5 x 2.3 in, the layout of fig_tablet_ber_snr / the paper's Figure 13):
+side (3.5 x 1.9 in, the layout of fig_tablet_ber_snr / the paper's Figure 13):
   a  BER (%) per TX electrode location, sitting still - fig_tablet_sites_<bps>bps (paper_fig_tablet_sites.py)
   b  BER (log) per body state, ankle to finger        - fig_tablet_states_line_<bps>bps (paper_fig_tablet_states.py)
 Same data and counting as those two scripts (their loaders are called unchanged; nothing re-decoded), all without
@@ -42,7 +42,7 @@ def main():
     states_rr = ST.run_counts(a.bps)
 
     with plt.rc_context(RC):
-        fig, (ax_a, ax_b) = PS.figure(3.5, 2.3, 1, 2, wspace=0.08, width_ratios=(0.86, 1))
+        fig, (ax_a, ax_b) = PS.figure(3.5, 1.9, 1, 2, wspace=0.08, width_ratios=(1.0, 1))
         # a: bars per location, linear %
         x = np.arange(len(SI.SITES)); wd = 0.36; top = 0.0
         for j, m in enumerate(MODS):

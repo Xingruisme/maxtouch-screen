@@ -1,0 +1,13 @@
+run,modulation,baud,frame,decoder,i,round,erasures,reference_ok,pre_err,code_bits,info_err,info_bits,frame_err,crc_ok,crc_missed
+stent_trx_phantom_tx1_ook_40baud_c0_20261119_183310,ook,40.0,cc4,cc4,0,0,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c0_20261119_183310,ook,40.0,cc4,cc4q4,0,0,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c0_20261119_183310,ook,40.0,cc4,cc4q3,0,0,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c0_20261119_183310,ook,40.0,cc4,cc4h,0,0,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c1_20261119_183402,ook,40.0,cc4,cc4,1,1,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c1_20261119_183402,ook,40.0,cc4,cc4q4,1,1,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c1_20261119_183402,ook,40.0,cc4,cc4q3,1,1,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c1_20261119_183402,ook,40.0,cc4,cc4h,1,1,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c2_20261119_183424,ook,40.0,cc4,cc4,2,2,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c2_20261119_183424,ook,40.0,cc4,cc4q4,2,2,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c2_20261119_183424,ook,40.0,cc4,cc4q3,2,2,0,True,0,192,0,96,False,True,False
+stent_trx_phantom_tx1_ook_40baud_c2_20261119_183424,ook,40.0,cc4,cc4h,2,2,0,True,0,192,0,96,False,True,False
