@@ -45,6 +45,9 @@ BER before / after FEC, symbol errors.
    python ask_trx_ber.py rx     --label body_ask --condition through_body --current-ma 1     (THIS laptop: maXTouch only)
    python ask_trx_ber.py tx     --label body_ask --current-ma 1     (OTHER laptop: Teensy only - no shared ground)
         same arguments on both, and the same 'plan id' line on both screens (it covers every symbol that is sent);
+        --auto on both (with the same --gap, default 30 s): only the first recording is started by hand as below;
+        after it tx sends each next recording --gap s after the end of the one before and rx times its calibration
+        and recording from the last start it found - nothing more to press until the session ends;
         per run: rx calibrates, prints >>> START TX NOW <<<, then Enter on the tx laptop within
         --start-window s (default 10). rx finds each frame start by correlating the known symbol levels (1 ms steps);
         the frozen decoders refine it as usual (meta.json: split_tx, start_corr).
@@ -608,20 +611,32 @@ def tx_only(a):
     print(f"Transmitter: {info['line']}")
     log = dict(info=info["line"], plan_id=a.plan_id, args={k: v for k, v in vars(a).items() if k != "what"}, runs=[])
     path = os.path.join(B.DATADIR, f"asktx_{a.label}_{datetime.datetime.now():%Y%m%d_%H%M%S}.json")
+    if a.auto:
+        print(auto_note(a, runs))
+    nxt = None                                  # --auto: this laptop's time of the next recording's first symbol
     try:
         for i, r in enumerate(runs):
             sched, plan = schedule(r["mod"], r["rate"], r["seq"]["phase"], ba)
             got = tx.upload_schedule(sched)
-            input(f"\n[{i + 1}/{len(runs)}] {r['bit_rate']:g} bit/s {MOD_NAME[r['mod']]} chunk {r['chunk']} "
-                  f"({plan['total_s']:.1f} s) uploaded {got}.\n  Press Enter when the maXTouch laptop shows "
-                  f">>> START TX NOW <<< ")
+            head = (f"\n[{i + 1}/{len(runs)}] {r['bit_rate']:g} bit/s {MOD_NAME[r['mod']]} chunk {r['chunk']} "
+                    f"({plan['total_s']:.1f} s) uploaded {got}.")
+            if nxt is None:
+                input(head + "\n  Press Enter when the maXTouch laptop shows >>> START TX NOW <<< ")
+            else:
+                print(head + f"\n  auto: starts by itself in {nxt - time.time():.1f} s (carrier off until then)", flush=True)
+                if not sleep_until(nxt - STX.GO_DELAY_MS / 1e3):
+                    print(f"  ** {time.time() - nxt + STX.GO_DELAY_MS / 1e3:.1f} s late (upload took too long) - the "
+                          "receiver may miss this recording; use a longer --gap on both laptops **")
             t_first, _ = tx.go()
             ok = tx.wait_done(STX.GO_DELAY_MS / 1e3 + plan["total_s"] + 5)
             st = tx.status()
             tx.off()
             print(f"  sent: state {st.get('state')}, steps {st.get('events')}" + ("" if ok else "  ** did not finish **"))
-            log["runs"].append(dict(mod=r["mod"], rate=r["rate"], chunk=r["chunk"], t_first_local=t_first, status=st))
+            log["runs"].append(dict(mod=r["mod"], rate=r["rate"], chunk=r["chunk"], t_first_local=t_first,
+                                    t_first_planned=nxt, status=st))
             json.dump(log, open(path, "w"), indent=1)
+            if a.auto:                          # fixed timetable from here on: end of this recording + the gap
+                nxt = t_first + plan["total_s"] + a.gap
     except KeyboardInterrupt:
         print("stopped (Ctrl+C)")
     finally:
@@ -632,16 +647,50 @@ def tx_only(a):
     print(f"log: {os.path.relpath(path, HERE)}")
 
 
-def find_start(t, X, t_prompt, plan, phase, window_s):
+AUTO_PRE = 3.0            # --auto: the prompt of a recording comes at least this long before its predicted start
+AUTO_SETUP = 4.0          # --auto: time allowed for the tablet set-up + calibration before the lead (~2 s measured;
+                          # more is allowed by itself if a set-up of this session took longer)
+AUTO_SEARCH = 1.5         # --auto: the start is searched within +- this of the prediction
+AUTO_GAP_MIN = 22.0       # shortest --gap the receive side can keep up with (see auto_note)
+
+
+def sleep_until(t_wall):
+    """-> False if t_wall has passed already"""
+    late = time.time() > t_wall + 0.05
+    while True:
+        d = t_wall - time.time()
+        if d <= 0:
+            return not late
+        time.sleep(min(d, 0.2))
+
+
+def auto_note(a, runs):
+    """--auto: only the first recording is started by hand. After it the transmitter sends every next recording
+    --gap seconds after the end of the one before, by its own clock, and the receiver predicts each start from
+    the last start it found (the two clocks only have to agree over one recording + gap: microseconds).
+    The gap holds, on the receive side: 2 s tail + 1.5 s search margin, restore / start search / save (~5 s),
+    then set-up + calibration (4 s allowed), 4 s lead and 3 s before the predicted start = ~20 s."""
+    if a.gap < AUTO_GAP_MIN:
+        raise SystemExit(f"--gap {a.gap:g} s is too short for the receive side (needs >= {AUTO_GAP_MIN:g} s)")
+    ba, tot = ber_args(a), 0.0
+    for r in runs:
+        tot += schedule(r["mod"], r["rate"], r["seq"]["phase"], ba)[1]["total_s"]
+    tot += a.gap * (len(runs) - 1)
+    return (f"AUTO: only recording 1 is started by hand (Enter on both laptops); every later one starts {a.gap:g} s "
+            f"after the end of the one before (--gap, the same on both laptops). About {tot / 60:.1f} min from the "
+            "first start to the end - finger and electrode stay on the whole time.")
+
+
+def find_start(t, X, t_prompt, plan, phase, window_s, d0=0.0):
     """frame start from the recording itself: correlate the known symbol levels with the panel feature over
-    [t_prompt, t_prompt + window] in 1 ms steps (the frozen decoders then refine it within 0-25 ms)"""
+    [t_prompt + d0, t_prompt + window] in 1 ms steps (the frozen decoders then refine it within 0-25 ms)"""
     M = 4 if plan["modulation"] == "ask4" else 2
     lv = MF.levels_of_states(phase, M)
     tmpl = 10 ** (np.asarray(plan["ladder_db"])[lv] / 20)
     _, y, _ = B.D.front(dict(t_prompt=t_prompt, modulation="fsk"), t, X)
     Ts, n = plan["sym_us"] / 1e6, len(lv)
     best = (-np.inf, t_prompt)
-    for d in np.arange(0.0, window_s, 0.001):
+    for d in np.arange(max(d0, 0.0), window_s, 0.001):
         c = B.D.corr_states(B.D.sym_values(t, y, t_prompt + d, Ts, 0.0, n), tmpl)
         if c > best[0]:
             best = (c, t_prompt + d)
@@ -655,29 +704,67 @@ def rx_only(a):
     signal.signal(signal.SIGTERM, lambda *_: sys.exit(1))
     ba = ber_args(a)
     done = []
+    if a.auto:
+        print(auto_note(a, runs))
+    pred = None                                 # --auto: this laptop's time of the next recording's start, as received
+    setup_s = 0.0                               # longest tablet set-up + calibration seen in this session
     for i, r in enumerate(runs):
         sl, mod, rate = r["seq"], r["mod"], r["rate"]
         _, plan = schedule(mod, rate, sl["phase"], ba)
-        seconds = a.start_window + plan["total_s"] + B.TAIL_S
         print(f"\n[{i + 1}/{len(runs)}] {r['bit_rate']:g} bit/s {MOD_NAME[mod]} {rate:g} baud, chunk {r['chunk']}")
-        input(f"  TX laptop at the same run, transmitter OFF; finger on the panel, electrode on; keep still "
-              f"(~{seconds + a.lead + 2:.0f} s) - press Enter to calibrate and record ")
+        if pred is None:
+            seconds = a.start_window + plan["total_s"] + B.TAIL_S
+            input(f"  TX laptop at the same run, transmitter OFF; finger on the panel, electrode on; keep still "
+                  f"(~{seconds + a.lead + 2:.0f} s) - press Enter to calibrate and record ")
+        else:
+            t_go = pred - AUTO_PRE - a.lead - max(AUTO_SETUP, setup_s + 1.5)
+            print(f"  auto: the transmitter starts by itself in {pred - time.time():.1f} s; calibrating in "
+                  f"{max(t_go - time.time(), 0):.1f} s - keep still", flush=True)
+            if not sleep_until(t_go):
+                print(f"  ({time.time() - t_go:.1f} s behind the timetable - a longer --gap on both laptops gives more room)")
+        t_open = time.time()
         chip = R.Chip(ba)
         try:
             changed = chip.setup()
             t_cal = time.time()
+            setup_s = max(setup_s, t_cal - t_open)
+            if pred is not None:                # record until tail + search margin after the predicted end
+                if pred - (t_cal + a.lead) < 0.5:
+                    print(f"  ** too late for this recording (set-up ended {t_cal + a.lead - pred + AUTO_PRE:.1f} s "
+                          "behind the timetable) - skipped; use a longer --gap on both laptops **")
+                    pred += plan["total_s"] + a.gap
+                    continue
+                seconds = pred - (t_cal + a.lead) + AUTO_SEARCH + plan["total_s"] + B.TAIL_S
+                print("  (auto: nothing to press at START TX NOW)")
             t, X, t_prompt, _, errors = R.record(chip, ba, seconds)
         finally:
             chip.restore()
         if len(t) < 50 or t_prompt is None:
             print("  too few samples recorded - nothing saved, stopping the session")
             break
-        tau, c = find_start(t, X, t_prompt, plan, sl["phase"], a.start_window)
+        if pred is None:
+            tau, c = find_start(t, X, t_prompt, plan, sl["phase"], a.start_window)
+            pred_err = None
+        else:
+            tau, c = find_start(t, X, t_prompt, plan, sl["phase"], pred - t_prompt + AUTO_SEARCH,
+                                d0=pred - t_prompt - AUTO_SEARCH)
+            pred_err = tau - pred
         print(f"  frame start found {tau - t_prompt:.3f} s after the prompt (correlation {c:.2f})"
+              + (f", {pred_err * 1e3:+.0f} ms from the timetable" if pred_err is not None else "")
               + ("   ** weak - was the TX started? **" if c < 0.5 else ""))
+        if a.auto:
+            if c >= 0.5:
+                pred = tau + plan["total_s"] + a.gap            # anchor the timetable on this recording
+            elif pred is not None:
+                pred += plan["total_s"] + a.gap                 # no clear start: keep the timetable as it was
+            else:
+                print("  no clear start in the first recording - nothing to time the next ones from, stopping. "
+                      "Start again on both laptops.")
+                break
         meta = dict(mode="trx_ber", modulation=mod, args=vars(ba), plan=plan, y0=chip.y0, ny=chip.ny, patch=chip.patch,
                     t_prompt=t_prompt, t_first=tau - 0.005, split_tx=True, start_corr=c, start_window_s=a.start_window,
-                    plan_id=a.plan_id,
+                    plan_id=a.plan_id, auto=bool(a.auto), gap_s=a.gap if a.auto else None,
+                    start_pred_err_s=pred_err,
                     tx=None, tx_status=None, hid_errors=errors, chip_ctrl_orig=changed, recorded_s=float(t[-1] - t[0]),
                     seconds_planned=seconds, samples=int(len(t)), send=sl["keys"], seed=a.seed, seq_k=int(round(rate)),
                     chunk=r["chunk"], round0=r["rounds"][0], round1=r["rounds"][1],
@@ -777,6 +864,10 @@ def main():
     ap.add_argument("--out", help="analyse: output folder")
     ap.add_argument("--start-window", type=float, default=10.0,
                     help="rx: seconds after START TX NOW in which the TX laptop must start; the frame start is searched there")
+    ap.add_argument("--auto", action="store_true",
+                    help="tx / rx: only the first recording is started by hand, the rest run on a timetable (both laptops)")
+    ap.add_argument("--gap", type=float, default=30.0,
+                    help="--auto: seconds between the end of one recording and the start of the next (both laptops)")
     STX.add_hw_args(ap)
     a = ap.parse_args()
     a.schemes = [m.strip() for m in a.schemes.split(",") if m.strip()]

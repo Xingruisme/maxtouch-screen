@@ -108,7 +108,13 @@ class StentTX:
                 raise RuntimeError("no Teensy serial port (TeensyTRX with USB Type 'Serial')")
             port = cands[0]
         self.port = port
-        self.dev = serial.Serial(port, 921600, timeout=0.05, write_timeout=2.0)
+        try:                                    # exclusive: a second program opening the port of a running session
+            self.dev = serial.Serial(port, 921600, timeout=0.05, write_timeout=2.0, exclusive=True)
+        except serial.SerialException as e:     # would steal its replies and its commands would stop the transmitter
+            if "lock" in str(e).lower():
+                raise SystemExit(f"{port} is in use by another program (a running tx / BER session?) - not touching "
+                                 "the Teensy. Wait for that session to end.") from None
+            raise
         self.timeout = timeout
         self.send("x")                          # stop an A0 stream left running: the firmware is silent while streaming
         time.sleep(0.2)
