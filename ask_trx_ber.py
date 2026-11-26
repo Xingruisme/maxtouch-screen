@@ -253,6 +253,9 @@ def levels(a):
                    ladder4_db=lad, amp_index4=[(-1 if k is None else k) for k in AMP4], warnings=warn),
               open(path, "w"), indent=1)
     print(f"\n4-ASK ladder {lad}  saved {os.path.relpath(path, HERE)}" + ("  (NOT usable - see **)" if warn else ""))
+    if not warn:                                # split set-up: the maXTouch laptop has no Teensy to measure this with
+        print("split set-up: on the maXTouch laptop add to the rx command:   --ladder-db "
+              + ",".join(f"{x:g}" for x in lad))
 
 
 def latest_levels():
@@ -681,6 +684,23 @@ def auto_note(a, runs):
             "first start to the end - finger and electrode stay on the whole time.")
 
 
+def lead_carrier(t, X, t_prompt, names):
+    """a carrier already there BEFORE the prompt (transmitter started too early) -> a sentence, else None.
+    The lead should be noise only: every node's scan-to-scan rms a few counts. A keyed carrier on the finger's
+    node is hundreds of counts while the other nodes stay quiet (2026-11-25: Y3 1400 against a median of 8)."""
+    L = X[t < t_prompt].astype(float)
+    if len(L) < 20:
+        return None
+    d = np.diff(L, axis=0).std(axis=0) / np.sqrt(2)
+    j = int(np.argmax(d))
+    med = float(np.median(d))
+    if d[j] < 100 or d[j] < 20 * max(med, 1e-9):
+        return None
+    return (f"the carrier was already on BEFORE the prompt (node {names[j]}: {d[j]:.0f} counts rms in the lead, the "
+            f"median node {med:.0f}) - the transmitter was started too early. Press Enter on the tx laptop only "
+            "AFTER this laptop shows >>> START TX NOW <<< (calibration and lead need the transmitter off)")
+
+
 def find_start(t, X, t_prompt, plan, phase, window_s, d0=0.0):
     """frame start from the recording itself: correlate the known symbol levels with the panel feature over
     [t_prompt + d0, t_prompt + window] in 1 ms steps (the frozen decoders then refine it within 0-25 ms)"""
@@ -752,6 +772,13 @@ def rx_only(a):
         print(f"  frame start found {tau - t_prompt:.3f} s after the prompt (correlation {c:.2f})"
               + (f", {pred_err * 1e3:+.0f} ms from the timetable" if pred_err is not None else "")
               + ("   ** weak - was the TX started? **" if c < 0.5 else ""))
+        early = lead_carrier(t, X, t_prompt, chip.names) if c < 0.5 else None
+        if early:
+            print(f"  ** {early} **")
+        start_from, back = "correlation", 0.005
+        if c < 0.5 and pred is not None:        # no clear peak: the timetable is good to a few ms, a noise peak is not
+            tau, start_from, back = pred, "timetable", 0.012
+            print("  using the timetable's start for this recording (decoders search 25 ms around it)")
         if a.auto:
             if c >= 0.5:
                 pred = tau + plan["total_s"] + a.gap            # anchor the timetable on this recording
@@ -762,7 +789,8 @@ def rx_only(a):
                       "Start again on both laptops.")
                 break
         meta = dict(mode="trx_ber", modulation=mod, args=vars(ba), plan=plan, y0=chip.y0, ny=chip.ny, patch=chip.patch,
-                    t_prompt=t_prompt, t_first=tau - 0.005, split_tx=True, start_corr=c, start_window_s=a.start_window,
+                    t_prompt=t_prompt, t_first=tau - back, split_tx=True, start_corr=c, start_window_s=a.start_window,
+                    start_from=start_from,
                     plan_id=a.plan_id, auto=bool(a.auto), gap_s=a.gap if a.auto else None,
                     start_pred_err_s=pred_err,
                     tx=None, tx_status=None, hid_errors=errors, chip_ctrl_orig=changed, recorded_s=float(t[-1] - t[0]),
